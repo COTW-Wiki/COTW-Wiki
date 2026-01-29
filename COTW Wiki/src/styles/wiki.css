@@ -14,11 +14,6 @@
   line-height: var(--wiki-line-height);
 }
 
-.wiki-inner {
-  max-width: var(--wiki-inner-max);
-  margin: 0 auto;
-}
-
 /* ---- Header ---- */
 .wiki-header {
   font-size: 2.5rem;
@@ -588,4 +583,161 @@
 
 .wiki-release-cell:hover {
   opacity: 0.9;
+}
+/* Container for the whole section */
+.animal-table-section {
+  margin-top: 2rem;
+  width: 100%;
+}
+
+/* The row structure: Class Badge on left, Animal Grid on right */
+.animal-class-row {
+  display: flex;
+  border: 1px solid var(--wiki-border-accent);
+  border-bottom: none; /* Prevent double borders */
+  background-color: var(--wiki-bg-sidebar);
+}
+
+.animal-class-row:last-child {
+  border-bottom: 1px solid var(--wiki-border-accent);
+}
+
+/* Left side badge (e.g. Class 1 Rabbit Icon) */
+.class-badge {
+  width: 110px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  background-color: var(--wiki-bg-sidebar-header);
+  border-right: 1px solid var(--wiki-border-accent);
+  text-align: center;
+}
+
+.class-badge img {
+  width: 45px;
+  margin-bottom: 8px;
+}
+
+.class-badge span {
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: var(--wiki-text-muted);
+}
+
+/* Right side grid of animals */
+.animal-grid {
+  flex-grow: 1;
+  display: grid;
+  /* This automatically fills the row and wraps to next line */
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); 
+  gap: 10px;
+  padding: 15px;
+  background-color: var(--wiki-bg);
+}
+
+/* Individual Animal Card */
+.animal-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: background 0.2s;
+  padding: 8px;
+  border-radius: var(--wiki-radius);
+}
+
+.animal-card:hover {
+  background-color: var(--wiki-bg-sidebar-image);
+}
+
+.animal-card img {
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+  margin-bottom: 6px;
+}
+
+.animal-card-name {
+  font-size: 0.8rem;
+  line-height: 1.2;
+  color: var(--wiki-text);
+  word-wrap: break-word;
+  max-width: 90px;
+}
+
+/* ---- Standardized Grey Wiki Button ---- */
+.wiki-btn-grey {
+    background-color: #e2e8f0 !important; /* Professional Light Grey */
+    color: #1a202c !important;           /* Dark slate text */
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none !important;
+    transition: all 0.2s ease;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wiki-btn-grey:hover {
+    background-color: #cbd5e0 !important;
+    transform: translateY(-2px);
+}
+
+/* ---- Home Page Header Styling ---- */
+.home-welcome-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.home-welcome-text {
+    font-size: 1.3rem;
+    color: var(--wiki-text-muted);
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.home-quick-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: flex-start;
+}
+
+.home-main-image {
+    width: 100%;
+    max-width: 1000px;
+    border-radius: var(--wiki-radius);
+    border: 1px solid var(--wiki-border-accent);
+    display: block;
+    margin: 0 auto;
+}
+
+/* ---- Navbar Fixes ---- */
+.wiki-nav .wiki-inner {
+    max-width: var(--wiki-inner-max);
+    margin: 0 auto;
+    padding: 0 40px; /* Aligns with the welcome section padding */
+    display: flex;
+    flex-direction: column;
+}
+
+.wiki-nav-brand {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #fff !important;
+    text-decoration: none !important;
+}
+
+.wiki-nav-links {
+    display: flex;
+    gap: 15px;
 }

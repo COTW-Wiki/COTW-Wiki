@@ -1,3 +1,4 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import Breadcrumbs from './Breadcrumbs';
 
@@ -5,20 +6,18 @@ export default function Navbar() {
   return (
     <nav className="wiki-nav">
       <div className="wiki-inner">
-        {/* TOP ROW: Title and Buttons */}
+        {/* ROW 1: Title on Left, Buttons on Right */}
         <div className="flex justify-between items-center w-full">
-          {/* Brand / Logo Area */}
           <Link to="/" className="wiki-nav-brand">Hunter Wiki</Link>
           
-          {/* Navigation Buttons Area */}
           <div className="wiki-nav-links">
-            <Link to="/maps" className="wiki-nav-btn">Reserves</Link> 
-            <Link to="/about" className="wiki-nav-btn">About</Link>
+            <Link to="/maps" className="wiki-btn-grey">Reserves</Link>
+            <Link to="/about" className="wiki-btn-grey">About</Link>
           </div>
         </div>
 
-        {/* BOTTOM ROW: Breadcrumbs */}
-        <div className="flex justify-start w-full">
+        {/* ROW 2: Breadcrumbs on the bottom left */}
+        <div className="flex justify-start w-full mt-2">
           <Breadcrumbs />
         </div>
       </div>

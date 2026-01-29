@@ -172,41 +172,41 @@ export default function SearchBar() {
     setQuery('');
   };
 
-  return (
-    <div ref={wrapperRef} className="relative w-full max-w-md mx-auto mb-6 z-50">
-      <div className="relative">
-        <input
-          type="text"
-          className="w-full bg-slate-800 text-white border border-slate-600 rounded-full py-2 px-4 pl-10 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
-          placeholder="Search wiki..."
-          value={query}
-          onChange={(e) => {
-            setQuery(e.target.value);
-            setIsOpen(true);
-          }}
-          onFocus={() => setIsOpen(true)}
-        />
-        <div className="absolute left-3 top-2.5 text-slate-400">
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-          </svg>
-        </div>
+return (
+  <div ref={wrapperRef} className="relative w-full max-w-md mb-8 z-50"> 
+    <div className="relative">
+      <input
+        type="text"
+        className="w-full bg-[#0f2e48] text-white border border-[#3a5a75] rounded-md py-3 px-4 pl-10 focus:outline-none focus:border-[#6fb2e6]"
+        placeholder="Search wiki..."
+        value={query}
+        onChange={(e) => {
+          setQuery(e.target.value);
+          setIsOpen(true);
+        }}
+        onFocus={() => setIsOpen(true)}
+      />
+      <div className="absolute left-3 top-2.5 text-slate-400">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
       </div>
-
-      {isOpen && results.length > 0 && (
-        <div className="absolute w-full bg-slate-800 border border-slate-600 rounded-lg mt-1 shadow-xl max-h-96 overflow-y-auto">
-          {results.map((item, index) => (
-            <div
-              key={index}
-              className="px-4 py-2 hover:bg-slate-700 cursor-pointer flex justify-between items-center border-b border-slate-700/50 last:border-0"
-              onClick={() => handleSelect(item.path)}
-            >
-              <span className="text-white font-medium text-left">{item.title}</span>
-              <span className="text-xs text-slate-400 bg-slate-900 px-2 py-0.5 rounded ml-2 whitespace-nowrap">{item.category}</span>
-            </div>
-          ))}
-        </div>
-      )}
     </div>
-  );
+
+    {isOpen && results.length > 0 && (
+      <div className="absolute w-full bg-[#0f2e48] border border-[#3a5a75] rounded-md mt-1 shadow-2xl max-h-96 overflow-y-auto">
+        {results.map((item, index) => (
+          <div
+            key={index}
+            className="px-4 py-2 hover:bg-[#164060] cursor-pointer flex justify-between items-center border-b border-[#3a5a75]/30 last:border-0"
+            onClick={() => handleSelect(item.path)}
+          >
+            <span className="text-white font-medium text-left">{item.title}</span>
+            <span className="text-[10px] text-[#6fb2e6] uppercase font-bold">{item.category}</span>
+          </div>
+        ))}
+      </div>
+    )}
+  </div>
+);
 }
