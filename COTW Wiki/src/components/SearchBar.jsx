@@ -173,12 +173,14 @@ export default function SearchBar() {
   };
 
 return (
-  <div ref={wrapperRef} className="relative w-full max-w-md mb-8 z-50"> 
+  <div ref={wrapperRef} className="w-full z-50 mb-4"> 
+    {/* Input Section */}
     <div className="relative">
       <input
         type="text"
-        className="w-full bg-[#0f2e48] text-white border border-[#3a5a75] rounded-md py-3 px-4 pl-10 focus:outline-none focus:border-[#6fb2e6]"
+        className="w-full bg-white text-black border-2 border-slate-200 rounded-xl py-3 px-4 pl-11 focus:outline-none focus:ring-2 focus:ring-blue-400 shadow-sm transition-all"
         placeholder="Search wiki..."
+        style={{ fontSize: '1.1rem' }}
         value={query}
         onChange={(e) => {
           setQuery(e.target.value);
@@ -186,23 +188,33 @@ return (
         }}
         onFocus={() => setIsOpen(true)}
       />
-      <div className="absolute left-3 top-2.5 text-slate-400">
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      {/* Icon centered on the white bar */}
+      <div className="absolute left-4 top-3.5 text-slate-400">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
         </svg>
       </div>
     </div>
 
+    {/* Search Results - This will now push the page content down */}
     {isOpen && results.length > 0 && (
-      <div className="absolute w-full bg-[#0f2e48] border border-[#3a5a75] rounded-md mt-1 shadow-2xl max-h-96 overflow-y-auto">
+      <div className="w-full bg-white border-2 border-slate-100 rounded-xl mt-3 shadow-md overflow-hidden">
+        {/* No 'absolute' here makes it push the content below down */}
         {results.map((item, index) => (
           <div
             key={index}
-            className="px-4 py-2 hover:bg-[#164060] cursor-pointer flex justify-between items-center border-b border-[#3a5a75]/30 last:border-0"
+            className="px-5 py-4 hover:bg-slate-50 cursor-pointer flex justify-between items-center border-b border-slate-50 last:border-0 transition-colors"
             onClick={() => handleSelect(item.path)}
           >
-            <span className="text-white font-medium text-left">{item.title}</span>
-            <span className="text-[10px] text-[#6fb2e6] uppercase font-bold">{item.category}</span>
+            <div className="flex flex-col text-left">
+              <span className="text-slate-900 font-bold text-lg">{item.title}</span>
+              <span className="text-[10px] text-blue-500 font-black uppercase tracking-widest">{item.category}</span>
+            </div>
+            <div className="text-slate-300">
+               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                 <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
+               </svg>
+            </div>
           </div>
         ))}
       </div>

@@ -33,17 +33,18 @@ export default function Home() {
             Explore all the hunting <Link to="/maps" className="wiki-link">reserves</Link>, <Link to="/subregions" className="wiki-link">subregions</Link>, and recommended <Link to="/loadouts" className="wiki-link">loadouts</Link>.
           </p>
 
-          <SearchBar />
 
-          {/* Horizontal row of grey buttons */}
-          <div className="home-quick-links">
-            <Link to="/maps" className="wiki-btn-grey">Explore Reserves</Link>
-            <Link to="/weapons" className="wiki-btn-grey">Weapons</Link>
-            <Link to="/animals" className="wiki-btn-grey">Animals</Link>
-            <Link to="/weapons/sights" className="wiki-btn-grey">Sights & Optics</Link>
-            <Link to="/lures" className="wiki-btn-grey">Lures</Link>
-            <Link to="/weapons/ammo" className="wiki-btn-grey">Ammunition</Link>
-          </div>
+           <div className="home-search-links-container">
+      <SearchBar />
+      <div className="home-quick-links">
+        <Link to="/maps" className="wiki-btn-grey">Explore Reserves</Link>
+        <Link to="/weapons" className="wiki-btn-grey">Weapons</Link>
+        <Link to="/animals" className="wiki-btn-grey">Animals</Link>
+        <Link to="/sights" className="wiki-btn-grey">Sights & Optics</Link>
+        <Link to="/lures" className="wiki-btn-grey">Lures</Link>
+        <Link to="/ammunition" className="wiki-btn-grey">Ammunition</Link>
+      </div>
+  </div>
         </section>
 
         {/* 3. CONTENT DESCRIPTION SECTION */}
