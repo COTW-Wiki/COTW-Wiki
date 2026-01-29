@@ -694,15 +694,24 @@
     font-size: 3.5rem;
     font-weight: 800;
     color: #fff;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
     text-align: left;
 }
 
 .home-welcome-text {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     color: var(--wiki-text-muted);
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     text-align: left;
+}
+
+.home-welcome-Mecho {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin-top: -15px;
+    margin-bottom: 55px;
+    margin-left: 9 px;
 }
 
 .home-quick-links {
@@ -714,11 +723,13 @@
 
 .home-main-image {
     width: 100%;
-    max-width: 1000px;
+    max-width: 2000px; /* Adjust this to make it larger or smaller */
+    height: auto;
     border-radius: var(--wiki-radius);
     border: 1px solid var(--wiki-border-accent);
     display: block;
     margin: 0 auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
 /* ---- Navbar Fixes ---- */
