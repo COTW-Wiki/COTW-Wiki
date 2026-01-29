@@ -22,19 +22,17 @@ export default function Quests() {
   ];
 
   return (
-    <div className="w-full max-w-3xl mx-auto mt-12 mb-12">
-      <h2 className="text-3xl font-bold text-green-800 mb-6 border-b-2 border-gray-200 pb-2">
-        Quests
-      </h2>
-      <ul className="text-left list-disc list-inside space-y-2 text-lg text-gray-700 ml-4">
+    <section className="wiki-section-card quests-section-card">
+      <h2 className="wiki-section-title">Quests</h2>
+      <ul className="wiki-ul">
         {quests.map((quest, index) => (
-          <li key={index}>
-            <Link to={quest.link} className="text-green-800 hover:underline hover:text-green-600 transition-colors">
+          <li key={index} className="wiki-li">
+            <Link to={quest.link} className="wiki-link">
               {quest.name}
             </Link>
           </li>
         ))}
       </ul>
-    </div>
+    </section>
   );
 }

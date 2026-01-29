@@ -225,48 +225,85 @@
   margin: 5px 0;
 }
 
-/* ---- Tables ---- */
+/* ---- Standardized Table Wrappers for Round Edges ---- */
+.wiki-table-container {
+    border: 1px solid var(--wiki-border-accent);
+    border-radius: 12px;
+    overflow: hidden; 
+    background-color: var(--wiki-bg-sidebar);
+}
+
 .wiki-table {
-  width: 100%;
-  border-collapse: collapse;
-  background-color: var(--wiki-bg-sidebar);
-  font-size: 0.95rem;
-  margin-bottom: 20px;
+    width: 100%;
+    border-collapse: collapse;
 }
 
-.wiki-table.wiki-table-fixed {
-  width: 300px;
+/* Increased cell padding for better visibility */
+.wiki-td, .wiki-th {
+    padding: 18px 22px !important; 
+    border: 1px solid var(--wiki-border-light);
 }
 
-.wiki-th {
-  background-color: var(--wiki-bg-table-header);
-  padding: 10px 15px;
-  text-align: left;
-  color: #fff;
-  border-bottom: 2px solid var(--wiki-border-accent);
-  font-weight: bold;
+/* Quests Specific: Pulling the section up slightly */
+.quests-section-card {
+    margin-top: -10px;
 }
 
-.wiki-th-center { text-align: center; }
-.wiki-th-w25 { width: 25%; }
-.wiki-th-alt { background-color: var(--wiki-bg-table-header-alt); }
-
-.wiki-td {
-  padding: 10px 15px;
-  border-bottom: 1px solid var(--wiki-border-light);
-  color: var(--wiki-text);
+.wiki-section-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--wiki-heading);
+    margin-bottom: 15px;
+    display: block;
+    border-bottom: 1px solid var(--wiki-border-accent);
+    padding-bottom: 8px;
 }
 
-.wiki-td-bold { font-weight: bold; }
-.wiki-td-italic { font-style: italic; }
-.wiki-td-muted { color: var(--wiki-link); font-style: italic; font-weight: bold; }
-.wiki-td-rare { color: var(--wiki-rare); font-style: italic; }
+/* Quests Specific: Pulling the section up */
+.quests-section-card {
+    margin-top: -10px; /* Moves it closer to the section above as requested */
+}
 
-/* Rarity labels in tables */
-.wiki-common { color: var(--wiki-common); font-weight: bold; }
-.wiki-uncommon { color: var(--wiki-uncommon); font-weight: bold; }
-.wiki-rare { color: var(--wiki-rare); font-weight: bold; }
-.wiki-very-rare { color: var(--wiki-very-rare); font-weight: bold; }
+/* ---- Rarity Badges (Tags) ---- */
+.rarity-tag {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: 1px solid transparent;
+    margin: 2px;
+}
+
+/* Common - Green */
+.wiki-common { 
+    background-color: rgba(46, 204, 113, 0.15); 
+    color: #2ecc71; 
+    border-color: rgba(46, 204, 113, 0.3);
+}
+
+/* Uncommon - Blue */
+.wiki-uncommon { 
+    background-color: rgba(52, 152, 219, 0.15); 
+    color: #3498db; 
+    border-color: rgba(52, 152, 219, 0.3);
+}
+
+/* Rare - Purple */
+.wiki-rare { 
+    background-color: rgba(155, 89, 182, 0.15); 
+    color: #9b59b6; 
+    border-color: rgba(155, 89, 117, 0.3);
+}
+
+/* Very Rare - Red */
+.wiki-very-rare { 
+    background-color: rgba(231, 76, 60, 0.15); 
+    color: #e74c3c; 
+    border-color: rgba(231, 76, 60, 0.3);
+}
 
 /* ---- Need zone / activity icon ---- */
 .wiki-zone-icon {
