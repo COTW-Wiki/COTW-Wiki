@@ -1,0 +1,167 @@
+.map-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.map-image {
+    width: 55%;
+    max-width: 800px;
+    height: auto;
+    z-index: 0;
+}
+.logo{
+    position: absolute;
+    top: 265px;
+    left: 470px;
+    width: 40px;
+    height: auto;
+    z-index: 1;
+}
+ 
+.logo-hirsch{
+    position: absolute;
+    top: 250px; /* slightly higher than the other logo */
+    left: 760px; /* left side of the centered map */
+    width: 40px;
+    height: auto;
+    z-index: 1;
+}
+
+.logo-yukon{
+    position: absolute;
+    top: 190px; /* northern position */
+    left: 390px; /* place over northwest North America */
+    width: 80px;
+    height: auto;
+    z-index: 1;
+}
+
+.logo-mississippi{
+    position: absolute;
+    top: 267px; /* southeastern North America */
+    left: 545px; /* approximate position for Mississippi region */
+    width: 50px;
+    height: auto;
+    z-index: 1;
+}
+
+.logo-salzwiesen{
+    position: absolute;
+    top: 240px; /* northern Europe / coastal wetlands */
+    left: 730px; /* approximate position over northern Europe */
+    width: 39px;
+    height: auto;
+    z-index: 1;
+}
+
+.logo-revontuli{
+    position: absolute;
+    top: 200px; /* northern Scandinavia / Arctic coast */
+    left: 760px; /* place over Finland/Scandinavia */
+    width: 48px;
+    height: auto;
+    z-index: 1;
+}
+
+.logo-cuatro{
+    position: absolute;
+    top: 269px; /* southern Europe-ish position */
+    left: 694px; /* place over western Europe / Spain */
+    width: 90px;
+    height: auto;
+    z-index: 1;
+}
+
+.logo-silver{
+     position: absolute;
+     top: 280px; /* alpine region, central-north */
+     left: 498px; /* place over central Europe / Alps */
+     width: 40px;
+     height: auto;
+     z-index: 1;
+}
+
+.logo-teawaroa{
+    position: absolute;
+    top: 460px; /* southern hemisphere placement */
+    left: 1083px; /* place over New Zealand on the map */
+    width: 40px;
+    height: auto;
+    z-index: 1;
+}
+
+.logo-rancho{
+    position: absolute;
+    top: 330px; /* place over central/south-west North America */
+    left: 480px; /* approximate position */
+    width: 120px;
+    height: auto;
+    z-index: 1;
+}
+
+.logo-askiy{
+    position: absolute;
+    top: 230px; /* northern-central North America */
+    left: 475px; /* approximate position for Askiy Ridge */
+    width: 50px;
+    height: auto;
+    z-index: 1;
+}
+
+.logo-newengland{
+    position: absolute;
+    top: 245px; /* northeast North America */
+    left: 570px; /* approximate position for New England */
+    width: 50px;
+    height: auto;
+    z-index: 1;
+}
+
+.logo-sundar{
+    position: absolute;
+    top: 310px; /* south/central Asia */
+    left: 880px; /* approximate position for Indian subcontinent */
+    width: 50px;
+    height: auto;
+    z-index: 1;
+}
+
+.logo-medved{
+    position: absolute;
+    top: 140px; /* northern Eurasia / Taiga region */
+    left: 945px; /* approximate position over Russia */
+    width: 50px;
+    height: auto;
+    z-index: 1;
+}
+
+.logo-parque{
+    position: absolute;
+    top: 430px; /* approximate position for Parque Fernando (South America) */
+    left: 546px; /* place over northern/central South America */
+    width: 130px;
+    height: auto;
+    z-index: 1;
+}
+
+.logo-gemini{
+    position: absolute;
+    top: 398px; /* approximate position for Gemini marker (Europe) */
+    left: 787px;
+    width: 48px;
+    height: auto;
+    z-index: 1;
+}
+
+.logo-emerald{
+    position: absolute;
+    top: 420px; /* approximate position for Emerald Coast (Australia/Oceania) */
+    left: 1000px; /* place over eastern Australia */
+    width: 60px;
+    height: auto;
+    z-index: 1;
+}

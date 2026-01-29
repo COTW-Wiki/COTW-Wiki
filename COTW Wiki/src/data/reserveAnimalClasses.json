@@ -1,0 +1,261 @@
+{
+  "generatedAt": "2025-11-16T14:19:36.196Z",
+  "reserves": {
+    "hirschfelden": {
+      "name": "Hirschfelden Hunting Reserve",
+      "classes": {
+        "1": [],
+        "2": [],
+        "3": [],
+        "4": [],
+        "5": [],
+        "6": [],
+        "7": [],
+        "8": [],
+        "9": []
+      }
+    },
+    "layton-lake": {
+      "name": "Layton Lake District",
+      "classes": {
+        "1": [],
+        "2": [],
+        "3": [],
+        "4": [
+          "Whitetail Deer"
+        ],
+        "5": [],
+        "6": [],
+        "7": [
+          "Black Bear"
+        ],
+        "8": [
+          "Roosevelt Elk"
+        ],
+        "9": []
+      }
+    },
+    "medved-taiga": {
+      "name": "Medved-Taiga National Park",
+      "classes": {
+        "1": [],
+        "2": [],
+        "3": [],
+        "4": [],
+        "5": [],
+        "6": [],
+        "7": [],
+        "8": [],
+        "9": []
+      }
+    },
+    "vurhonga": {
+      "name": "Vurhonga Savanna",
+      "classes": {
+        "1": [],
+        "2": [
+          "Springbok"
+        ],
+        "3": [],
+        "4": [],
+        "5": [],
+        "6": [],
+        "7": [],
+        "8": [],
+        "9": [
+          "Lion",
+          "Cape Buffalo"
+        ]
+      }
+    },
+    "parque-fernando": {
+      "name": "Parque Fernando",
+      "classes": {
+        "1": [],
+        "2": [],
+        "3": [],
+        "4": [],
+        "5": [],
+        "6": [],
+        "7": [],
+        "8": [],
+        "9": []
+      }
+    },
+    "yukon-valley": {
+      "name": "Yukon Valley",
+      "classes": {
+        "1": [],
+        "2": [],
+        "3": [],
+        "4": [],
+        "5": [],
+        "6": [],
+        "7": [],
+        "8": [
+          "Roosevelt Elk",
+          "Moose"
+        ],
+        "9": []
+      }
+    },
+    "cuatro-colinas": {
+      "name": "Cuatro Colinas Game Reserve",
+      "classes": {
+        "1": [],
+        "2": [],
+        "3": [],
+        "4": [],
+        "5": [],
+        "6": [],
+        "7": [],
+        "8": [],
+        "9": []
+      }
+    },
+    "silver-ridge-peaks": {
+      "name": "Silver Ridge Peaks",
+      "classes": {
+        "1": [],
+        "2": [],
+        "3": [],
+        "4": [],
+        "5": [],
+        "6": [],
+        "7": [
+          "Black Bear"
+        ],
+        "8": [],
+        "9": []
+      }
+    },
+    "te-awaroa": {
+      "name": "Te Awaroa National Park",
+      "classes": {
+        "1": [],
+        "2": [],
+        "3": [],
+        "4": [],
+        "5": [],
+        "6": [],
+        "7": [],
+        "8": [],
+        "9": []
+      }
+    },
+    "rancho-del-arroyo": {
+      "name": "Rancho del Arroyo",
+      "classes": {
+        "1": [],
+        "2": [],
+        "3": [],
+        "4": [
+          "Whitetail Deer"
+        ],
+        "5": [],
+        "6": [],
+        "7": [],
+        "8": [],
+        "9": []
+      }
+    },
+    "mississippi-acres": {
+      "name": "Mississippi Acres Preserve",
+      "classes": {
+        "1": [],
+        "2": [],
+        "3": [],
+        "4": [],
+        "5": [],
+        "6": [],
+        "7": [],
+        "8": [],
+        "9": []
+      }
+    },
+    "revontuli-coast": {
+      "name": "Revontuli Coast",
+      "classes": {
+        "1": [],
+        "2": [],
+        "3": [],
+        "4": [],
+        "5": [],
+        "6": [],
+        "7": [],
+        "8": [],
+        "9": []
+      }
+    },
+    "new-england-mountains": {
+      "name": "New England Mountains",
+      "classes": {
+        "1": [],
+        "2": [],
+        "3": [],
+        "4": [],
+        "5": [],
+        "6": [],
+        "7": [],
+        "8": [],
+        "9": []
+      }
+    },
+    "emerald-coast": {
+      "name": "Emerald Coast",
+      "classes": {
+        "1": [],
+        "2": [],
+        "3": [],
+        "4": [],
+        "5": [],
+        "6": [],
+        "7": [],
+        "8": [],
+        "9": []
+      }
+    },
+    "sundarpatan": {
+      "name": "Sundarpatan",
+      "classes": {
+        "1": [],
+        "2": [],
+        "3": [],
+        "4": [],
+        "5": [],
+        "6": [],
+        "7": [],
+        "8": [],
+        "9": []
+      }
+    },
+    "salzwiesen-park": {
+      "name": "Salzwiesen Park",
+      "classes": {
+        "1": [],
+        "2": [],
+        "3": [],
+        "4": [],
+        "5": [],
+        "6": [],
+        "7": [],
+        "8": [],
+        "9": []
+      }
+    },
+    "askiy-ridge": {
+      "name": "Askiy Ridge Hunting Preserve",
+      "classes": {
+        "1": [],
+        "2": [],
+        "3": [],
+        "4": [],
+        "5": [],
+        "6": [],
+        "7": [],
+        "8": [],
+        "9": []
+      }
+    }
+  }
+}
