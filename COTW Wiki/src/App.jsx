@@ -3,14 +3,12 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import AppRouter from './router/AppRouter';
 import ScrollToTop from './components/ScrollToTop';
-import Breadcrumbs from './components/Breadcrumbs';
 
 export default function App() {
   return (
-    <div className="flex flex-col min-h-screen w-full">
+    <div className="flex flex-col min-h-screen w-full bg-[#0b1a26]">
       <ScrollToTop />
-      <Navbar />
-      <Breadcrumbs />
+      <Navbar /> 
       <main className="flex-1 w-full">
         <AppRouter />
       </main>
