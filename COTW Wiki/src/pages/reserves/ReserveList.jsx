@@ -72,6 +72,7 @@ const animalPathMap = {
 };
 
 // --- COMPONENT: ANIMALS BY RELEASE DATE ---
+// --- COMPONENT: ANIMALS BY RELEASE DATE ---
 const AnimalsByReleaseDate = () => {
     const colors = {
         base: '#b0bccc', medved: '#a894d3', goose: '#95d18d', vurhonga: '#f4e95d', 
@@ -82,6 +83,7 @@ const AnimalsByReleaseDate = () => {
         { reserve: "Hirschfelden", animals: [{ name: "Red Fox", color: colors.base }, { name: "Roe Deer", color: colors.base }, { name: "Canada Goose", color: colors.goose }] },
         { reserve: "Layton Lake", animals: [{ name: "Whitetail Deer", color: colors.base }, { name: "Moose", color: colors.base }, { name: "Mallard", color: colors.goose }] },
     ];
+
 
     return (
         <div id="release-date" className="mt-10">
