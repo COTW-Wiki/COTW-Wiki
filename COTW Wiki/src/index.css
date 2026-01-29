@@ -11,10 +11,14 @@
   font-family: var(--wiki-font);
 }
 
-body {
+html, body {
   margin: 0;
+  padding: 0;
   background-color: var(--wiki-bg);
-  color: var(--wiki-text);
+  /* The literal edge of the screen border */
+  border: 5px solid #000000; 
+  box-sizing: border-box;
+  min-height: 100vh;
 }
 
 /* Force links to use your wiki variable, not the Vite purple */
@@ -29,5 +33,6 @@ a:hover {
 
 /* Stop the global centering from App.css */
 #root {
-  text-align: left !important; /* Forces left alignment for the wiki look */
+ width: 100%;
+  text-align: left;
 }

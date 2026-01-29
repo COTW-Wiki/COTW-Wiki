@@ -57,21 +57,21 @@ export default function WorldMap() {
     
     parque:      { ...markerBase, top: '80%', left: '29.4%', width: '12%' },
     
-    salzwiesen:  { ...markerBase, top: '46.8%', left: '47.6%', width: '3.5%' },
+    salzwiesen:  { ...markerBase, top: '45.3%', left: '48.8%', width: '3%' },
     revontuli:   { ...markerBase, top: '37%', left: '54%', width: '3%' },
-    hirsch:      { ...markerBase, top: '47%', left: '50%', width: '3.5%' },
+    hirsch:      { ...markerBase, top: '48%', left: '50%', width: '2.5%' },
     cuatro:      { ...markerBase, top: '53%', left: '46%', width: '6%' },
     
-    vurhonga:    { ...markerBase, top: '72%', left: '53%', width: '5%' },
+    vurhonga:    { ...markerBase, top: '82%', left: '53.4%', width: '5%' },
     
     medved:      { ...markerBase, top: '28%', left: '73%', width: '6%' },
-    sundar:      { ...markerBase, top: '64%', left: '67.8%', width: '3.5%' },
+    sundar:      { ...markerBase, top: '59%', left: '69.8%', width: '3.5%' },
     
     emerald:     { ...markerBase, top: '83%', left: '83%', width: '5.5%' },
     teawaroa:    { ...markerBase, top: '87.8%', left: '93.2%', width: '3.5%' },
     
     // Placeholder for generated or unknown
-    gemini:      { ...markerBase, top: '65%', left: '52%', width: '4%' },
+    gemini:      { ...markerBase, top: '75%', left: '52%', width: '4%' },
   };
 
   return (

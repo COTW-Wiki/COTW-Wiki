@@ -689,6 +689,51 @@
     transform: translateY(-2px);
 }
 
+/* ---- Universal Section Boxes ---- */
+.wiki-section-card {
+    border: 1px solid var(--wiki-border-accent);
+    border-radius: 12px;
+    padding: 20px 30px 30px 30px; /* Reduced top padding from 30px to 20px */
+    margin-bottom: 30px;
+    background-color: rgba(255, 255, 255, 0.02);
+    /* Prevent border from pushing outside container */
+    box-sizing: border-box; 
+    width: 100%;
+    overflow: hidden; /* Clips anything trying to go past the blue line */
+}
+
+/* Tight header for the Map section */
+.wiki-h2-tight {
+    color: var(--wiki-heading);
+    border-bottom: 1px solid var(--wiki-border-accent);
+    padding-bottom: 5px;
+    margin-top: 0; /* Removes top gap */
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+/* Fix for the Map Overflow */
+.map-responsive-wrapper {
+    width: 100%;
+    overflow-x: auto; /* Allows horizontal scrolling on small screens instead of breaking the border */
+    display: flex;
+    justify-content: center;
+}
+
+/* Adjust the Welcome text margin inside the card */
+.wiki-section-card .home-welcome-title {
+    margin-top: 0;
+}
+
+/* Subtitle (edition) fix to keep it tight under the title */
+.home-welcome-Mecho {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 0px;
+    display: block;
+}
+
 /* ---- Home Page Header Styling ---- */
 .home-welcome-title {
     font-size: 3.5rem;
@@ -726,10 +771,8 @@
     max-width: 2000px; /* Adjust this to make it larger or smaller */
     height: auto;
     border-radius: var(--wiki-radius);
-    border: 1px solid var(--wiki-border-accent);
     display: block;
     margin: 0 auto;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
 .home-search-links-container {
