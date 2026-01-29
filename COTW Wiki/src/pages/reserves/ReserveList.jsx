@@ -163,57 +163,73 @@ const HuntableAnimalsList = () => {
 
 // --- MAIN PAGE COMPONENT ---
 export default function ReservesList() {
-    const [tocVisible, setTocVisible] = useState(true);
+  const [tocVisible, setTocVisible] = useState(true);
 
-    const scrollTo = (e, id) => {
-        e.preventDefault();
-        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-    };
+  const scrollTo = (e, id) => {
+    e.preventDefault();
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  };
 
-    return (
-        <div className="wiki-page">
-            <div className="wiki-inner">
-                <h1 className="wiki-header">Reserves</h1>
-                <p className="wiki-paragraph"><strong>Reserves</strong> are hunting maps. Currently, 18 reserves are available.</p>
-
-                <div className="wiki-layout">
-                    {/* Sidebar / TOC */}
-                    <aside className="wiki-sidebar" style={{ background: 'transparent', border: 'none' }}>
-                        <div className="wiki-toc-panel">
-                            <div className="wiki-panel-header">
-                                <span>🔢 Contents</span>
-                                <span className="wiki-toc-panel-toggle" onClick={() => setTocVisible(!tocVisible)}>
-                                    [{tocVisible ? 'hide' : 'show'}]
-                                </span>
-                            </div>
-                            {tocVisible && (
-                                <ul className="wiki-list-plain">
-                                    <li><a href="#map" onClick={(e) => scrollTo(e, 'map')} className="wiki-link">1. Map</a></li>
-                                    <li><a href="#huntable-animals" onClick={(e) => scrollTo(e, 'huntable-animals')} className="wiki-link">2. Huntable Animals</a></li>
-                                    <li><a href="#release-date" onClick={(e) => scrollTo(e, 'release-date')} className="wiki-link">3. Release Date Table</a></li>
-                                </ul>
-                            )}
-                        </div>
-                    </aside>
-
-                    {/* Main Content */}
-                    <main className="wiki-main">
-                        <h2 className="wiki-h2" id="map">World Map</h2>
-                        <div className="map-container">
-                            <WorldMap /> {/* Your map component background */}
-                            
-                            {/* Overlay links on top of WorldMap */}
-                            <Link to="/maps/layton" className="logo" style={{ '--mask': `url("${reserveLogo}")` }} data-tooltip="Layton Lake"><img src={reserveLogo} /></Link>
-                            <Link to="/maps/hirsch" className="logo-hirsch" style={{ '--mask': `url("${hirschLogo}")` }} data-tooltip="Hirschfelden"><img src={hirschLogo} /></Link>
-                            <Link to="/maps/yukon" className="logo-yukon" style={{ '--mask': `url("${yukonLogo}")` }} data-tooltip="Yukon Valley"><img src={yukonLogo} /></Link>
-                            <Link to="/maps/medved" className="logo-medved" style={{ '--mask': `url("${medvedLogo}")` }} data-tooltip="Medved-Taiga"><img src={medvedLogo} /></Link>
-                        </div>
-
-                        <HuntableAnimalsList />
-                        <AnimalsByReleaseDate />
-                    </main>
-                </div>
-            </div>
+  return (
+    <div className="wiki-page">
+      <div className="wiki-inner">
+        {/* 1. PAGE HEADER (Plain text, no outline as requested for welcome sections) */}
+        <div className="mb-10">
+          <h1 className="wiki-header">Reserves</h1>
+          <p className="wiki-paragraph">
+            <strong>Reserves</strong> are hunting maps. Currently, 18 reserves are available.
+          </p>
         </div>
-    );
+
+        <div className="wiki-layout">
+          {/* SIDEBAR */}
+          <aside className="wiki-sidebar" style={{ background: 'transparent', border: 'none' }}>
+            <div className="wiki-toc-panel">
+              <div className="wiki-panel-header">
+                <span>🔢 Contents</span>
+                <span className="wiki-toc-panel-toggle" onClick={() => setTocVisible(!tocVisible)}>
+                  [{tocVisible ? 'hide' : 'show'}]
+                </span>
+              </div>
+              {tocVisible && (
+                <ul className="wiki-list-plain">
+                  <li><a href="#map" onClick={(e) => scrollTo(e, 'map')} className="wiki-link">1. Map</a></li>
+                  <li><a href="#huntable" onClick={(e) => scrollTo(e, 'huntable')} className="wiki-link">2. Huntable Animals</a></li>
+                  <li><a href="#release-date" onClick={(e) => scrollTo(e, 'release-date')} className="wiki-link">3. Release Date Table</a></li>
+                </ul>
+              )}
+            </div>
+          </aside>
+
+          {/* MAIN CONTENT AREA */}
+          <main className="wiki-main">
+            
+            {/* 2. MAP CARD */}
+            <section className="wiki-section-card" id="map">
+              <h2 className="wiki-h2-tight">World Map</h2>
+              <p className="wiki-p-mb">Click an icon to view the reserve page:</p>
+              <div className="map-responsive-wrapper">
+                <WorldMap />
+              </div>
+            </section>
+
+            {/* 3. HUNTABLE ANIMALS CARD */}
+            <section className="wiki-section-card" id="huntable">
+              <h2 className="wiki-h2-tight">Huntable Animals</h2>
+              <p className="wiki-p-mb">Explore animals by their specific reserve classes below.</p>
+              {/* This will render your existing HuntableAnimals logic inside the card */}
+              <HuntableAnimalsList /> 
+            </section>
+
+            {/* 4. RELEASE DATE CARD */}
+            <section className="wiki-section-card" id="release-date">
+              <h2 className="wiki-h2-tight">Animals by Release Date</h2>
+              <AnimalsByReleaseDate />
+            </section>
+
+          </main>
+        </div>
+      </div>
+    </div>
+  );
 }

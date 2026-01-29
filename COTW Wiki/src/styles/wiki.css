@@ -670,36 +670,34 @@
 
 /* ---- Standardized Grey Wiki Button ---- */
 .wiki-btn-grey {
-    background-color: #e2e8f0 !important; /* Professional Light Grey */
-    color: #1a202c !important;           /* Dark slate text */
-    padding: 10px 24px;
-    border-radius: 8px;
+    background-color: #e2e8f0 !important; 
+    color: #1a202c !important;           
+    padding: 8px 16px;
+    border-radius: 10px;
     font-weight: 700;
-    font-size: 1rem;
+    font-size: 0.9rem;
     text-decoration: none !important;
     transition: all 0.2s ease;
     border: none;
     display: inline-flex;
     align-items: center;
-    justify-content: center;
 }
 
 .wiki-btn-grey:hover {
     background-color: #cbd5e0 !important;
-    transform: translateY(-2px);
+    transform: translateY(-1px);
 }
 
 /* ---- Universal Section Boxes ---- */
 .wiki-section-card {
     border: 1px solid var(--wiki-border-accent);
     border-radius: 12px;
-    padding: 20px 30px 30px 30px; /* Reduced top padding from 30px to 20px */
+    padding: 20px 30px 30px 30px;
     margin-bottom: 30px;
-    background-color: rgba(255, 255, 255, 0.02);
-    /* Prevent border from pushing outside container */
-    box-sizing: border-box; 
+    background-color: rgba(255, 255, 255, 0.015);
+    box-sizing: border-box;
     width: 100%;
-    overflow: hidden; /* Clips anything trying to go past the blue line */
+    overflow: hidden;
 }
 
 /* Tight header for the Map section */
@@ -707,16 +705,22 @@
     color: var(--wiki-heading);
     border-bottom: 1px solid var(--wiki-border-accent);
     padding-bottom: 5px;
-    margin-top: 0; /* Removes top gap */
-    margin-bottom: 10px;
-    font-size: 1.5rem;
+    margin-top: 0 !important; 
+    margin-bottom: 15px;
+    font-size: 1.6rem;
     font-weight: 500;
+}
+
+.wiki-section-card .wiki-reserve-card {
+    margin-top: 20px;
+    border-color: rgba(58, 90, 117, 0.5); /* Slightly dimmer internal border */
 }
 
 /* Fix for the Map Overflow */
 .map-responsive-wrapper {
     width: 100%;
-    overflow-x: auto; /* Allows horizontal scrolling on small screens instead of breaking the border */
+    max-width: 100%;
+    overflow-x: auto;
     display: flex;
     justify-content: center;
 }
@@ -786,22 +790,71 @@
 
 
 /* ---- Navbar Fixes ---- */
+.wiki-nav {
+
+   position: sticky;           /* Makes it move with scroll */
+    top: 6px;                   /* Sticks it exactly below your 6px body border */
+    z-index: 1000; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); 
+
+    background-color: #030b11; 
+    margin-top: 25px;            /* Adds space between browser top and site */
+    margin-left: 10px;           /* Optional: adds space from side borders */
+    margin-right: 10px;
+    border: 1px solid #000000;   /* Thin Black Outline */
+    border-radius: 15px;         /* Rounded edges for the whole nav */
+    padding: 15px 0 10px 0;
+    width: auto;                 /* Allows margin to work */
+}
+
+/* Ensure the background stays solid so text doesn't bleed through from behind */
+.wiki-nav::after {
+    content: "";
+    position: absolute;
+    top: -26px; 
+    left: 0;
+    right: 0;
+    height: 26px;
+    background-color: var(--wiki-bg); 
+    z-index: -1;
+}
+
+/* Container inside the Nav */
 .wiki-nav .wiki-inner {
-    max-width: var(--wiki-inner-max);
-    margin: 0 auto;
-    padding: 0 40px; /* Aligns with the welcome section padding */
+    max-width: 100%;             /* Allow it to use full width of nav */
+    margin: 0;
+    padding: 0 20px;             /* Padding inside the black border */
     display: flex;
     flex-direction: column;
 }
 
+/* Row 1: Title and Buttons */
+.nav-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+/* Moves "Hunter Wiki" more to the left */
 .wiki-nav-brand {
-    font-size: 2.2rem;
+    font-size: 1.8rem;
     font-weight: 800;
     color: #fff !important;
     text-decoration: none !important;
+    padding-left: 5px;           
+    flex-shrink: 0;
 }
 
 .wiki-nav-links {
     display: flex;
-    gap: 15px;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.nav-bottom-row {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 8px;
+    padding-left: 8px;
 }
