@@ -62,304 +62,91 @@ const TundraBeanGoose = () => {
     { name: "Light Grey - Back", src: TundraBeanGoose_LightGreyBack },
   ];
 
-  // --- STYLES OBJECT ---
-  const styles = {
-    container: {
-      backgroundColor: '#0b1a26',
-      color: '#dbe4eb',
-      fontFamily: '"Segoe UI", Roboto, Helvetica, Arial, sans-serif',
-      padding: '40px',
-      minHeight: '100vh',
-      lineHeight: '1.6',
-    },
-    innerWrapper: {
-      maxWidth: '1200px',
-      margin: '0 auto',
-    },
-    // Main Header
-    mainHeader: {
-      fontSize: '2.5rem',
-      fontWeight: '400',
-      borderBottom: '1px solid #3a5a75',
-      paddingBottom: '15px',
-      marginBottom: '20px',
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-    },
-    editActions: {
-      fontSize: '0.9rem',
-      color: '#6fb2e6',
-      display: 'flex',
-      gap: '15px',
-      fontWeight: 'bold',
-      cursor: 'pointer',
-    },
-    // Layout Columns
-    layout: {
-      display: 'flex',
-      gap: '30px',
-      alignItems: 'flex-start',
-      flexDirection: 'row-reverse', // Sidebar on the right
-    },
-    mainColumn: {
-      flex: 1,
-    },
-    sidebarColumn: {
-      width: '320px',
-      flexShrink: 0,
-      backgroundColor: '#0f2e48',
-      border: '1px solid #1f405a',
-      borderRadius: '4px',
-    },
-    // Sidebar Specifics
-    sidebarHeader: {
-      backgroundColor: '#05121c',
-      padding: '12px',
-      textAlign: 'center',
-      fontWeight: 'bold',
-      fontSize: '1.1rem',
-      borderBottom: '2px solid #cfaa3e', // Gold accent
-    },
-    sidebarImage: {
-      height: '180px',
-      backgroundColor: '#1f3a52',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      color: '#6fb2e6',
-      fontStyle: 'italic',
-      borderBottom: '1px solid #1f405a',
-      position: 'relative',
-    },
-    sidebarSection: {
-      padding: '10px 15px',
-      borderBottom: '1px solid #2a4b63',
-      fontSize: '0.95rem',
-    },
-    sidebarLabel: {
-      fontWeight: 'bold',
-      display: 'block',
-      marginBottom: '5px',
-      color: '#fff',
-    },
-    trophyGrid: {
-      display: 'grid',
-      gridTemplateColumns: 'repeat(3, 1fr)',
-      gap: '5px',
-      marginTop: '5px',
-      textAlign: 'center',
-    },
-    trophyItem: {
-      backgroundColor: '#16334a',
-      padding: '6px 2px',
-      borderRadius: '4px',
-    },
-    trophyLabel: {
-      fontSize: '0.75rem',
-      display: 'block',
-      fontWeight: 'bold',
-      marginBottom: '2px',
-    },
-    silver: { color: '#bdc3c7' },
-    gold: { color: '#f1c40f' },
-    diamond: { color: '#3498db' },
-    
-    // Content Components
-    quoteBox: {
-      fontStyle: 'italic',
-      backgroundColor: '#0f2e48',
-      borderLeft: '4px solid #3a5a75',
-      padding: '15px 20px',
-      margin: '0 0 20px 0',
-      color: '#a4cce8',
-    },
-    link: {
-      color: '#6fb2e6',
-      textDecoration: 'none',
-      cursor: 'pointer',
-    },
-    h2: {
-      color: '#6fb2e6',
-      borderBottom: '1px solid #3a5a75',
-      paddingBottom: '5px',
-      marginTop: '30px',
-      marginBottom: '15px',
-      fontSize: '1.5rem',
-      display: 'flex',
-      alignItems: 'center',
-      fontWeight: '500',
-    },
-    h2Icon: {
-      fontSize: '0.8rem',
-      marginLeft: '10px',
-      opacity: 0.7,
-      cursor: 'pointer',
-    },
-    
-    // Tables
-    table: {
-      width: '100%',
-      borderCollapse: 'collapse',
-      backgroundColor: '#0f2e48',
-      fontSize: '0.95rem',
-      marginBottom: '20px',
-    },
-    th: {
-      backgroundColor: '#164060',
-      padding: '10px 15px',
-      textAlign: 'left',
-      color: '#fff',
-      borderBottom: '2px solid #3a5a75',
-      fontWeight: 'bold',
-    },
-    td: {
-      padding: '10px 15px',
-      borderBottom: '1px solid #2a4b63',
-      color: '#dbe4eb',
-    },
-    
-    // Shot Scheme
-    shotContainer: {
-      display: 'flex',
-      backgroundColor: '#112233',
-      marginTop: '10px',
-      border: '1px solid #1f405a',
-    },
-    shotImage: {
-      width: '300px',
-      height: '220px',
-      backgroundColor: '#000',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      color: '#555',
-      flexShrink: 0,
-    },
-    shotInfo: {
-      padding: '20px',
-      display: 'flex',
-      alignItems: 'center',
-      color: '#fff',
-    },
-
-    // Gallery
-    galleryGrid: {
-      display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fill, minmax(160px, 1fr))',
-      gap: '15px',
-    },
-    galleryItem: {
-      backgroundColor: 'transparent',
-    },
-    galleryImgPlaceholder: {
-      height: '180px',
-      backgroundColor: '#2a4b63',
-      border: '4px solid #1f3a52', 
-      marginBottom: '8px',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      position: 'relative',
-    },
-    galleryLabel: {
-      fontSize: '0.9rem',
-      display: 'block',
-      lineHeight: '1.2',
-    },
-
-    // Rarity Colors
-    common: { color: '#2ecc71', fontWeight: 'bold' },
-    rare: { color: '#9b59b6', fontWeight: 'bold' },
-    veryRare: { color: '#e74c3c', fontWeight: 'bold' },
-    uncommon: { color: '#3498db', fontWeight: 'bold' },
-  };
-
   return (
-    <div style={styles.container}>
-      <div style={styles.innerWrapper}>
+    <div className="wiki-page">
+      <div className="wiki-inner">
         
         {/* PAGE HEADER */}
-        <div style={styles.mainHeader}>
+        <div className="wiki-header">
           <span>Tundra Bean Goose</span>
-          <div style={styles.editActions}>
+          <div className="wiki-edit-actions">
           </div>
         </div>
 
-        <div style={styles.layout}>
+        <div className="wiki-layout">
           
           {/* --- RIGHT SIDEBAR (General Information) --- */}
-          <aside style={styles.sidebarColumn}>
-            <div style={styles.sidebarHeader}>Tundra Bean Goose</div>
-            <div style={styles.sidebarImage}>
+          <aside className="wiki-sidebar">
+            <div className="wiki-sidebar-header">Tundra Bean Goose</div>
+            <div className="wiki-sidebar-image">
               <img src={TundraBeanGooseImg} alt="Tundra Bean Goose" style={{width: '268.4px', height: '134.2px', objectFit: 'cover'}} />
               <span style={{position:'absolute', bottom:'5px', right:'5px', fontSize:'0.8rem'}}>📷</span>
             </div>
             
-            <div style={styles.sidebarHeader}>General Information</div>
+            <div className="wiki-sidebar-header">General Information</div>
             
-            <div style={styles.sidebarSection}>
-              <span style={styles.sidebarLabel}>Class</span>
-              <span><img src={class1Icon} alt="Class 1" style={{width:'12px', height:'12px', verticalAlign:'middle', marginRight:'6px'}}/>1</span>
+            <div className="wiki-sidebar-section">
+              <span className="wiki-sidebar-label">Class</span>
+              <span><img src={class1Icon} alt="Class 1" className="wiki-class-icon-sm"/>1</span>
             </div>
 
-            <div style={styles.sidebarSection}>
-              <span style={styles.sidebarLabel}>Difficulty</span>
+            <div className="wiki-sidebar-section">
+              <span className="wiki-sidebar-label">Difficulty</span>
               <span>1: Trivial — 5: Medium</span>
             </div>
 
-            <div style={styles.sidebarSection}>
-              <span style={styles.sidebarLabel}>Trophy Type</span>
+            <div className="wiki-sidebar-section">
+              <span className="wiki-sidebar-label">Trophy Type</span>
               <span>Weight</span>
-              <div style={styles.trophyGrid}>
-                <div style={styles.trophyItem}>
-                   <span style={{...styles.trophyLabel, ...styles.silver}}>◆ Silver</span>
+              <div className="wiki-trophy-grid">
+                <div className="wiki-trophy-item">
+                   <span className="wiki-trophy-label wiki-trophy-silver">◆ Silver</span>
                    <span>2.18</span>
                 </div>
-                <div style={styles.trophyItem}>
-                   <span style={{...styles.trophyLabel, ...styles.gold}}>☗ Gold</span>
+                <div className="wiki-trophy-item">
+                   <span className="wiki-trophy-label wiki-trophy-gold">☗ Gold</span>
                    <span>2.74</span>
                 </div>
-                <div style={styles.trophyItem}>
-                   <span style={{...styles.trophyLabel, ...styles.diamond}}>☗ Diamond</span>
+                <div className="wiki-trophy-item">
+                   <span className="wiki-trophy-label wiki-trophy-diamond">☗ Diamond</span>
                    <span>3.16</span>
                 </div>
               </div>
             </div>
 
-            <div style={styles.sidebarSection}>
-               <span style={styles.sidebarLabel}>Weight</span>
+            <div className="wiki-sidebar-section">
+               <span className="wiki-sidebar-label">Weight</span>
                1.9kg — 3.5kg<br/>
                4lbs — 8lbs
             </div>
 
-            <div style={styles.sidebarSection}>
-               <span style={styles.sidebarLabel}>Plumage</span>
+            <div className="wiki-sidebar-section">
+               <span className="wiki-sidebar-label">Plumage</span>
                <span style={{fontSize: '0.85rem'}}>
                  Brown, Dark Grey, Leucistic, Light Grey
                </span>
             </div>
 
-            <div style={styles.sidebarHeader}>Locations</div>
-            <div style={styles.sidebarSection}>
-               <div style={{marginBottom:'4px'}}><span style={styles.link}>Revontuli Coast</span></div>
-               <div style={{marginBottom:'4px'}}><span style={styles.link}>Salzwiesen Park</span></div>
+            <div className="wiki-sidebar-header">Locations</div>
+            <div className="wiki-sidebar-section">
+               <div className="wiki-mb-4"><span className="wiki-link">Revontuli Coast</span></div>
+               <div className="wiki-mb-4"><span className="wiki-link">Salzwiesen Park</span></div>
             </div>
           </aside>
 
           {/* --- MAIN CONTENT --- */}
-          <main style={styles.mainColumn}>
+          <main className="wiki-main">
 
             {/* Quote Block */}
-            <div style={styles.quoteBox}>
+            <div className="wiki-quote">
               "The Tundra Bean Goose is a species native to the Nordic European countries and Siberia. It is very closely related to the Taiga Bean Goose, and some specialists consider them separate species while others do not. Both also often coexist with the more widespread Greylag Goose, sometimes forming mixed flocks. Like other grey goose species, Tundra Bean Geese gather in large flocks in preparation for their winter migration. These large groups can be seen feeding in grassy wetlands for most of the day in preparation for their journey south."
               <br/><br/>
               — In-Game Description
             </div>
 
             {/* Intro Text */}
-            <p style={{marginBottom: '20px'}}>
-              The <strong>Tundra Bean Goose</strong> is a <span style={styles.link}>class 1</span> goose species that can be hunted on <span style={styles.link}>Revontuli Coast</span>, and <span style={styles.link}>Salzwiesen Park</span>.
+            <p className="wiki-mb-20">
+              The <strong>Tundra Bean Goose</strong> is a <span className="wiki-link">class 1</span> goose species that can be hunted on <span className="wiki-link">Revontuli Coast</span>, and <span className="wiki-link">Salzwiesen Park</span>.
             </p>
 
             {/* Table of Contents (page-specific) */}
@@ -414,17 +201,17 @@ const TundraBeanGoose = () => {
             })()}
 
             {/* FEATURES */}
-            <h2 id="features" style={styles.h2}>Features <span style={styles.h2Icon}>✎</span></h2>
-            <table style={styles.table}>
+            <h2 id="features" className="wiki-h2">Features <span className="wiki-edit-actions">✎</span></h2>
+            <table className="wiki-table">
               <tbody>
                 <tr>
-                    <th style={{...styles.th, width: '25%'}}></th>
-                    <th style={styles.th}>Description</th>
+                    <th className="wiki-th wiki-th-w25"></th>
+                    <th className="wiki-th">Description</th>
                 </tr>
                 {features.map((item, index) => (
                   <tr key={index}>
-                    <td style={{...styles.td, fontWeight: 'bold'}}>{item.label}</td>
-                    <td style={{...styles.td, fontStyle: item.italic ? 'italic' : 'normal'}}>
+                    <td className="wiki-td wiki-td-bold">{item.label}</td>
+                    <td className={`wiki-td ${item.italic ? 'wiki-td-italic' : ''}`}>
                         {item.value}
                     </td>
                   </tr>
@@ -433,8 +220,8 @@ const TundraBeanGoose = () => {
             </table>
 
             {/* TIPS */}
-            <h2 id="tips" style={styles.h2}>Tips <span style={styles.h2Icon}>✎</span></h2>
-            <p style={{marginBottom: '10px'}}>
+            <h2 id="tips" className="wiki-h2">Tips <span className="wiki-edit-actions">✎</span></h2>
+            <p className="wiki-mb-10">
               Hunting Geese is similar to hunting other waterfowl. The added benefit being, you can hunt Geese in open fields. Fields give players the freedom to place decoys as far away from a blind as possible, as compared to water which has limits on how far away from shore you can place decoys.
             </p>
             <p>
@@ -442,21 +229,21 @@ const TundraBeanGoose = () => {
             </p>
 
             {/* NEED ZONE TIMES */}
-            <h2 id="need-zones" style={styles.h2}>Need Zone Times</h2>
+            <h2 id="need-zones" className="wiki-h2">Need Zone Times</h2>
             <div style={{display: 'inline-block'}}>
-              <table style={{...styles.table, width: '300px'}}>
+              <table className="wiki-table wiki-table-fixed">
                 <thead>
-                  <tr><th colSpan="2" style={{...styles.th, textAlign: 'center'}}>Revontuli Coast</th></tr>
+                  <tr><th colSpan="2" className="wiki-th wiki-th-center">Revontuli Coast</th></tr>
                   <tr>
-                    <th style={{...styles.th, backgroundColor: '#0f2e48'}}>Time</th>
-                    <th style={{...styles.th, backgroundColor: '#0f2e48'}}>Activity</th>
+                    <th className="wiki-th wiki-th-alt">Time</th>
+                    <th className="wiki-th wiki-th-alt">Activity</th>
                   </tr>
                 </thead>
                 <tbody>
                   {needZones.map((zone, i) => (
                   <tr key={i}>
-                    <td style={styles.td}>{zone.time}</td>
-                    <td style={styles.td}><img src={zone.icon} alt={zone.type} style={{width: '30px', height: '30px', verticalAlign: 'middle', marginRight: '8px'}} />{zone.type}</td>
+                    <td className="wiki-td">{zone.time}</td>
+                    <td className="wiki-td"><img src={zone.icon} alt={zone.type} className="wiki-zone-icon-lg" />{zone.type}</td>
                   </tr>
                   ))}
                 </tbody>
@@ -466,39 +253,39 @@ const TundraBeanGoose = () => {
             {/* SHOT SCHEME removed for this page */}
 
             {/* PLUMAGE VARIANTS (Gallery) */}
-            <h2 id="plumage-variants" style={styles.h2}>Plumage Variants</h2>
-            <div style={styles.galleryGrid}>
+            <h2 id="plumage-variants" className="wiki-h2">Plumage Variants</h2>
+            <div className="wiki-gallery-grid">
               {plumageImages.map((img, i) => (
-                <div key={i} style={styles.galleryItem}>
+                <div key={i} className="wiki-gallery-item">
                   <img src={img.src} alt={img.name} style={{width: '146px', height: '165px', objectFit: 'cover', border: '4px solid #1f3a52', marginBottom: '8px'}} />
-                  <span style={styles.galleryLabel}>{img.name}</span>
+                  <span className="wiki-gallery-label">{img.name}</span>
                 </div>
               ))}
             </div>
 
             {/* PLUMAGE RARITY TABLE */}
-            <h2 id="plumage-rarity" style={styles.h2}>Plumage Variant Rarity <span style={styles.h2Icon}>✎</span></h2>
-            <table style={styles.table}>
+            <h2 id="plumage-rarity" className="wiki-h2">Plumage Variant Rarity <span className="wiki-edit-actions">✎</span></h2>
+            <table className="wiki-table">
                 <thead>
                     <tr>
-                        <th style={styles.th}>Sex</th>
-                        <th style={styles.th}><span style={styles.common}>Common</span></th>
-                        <th style={styles.th}><span style={styles.uncommon}>Uncommon</span></th>
-                        <th style={styles.th}><span style={styles.rare}>Rare</span></th>
-                        <th style={styles.th}><span style={styles.veryRare}>Very Rare</span></th>
+                        <th className="wiki-th">Sex</th>
+                        <th className="wiki-th"><span className="wiki-common">Common</span></th>
+                        <th className="wiki-th"><span className="wiki-uncommon">Uncommon</span></th>
+                        <th className="wiki-th"><span className="wiki-rare">Rare</span></th>
+                        <th className="wiki-th"><span className="wiki-very-rare">Very Rare</span></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td style={{...styles.td, color: '#9b59b6', fontStyle: 'italic'}}>Male/Female</td>
-                        <td style={styles.td}>
+                        <td className="wiki-td wiki-td-rare">Male/Female</td>
+                        <td className="wiki-td">
                             Brown (74.78%)<br/>
                             Dark Grey (12.51%)<br/>
                             Light Grey (12.51%)
                         </td>
-                        <td style={styles.td}>X</td>
-                        <td style={styles.td}>X</td>
-                        <td style={styles.td}>
+                        <td className="wiki-td">X</td>
+                        <td className="wiki-td">X</td>
+                        <td className="wiki-td">
                             Leucistic Variation 1 (0.07%)<br/>
                             Leucistic Variation 2 (0.07%)<br/>
                             Leucistic Variation 3 (0.07%)

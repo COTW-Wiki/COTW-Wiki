@@ -335,99 +335,9 @@ const AnimalTable = () => {
     }
   ];
 
-  // --- STYLES OBJECT ---
-  const styles = {
-    container: {
-      maxWidth: '1100px',
-      margin: '20px auto',
-      backgroundColor: '#0f2e48',
-      color: '#dbe4eb',
-      fontFamily: '"Segoe UI", Roboto, Helvetica, Arial, sans-serif',
-      border: '1px solid #cfaa3e', // Gold border
-      borderRadius: '4px',
-      overflow: 'hidden',
-      fontSize: '14px',
-    },
-    header: {
-      backgroundColor: '#164060',
-      padding: '12px 20px',
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      borderBottom: '1px solid #cfaa3e',
-      fontWeight: 'bold',
-      color: '#6fb2e6',
-      textTransform: 'uppercase',
-      letterSpacing: '0.5px',
-    },
-    collapseBtn: {
-      cursor: 'pointer',
-      color: '#dbe4eb',
-      fontSize: '13px',
-      textTransform: 'none',
-      textDecoration: 'underline',
-    },
-    row: {
-      display: 'flex',
-      borderBottom: '1px solid #2a4b63',
-      minHeight: '60px',
-    },
-    // The Left Column (Class Name)
-    classLabel: {
-      width: '160px',
-      minWidth: '160px',
-      backgroundColor: '#0c2539',
-      display: 'flex',
-      alignItems: 'center',
-      paddingLeft: '20px',
-      fontWeight: 'bold',
-      fontSize: '1.1em',
-      borderRight: '1px solid #2a4b63',
-      color: '#fff',
-    },
-    classIcon: {
-      marginRight: '10px',
-      width: '40px',
-      height: '40px',
-      objectFit: 'contain'
-    },
-    // The Right Column (List of animals)
-    animalList: {
-      flexGrow: 1,
-      padding: '12px 20px',
-      display: 'flex',
-      flexWrap: 'wrap',
-      alignItems: 'center',
-      lineHeight: '1.8',
-    },
-    animalItem: {
-      display: 'inline-flex',
-      alignItems: 'center',
-      marginRight: '8px',
-      color: '#a4cce8',
-    },
-    // Updated image style for 30x30px
-    animalIcon: {
-      display: 'inline-block',
-      width: '30px',
-      height: '30px',
-      marginRight: '6px',
-      objectFit: 'contain'
-    },
-    separator: {
-      color: '#6fb2e6',
-      margin: '0 6px',
-      fontSize: '0.8em',
-      opacity: 0.7,
-    },
-    animalText: {
-        color: '#dbe4eb'
-    }
-  };
-
   return (
-    <div style={styles.container}>
-      <div style={styles.header}>
+    <div className="wiki-page">
+      <div className="wiki-panel-header">
         <span>Animals</span>
         <button 
           style={{...styles.collapseBtn, background: 'none', border: 'none', padding: 0}}
@@ -448,18 +358,18 @@ const AnimalTable = () => {
               }}
             >
             {/* Left Column */}
-            <div style={styles.classLabel}>
-              <img src={item.icon} alt="" style={styles.classIcon} /> 
+            <div className="wiki-mini-class-label">
+              <img src={item.icon} alt="" className="wiki-class-icon" /> 
               Class {item.id}
             </div>
 
             {/* Right Column */}
-            <div style={styles.animalList}>
+            <div className="wiki-mini-animal-list">
               {item.animals.map((animal, i) => (
                 <React.Fragment key={animal}>
-                  <div style={styles.animalItem}>
+                  <div className="wiki-mini-animal-item">
                   {animalImages[animal] ? (
-                      <img src={animalImages[animal]} alt={animal} style={styles.animalIcon} />
+                      <img src={animalImages[animal]} alt={animal} className="wiki-mini-animal-icon" />
                     ) : (
                       // Fallback if no icon
                       <span style={{ 
@@ -467,11 +377,11 @@ const AnimalTable = () => {
                          backgroundColor: '#2a4b63', border: '1px solid #8bbce3', borderRadius: '50%'
                       }}></span>
                     )}
-                    <span style={styles.animalText}>{animal}</span>
+                    <span className="wiki-mini-animal-text">{animal}</span>
                   </div>
                   {/* Add separator only if it's not the last item */}
                   {i < item.animals.length - 1 && (
-                    <span style={styles.separator}>•</span>
+                    <span className="wiki-mini-separator">•</span>
                   )}
                 </React.Fragment>
               ))}

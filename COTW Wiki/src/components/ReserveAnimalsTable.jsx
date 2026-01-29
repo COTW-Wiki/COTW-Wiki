@@ -22,56 +22,39 @@ const ReserveAnimalsTable = ({ reserveData }) => {
     return `/animals/${slug}`;
   };
 
-  const styles = {
-    reserveWrapper: { marginBottom: '60px' },
-    sectionHeader: { fontSize: '1.2rem', fontWeight: 'bold', color: '#dbe4eb', marginBottom: '10px', display: 'flex', alignItems: 'center' },
-    linkIcon: { color: '#6fb2e6', marginLeft: '10px', fontSize: '0.8rem', cursor: 'pointer', textDecoration: 'none' },
-    tableContainer: { display: 'grid', gridTemplateColumns: '100px repeat(9, 1fr)', backgroundColor: '#0f2e48', borderRadius: '4px', overflow: 'hidden', border: '1px solid #1f405a' },
-    headerRow: { display: 'contents' },
-    headerCell: { backgroundColor: '#16334a', padding: '10px 5px', textAlign: 'center', borderBottom: '1px solid #3a5a75', borderRight: '1px solid #1f405a', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end', color: '#fff', fontWeight: 'bold' },
-    classHeaderIcon: { width: '32px', height: 'auto', marginBottom: '5px', filter: 'brightness(0) invert(1)' },
-    gridRow: { display: 'contents' },
-    rowLabel: { backgroundColor: '#16334a', padding: '20px 10px', display: 'flex', alignItems: 'center', fontWeight: 'bold', borderRight: '1px solid #3a5a75', borderTop: '1px solid #1f405a' },
-    gridCell: { padding: '10px 5px', borderRight: '1px solid #1f405a', borderTop: '1px solid #1f405a', display: 'flex', flexDirection: 'column', alignItems: 'center', minHeight: '120px', position: 'relative' },
-    emptyMarker: { color: '#88a0b8', fontSize: '1.2rem', marginTop: '40px', fontStyle: 'italic', opacity: 0.5 },
-    animalCard: { display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '15px', textAlign: 'center', width: '100%', textDecoration: 'none', color: 'inherit' },
-    hexIcon: { width: '64px', height: '64px', objectFit: 'contain', marginBottom: '8px', filter: 'drop-shadow(0px 2px 4px rgba(0,0,0,0.5))' },
-    animalName: { fontSize: '0.8rem', lineHeight: '1.2', maxWidth: '90px' }
-  };
-
   return (
-    <div id={reserveData.id} style={styles.reserveWrapper}>
-      <div style={styles.sectionHeader}>
+    <div id={reserveData.id} className="wiki-reserve-card">
+      <div className="wiki-section-header">
         {reserveData.name}
-        <span style={styles.linkIcon}></span>
+        <span className="wiki-release-link-icon"></span>
       </div>
-      <div style={styles.tableContainer}>
+      <div className="wiki-reserve-table">
         {/* Header Row */}
-        <div style={styles.headerRow}>
+        <div className="wiki-reserve-header-row">
           <div style={{ ...styles.headerCell, borderBottom: 'none', backgroundColor: '#16334a', width: '100%' }}>Class</div>
           {classes.map((cls, i) => (
-            <div key={cls} style={styles.headerCell}>
-              <img src={classIcons[i]} alt={`Class ${cls}`} style={styles.classHeaderIcon} />
+            <div key={cls} className="wiki-reserve-header-cell">
+              <img src={classIcons[i]} alt={`Class ${cls}`} className="wiki-class-icon" />
               <span>{cls}</span>
             </div>
           ))}
         </div>
         {/* Body Row */}
-        <div style={styles.gridRow}>
-          <div style={styles.rowLabel}>Animals</div>
+        <div className="wiki-reserve-grid-row">
+          <div className="wiki-reserve-row-label">Animals</div>
           {classes.map((cls) => {
             const animalList = reserveData.animals[cls] || [];
             return (
-              <div key={cls} style={styles.gridCell}>
+              <div key={cls} className="wiki-reserve-grid-cell">
                 {animalList.length > 0 ? (
                   animalList.map((animal, idx) => (
-                    <Link key={idx} to={toPath(animal.name)} style={styles.animalCard}>
-                      <img src={animal.icon} alt={animal.name} style={styles.hexIcon} />
-                      <span style={styles.animalName}>{animal.name}</span>
+                    <Link key={idx} to={toPath(animal.name)} className="wiki-reserve-animal-card">
+                      <img src={animal.icon} alt={animal.name} className="wiki-reserve-hex-icon" />
+                      <span className="wiki-reserve-animal-name">{animal.name}</span>
                     </Link>
                   ))
                 ) : (
-                  <span style={styles.emptyMarker}>//</span>
+                  <span className="wiki-reserve-empty">//</span>
                 )}
               </div>
             );

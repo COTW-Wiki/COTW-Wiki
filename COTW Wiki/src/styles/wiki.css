@@ -1,0 +1,591 @@
+/**
+ * COTW Wiki – shared layout and component styles
+ * Replaces inline styles and local style objects across animal/reserve/wiki pages.
+ */
+@import './variables.css';
+
+/* ---- Page container ---- */
+.wiki-page {
+  background-color: var(--wiki-bg);
+  color: var(--wiki-text);
+  font-family: var(--wiki-font);
+  padding: 40px;
+  min-height: 100vh;
+  line-height: var(--wiki-line-height);
+}
+
+.wiki-inner {
+  max-width: var(--wiki-inner-max);
+  margin: 0 auto;
+}
+
+/* ---- Header ---- */
+.wiki-header {
+  font-size: 2.5rem;
+  font-weight: 400;
+  border-bottom: 1px solid var(--wiki-border-accent);
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wiki-edit-actions {
+  font-size: 0.9rem;
+  color: var(--wiki-link);
+  display: flex;
+  gap: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* ---- Layout ---- */
+.wiki-layout {
+  display: flex;
+  gap: var(--wiki-gap);
+  align-items: flex-start;
+  flex-direction: row-reverse;
+}
+
+.wiki-main {
+  flex: 1;
+}
+
+.wiki-sidebar {
+  width: var(--wiki-sidebar-width);
+  flex-shrink: 0;
+  background-color: var(--wiki-bg-sidebar);
+  border: 1px solid var(--wiki-border);
+  border-radius: var(--wiki-radius);
+}
+
+.wiki-sidebar-header {
+  background-color: var(--wiki-bg-sidebar-header);
+  padding: 12px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.1rem;
+  border-bottom: 2px solid var(--wiki-accent-gold);
+}
+
+.wiki-sidebar-image {
+  height: 180px;
+  background-color: var(--wiki-bg-sidebar-image);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--wiki-link);
+  font-style: italic;
+  border-bottom: 1px solid var(--wiki-border);
+  position: relative;
+}
+
+.wiki-sidebar-image img {
+  width: 268px;
+  height: 134px;
+  object-fit: cover;
+}
+
+.wiki-sidebar-image img.wiki-img-custom {
+  width: 268px;
+  height: 134px;
+  object-fit: cover;
+}
+
+.wiki-sidebar-section {
+  padding: 10px 15px;
+  border-bottom: 1px solid var(--wiki-border-light);
+  font-size: 0.95rem;
+}
+
+.wiki-sidebar-label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+  color: #fff;
+}
+
+/* Class icon next to text */
+.wiki-class-icon {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+.wiki-class-icon-sm {
+  width: 12px;
+  height: 12px;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+/* ---- Trophy grid ---- */
+.wiki-trophy-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+  margin-top: 5px;
+  text-align: center;
+}
+
+.wiki-trophy-item {
+  background-color: var(--wiki-bg-trophy);
+  padding: 6px 2px;
+  border-radius: var(--wiki-radius);
+}
+
+.wiki-trophy-label {
+  font-size: 0.75rem;
+  display: block;
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+.wiki-trophy-silver { color: var(--wiki-silver); }
+.wiki-trophy-gold { color: var(--wiki-gold); }
+.wiki-trophy-diamond { color: var(--wiki-diamond); }
+
+/* ---- Content ---- */
+.wiki-quote {
+  font-style: italic;
+  background-color: var(--wiki-bg-sidebar);
+  border-left: 4px solid var(--wiki-border-accent);
+  padding: 15px 20px;
+  margin: 0 0 20px 0;
+  color: var(--wiki-text-muted);
+}
+
+.wiki-link {
+  color: var(--wiki-link);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.wiki-link:hover {
+  text-decoration: underline;
+}
+
+.wiki-p-mb { margin-bottom: 20px; }
+.wiki-mb-4 { margin-bottom: 4px; }
+.wiki-fs-sm { font-size: 0.85rem; }
+
+/* ---- Headings ---- */
+.wiki-h2 {
+  color: var(--wiki-heading);
+  border-bottom: 1px solid var(--wiki-border-accent);
+  padding-bottom: 5px;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+}
+
+.wiki-h3 {
+  color: var(--wiki-heading);
+  padding-bottom: 5px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  border-bottom: none;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+}
+
+/* ---- Table of contents box ---- */
+.wiki-toc {
+  border: 1px solid var(--wiki-border-accent);
+  background-color: var(--wiki-bg-sidebar);
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: var(--wiki-radius);
+  min-width: 200px;
+}
+
+.wiki-toc-title {
+  font-weight: bold;
+  border-bottom: 1px solid var(--wiki-border-accent);
+  margin-bottom: 5px;
+}
+
+.wiki-toc-toggle {
+  float: right;
+  color: var(--wiki-link);
+  font-size: 0.8rem;
+}
+
+.wiki-toc ol {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--wiki-link);
+}
+
+.wiki-toc ul {
+  list-style-type: none;
+  padding-left: 10px;
+  margin: 5px 0;
+}
+
+/* ---- Tables ---- */
+.wiki-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--wiki-bg-sidebar);
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+}
+
+.wiki-table.wiki-table-fixed {
+  width: 300px;
+}
+
+.wiki-th {
+  background-color: var(--wiki-bg-table-header);
+  padding: 10px 15px;
+  text-align: left;
+  color: #fff;
+  border-bottom: 2px solid var(--wiki-border-accent);
+  font-weight: bold;
+}
+
+.wiki-th-center { text-align: center; }
+.wiki-th-w25 { width: 25%; }
+.wiki-th-alt { background-color: var(--wiki-bg-table-header-alt); }
+
+.wiki-td {
+  padding: 10px 15px;
+  border-bottom: 1px solid var(--wiki-border-light);
+  color: var(--wiki-text);
+}
+
+.wiki-td-bold { font-weight: bold; }
+.wiki-td-italic { font-style: italic; }
+.wiki-td-muted { color: var(--wiki-link); font-style: italic; font-weight: bold; }
+.wiki-td-rare { color: var(--wiki-rare); font-style: italic; }
+
+/* Rarity labels in tables */
+.wiki-common { color: var(--wiki-common); font-weight: bold; }
+.wiki-uncommon { color: var(--wiki-uncommon); font-weight: bold; }
+.wiki-rare { color: var(--wiki-rare); font-weight: bold; }
+.wiki-very-rare { color: var(--wiki-very-rare); font-weight: bold; }
+
+/* ---- Need zone / activity icon ---- */
+.wiki-zone-icon {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+/* ---- Shot scheme ---- */
+.wiki-shot-wrap {
+  background-color: var(--wiki-bg-panel);
+  padding: 10px;
+}
+
+.wiki-shot-title {
+  font-weight: bold;
+  color: #fff;
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--wiki-border-accent);
+}
+
+.wiki-shot-container {
+  display: flex;
+  background-color: var(--wiki-bg-shot);
+  margin-top: 10px;
+  border: 1px solid var(--wiki-border);
+}
+
+.wiki-shot-image {
+  width: 500px;
+  height: 444px;
+  background-color: var(--wiki-bg-shot-image);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #555;
+  flex-shrink: 0;
+}
+
+.wiki-shot-image img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.wiki-shot-info {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  color: #fff;
+}
+
+/* ---- Gallery ---- */
+.wiki-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 15px;
+}
+
+.wiki-gallery-item {
+  background-color: transparent;
+}
+
+.wiki-gallery-placeholder {
+  height: 180px;
+  background-color: var(--wiki-bg-gallery-placeholder);
+  border: 4px solid var(--wiki-bg-sidebar-image);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.wiki-gallery-placeholder img {
+  width: 146px;
+  height: 165px;
+  object-fit: cover;
+}
+
+.wiki-gallery-label {
+  font-size: 0.9rem;
+  display: block;
+  line-height: 1.2;
+}
+
+/* ---- Lists ---- */
+.wiki-ul {
+  padding-left: 20px;
+  margin-bottom: 30px;
+}
+
+.wiki-li { margin-bottom: 8px; }
+
+.wiki-ol-nested {
+  list-style-type: decimal;
+  margin-top: 6px;
+  margin-left: 16px;
+  padding-left: 6px;
+}
+
+/* ---- Block helpers ---- */
+.wiki-inline-block { display: inline-block; }
+
+/* ---- Table of Contents (floating component) ---- */
+.wiki-toc-panel {
+  background-color: #0b1e3b;
+  border: 1px solid var(--wiki-border-accent);
+  border-radius: var(--wiki-radius);
+  color: #fff;
+  width: 250px;
+  font-family: var(--wiki-font);
+  font-size: 14px;
+  margin-top: 20px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.wiki-toc-panel-header {
+  padding: 8px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--wiki-border-accent);
+}
+
+.wiki-toc-panel-header.collapsed {
+  border-bottom: none;
+}
+
+.wiki-toc-panel-title {
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.wiki-toc-panel-toggle {
+  color: var(--wiki-link);
+  font-size: 0.85em;
+  cursor: pointer;
+  user-select: none;
+}
+
+.wiki-toc-panel-list {
+  margin: 0;
+  padding: 10px 15px 10px 35px;
+  list-style-type: decimal;
+}
+
+.wiki-toc-panel-list.hidden {
+  display: none;
+}
+
+.wiki-toc-panel-item {
+  margin-bottom: 6px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.wiki-toc-panel-link {
+  color: var(--wiki-link);
+}
+
+.wiki-toc-panel-list .wiki-toc-panel-list {
+  margin-top: 6px;
+  margin-left: 16px;
+  padding-left: 6px;
+  list-style-type: decimal;
+}
+
+/* ---- Animals by release date ---- */
+.wiki-release-container {
+  background-color: var(--wiki-bg);
+  color: var(--wiki-text);
+  font-family: var(--wiki-font);
+  padding: 20px;
+  margin: 20px 0;
+  border: 1px solid var(--wiki-border-accent);
+  border-radius: var(--wiki-radius);
+  overflow-x: auto;
+}
+
+.wiki-release-header {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--wiki-heading);
+  border-bottom: 1px solid var(--wiki-border-accent);
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.wiki-release-link-icon {
+  font-size: 0.8rem;
+  color: var(--wiki-link);
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+.wiki-release-instruction {
+  margin-bottom: 15px;
+  color: var(--wiki-text-muted);
+  font-size: 0.95rem;
+}
+
+.wiki-release-table {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.wiki-release-column {
+  flex: 1;
+  min-width: 120px;
+  border: 1px solid var(--wiki-border-accent);
+  border-radius: var(--wiki-radius);
+  overflow: hidden;
+}
+
+.wiki-release-col-header {
+  background-color: var(--wiki-bg-table-header);
+  color: #fff;
+  padding: 8px 12px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.wiki-release-cell {
+  display: block;
+  padding: 6px 12px;
+  color: var(--wiki-text);
+  text-decoration: none;
+  font-size: 0.85rem;
+  border-bottom: 1px solid var(--wiki-border-light);
+  transition: opacity 0.15s;
+}
+
+.wiki-release-cell:hover {
+  opacity: 0.9;
+}
+
+.wiki-release-cell:last-child {
+  border-bottom: none;
+}
+
+.wiki-release-timeline {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: center;
+}
+
+.wiki-release-timeline-item {
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  color: #000;
+  border-radius: 2px;
+  transform: rotate(-20deg);
+  margin: 0 5px;
+  white-space: nowrap;
+  background-color: var(--wiki-timeline-bg, #b0bccc);
+}
+
+/* Animals-by-release table (light table with colored cells) */
+.wiki-release-table-wrapper {
+  display: flex;
+  flex-direction: row;
+  background-color: #a3b4c4;
+  border: 1px solid #000;
+  min-width: min-content;
+}
+
+.wiki-release-column {
+  display: flex;
+  flex-direction: column;
+  width: 130px;
+  flex-shrink: 0;
+  border-right: 1px solid #000;
+}
+
+.wiki-release-col-header {
+  background-color: #ccc;
+  color: #000;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 4px;
+  text-align: center;
+  border-bottom: 1px solid #000;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.1;
+}
+
+.wiki-release-cell {
+  padding: 2px 4px;
+  font-size: 0.75rem;
+  color: #000;
+  border-bottom: 1px solid #555;
+  cursor: pointer;
+  text-decoration: none;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: opacity 0.15s;
+}
+
+.wiki-release-cell:hover {
+  opacity: 0.9;
+}

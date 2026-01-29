@@ -16,7 +16,7 @@ import sundarLogo from '../assets/Sundarpartan-removebg-preview.png';
 import medvedLogo from '../assets/Medved_taiga-removebg-preview.png';
 import parqueFernandoLogo from '../assets/Parque_Fernando-removebg-preview.png';
 import revontuliLogo from '../assets/Revontuli_Coast-removebg-preview.png';
-import vurhongaLogo from '../assets/VurhongaIcon.png';
+import geminiLogo from '../assets/Gemini_Generated_Image_do1hjzdo1hjzdo1h-removebg-preview.png';
 import emeraldLogo from '../assets/Emerald_coast-removebg-preview (1).png';
 
 export default function WorldMap() {
@@ -38,7 +38,7 @@ export default function WorldMap() {
           box-shadow: none; 
           border: none;
           outline: none;
-
+        }
       `}</style>
 
       <img className="map-image" src={worldMap} alt="World Map" />
@@ -85,8 +85,8 @@ export default function WorldMap() {
       <Link to="/maps/parque-fernando" className="logo-parque" style={{ '--mask': `url("${parqueFernandoLogo}")` }} data-tooltip="Parque Fernando">
         <img src={parqueFernandoLogo} alt="Parque Fernando Logo" />
       </Link>
-      <Link to="/maps/vurhonga" className="logo-vurhonga" style={{ '--mask': `url("${vurhongaLogo}")` }} data-tooltip="Vurhonga Savanna">
-        <img src={vurhongaLogo} alt="Vurhonga Savanna Logo" />
+      <Link to="/maps/gemini-generated" className="logo-gemini" style={{ '--mask': `url("${geminiLogo}")` }} data-tooltip="Gemini Generated Image">
+        <img src={geminiLogo} alt="Gemini Generated Logo" />
       </Link>
       <Link to="/maps/sundarpatan" className="logo-sundar" style={{ '--mask': `url("${sundarLogo}")` }} data-tooltip="Sundarpatan">
         <img src={sundarLogo} alt="Sundarpatan Logo" />

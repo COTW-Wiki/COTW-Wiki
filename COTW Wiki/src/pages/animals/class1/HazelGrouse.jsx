@@ -98,294 +98,104 @@ const HazelGrouse = () => {
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
-  // --- STYLES OBJECT ---
-  const styles = {
-    container: {
-      backgroundColor: '#0b1a26',
-      color: '#dbe4eb',
-      fontFamily: '"Segoe UI", Roboto, Helvetica, Arial, sans-serif',
-      padding: '40px',
-      minHeight: '100vh',
-      lineHeight: '1.6',
-    },
-    innerWrapper: {
-      maxWidth: '1200px',
-      margin: '0 auto',
-    },
-    // Main Header
-    mainHeader: {
-      fontSize: '2.5rem',
-      fontWeight: '400',
-      borderBottom: '1px solid #3a5a75',
-      paddingBottom: '15px',
-      marginBottom: '20px',
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-    },
-    editActions: {
-      fontSize: '0.9rem',
-      color: '#6fb2e6',
-      display: 'flex',
-      gap: '15px',
-      fontWeight: 'bold',
-      cursor: 'pointer',
-    },
-    // Layout Columns
-    layout: {
-      display: 'flex',
-      gap: '30px',
-      alignItems: 'flex-start',
-      flexDirection: 'row-reverse',
-    },
-    mainColumn: {
-      flex: 1,
-    },
-    sidebarColumn: {
-      width: '320px',
-      flexShrink: 0,
-      backgroundColor: '#0f2e48',
-      border: '1px solid #1f405a',
-      borderRadius: '4px',
-    },
-    // Sidebar Specifics
-    sidebarHeader: {
-      backgroundColor: '#05121c',
-      padding: '12px',
-      textAlign: 'center',
-      fontWeight: 'bold',
-      fontSize: '1.1rem',
-      borderBottom: '2px solid #cfaa3e', // Gold accent
-    },
-    sidebarImage: {
-      height: '180px',
-      backgroundColor: '#1f3a52',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      color: '#6fb2e6',
-      fontStyle: 'italic',
-      borderBottom: '1px solid #1f405a',
-      position: 'relative',
-    },
-    sidebarSection: {
-      padding: '10px 15px',
-      borderBottom: '1px solid #2a4b63',
-      fontSize: '0.95rem',
-    },
-    sidebarLabel: {
-      fontWeight: 'bold',
-      display: 'block',
-      marginBottom: '5px',
-      color: '#fff',
-    },
-    trophyGrid: {
-      display: 'grid',
-      gridTemplateColumns: 'repeat(3, 1fr)',
-      gap: '5px',
-      marginTop: '5px',
-      textAlign: 'center',
-    },
-    trophyItem: {
-      backgroundColor: '#16334a',
-      padding: '6px 2px',
-      borderRadius: '4px',
-    },
-    trophyLabel: {
-      fontSize: '0.75rem',
-      display: 'block',
-      fontWeight: 'bold',
-      marginBottom: '2px',
-    },
-    silver: { color: '#bdc3c7' },
-    gold: { color: '#f1c40f' },
-    diamond: { color: '#3498db' },
-    
-    // Content Components
-    quoteBox: {
-      fontStyle: 'italic',
-      backgroundColor: '#0f2e48',
-      borderLeft: '4px solid #3a5a75',
-      padding: '15px 20px',
-      margin: '0 0 20px 0',
-      color: '#a4cce8',
-    },
-    link: {
-      color: '#6fb2e6',
-      textDecoration: 'none',
-      cursor: 'pointer',
-    },
-    h2: {
-      color: '#6fb2e6',
-      borderBottom: '1px solid #3a5a75',
-      paddingBottom: '5px',
-      marginTop: '30px',
-      marginBottom: '15px',
-      fontSize: '1.5rem',
-      display: 'flex',
-      alignItems: 'center',
-      fontWeight: '500',
-    },
-    
-    // Tables
-    table: {
-      width: '100%',
-      borderCollapse: 'collapse',
-      backgroundColor: '#0f2e48',
-      fontSize: '0.95rem',
-      marginBottom: '20px',
-    },
-    th: {
-      backgroundColor: '#164060',
-      padding: '10px 15px',
-      textAlign: 'left',
-      color: '#fff',
-      borderBottom: '2px solid #3a5a75',
-      fontWeight: 'bold',
-    },
-    td: {
-      padding: '10px 15px',
-      borderBottom: '1px solid #2a4b63',
-      color: '#dbe4eb',
-    },
-    
-    // Gallery
-    galleryGrid: {
-      display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fill, minmax(160px, 1fr))',
-      gap: '15px',
-    },
-    galleryItem: {
-      backgroundColor: 'transparent',
-    },
-    galleryImgPlaceholder: {
-      height: '180px',
-      backgroundColor: '#2a4b63',
-      border: '4px solid #1f3a52', 
-      marginBottom: '8px',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      position: 'relative',
-    },
-    galleryLabel: {
-      fontSize: '0.9rem',
-      display: 'block',
-      lineHeight: '1.2',
-    },
-
-    // Rarity Colors
-    common: { color: '#2ecc71', fontWeight: 'bold' },
-    rare: { color: '#9b59b6', fontWeight: 'bold' },
-    veryRare: { color: '#e74c3c', fontWeight: 'bold' },
-    uncommon: { color: '#3498db', fontWeight: 'bold' },
-  };
-
   return (
-    <div style={styles.container}>
-      <div style={styles.innerWrapper}>
+    <div className="wiki-page">
+      <div className="wiki-inner">
         
         {/* PAGE HEADER */}
-        <div style={styles.mainHeader}>
+        <div className="wiki-header">
           <span>Hazel Grouse</span>
-          <div style={styles.editActions}>  
+          <div className="wiki-edit-actions">  
           </div>
         </div>
 
-        <div style={styles.layout}>
+        <div className="wiki-layout">
           
           {/* --- RIGHT SIDEBAR (General Information) --- */}
-          <aside style={styles.sidebarColumn}>
-            <div style={styles.sidebarHeader}>Hazel Grouse</div>
-            <div style={styles.sidebarImage}>
-              <img src={HazelGrouseMain} alt="Hazel Grouse" style={{width:'268px', height: '134px', objectFit: 'cover'}} />
+          <aside className="wiki-sidebar">
+            <div className="wiki-sidebar-header">Hazel Grouse</div>
+            <div className="wiki-sidebar-image">
+              <img src={HazelGrouseMain} alt="Hazel Grouse" />
             </div>
             
-            <div style={styles.sidebarHeader}>General Information</div>
+            <div className="wiki-sidebar-header">General Information</div>
             
-            <div style={styles.sidebarSection}>
-              <span style={styles.sidebarLabel}>Class</span>
-              <span><img src={class1Icon} alt="Class 1" style={{width:'20px', height:'20px', verticalAlign: 'middle', marginRight: '6px'}}/>1</span>
+            <div className="wiki-sidebar-section">
+              <span className="wiki-sidebar-label">Class</span>
+              <span><img src={class1Icon} alt="Class 1" className="wiki-class-icon"/>1</span>
             </div>
 
-            <div style={styles.sidebarSection}>
-              <span style={styles.sidebarLabel}>Difficulty</span>
+            <div className="wiki-sidebar-section">
+              <span className="wiki-sidebar-label">Difficulty</span>
               <span>1: Trivial — 3: Very Easy</span>
             </div>
 
-            <div style={styles.sidebarSection}>
-              <span style={styles.sidebarLabel}>Trophy Type</span>
+            <div className="wiki-sidebar-section">
+              <span className="wiki-sidebar-label">Trophy Type</span>
               <span>Weight</span>
-              <div style={styles.trophyGrid}>
-                <div style={styles.trophyItem}>
-                  <span style={{...styles.trophyLabel, ...styles.silver}}>◆ Silver</span>
+              <div className="wiki-trophy-grid">
+                <div className="wiki-trophy-item">
+                  <span className="wiki-trophy-label wiki-trophy-silver">◆ Silver</span>
                   <span>330</span>
                 </div>
-                <div style={styles.trophyItem}>
-                  <span style={{...styles.trophyLabel, ...styles.gold}}>☗ Gold</span>
+                <div className="wiki-trophy-item">
+                  <span className="wiki-trophy-label wiki-trophy-gold">☗ Gold</span>
                   <span>390</span>
                 </div>
-                <div style={styles.trophyItem}>
-                  <span style={{...styles.trophyLabel, ...styles.diamond}}>☗ Diamond</span>
+                <div className="wiki-trophy-item">
+                  <span className="wiki-trophy-label wiki-trophy-diamond">☗ Diamond</span>
                   <span>435</span>
                 </div>
               </div>
             </div>
 
-            <div style={styles.sidebarSection}>
-              <span style={styles.sidebarLabel}>Weight</span>
+            <div className="wiki-sidebar-section">
+              <span className="wiki-sidebar-label">Weight</span>
               300g — 450g<br/>
               0.7lbs — 1lbs
             </div>
 
-            <div style={styles.sidebarSection}>
-               <span style={styles.sidebarLabel}>Plumage</span>
-               <span style={{fontSize:'0.85rem'}}>
+            <div className="wiki-sidebar-section">
+               <span className="wiki-sidebar-label">Plumage</span>
+               <span className="wiki-fs-sm">
                   Brown, Dark, Grey, Hybrid, Light Brown, Ochre, Pale
                </span>
             </div>
 
-            <div style={styles.sidebarHeader}>Locations</div>
-            <div style={styles.sidebarSection}>
-               <div style={{marginBottom:'4px'}}><span style={styles.link}>Revontuli Coast</span></div>
+            <div className="wiki-sidebar-header">Locations</div>
+            <div className="wiki-sidebar-section">
+               <div className="wiki-mb-4"><span className="wiki-link">Revontuli Coast</span></div>
             </div>
           </aside>
 
           {/* --- MAIN CONTENT --- */}
-          <main style={styles.mainColumn}>
+          <main className="wiki-main">
 
             {/* Quote Block */}
-            <div style={styles.quoteBox}>
+            <div className="wiki-quote">
               "The Hazel Grouse is a very small grouse that can be found in mixed coniferous and deciduous forests across Northern Eurasia. Although it occurs in a very large geographic range, it has very specific habitat preferences that make individual populations vulnerable to changes in their local environment. Males are territorial and defend their territory year round. In spring they compete to attract females and breed. Females nest on the ground and raise their young alone."
               <br/><br/>
               — In-Game Description
             </div>
 
             {/* Intro Text */}
-            <p style={{marginBottom:'20px'}}>
-              The <strong>Hazel Grouse</strong> is a (<span style={styles.link}>class 1</span>) quail species that can be hunted on <span style={styles.link}>Revontuli Coast</span>.
+            <p className="wiki-p-mb">
+              The <strong>Hazel Grouse</strong> is a (<span className="wiki-link">class 1</span>) quail species that can be hunted on <span className="wiki-link">Revontuli Coast</span>.
             </p>
 
             {/* Table of Contents (interactive) */}
-            <div style={{
-                border: '1px solid #3a5a75',
-                backgroundColor: '#0f2e48',
-                display: 'inline-block',
-                padding: '10px 20px',
-                borderRadius: '4px',
-                minWidth: '200px'
-            }}>
-              <div style={{fontWeight:'bold', borderBottom: '1px solid #3a5a75', marginBottom: '5px'}}>
-                🔢 Contents <span style={{float:'right', color: '#6fb2e6', fontSize:'0.8rem'}}>[hide]</span>
+            <div className="wiki-toc">
+              <div className="wiki-toc-title">
+                🔢 Contents <span className="wiki-toc-toggle">[hide]</span>
               </div>
-              <ol style={{margin:'0', paddingLeft: '20px', color: '#6fb2e6'}}>
+              <ol className="wiki-toc">
                 {toc.map((item, i) => (
                   <li key={item.id} style={{marginBottom: item.children ? '6px' : '3px'}}>
                     <a href={`#${item.id}`} onClick={(e)=>{e.preventDefault(); handleScroll(item.id);}} style={{color:'#6fb2e6', textDecoration: 'none'}}>{item.title}</a>
                     {item.children && (
                       <ol style={{marginTop: '6px', marginLeft: '12px', listStyle: 'none', padding: 0}}>
                         {item.children.map((c, j) => (
-                          <li key={c.id} style={{marginBottom: '4px'}}>
+                          <li key={c.id} className="wiki-mb-4">
                             <a href={`#${c.id}`} onClick={(e)=>{e.preventDefault(); handleScroll(c.id);}} style={{color:'#6fb2e6', textDecoration: 'none'}}>{`${i+1}.${j+1} ${c.title}`}</a>
                           </li>
                         ))}
@@ -397,17 +207,17 @@ const HazelGrouse = () => {
             </div>
 
             {/* FEATURES */}
-            <h2 id="features" style={styles.h2}>Features</h2>
-            <table style={styles.table}>
+            <h2 id="features" className="wiki-h2">Features</h2>
+            <table className="wiki-table">
               <tbody>
                 <tr>
-                    <th style={{...styles.th, width: '25%'}}></th>
-                    <th style={styles.th}>Description</th>
+                    <th className="wiki-th wiki-th-w25"></th>
+                    <th className="wiki-th">Description</th>
                 </tr>
                 {features.map((item, index) => (
                   <tr key={index}>
-                    <td style={{...styles.td, fontWeight: 'bold'}}>{item.label}</td>
-                    <td style={{...styles.td, fontStyle: item.italic ? 'italic' : 'normal'}}>
+                    <td className="wiki-td wiki-td-bold">{item.label}</td>
+                    <td className={`wiki-td ${item.italic ? 'wiki-td-italic' : ''}`}>
                         <span dangerouslySetInnerHTML={{ __html: item.value }} />
                     </td>
                   </tr>
@@ -418,74 +228,74 @@ const HazelGrouse = () => {
             {/* Note: "Need Zone Times" section is NOT present in the provided screenshots for Hazel Grouse, so it is omitted here to remain accurate to the source. */}
 
             {/* PLUMAGE VARIANTS (Gallery) */}
-            <h2 id="plumage-variants" style={styles.h2}>Plumage variants</h2>
+            <h2 id="plumage-variants" className="wiki-h2">Plumage variants</h2>
             
             {/* Male Section */}
             <h3 id="plumage-male" style={{...styles.h2, fontSize:'1.2rem', borderBottom:'none', marginTop:'10px'}}>Male</h3>
-            <div style={styles.galleryGrid}>
+            <div className="wiki-gallery-grid">
               {plumageGallery.male.map((item, i) => (
-                <div key={i} style={styles.galleryItem}>
-                  <div style={styles.galleryImgPlaceholder}>
-                    <img src={item.src} alt={item.name} style={{width:'146px', height: '165px', objectFit: 'cover'}} />
+                <div key={i} className="wiki-gallery-item">
+                  <div className="wiki-gallery-placeholder">
+                    <img src={item.src} alt={item.name} />
                   </div>
-                  <span style={styles.galleryLabel}>{item.name}</span>
+                  <span className="wiki-gallery-label">{item.name}</span>
                 </div>
               ))}
             </div>
 
             {/* Female Section */}
             <h3 id="plumage-female" style={{...styles.h2, fontSize:'1.2rem', borderBottom:'none', marginTop:'10px'}}>Female</h3>
-            <div style={styles.galleryGrid}>
+            <div className="wiki-gallery-grid">
               {plumageGallery.female.map((item, i) => (
-                <div key={i} style={styles.galleryItem}>
-                  <div style={styles.galleryImgPlaceholder}>
-                    <img src={item.src} alt={item.name} style={{width:'146px', height: '165px', objectFit: 'cover'}} />
+                <div key={i} className="wiki-gallery-item">
+                  <div className="wiki-gallery-placeholder">
+                    <img src={item.src} alt={item.name} />
                   </div>
-                  <span style={styles.galleryLabel}>{item.name}</span>
+                  <span className="wiki-gallery-label">{item.name}</span>
                 </div>
               ))}
             </div>
 
             {/* PLUMAGE RARITY TABLE */}
-            <h2 id="plumage-variant-rarity" style={styles.h2}>Plumage Variant Rarity</h2>
-            <table style={styles.table}>
+            <h2 id="plumage-variant-rarity" className="wiki-h2">Plumage Variant Rarity</h2>
+            <table className="wiki-table">
                 <thead>
                     <tr>
-                        <th style={styles.th}>Sex</th>
-                        <th style={styles.th}><span style={styles.common}>Common</span></th>
-                        <th style={styles.th}><span style={styles.uncommon}>Uncommon</span></th>
-                        <th style={styles.th}><span style={styles.rare}>Rare</span></th>
-                        <th style={styles.th}><span style={styles.veryRare}>Very Rare</span></th>
+                        <th className="wiki-th">Sex</th>
+                        <th className="wiki-th"><span className="wiki-common">Common</span></th>
+                        <th className="wiki-th"><span className="wiki-uncommon">Uncommon</span></th>
+                        <th className="wiki-th"><span className="wiki-rare">Rare</span></th>
+                        <th className="wiki-th"><span className="wiki-very-rare">Very Rare</span></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td style={{...styles.td, color: '#3498db', fontStyle: 'italic', fontWeight: 'bold'}}>Male</td>
-                        <td style={styles.td}>
+                        <td className="wiki-td wiki-td-muted">Male</td>
+                        <td className="wiki-td">
                             Brown (54.45%)<br/>
                             Grey (27.22%)<br/>
                             Dark (18.22%)
                         </td>
-                        <td style={styles.td}>X</td>
-                        <td style={styles.td}>X</td>
-                        <td style={styles.td}>
+                        <td className="wiki-td">X</td>
+                        <td className="wiki-td">X</td>
+                        <td className="wiki-td">
                             Pale (0.07%)<br/>
                             Hybrid (0.04%)
                         </td>
                     </tr>
                      <tr>
-                        <td style={{...styles.td, color: '#ff69b4', fontStyle: 'italic', fontWeight: 'bold'}}>Female</td>
-                        <td style={styles.td}>
+                        <td className="wiki-td wiki-td-female">Female</td>
+                        <td className="wiki-td">
                             Brown (74.70%)<br/>
                             Light Brown (12.50%)<br/>
                             Ochre (12.50%)
                         </td>
-                        <td style={styles.td}>X</td>
-                        <td style={styles.td}>
+                        <td className="wiki-td">X</td>
+                        <td className="wiki-td">
                             Dark (0.20%)<br/>
                             Pale (0.10%)
                         </td>
-                        <td style={styles.td}>X</td>
+                        <td className="wiki-td">X</td>
                     </tr>
                 </tbody>
             </table>

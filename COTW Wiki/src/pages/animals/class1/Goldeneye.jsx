@@ -112,318 +112,92 @@ const Goldeneye = () => {
     { name: 'Leucistic Variation 2 - Back', src: Goldeneye_LeucisticVariation2FemaleBack },
   ];
 
-  // --- STYLES OBJECT ---
-  const styles = {
-    container: {
-      backgroundColor: '#0b1a26',
-      color: '#dbe4eb',
-      fontFamily: '"Segoe UI", Roboto, Helvetica, Arial, sans-serif',
-      padding: '40px',
-      minHeight: '100vh',
-      lineHeight: '1.6',
-    },
-    innerWrapper: {
-      maxWidth: '1200px',
-      margin: '0 auto',
-    },
-    // Main Header
-    mainHeader: {
-      fontSize: '2.5rem',
-      fontWeight: '400',
-      borderBottom: '1px solid #3a5a75',
-      paddingBottom: '15px',
-      marginBottom: '20px',
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-    },
-    editActions: {
-      fontSize: '0.9rem',
-      color: '#6fb2e6',
-      display: 'flex',
-      gap: '15px',
-      fontWeight: 'bold',
-      cursor: 'pointer',
-    },
-    // Layout Columns
-    layout: {
-      display: 'flex',
-      gap: '30px',
-      alignItems: 'flex-start',
-      flexDirection: 'row-reverse', // Sidebar on the right
-    },
-    mainColumn: {
-      flex: 1,
-    },
-    sidebarColumn: {
-      width: '320px',
-      flexShrink: 0,
-      backgroundColor: '#0f2e48',
-      border: '1px solid #1f405a',
-      borderRadius: '4px',
-    },
-    // Sidebar Specifics
-    sidebarHeader: {
-      backgroundColor: '#05121c',
-      padding: '12px',
-      textAlign: 'center',
-      fontWeight: 'bold',
-      fontSize: '1.1rem',
-      borderBottom: '2px solid #cfaa3e', // Gold accent
-    },
-    sidebarImage: {
-      height: '180px',
-      backgroundColor: '#1f3a52',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      color: '#6fb2e6',
-      fontStyle: 'italic',
-      borderBottom: '1px solid #1f405a',
-      position: 'relative',
-    },
-    sidebarSection: {
-      padding: '10px 15px',
-      borderBottom: '1px solid #2a4b63',
-      fontSize: '0.95rem',
-    },
-    sidebarLabel: {
-      fontWeight: 'bold',
-      display: 'block',
-      marginBottom: '5px',
-      color: '#fff',
-    },
-    trophyGrid: {
-      display: 'grid',
-      gridTemplateColumns: 'repeat(3, 1fr)',
-      gap: '5px',
-      marginTop: '5px',
-      textAlign: 'center',
-    },
-    trophyItem: {
-      backgroundColor: '#16334a',
-      padding: '6px 2px',
-      borderRadius: '4px',
-    },
-    trophyLabel: {
-      fontSize: '0.75rem',
-      display: 'block',
-      fontWeight: 'bold',
-      marginBottom: '2px',
-    },
-    silver: { color: '#bdc3c7' },
-    gold: { color: '#f1c40f' },
-    diamond: { color: '#3498db' },
-    
-    // Content Components
-    quoteBox: {
-      fontStyle: 'italic',
-      backgroundColor: '#0f2e48',
-      borderLeft: '4px solid #3a5a75',
-      padding: '15px 20px',
-      margin: '0 0 20px 0',
-      color: '#a4cce8',
-    },
-    link: {
-      color: '#6fb2e6',
-      textDecoration: 'none',
-      cursor: 'pointer',
-    },
-    h2: {
-      color: '#6fb2e6',
-      borderBottom: '1px solid #3a5a75',
-      paddingBottom: '5px',
-      marginTop: '30px',
-      marginBottom: '15px',
-      fontSize: '1.5rem',
-      display: 'flex',
-      alignItems: 'center',
-      fontWeight: '500',
-    },
-    h3: {
-      color: '#dbe4eb',
-      fontSize: '1.2rem',
-      marginTop: '20px',
-      marginBottom: '10px',
-      fontWeight: 'bold'
-    },
-    h2Icon: {
-      fontSize: '0.8rem',
-      marginLeft: '10px',
-      opacity: 0.7,
-      cursor: 'pointer',
-    },
-    
-    // Tables
-    table: {
-      width: '100%',
-      borderCollapse: 'collapse',
-      backgroundColor: '#0f2e48',
-      fontSize: '0.95rem',
-      marginBottom: '20px',
-    },
-    th: {
-      backgroundColor: '#164060',
-      padding: '10px 15px',
-      textAlign: 'left',
-      color: '#fff',
-      borderBottom: '2px solid #3a5a75',
-      fontWeight: 'bold',
-    },
-    td: {
-      padding: '10px 15px',
-      borderBottom: '1px solid #2a4b63',
-      color: '#dbe4eb',
-    },
-    
-    // Shot Scheme
-    shotContainer: {
-      display: 'flex',
-      backgroundColor: '#112233',
-      marginTop: '10px',
-      border: '1px solid #1f405a',
-      gap: '20px',
-      alignItems: 'center',
-      padding: '12px',
-    },
-    shotImage: {
-      width: '500px',
-      height: '234px',
-      backgroundColor: '#000',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      color: '#555',
-      flexShrink: 0,
-      overflow: 'hidden',
-      border: '2px solid #1f3a52',
-      borderRadius: '4px',
-    },
-    shotInfo: {
-      padding: '20px',
-      display: 'flex',
-      alignItems: 'center',
-      color: '#fff',
-    },
-
-    // Gallery
-    galleryGrid: {
-      display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fill, minmax(160px, 1fr))',
-      gap: '15px',
-    },
-    galleryItem: {
-      backgroundColor: 'transparent',
-    },
-    galleryImgPlaceholder: {
-      height: '180px',
-      backgroundColor: '#2a4b63',
-      border: '4px solid #1f3a52', 
-      marginBottom: '8px',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      position: 'relative',
-    },
-    galleryLabel: {
-      fontSize: '0.9rem',
-      display: 'block',
-      lineHeight: '1.2',
-    },
-
-    // Rarity Colors
-    common: { color: '#2ecc71', fontWeight: 'bold' },
-    rare: { color: '#9b59b6', fontWeight: 'bold' },
-    veryRare: { color: '#e74c3c', fontWeight: 'bold' },
-    uncommon: { color: '#3498db', fontWeight: 'bold' },
-  };
-
   return (
-    <div style={styles.container}>
-      <div style={styles.innerWrapper}>
+    <div className="wiki-page">
+      <div className="wiki-inner">
         
         {/* PAGE HEADER */}
-        <div style={styles.mainHeader}>
+        <div className="wiki-header">
           <span>Goldeneye</span>
-          <div style={styles.editActions}>
+          <div className="wiki-edit-actions">
           </div>
         </div>
 
-        <div style={styles.layout}>
+        <div className="wiki-layout">
           
           {/* --- RIGHT SIDEBAR (General Information) --- */}
-          <aside style={styles.sidebarColumn}>
-            <div style={styles.sidebarHeader}>Goldeneye</div>
-            <div style={styles.sidebarImage}>
+          <aside className="wiki-sidebar">
+            <div className="wiki-sidebar-header">Goldeneye</div>
+            <div className="wiki-sidebar-image">
               <img src={GoldeneyeImg} alt="Goldeneye flying" style={{width: '268.4px', height: '134.2px', objectFit: 'cover'}} />
               <span style={{position:'absolute', bottom:'5px', right:'5px', fontSize:'0.8rem'}}>📷</span>
             </div>
             
-            <div style={styles.sidebarHeader}>General Information</div>
+            <div className="wiki-sidebar-header">General Information</div>
             
-            <div style={styles.sidebarSection}>
-              <span style={styles.sidebarLabel}>Class</span>
+            <div className="wiki-sidebar-section">
+              <span className="wiki-sidebar-label">Class</span>
               <span><img src={class1Icon} alt="Class 1" style={{width: '12px', height: '12px', verticalAlign: 'middle', marginRight: '6px'}} />1</span>
             </div>
 
-            <div style={styles.sidebarSection}>
-              <span style={styles.sidebarLabel}>Difficulty</span>
+            <div className="wiki-sidebar-section">
+              <span className="wiki-sidebar-label">Difficulty</span>
               <span>1: Trivial — 3: Very Easy</span>
             </div>
 
-            <div style={styles.sidebarSection}>
-              <span style={styles.sidebarLabel}>Trophy Type</span>
+            <div className="wiki-sidebar-section">
+              <span className="wiki-sidebar-label">Trophy Type</span>
               <span>Weight</span>
-              <div style={styles.trophyGrid}>
-                <div style={styles.trophyItem}>
-                   <span style={{...styles.trophyLabel, ...styles.silver}}>◆ Silver</span>
+              <div className="wiki-trophy-grid">
+                <div className="wiki-trophy-item">
+                   <span className="wiki-trophy-label wiki-trophy-silver">◆ Silver</span>
                    <span>740</span>
                 </div>
-                <div style={styles.trophyItem}>
-                   <span style={{...styles.trophyLabel, ...styles.gold}}>☗ Gold</span>
+                <div className="wiki-trophy-item">
+                   <span className="wiki-trophy-label wiki-trophy-gold">☗ Gold</span>
                    <span>1020</span>
                 </div>
-                <div style={styles.trophyItem}>
-                   <span style={{...styles.trophyLabel, ...styles.diamond}}>☗ Diamond</span>
+                <div className="wiki-trophy-item">
+                   <span className="wiki-trophy-label wiki-trophy-diamond">☗ Diamond</span>
                    <span>1230</span>
                 </div>
               </div>
             </div>
 
-            <div style={styles.sidebarSection}>
-               <span style={styles.sidebarLabel}>Weight</span>
+            <div className="wiki-sidebar-section">
+               <span className="wiki-sidebar-label">Weight</span>
                600g — 1300g<br/>
                1.3lbs — 2.9lbs
             </div>
 
-            <div style={styles.sidebarSection}>
-               <span style={styles.sidebarLabel}>Plumage</span>
+            <div className="wiki-sidebar-section">
+               <span className="wiki-sidebar-label">Plumage</span>
                <span style={{fontSize: '0.85rem'}}>
                  Black, Grey, Dark, Eclipse, Hybrid, Leucistic
                </span>
             </div>
 
-            <div style={styles.sidebarHeader}>Locations</div>
-            <div style={styles.sidebarSection}>
-               <div style={{marginBottom:'4px'}}><span style={styles.link}>Revontuli Coast</span></div>
-               <div style={{marginBottom:'4px'}}><span style={styles.link}>New England Mountains</span></div>
-               <div style={{marginBottom:'4px'}}><span style={styles.link}>Salzwiesen Park</span></div>
+            <div className="wiki-sidebar-header">Locations</div>
+            <div className="wiki-sidebar-section">
+               <div className="wiki-mb-4"><span className="wiki-link">Revontuli Coast</span></div>
+               <div className="wiki-mb-4"><span className="wiki-link">New England Mountains</span></div>
+               <div className="wiki-mb-4"><span className="wiki-link">Salzwiesen Park</span></div>
             </div>
           </aside>
 
           {/* --- MAIN CONTENT --- */}
-          <main style={styles.mainColumn}>
+          <main className="wiki-main">
 
             {/* Quote Block */}
-            <div style={styles.quoteBox}>
+            <div className="wiki-quote">
               "The Common Goldeneye is a species of sea duck that can be found throughout the northern regions of Eurasia and North America. They feed by diving underwater, searching for crustaceans, insects and mollusks. The striking color of their eyes, for which they are named, their round heads and their distinctive plumage make the Goldeneye an easy duck to recognize and a popular game bird."
               <br/><br/>
               — In-Game Description
             </div>
 
             {/* Intro Text */}
-            <p style={{marginBottom: '20px'}}>
-              The <strong>Goldeneye</strong> is a species of <span style={styles.link}>class 1</span> duck that can be hunted on <span style={styles.link}>Revontuli Coast</span>, <span style={styles.link}>New England Mountains</span>, and <span style={styles.link}>Salzwiesen Park</span>.
+            <p className="wiki-mb-20">
+              The <strong>Goldeneye</strong> is a species of <span className="wiki-link">class 1</span> duck that can be hunted on <span className="wiki-link">Revontuli Coast</span>, <span className="wiki-link">New England Mountains</span>, and <span className="wiki-link">Salzwiesen Park</span>.
             </p>
 
             {/* Table of Contents (page-specific) */}
@@ -486,17 +260,17 @@ const Goldeneye = () => {
             })()}
 
             {/* FEATURES */}
-            <h2 id="features" style={styles.h2}>Features</h2>
-            <table style={styles.table}>
+            <h2 id="features" className="wiki-h2">Features</h2>
+            <table className="wiki-table">
               <tbody>
                 <tr>
-                    <th style={{...styles.th, width: '25%'}}></th>
-                    <th style={styles.th}>Description</th>
+                    <th className="wiki-th wiki-th-w25"></th>
+                    <th className="wiki-th">Description</th>
                 </tr>
                 {features.map((item, index) => (
                   <tr key={index}>
-                    <td style={{...styles.td, fontWeight: 'bold'}}>{item.label}</td>
-                    <td style={{...styles.td, fontStyle: item.italic ? 'italic' : 'normal'}}>
+                    <td className="wiki-td wiki-td-bold">{item.label}</td>
+                    <td className={`wiki-td ${item.italic ? 'wiki-td-italic' : ''}`}>
                         {item.value}
                     </td>
                   </tr>
@@ -505,22 +279,22 @@ const Goldeneye = () => {
             </table>
 
             {/* NEED ZONE TIMES */}
-            <h2 id="need-zones" style={styles.h2}>Need Zone Times</h2>
+            <h2 id="need-zones" className="wiki-h2">Need Zone Times</h2>
             <div style={{display: 'inline-block'}}>
-                <table style={{...styles.table, width: '300px'}}>
+                <table className="wiki-table wiki-table-fixed">
                     <thead>
-                        <tr><th colSpan="2" style={{...styles.th, textAlign: 'center'}}>Revontuli Coast</th></tr>
+                        <tr><th colSpan="2" className="wiki-th wiki-th-center">Revontuli Coast</th></tr>
                         <tr>
-                            <th style={{...styles.th, backgroundColor: '#0f2e48'}}>Time</th>
-                            <th style={{...styles.th, backgroundColor: '#0f2e48'}}>Activity</th>
+                            <th className="wiki-th wiki-th-alt">Time</th>
+                            <th className="wiki-th wiki-th-alt">Activity</th>
                         </tr>
                     </thead>
                     <tbody>
                         {needZones.map((zone, i) => (
                         <tr key={i}>
-                            <td style={styles.td}>{zone.time}</td>
-                            <td style={styles.td}>
-                              <img src={zone.icon} alt={zone.type} style={{width: '30px', height: '30px', verticalAlign: 'middle', marginRight: '8px'}} />
+                            <td className="wiki-td">{zone.time}</td>
+                            <td className="wiki-td">
+                              <img src={zone.icon} alt={zone.type} className="wiki-zone-icon-lg" />
                               {zone.type}
                             </td>
                         </tr>
@@ -530,70 +304,70 @@ const Goldeneye = () => {
             </div>
 
             {/* SHOT SCHEME */}
-            <h2 id="shot-scheme" style={styles.h2}>Shot scheme</h2>
+            <h2 id="shot-scheme" className="wiki-h2">Shot scheme</h2>
             <div style={{backgroundColor: '#0f2e48', padding: '10px'}}>
-              <div style={{fontWeight:'bold', color: '#fff', paddingBottom: '5px', borderBottom: '1px solid #3a5a75'}}>Color code</div>
-              <div style={styles.shotContainer}>
-                <div style={styles.shotImage}>
+              <div className="wiki-shot-title">Color code</div>
+              <div className="wiki-shot-container">
+                <div className="wiki-shot-image">
                   <img src={Goldeneye_shot_scheme} alt="Goldeneye shot scheme" style={{width: '500px', height: '444px', objectFit: 'contain'}} />
                 </div>
-                <div style={styles.shotInfo}>
+                <div className="wiki-shot-info">
                   No Color - Every hit will kill the animal
                 </div>
               </div>
             </div>
 
             {/* TIPS */}
-            <h2 id="tips" style={styles.h2}>Tips</h2>
+            <h2 id="tips" className="wiki-h2">Tips</h2>
             <p>
               Ducks will fly against the wind when making a landing, so be mindful of the wind direction. If you are going to use blinds and decoys, place your decoys approximately 50ms (54yds) away from your blind so the <strong>Goldeneye</strong> won't fly on top of you and spook.
             </p>
 
             {/* PLUMAGE VARIANTS (Gallery) */}
-            <h2 id="plumage-variants" style={styles.h2}>Plumage Variants</h2>
+            <h2 id="plumage-variants" className="wiki-h2">Plumage Variants</h2>
 
-            <h3 id="plumage-male" style={styles.h3}>Male</h3>
-            <div style={styles.galleryGrid}>
+            <h3 id="plumage-male" className="wiki-h3">Male</h3>
+            <div className="wiki-gallery-grid">
               {malePlumageImages.map((img, i) => (
-                <div key={i} style={styles.galleryItem}>
+                <div key={i} className="wiki-gallery-item">
                   <img src={img.src} alt={img.name} style={{width: '146px', height: '165px', objectFit: 'cover', border: '4px solid #1f3a52', marginBottom: '8px'}} />
-                  <span style={styles.galleryLabel}>{img.name}</span>
+                  <span className="wiki-gallery-label">{img.name}</span>
                 </div>
               ))}
             </div>
 
-            <h3 id="plumage-female" style={styles.h3}>Female</h3>
-            <div style={styles.galleryGrid}>
+            <h3 id="plumage-female" className="wiki-h3">Female</h3>
+            <div className="wiki-gallery-grid">
               {femalePlumageImages.map((img, i) => (
-                <div key={i} style={styles.galleryItem}>
+                <div key={i} className="wiki-gallery-item">
                   <img src={img.src} alt={img.name} style={{width: '146px', height: '165px', objectFit: 'cover', border: '4px solid #1f3a52', marginBottom: '8px'}} />
-                  <span style={styles.galleryLabel}>{img.name}</span>
+                  <span className="wiki-gallery-label">{img.name}</span>
                 </div>
               ))}
             </div>
 
             {/* PLUMAGE RARITY TABLE */}
-            <h2 id="plumage-rarity" style={styles.h2}>Plumage Variant Rarity</h2>
-            <table style={styles.table}>
+            <h2 id="plumage-rarity" className="wiki-h2">Plumage Variant Rarity</h2>
+            <table className="wiki-table">
                 <thead>
                     <tr>
-                        <th style={styles.th}>Sex</th>
-                        <th style={styles.th}><span style={styles.common}>Common</span></th>
-                        <th style={styles.th}><span style={styles.uncommon}>Uncommon</span></th>
-                        <th style={styles.th}><span style={styles.rare}>Rare</span></th>
-                        <th style={styles.th}><span style={styles.veryRare}>Very Rare</span></th>
+                        <th className="wiki-th">Sex</th>
+                        <th className="wiki-th"><span className="wiki-common">Common</span></th>
+                        <th className="wiki-th"><span className="wiki-uncommon">Uncommon</span></th>
+                        <th className="wiki-th"><span className="wiki-rare">Rare</span></th>
+                        <th className="wiki-th"><span className="wiki-very-rare">Very Rare</span></th>
                     </tr>
                 </thead>
                 <tbody>
                     {/* Male Row */}
                     <tr>
-                        <td style={{...styles.td, color: '#9b59b6', fontStyle: 'italic'}}>Male</td>
-                        <td style={styles.td}>
+                        <td className="wiki-td wiki-td-rare">Male</td>
+                        <td className="wiki-td">
                             Black (99.53%)
                         </td>
-                        <td style={styles.td}>X</td>
-                        <td style={styles.td}>Eclipse (0.27%)</td>
-                        <td style={styles.td}>
+                        <td className="wiki-td">X</td>
+                        <td className="wiki-td">Eclipse (0.27%)</td>
+                        <td className="wiki-td">
                             Leucistic Variation 1 (0.07%)<br/>
                             Leucistic Variation 2 (0.07%)<br/>
                             Hybrid Variation 1 (0.03%)<br/>
@@ -603,12 +377,12 @@ const Goldeneye = () => {
                     {/* Female Row */}
                     <tr>
                         <td style={{...styles.td, color: '#e91e63', fontStyle: 'italic'}}>Female</td>
-                        <td style={styles.td}>
+                        <td className="wiki-td">
                             Grey (99.60%)
                         </td>
-                        <td style={styles.td}>X</td>
-                        <td style={styles.td}>Dark (0.27%)</td>
-                        <td style={styles.td}>
+                        <td className="wiki-td">X</td>
+                        <td className="wiki-td">Dark (0.27%)</td>
+                        <td className="wiki-td">
                             Leucistic Variation 1 (0.07%)<br/>
                             Leucistic Variation 2 (0.07%)
                         </td>
@@ -617,23 +391,23 @@ const Goldeneye = () => {
             </table>
 
             {/* TRIVIA */}
-            <h2 id="trivia" style={styles.h2}>Trivia</h2>
+            <h2 id="trivia" className="wiki-h2">Trivia</h2>
             <ul style={{paddingLeft: '20px', marginBottom: '30px'}}>
-                <li style={{marginBottom:'8px'}}>In Finnish, the Goldeneye is called <em>Telkkä</em>.</li>
-                <li style={{marginBottom:'8px'}}>The Goldeneye beats its wings at such a high rate, 9 wingbeats per second, that they make a "whistling" sound when in flight. This has earned it the nickname, <em>the whistler</em>. As Earnest Hemingway put it, "..<em>their wings sibilant, make the sound of ripping silk</em>."[1][2]</li>
-                <li style={{marginBottom:'8px'}}>These ducks are very agile; only needing about 3 to 6 feet of runway to take off from the water.</li>
-                <li style={{marginBottom:'8px'}}>The Goldeneye is a very territorial and aggressive bird. Both males and females fight over food, breeding, and even brooding rights. Even hatchlings have to deal with their parents' territorial nature. It is not uncommon for hatchlings to get separated from their mother in the middle of a territorial dispute, only to join another female's brood called a 'Creche'. It is not uncommon for a mother Goldeneye to abandon their brood entirely.[3][4]</li>
+                <li className="wiki-li">In Finnish, the Goldeneye is called <em>Telkkä</em>.</li>
+                <li className="wiki-li">The Goldeneye beats its wings at such a high rate, 9 wingbeats per second, that they make a "whistling" sound when in flight. This has earned it the nickname, <em>the whistler</em>. As Earnest Hemingway put it, "..<em>their wings sibilant, make the sound of ripping silk</em>."[1][2]</li>
+                <li className="wiki-li">These ducks are very agile; only needing about 3 to 6 feet of runway to take off from the water.</li>
+                <li className="wiki-li">The Goldeneye is a very territorial and aggressive bird. Both males and females fight over food, breeding, and even brooding rights. Even hatchlings have to deal with their parents' territorial nature. It is not uncommon for hatchlings to get separated from their mother in the middle of a territorial dispute, only to join another female's brood called a 'Creche'. It is not uncommon for a mother Goldeneye to abandon their brood entirely.[3][4]</li>
                 <li>The Genus name for this bird <em>Bucephala</em>, loosely translates to <em>bullheaded</em> in Greek.[5]</li>
             </ul>
 
             {/* REFERENCES */}
-            <h2 id="references" style={styles.h2}>References</h2>
+            <h2 id="references" className="wiki-h2">References</h2>
             <ol style={{paddingLeft: '25px', color: '#6fb2e6'}}>
-                <li><span style={styles.link}>https://www.rosamondgiffordzoo.org/experience/animals/birds/american-common-goldeneye/</span></li>
-                <li><span style={styles.link}>https://www.birdnote.org/podcasts/birdnote-daily/goldeneyes-and-whistling-wings</span></li>
-                <li><span style={styles.link}>https://www.allaboutbirds.org/guide/Common_Goldeneye/overview</span></li>
-                <li><span style={styles.link}>https://www.allaboutbirds.org/guide/Common_Goldeneye/lifehistory</span></li>
-                <li><span style={styles.link}>https://www.merriam-webster.com/dictionary/Bucephala</span></li>
+                <li><span className="wiki-link">https://www.rosamondgiffordzoo.org/experience/animals/birds/american-common-goldeneye/</span></li>
+                <li><span className="wiki-link">https://www.birdnote.org/podcasts/birdnote-daily/goldeneyes-and-whistling-wings</span></li>
+                <li><span className="wiki-link">https://www.allaboutbirds.org/guide/Common_Goldeneye/overview</span></li>
+                <li><span className="wiki-link">https://www.allaboutbirds.org/guide/Common_Goldeneye/lifehistory</span></li>
+                <li><span className="wiki-link">https://www.merriam-webster.com/dictionary/Bucephala</span></li>
             </ol>
 
             <AnimalsTableMini />

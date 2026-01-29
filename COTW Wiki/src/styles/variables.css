@@ -1,0 +1,47 @@
+/**
+ * COTW Wiki – design tokens
+ * Used by wiki.css and other global styles.
+ */
+:root {
+  /* Wiki page palette */
+  --wiki-bg: #0b1a26;
+  --wiki-bg-sidebar: #0f2e48;
+  --wiki-bg-sidebar-header: #05121c;
+  --wiki-bg-panel: #0f2e48;
+  --wiki-bg-table-header: #164060;
+  --wiki-bg-table-header-alt: #0f2e48;
+  --wiki-bg-trophy: #16334a;
+  --wiki-bg-shot: #112233;
+  --wiki-bg-shot-image: #000;
+  --wiki-bg-gallery-placeholder: #2a4b63;
+  --wiki-bg-sidebar-image: #1f3a52;
+
+  --wiki-border: #1f405a;
+  --wiki-border-light: #2a4b63;
+  --wiki-border-accent: #3a5a75;
+  --wiki-accent-gold: #cfaa3e;
+
+  --wiki-text: #dbe4eb;
+  --wiki-text-muted: #a4cce8;
+  --wiki-link: #6fb2e6;
+  --wiki-heading: #6fb2e6;
+
+  /* Trophy/rarity */
+  --wiki-silver: #bdc3c7;
+  --wiki-gold: #f1c40f;
+  --wiki-diamond: #3498db;
+  --wiki-common: #2ecc71;
+  --wiki-uncommon: #3498db;
+  --wiki-rare: #9b59b6;
+  --wiki-very-rare: #e74c3c;
+
+  /* Typography */
+  --wiki-font: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --wiki-line-height: 1.6;
+
+  /* Spacing */
+  --wiki-sidebar-width: 320px;
+  --wiki-inner-max: 1200px;
+  --wiki-gap: 30px;
+  --wiki-radius: 4px;
+}

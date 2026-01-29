@@ -108,327 +108,75 @@ const Gadwall = () => {
     Gadwall_MelanisticFemaleBack,
   ];
 
-  // --- STYLES OBJECT ---
-  const styles = {
-    container: {
-      backgroundColor: '#0b1a26',
-      color: '#dbe4eb',
-      fontFamily: '"Segoe UI", Roboto, Helvetica, Arial, sans-serif',
-      padding: '40px',
-      minHeight: '100vh',
-      lineHeight: '1.6',
-    },
-    innerWrapper: {
-      maxWidth: '1200px',
-      margin: '0 auto',
-    },
-    // Main Header
-    mainHeader: {
-      fontSize: '2.5rem',
-      fontWeight: '400',
-      borderBottom: '1px solid #3a5a75',
-      paddingBottom: '15px',
-      marginBottom: '20px',
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-    },
-    editActions: {
-      fontSize: '0.9rem',
-      color: '#6fb2e6',
-      display: 'flex',
-      gap: '15px',
-      fontWeight: 'bold',
-      cursor: 'pointer',
-    },
-    // Layout Columns
-    layout: {
-      display: 'flex',
-      gap: '30px',
-      alignItems: 'flex-start',
-      flexDirection: 'row-reverse', // Sidebar on the right
-    },
-    mainColumn: {
-      flex: 1,
-    },
-    sidebarColumn: {
-      width: '320px',
-      flexShrink: 0,
-      backgroundColor: '#0f2e48',
-      border: '1px solid #1f405a',
-      borderRadius: '4px',
-    },
-    // Sidebar Specifics
-    sidebarHeader: {
-      backgroundColor: '#05121c',
-      padding: '12px',
-      textAlign: 'center',
-      fontWeight: 'bold',
-      fontSize: '1.1rem',
-      borderBottom: '2px solid #cfaa3e', // Gold accent
-    },
-    sidebarImage: {
-      height: '180px',
-      backgroundColor: '#1f3a52',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      color: '#6fb2e6',
-      fontStyle: 'italic',
-      borderBottom: '1px solid #1f405a',
-      position: 'relative',
-    },
-    sidebarSection: {
-      padding: '10px 15px',
-      borderBottom: '1px solid #2a4b63',
-      fontSize: '0.95rem',
-    },
-    sidebarLabel: {
-      fontWeight: 'bold',
-      display: 'block',
-      marginBottom: '5px',
-      color: '#fff',
-    },
-    trophyGrid: {
-      display: 'grid',
-      gridTemplateColumns: 'repeat(3, 1fr)',
-      gap: '5px',
-      marginTop: '5px',
-      textAlign: 'center',
-    },
-    trophyItem: {
-      backgroundColor: '#16334a',
-      padding: '6px 2px',
-      borderRadius: '4px',
-    },
-    trophyLabel: {
-      fontSize: '0.75rem',
-      display: 'block',
-      fontWeight: 'bold',
-      marginBottom: '2px',
-    },
-    silver: { color: '#bdc3c7' },
-    gold: { color: '#f1c40f' },
-    diamond: { color: '#3498db' },
-    
-    // Content Components
-    quoteBox: {
-      fontStyle: 'italic',
-      backgroundColor: '#0f2e48',
-      borderLeft: '4px solid #3a5a75',
-      padding: '15px 20px',
-      margin: '0 0 20px 0',
-      color: '#a4cce8',
-    },
-    link: {
-      color: '#6fb2e6',
-      textDecoration: 'none',
-      cursor: 'pointer',
-    },
-    h2: {
-      color: '#6fb2e6',
-      borderBottom: '1px solid #3a5a75',
-      paddingBottom: '5px',
-      marginTop: '30px',
-      marginBottom: '15px',
-      fontSize: '1.5rem',
-      display: 'flex',
-      alignItems: 'center',
-      fontWeight: '500',
-    },
-    h3: {
-      color: '#dbe4eb',
-      fontSize: '1.2rem',
-      marginTop: '20px',
-      marginBottom: '10px',
-      fontWeight: 'bold'
-    },
-    h2Icon: {
-      fontSize: '0.8rem',
-      marginLeft: '10px',
-      opacity: 0.7,
-      cursor: 'pointer',
-    },
-    
-    // Tables
-    table: {
-      width: '100%',
-      borderCollapse: 'collapse',
-      backgroundColor: '#0f2e48',
-      fontSize: '0.95rem',
-      marginBottom: '20px',
-    },
-    th: {
-      backgroundColor: '#164060',
-      padding: '10px 15px',
-      textAlign: 'left',
-      color: '#fff',
-      borderBottom: '2px solid #3a5a75',
-      fontWeight: 'bold',
-    },
-    td: {
-      padding: '10px 15px',
-      borderBottom: '1px solid #2a4b63',
-      color: '#dbe4eb',
-    },
-    
-    // Shot Scheme
-    // Shot Scheme
-    shotContainer: {
-      display: 'block',
-      width: '500px',
-      height: '444px',
-      position: 'relative',
-      backgroundColor: '#112233',
-      marginTop: '10px',
-      border: '1px solid #1f405a',
-      overflow: 'hidden',
-    },
-    shotImage: {
-      width: '100%',
-      height: '100%',
-      backgroundColor: '#000',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      color: '#555',
-      flexShrink: 0,
-    },
-    shotInfo: {
-      position: 'absolute',
-      bottom: '0',
-      left: '0',
-      width: '100%',
-      padding: '10px',
-      background: 'rgba(0,0,0,0.5)',
-      color: '#fff',
-      boxSizing: 'border-box',
-    },
-
-    // Gallery
-    galleryGrid: {
-      display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fill, minmax(160px, 1fr))',
-      gap: '15px',
-    },
-    galleryItem: {
-      backgroundColor: 'transparent',
-    },
-    galleryImgPlaceholder: {
-      height: '180px',
-      backgroundColor: '#2a4b63',
-      border: '4px solid #1f3a52', 
-      marginBottom: '8px',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      position: 'relative',
-    },
-    galleryLabel: {
-      fontSize: '0.9rem',
-      display: 'block',
-      lineHeight: '1.2',
-    },
-
-    // Rarity Colors
-    common: { color: '#2ecc71', fontWeight: 'bold' },
-    rare: { color: '#9b59b6', fontWeight: 'bold' },
-    veryRare: { color: '#e74c3c', fontWeight: 'bold' },
-    uncommon: { color: '#3498db', fontWeight: 'bold' },
-  };
-  
-  // Table of contents data and smooth scroll handler
-  const toc = [
-    { id: 'features', title: 'Features' },
-    { id: 'need-zone-times', title: 'Need Zone Times' },
-    { id: 'shot-scheme', title: 'Shot scheme' },
-    { id: 'tips', title: 'Tips' },
-    { id: 'plumage-variants', title: 'Plumage Variants', sub: [
-      { id: 'plumage-male', title: 'Male' },
-      { id: 'plumage-female', title: 'Female' },
-    ] },
-    { id: 'plumage-rarity', title: 'Plumage Variant Rarity' },
-    { id: 'trivia', title: 'Trivia' },
-    { id: 'references', title: 'References' },
-  ];
-
-  const handleScroll = (id) => {
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      try { history.replaceState(null, '', `#${id}`); } catch (e) {}
-    }
-  };
-
   return (
-    <div style={styles.container}>
-      <div style={styles.innerWrapper}>
+    <div className="wiki-page">
+      <div className="wiki-inner">
         
         {/* PAGE HEADER */}
-          <div style={styles.mainHeader}>
+          <div className="wiki-header">
           <span>Gadwall</span>
-          <div style={styles.editActions}>
+          <div className="wiki-edit-actions">
           </div>
         </div>
 
-        <div style={styles.layout}>
+        <div className="wiki-layout">
           
           {/* --- RIGHT SIDEBAR (General Information) --- */}
-          <aside style={styles.sidebarColumn}>
-            <div style={styles.sidebarHeader}>Gadwall</div>
-            <div style={styles.sidebarImage}>
-              <img src={GadwallMain} alt="Gadwall" style={{width:'268.4px', height: '134.2px', objectFit: 'cover'}} />
+          <aside className="wiki-sidebar">
+            <div className="wiki-sidebar-header">Gadwall</div>
+            <div className="wiki-sidebar-image">
+              <img src={GadwallMain} alt="Gadwall" />
             </div>
             
-            <div style={styles.sidebarHeader}>General Information</div>
+            <div className="wiki-sidebar-header">General Information</div>
             
-            <div style={styles.sidebarSection}>
-              <span style={styles.sidebarLabel}>Class</span>
-              <span><img src={class1Icon} alt="Class 1" style={{width:'20px', height: '20px', verticalAlign: 'middle', marginRight: '6px'}}/>1</span>
+            <div className="wiki-sidebar-section">
+              <span className="wiki-sidebar-label">Class</span>
+              <span><img src={class1Icon} alt="Class 1" className="wiki-class-icon"/>1</span>
             </div>
 
-            <div style={styles.sidebarSection}>
-              <span style={styles.sidebarLabel}>Difficulty</span>
+            <div className="wiki-sidebar-section">
+              <span className="wiki-sidebar-label">Difficulty</span>
               <span>1: Trivial — 3: Very Easy</span>
             </div>
 
-            <div style={styles.sidebarSection}>
-              <span style={styles.sidebarLabel}>Trophy Type</span>
+            <div className="wiki-sidebar-section">
+              <span className="wiki-sidebar-label">Trophy Type</span>
               <span>Weight</span>
-              <div style={styles.trophyGrid}>
-                <div style={styles.trophyItem}>
-                  <span style={{...styles.trophyLabel, ...styles.silver}}>◆ Silver</span>
+              <div className="wiki-trophy-grid">
+                <div className="wiki-trophy-item">
+                  <span className="wiki-trophy-label wiki-trophy-silver">◆ Silver</span>
                   <span>700</span>
                 </div>
-                <div style={styles.trophyItem}>
-                  <span style={{...styles.trophyLabel, ...styles.gold}}>☗ Gold</span>
+                <div className="wiki-trophy-item">
+                  <span className="wiki-trophy-label wiki-trophy-gold">☗ Gold</span>
                   <span>900</span>
                 </div>
-                <div style={styles.trophyItem}>
-                  <span style={{...styles.trophyLabel, ...styles.diamond}}>☗ Diamond</span>
+                <div className="wiki-trophy-item">
+                  <span className="wiki-trophy-label wiki-trophy-diamond">☗ Diamond</span>
                   <span>1050</span>
                 </div>
               </div>
             </div>
 
-            <div style={styles.sidebarSection}>
-               <span style={styles.sidebarLabel}>Plumage</span>
-               <span style={{fontSize:'0.85rem'}}>
+            <div className="wiki-sidebar-section">
+               <span className="wiki-sidebar-label">Plumage</span>
+               <span className="wiki-fs-sm">
                   Albino, Brown, Eclipse, Grey, Leucistic, Melanistic
                </span>
             </div>
 
-            <div style={styles.sidebarHeader}>Locations</div>
-            <div style={styles.sidebarSection}>
-               <div style={{marginBottom:'4px'}}><span style={styles.link}>Salzwiesen Park</span></div>
+            <div className="wiki-sidebar-header">Locations</div>
+            <div className="wiki-sidebar-section">
+               <div className="wiki-mb-4"><span className="wiki-link">Salzwiesen Park</span></div>
             </div>
           </aside>
 
           {/* --- MAIN CONTENT --- */}
-          <main style={styles.mainColumn}>
+          <main className="wiki-main">
 
             {/* Quote Block */}
-            <div style={styles.quoteBox}>
+            <div className="wiki-quote">
               "Gadwall Ducks are versatile waterfowl, found in a wide range of wetland habitats. They are particularly fond of shallow, freshwater habitats with abundant emergent vegetation for feeding and cover.
               Both male and female Gadwalls exhibit a muted yet distinctive color palette. Males feature a handsome pattern of intricate gray, brown and black markings on their bodies, with a striking black rear end and subtle iridescent sheen on their wings. Females, while less boldly patterned, display a warm mottled brown plumage, providing effective camouflage in their marshy habitats.
               Gadwalls are known for their cautious nature and keen awareness of their surroundings, making them a challenging quarry for waterfowl hunters."
@@ -437,29 +185,22 @@ const Gadwall = () => {
             </div>
 
             {/* Intro Text */}
-            <p style={{marginBottom:'20px'}}>
-              The <strong>Gadwall</strong> is a small <span style={styles.link}>class 1</span> species of duck, that can be hunted on <span style={styles.link}>Salzwiesen Park</span>.
+            <p className="wiki-p-mb">
+              The <strong>Gadwall</strong> is a small <span className="wiki-link">class 1</span> species of duck, that can be hunted on <span className="wiki-link">Salzwiesen Park</span>.
             </p>
 
             {/* Table of Contents */}
-            <div style={{
-                border: '1px solid #3a5a75',
-                backgroundColor: '#0f2e48',
-                display: 'inline-block',
-                padding: '10px 20px',
-                borderRadius: '4px',
-                minWidth: '200px'
-            }}>
-              <div style={{fontWeight:'bold', borderBottom: '1px solid #3a5a75', marginBottom: '5px'}}>
-                🔢 Contents <span style={{float:'right', color: '#6fb2e6', fontSize:'0.8rem'}}>[hide]</span>
+            <div className="wiki-toc">
+              <div className="wiki-toc-title">
+                🔢 Contents <span className="wiki-toc-toggle">[hide]</span>
               </div>
-              <ol style={{margin:'0', paddingLeft: '20px', color: '#6fb2e6'}}>
+              <ol className="wiki-toc">
                 {toc.map((item, i) => (
                   <li key={item.id} style={{marginBottom: '6px'}}>
                     <a
                       href={`#${item.id}`}
                       onClick={(e)=>{e.preventDefault(); handleScroll(item.id);}}
-                      style={styles.link}
+                      className="wiki-link"
                     >
                       {item.title}
                     </a>
@@ -471,7 +212,7 @@ const Gadwall = () => {
                             <a
                               href={`#${sub.id}`}
                               onClick={(e)=>{e.preventDefault(); handleScroll(sub.id);}}
-                              style={styles.link}
+                              className="wiki-link"
                             >
                               {`${i+1}.${j+1} ${sub.title}`}
                             </a>
@@ -485,17 +226,17 @@ const Gadwall = () => {
             </div>
 
             {/* FEATURES */}
-            <h2 id="features" style={styles.h2}>Features</h2>
-            <table style={styles.table}>
+            <h2 id="features" className="wiki-h2">Features</h2>
+            <table className="wiki-table">
               <tbody>
                 <tr>
-                    <th style={{...styles.th, width: '25%'}}></th>
-                    <th style={styles.th}>Description</th>
+                    <th className="wiki-th wiki-th-w25"></th>
+                    <th className="wiki-th">Description</th>
                 </tr>
                 {features.map((item, index) => (
                   <tr key={index}>
-                    <td style={{...styles.td, fontWeight: 'bold'}}>{item.label}</td>
-                    <td style={{...styles.td, fontStyle: item.italic ? 'italic' : 'normal'}}>
+                    <td className="wiki-td wiki-td-bold">{item.label}</td>
+                    <td className={`wiki-td ${item.italic ? 'wiki-td-italic' : ''}`}>
                         <span dangerouslySetInnerHTML={{ __html: item.value }} />
                     </td>
                   </tr>
@@ -504,21 +245,21 @@ const Gadwall = () => {
             </table>
 
             {/* NEED ZONE TIMES */}
-            <h2 id="need-zone-times" style={styles.h2}>Need Zone Times</h2>
-            <div style={{display:'inline-block'}}>
-                <table style={{...styles.table, width: '300px'}}>
+            <h2 id="need-zone-times" className="wiki-h2">Need Zone Times</h2>
+            <div className="wiki-inline-block">
+                <table className="wiki-table wiki-table-fixed">
                     <thead>
-                        <tr><th colSpan="2" style={{...styles.th, textAlign: 'center'}}>Revontuli Coast</th></tr>
+                        <tr><th colSpan="2" className="wiki-th wiki-th-center">Revontuli Coast</th></tr>
                         <tr>
-                            <th style={{...styles.th, backgroundColor: '#0f2e48'}}>Times</th>
-                            <th style={{...styles.th, backgroundColor: '#0f2e48'}}>Activity</th>
+                            <th className="wiki-th wiki-th-alt">Times</th>
+                            <th className="wiki-th wiki-th-alt">Activity</th>
                         </tr>
                     </thead>
                     <tbody>
                         {needZones.map((zone, i) => (
                         <tr key={i}>
-                            <td style={styles.td}>{zone.time}</td>
-                            <td style={styles.td}><img src={zone.icon} alt={zone.type} style={{width:'20px', height: '20px', verticalAlign: 'middle', marginRight: '6px'}}/> {zone.type}</td>
+                            <td className="wiki-td">{zone.time}</td>
+                            <td className="wiki-td"><img src={zone.icon} alt={zone.type} className="wiki-class-icon"/> {zone.type}</td>
                         </tr>
                         ))}
                     </tbody>
@@ -526,87 +267,87 @@ const Gadwall = () => {
             </div>
 
             {/* SHOT SCHEME */}
-            <h2 id="shot-scheme" style={styles.h2}>Shot scheme</h2>
-            <div style={{backgroundColor:'#0f2e48', padding: '10px'}}>
-                <div style={{fontWeight:'bold', color: '#fff', paddingBottom: '5px', borderBottom: '1px solid #3a5a75'}}>Color code</div>
-                  <div style={styles.shotContainer}>
-                    <div style={styles.shotImage}>
-                      <img src={Gadwall_shot_scheme} alt="Gadwall X-ray shot scheme" style={{width:'100%', height: '100%', objectFit: 'contain'}} />
+            <h2 id="shot-scheme" className="wiki-h2">Shot scheme</h2>
+            <div className="wiki-shot-wrap">
+                <div className="wiki-shot-title">Color code</div>
+                  <div className="wiki-shot-container">
+                    <div className="wiki-shot-image">
+                      <img src={Gadwall_shot_scheme} alt="Gadwall X-ray shot scheme" className="wiki-img-contain" />
                     </div>
-                    <div style={styles.shotInfo}>
+                    <div className="wiki-shot-info">
                       No Color - Every hit will kill the animal
                     </div>
                   </div>
             </div>
 
             {/* TIPS */}
-            <h2 id="tips" style={styles.h2}>Tips</h2>
+            <h2 id="tips" className="wiki-h2">Tips</h2>
             <p>
               Ducks will fly against the wind when making a landing, so be mindful of the wind direction. If you are going to use blinds and decoys, place your decoys approximately 50ms (54yds) away from your blind so the <strong>Gadwall</strong> won't fly on top of you and spook.
             </p>
 
             {/* PLUMAGE VARIANTS (Gallery) */}
-            <h2 id="plumage-variants" style={styles.h2}>Plumage Variants</h2>
+            <h2 id="plumage-variants" className="wiki-h2">Plumage Variants</h2>
             
-            <h3 id="plumage-male" style={styles.h3}>Male</h3>
-            <div style={styles.galleryGrid}>
+            <h3 id="plumage-male" className="wiki-h3">Male</h3>
+            <div className="wiki-gallery-grid">
               {plumageMale.map((item, i) => (
-                <div key={i} style={styles.galleryItem}>
-                  <div style={styles.galleryImgPlaceholder}>
-                    <img src={maleImages[i]} alt={item.name} style={{width:'146px', height: '165px', objectFit: 'cover'}} />
+                <div key={i} className="wiki-gallery-item">
+                  <div className="wiki-gallery-placeholder">
+                    <img src={maleImages[i]} alt={item.name} />
                   </div>
-                  <span style={styles.galleryLabel}>{item.name}</span>
+                  <span className="wiki-gallery-label">{item.name}</span>
                 </div>
               ))}
             </div>
 
-            <h3 id="plumage-female" style={styles.h3}>Female</h3>
-            <div style={styles.galleryGrid}>
+            <h3 id="plumage-female" className="wiki-h3">Female</h3>
+            <div className="wiki-gallery-grid">
               {plumageFemale.map((item, i) => (
-                <div key={i} style={styles.galleryItem}>
-                  <div style={styles.galleryImgPlaceholder}>
-                    <img src={femaleImages[i]} alt={item.name} style={{width:'146px', height: '165px', objectFit: 'cover'}} />
+                <div key={i} className="wiki-gallery-item">
+                  <div className="wiki-gallery-placeholder">
+                    <img src={femaleImages[i]} alt={item.name} />
                   </div>
-                  <span style={styles.galleryLabel}>{item.name}</span>
+                  <span className="wiki-gallery-label">{item.name}</span>
                 </div>
               ))}
             </div>
 
             {/* PLUMAGE RARITY TABLE */}
-            <h2 id="plumage-rarity" style={styles.h2}>Plumage Variant Rarity</h2>
-            <table style={styles.table}>
+            <h2 id="plumage-rarity" className="wiki-h2">Plumage Variant Rarity</h2>
+            <table className="wiki-table">
                 <thead>
                     <tr>
-                        <th style={styles.th}>Sex</th>
-                        <th style={styles.th}><span style={styles.common}>Common</span></th>
-                        <th style={styles.th}><span style={styles.uncommon}>Uncommon</span></th>
-                        <th style={styles.th}><span style={styles.rare}>Rare</span></th>
-                        <th style={styles.th}><span style={styles.veryRare}>Very Rare</span></th>
+                        <th className="wiki-th">Sex</th>
+                        <th className="wiki-th"><span className="wiki-common">Common</span></th>
+                        <th className="wiki-th"><span className="wiki-uncommon">Uncommon</span></th>
+                        <th className="wiki-th"><span className="wiki-rare">Rare</span></th>
+                        <th className="wiki-th"><span className="wiki-very-rare">Very Rare</span></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td style={{...styles.td, color: '#9b59b6', fontStyle: 'italic'}}>Male</td>
-                        <td style={styles.td}>
+                        <td className="wiki-td wiki-td-rare">Male</td>
+                        <td className="wiki-td">
                             Grey (59.87%),<br/>
                             Eclipse (39.97%)
                         </td>
-                        <td style={styles.td}>X</td>
-                        <td style={styles.td}>X</td>
-                        <td style={styles.td}>
+                        <td className="wiki-td">X</td>
+                        <td className="wiki-td">X</td>
+                        <td className="wiki-td">
                             Albino (0.05%),<br/>
                             Leucistic (0.05%),<br/>
                             Melanistic (0.05%)
                         </td>
                     </tr>
                     <tr>
-                        <td style={{...styles.td, color: '#9b59b6', fontStyle: 'italic'}}>Female</td>
-                        <td style={styles.td}>
+                        <td className="wiki-td wiki-td-rare">Female</td>
+                        <td className="wiki-td">
                             Brown (99.85%)
                         </td>
-                        <td style={styles.td}>X</td>
-                        <td style={styles.td}>X</td>
-                        <td style={styles.td}>
+                        <td className="wiki-td">X</td>
+                        <td className="wiki-td">X</td>
+                        <td className="wiki-td">
                             Albino (0.05%),<br/>
                             Leucistic (0.05%),<br/>
                             Melanistic (0.05%)
@@ -616,17 +357,17 @@ const Gadwall = () => {
             </table>
 
             {/* TRIVIA */}
-            <h2 id="trivia" style={styles.h2}>Trivia</h2>
-            <ul style={{paddingLeft:'20px', marginBottom: '30px'}}>
-                <li style={{marginBottom:'8px'}}>Its scientific name consists of the words <i>Marreco</i> which is Portugese for small duck and <i>strepera</i> which is latin for <i>noisy</i>.</li>
-                <li style={{marginBottom:'8px'}}>Gadwalls are known to frequently steal food from other ducks.</li>
+            <h2 id="trivia" className="wiki-h2">Trivia</h2>
+            <ul className="wiki-ul">
+                <li className="wiki-li">Its scientific name consists of the words <i>Marreco</i> which is Portugese for small duck and <i>strepera</i> which is latin for <i>noisy</i>.</li>
+                <li className="wiki-li">Gadwalls are known to frequently steal food from other ducks.</li>
             </ul>
 
             {/* REFERENCES */}
-            <h2 id="references" style={styles.h2}>References</h2>
+            <h2 id="references" className="wiki-h2">References</h2>
             <ol style={{paddingLeft:'25px', color: '#6fb2e6'}}>
-                <li><span style={styles.link}>wikipedia.org</span></li>
-                <li><span style={styles.link}>allaboutbirds.org</span></li>
+                <li><span className="wiki-link">wikipedia.org</span></li>
+                <li><span className="wiki-link">allaboutbirds.org</span></li>
             </ol>
 
             <AnimalsTableMini />

@@ -33,77 +33,12 @@ const TableOfContents = () => {
     { id: 'release-date', label: '3. Animals by release date (table)' }
   ];
 
-  // --- STYLES ---
-  const styles = {
-    tocContainer: {
-      border: '1px solid #3a5a75',
-      backgroundColor: '#0f2e48',
-      display: 'inline-block',
-      padding: '10px',
-      borderRadius: '4px',
-      minWidth: '300px',
-      maxWidth: '100%',
-      marginBottom: '30px',
-      color: '#dbe4eb',
-      fontFamily: '"Segoe UI", Roboto, Helvetica, Arial, sans-serif',
-      fontSize: '0.95rem',
-    },
-    header: {
-      fontWeight: 'bold',
-      borderBottom: isVisible ? '1px solid #3a5a75' : 'none',
-      marginBottom: isVisible ? '10px' : '0',
-      paddingBottom: isVisible ? '5px' : '0',
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-    },
-    toggleLink: {
-      color: '#6fb2e6',
-      fontSize: '0.85rem',
-      cursor: 'pointer',
-      marginLeft: '10px',
-      textDecoration: 'none',
-      userSelect: 'none',
-    },
-    list: {
-      listStyleType: 'none',
-      padding: '0',
-      margin: '0',
-    },
-    listItem: {
-      marginBottom: '4px',
-    },
-    subList: {
-      listStyleType: 'none',
-      paddingLeft: '20px', 
-      margin: '4px 0 8px 0',
-    },
-    link: {
-      color: '#dbe4eb',
-      textDecoration: 'none',
-      cursor: 'pointer',
-    },
-    linkHover: {
-      textDecoration: 'underline',
-      color: '#6fb2e6',
-    }
-  };
-
-  // Helper for smooth scroll
-  const handleScroll = (e, id) => {
-    e.preventDefault();
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
-    <div style={styles.tocContainer}>
-      <div style={styles.header}>
+    <div className="wiki-toc-panel">
+      <div className="wiki-panel-header">
         <span>🔢 Contents</span>
         <span 
-          style={styles.toggleLink} 
+          className="wiki-toc-panel-toggle" 
           onClick={() => setIsVisible(!isVisible)}
         >
           [{isVisible ? 'hide' : 'show'}]
@@ -111,14 +46,14 @@ const TableOfContents = () => {
       </div>
 
       {isVisible && (
-        <ul style={styles.list}>
+        <ul className="wiki-list-plain">
           {tocItems.map((item) => (
-            <li key={item.id} style={styles.listItem}>
+            <li key={item.id} className="wiki-li">
               {/* Main Level Link */}
               <a 
                 href={`#${item.id}`} 
                 onClick={(e) => handleScroll(e, item.id)}
-                style={styles.link}
+                className="wiki-link"
                 onMouseEnter={(e) => e.target.style.color = styles.linkHover.color}
                 onMouseLeave={(e) => e.target.style.color = styles.link.color}
               >
@@ -127,13 +62,13 @@ const TableOfContents = () => {
 
               {/* Sub Items (if any) */}
               {item.subItems && (
-                <ul style={styles.subList}>
+                <ul className="wiki-toc-panel-list">
                   {item.subItems.map((sub) => (
-                    <li key={sub.id} style={styles.listItem}>
+                    <li key={sub.id} className="wiki-li">
                       <a 
                         href={`#${sub.id}`} 
                         onClick={(e) => handleScroll(e, sub.id)}
-                        style={styles.link}
+                        className="wiki-link"
                         onMouseEnter={(e) => e.target.style.color = styles.linkHover.color}
                         onMouseLeave={(e) => e.target.style.color = styles.link.color}
                       >

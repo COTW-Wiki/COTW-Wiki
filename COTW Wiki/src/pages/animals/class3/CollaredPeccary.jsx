@@ -71,339 +71,118 @@ const CollaredPeccary = () => {
   const triviaData = [
   ];
 
-  // --- STYLES OBJECT ---
-  const styles = {
-    container: {
-      backgroundColor: '#0b1a26',
-      color: '#dbe4eb',
-      fontFamily: '"Segoe UI", Roboto, Helvetica, Arial, sans-serif',
-      padding: '40px',
-      minHeight: '100vh',
-      lineHeight: '1.6',
-    },
-    innerWrapper: {
-      maxWidth: '1200px',
-      margin: '0 auto',
-    },
-    mainHeader: {
-      fontSize: '2.5rem',
-      fontWeight: '400',
-      borderBottom: '1px solid #3a5a75',
-      paddingBottom: '15px',
-      marginBottom: '20px',
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-    },
-    layout: {
-      display: 'flex',
-      gap: '30px',
-      alignItems: 'flex-start',
-      flexDirection: 'row-reverse',
-    },
-    mainColumn: {
-      flex: 1,
-    },
-    sidebarColumn: {
-      width: '320px',
-      flexShrink: 0,
-      backgroundColor: '#0f2e48',
-      border: '1px solid #1f405a',
-      borderRadius: '4px',
-    },
-    sidebarHeader: {
-      backgroundColor: '#05121c',
-      padding: '12px',
-      textAlign: 'center',
-      fontWeight: 'bold',
-      fontSize: '1.1rem',
-      borderBottom: '2px solid #cfaa3e',
-    },
-    sidebarImage: {
-      height: '180px',
-      backgroundColor: '#1f3a52',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      color: '#6fb2e6',
-      fontStyle: 'italic',
-      borderBottom: '1px solid #1f405a',
-      position: 'relative',
-    },
-    sidebarSection: {
-      padding: '10px 15px',
-      borderBottom: '1px solid #2a4b63',
-      fontSize: '0.95rem',
-    },
-    sidebarLabel: {
-      fontWeight: 'bold',
-      display: 'block',
-      marginBottom: '5px',
-      color: '#fff',
-    },
-    trophyGrid: {
-      display: 'grid',
-      gridTemplateColumns: 'repeat(3, 1fr)',
-      gap: '5px',
-      marginTop: '5px',
-      textAlign: 'center',
-    },
-    trophyItem: {
-      backgroundColor: '#16334a',
-      padding: '6px 2px',
-      borderRadius: '4px',
-    },
-    trophyLabel: {
-      fontSize: '0.75rem',
-      display: 'block',
-      fontWeight: 'bold',
-      marginBottom: '2px',
-    },
-    silver: { color: '#bdc3c7' },
-    gold: { color: '#f1c40f' },
-    diamond: { color: '#3498db' },
-    
-    quoteBox: {
-      fontStyle: 'italic',
-      backgroundColor: '#0f2e48',
-      borderLeft: '4px solid #3a5a75',
-      padding: '15px 20px',
-      margin: '0 0 20px 0',
-      color: '#a4cce8',
-    },
-    link: {
-      color: '#6fb2e6',
-      textDecoration: 'none',
-      cursor: 'pointer',
-    },
-    h2: {
-      color: '#6fb2e6',
-      borderBottom: '1px solid #3a5a75',
-      paddingBottom: '5px',
-      marginTop: '30px',
-      marginBottom: '15px',
-      fontSize: '1.5rem',
-      display: 'flex',
-      alignItems: 'center',
-      fontWeight: '500',
-    },
-    table: {
-      width: '100%',
-      borderCollapse: 'collapse',
-      backgroundColor: '#0f2e48',
-      fontSize: '0.95rem',
-      marginBottom: '20px',
-    },
-    th: {
-      backgroundColor: '#164060',
-      padding: '10px 15px',
-      textAlign: 'left',
-      color: '#fff',
-      borderBottom: '2px solid #3a5a75',
-      fontWeight: 'bold',
-    },
-    td: {
-      padding: '10px 15px',
-      borderBottom: '1px solid #2a4b63',
-      color: '#dbe4eb',
-      verticalAlign: 'top',
-    },
-    shotContainer: {
-      display: 'flex',
-      backgroundColor: '#112233',
-      marginTop: '10px',
-      border: '1px solid #1f405a',
-      flexDirection: 'row',
-      alignItems: 'stretch',
-    },
-    shotImageWrapper: {
-      flex: 1,
-      borderRight: '1px solid #1f405a',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      backgroundColor: '#000',
-    },
-    shotLegend: {
-      width: '240px',
-      flexShrink: 0,
-      display: 'flex',
-      flexDirection: 'column',
-    },
-    legendHeader: {
-      backgroundColor: '#162c46',
-      padding: '10px',
-      fontWeight: 'bold',
-      borderBottom: '1px solid #1f405a',
-      color: '#fff',
-      fontSize: '0.95rem',
-    },
-    legendItem: {
-      padding: '15px',
-      borderBottom: '1px solid #1f405a',
-      fontSize: '0.9rem',
-      color: '#dbe4eb',
-    },
-    galleryGrid: {
-      display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fill, minmax(160px, 1fr))',
-      gap: '15px',
-    },
-    galleryItem: {
-      backgroundColor: 'transparent',
-    },
-    galleryImgPlaceholder: {
-      height: '180px',
-      backgroundColor: '#2a4b63',
-      border: '4px solid #1f3a52', 
-      marginBottom: '8px',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      position: 'relative',
-    },
-    galleryLabel: {
-      fontSize: '0.9rem',
-      display: 'block',
-      lineHeight: '1.2',
-      textAlign: 'center'
-    },
-    rarityCommon: { color: '#2ecc71', fontWeight: 'bold' },
-    rarityUncommon: { color: '#3498db', fontWeight: 'bold' },
-    rarityRare: { color: '#9b59b6', fontWeight: 'bold' },
-    rarityVeryRare: { color: '#e74c3c', fontWeight: 'bold' },
-  };
-
-  // Smooth-scroll helper for TOC links
-  const scrollToId = (id) => (e) => {
-    if (e && e.preventDefault) e.preventDefault();
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      try { history.replaceState(null, '', `#${id}`); } catch (err) { /* ignore */ }
-    }
-  };
-
   return (
-    <div style={styles.container}>
-      <div style={styles.innerWrapper}>
+    <div className="wiki-page">
+      <div className="wiki-inner">
         
         {/* PAGE HEADER */}
-        <div style={styles.mainHeader}>
+        <div className="wiki-header">
           <span>Collared Peccary</span>
         </div>
 
-        <div style={styles.layout}>
+        <div className="wiki-layout">
           
           {/* --- RIGHT SIDEBAR (General Information) --- */}
-          <aside style={styles.sidebarColumn}>
-            <div style={styles.sidebarHeader}>Collared Peccary</div>
-            <div style={styles.sidebarImage}>
-              <img src={CollaredPeccaryMain} alt="Collared Peccary" style={{width:'100%', height: '100%', objectFit: 'cover'}} />
+          <aside className="wiki-sidebar">
+            <div className="wiki-sidebar-header">Collared Peccary</div>
+            <div className="wiki-sidebar-image">
+              <img src={CollaredPeccaryMain} alt="Collared Peccary" />
             </div>
             
-            <div style={styles.sidebarHeader}>General Information</div>
+            <div className="wiki-sidebar-header">General Information</div>
             
-            <div style={styles.sidebarSection}>
-              <span style={styles.sidebarLabel}>Class</span>
-              <span><img src={class3Icon} alt="Class 3" style={{width:'24px', height:'24px', verticalAlign: 'middle', marginRight: '6px'}}/>3</span>
+            <div className="wiki-sidebar-section">
+              <span className="wiki-sidebar-label">Class</span>
+              <span><img src={class3Icon} alt="Class 3" className="wiki-class-icon-lg"/>3</span>
             </div>
 
-            <div style={styles.sidebarSection}>
-              <span style={styles.sidebarLabel}>Difficulty</span>
+            <div className="wiki-sidebar-section">
+              <span className="wiki-sidebar-label">Difficulty</span>
               <span>1: Trivial — 5: Medium</span>
             </div>
 
-            <div style={styles.sidebarSection}>
-              <span style={styles.sidebarLabel}>Trophy Type</span>
+            <div className="wiki-sidebar-section">
+              <span className="wiki-sidebar-label">Trophy Type</span>
               <span>Tusks</span>
-              <div style={styles.trophyGrid}>
-                <div style={styles.trophyItem}>
-                  <span style={{...styles.trophyLabel, ...styles.silver}}>◆ Silver</span>
+              <div className="wiki-trophy-grid">
+                <div className="wiki-trophy-item">
+                  <span className="wiki-trophy-label wiki-trophy-silver">◆ Silver</span>
                   <span>37.50</span>
                 </div>
-                <div style={styles.trophyItem}>
-                  <span style={{...styles.trophyLabel, ...styles.gold}}>☗ Gold</span>
+                <div className="wiki-trophy-item">
+                  <span className="wiki-trophy-label wiki-trophy-gold">☗ Gold</span>
                   <span>98.50</span>
                 </div>
-                <div style={styles.trophyItem}>
-                  <span style={{...styles.trophyLabel, ...styles.diamond}}>☗ Diamond</span>
+                <div className="wiki-trophy-item">
+                  <span className="wiki-trophy-label wiki-trophy-diamond">☗ Diamond</span>
                   <span>144.20</span>
                 </div>
               </div>
             </div>
 
-            <div style={styles.sidebarSection}>
-              <span style={styles.sidebarLabel}>Weight</span>
+            <div className="wiki-sidebar-section">
+              <span className="wiki-sidebar-label">Weight</span>
               14kg — 31kg<br/>
-              <span style={{color: '#88a0b8', fontSize: '0.85rem'}}>31lbs — 68lbs</span>
+              <span className="wiki-sidebar-muted">31lbs — 68lbs</span>
             </div>
 
-            <div style={styles.sidebarSection}>
-               <span style={styles.sidebarLabel}>Fur</span>
-               <span style={{fontSize:'0.85rem'}}>
+            <div className="wiki-sidebar-section">
+               <span className="wiki-sidebar-label">Fur</span>
+               <span className="wiki-fs-sm">
                  Albino, Brown, Dark-Brown, Dark-Grey, Grey, Leucistic, Melanistic, Ochre
                </span>
             </div>
 
-            <div style={styles.sidebarHeader}>Locations</div>
-            <div style={styles.sidebarSection}>
-               <div style={{marginBottom:'4px'}}><span style={styles.link}>Rancho del Arroyo</span></div>
-               <div style={{marginBottom:'4px'}}><span style={styles.link}>Parque Fernando</span></div>
+            <div className="wiki-sidebar-header">Locations</div>
+            <div className="wiki-sidebar-section">
+               <div className="wiki-mb-4"><span className="wiki-link">Rancho del Arroyo</span></div>
+               <div className="wiki-mb-4"><span className="wiki-link">Parque Fernando</span></div>
             </div>
           </aside>
 
           {/* --- MAIN CONTENT --- */}
-          <main style={styles.mainColumn}>
+          <main className="wiki-main">
 
             {/* Quote Block */}
-            <div style={styles.quoteBox}>
+            <div className="wiki-quote">
               "Collared peccaries or "javelinas" are small, bulky, short-legged mammals in the Tayassuidae family, which includes animals such as pigs, boars and hogs. They are primarily herbivores, feeding on fruits, roots, cactus and other green vegetation, but will opportunistically eat insects, lizards, rodents and larger dead animals. They live in tightly-knitted mixed herds averaging 12 individuals. Very pungent, javelinas use a musk gland above their tails to mark their territory and members, rubbing on rocks, trees and each other. Not completely diurnal in the summer, they often, rest in the shadows during the day to cool off and are active, throughout the night, taking advantage of the lower temperature."
               <br/><br/>
               — In-Game Description
             </div>
 
             {/* Intro Text */}
-            <p style={{marginBottom:'20px'}}>
-              The <strong>Collared Peccary</strong> is a huntable <span style={styles.link}>class 3</span> animal in the <span style={styles.link}>Rancho del Arroyo</span>, also it was backfilled in <span style={styles.link}>Parque Fernando</span> with the Granite Update in December 2022.
+            <p className="wiki-p-mb">
+              The <strong>Collared Peccary</strong> is a huntable <span className="wiki-link">class 3</span> animal in the <span className="wiki-link">Rancho del Arroyo</span>, also it was backfilled in <span className="wiki-link">Parque Fernando</span> with the Granite Update in December 2022.
             </p>
 
             {/* Table of Contents */}
-            <div style={{
-                border: '1px solid #3a5a75',
-                backgroundColor: '#0f2e48',
-                display: 'inline-block',
-                padding: '10px 20px',
-                borderRadius: '4px',
-                minWidth: '200px',
-                marginBottom: '30px'
-            }}>
-              <div style={{fontWeight:'bold', borderBottom: '1px solid #3a5a75', marginBottom: '5px'}}>
-                🔢 Contents <span style={{float:'right', color: '#6fb2e6', fontSize:'0.8rem', cursor: 'pointer'}}>[hide]</span>
+            <div className="wiki-toc">
+              <div className="wiki-toc-title">
+                🔢 Contents <span className="wiki-toc-toggle">[hide]</span>
               </div>
-              <ol style={{margin:'0', paddingLeft: '20px', color: '#6fb2e6'}}>
-                <li><a href="#features" style={styles.link} onClick={scrollToId('features')}>Features</a></li>
-                <li><a href="#need-zone-times" style={styles.link} onClick={scrollToId('need-zone-times')}>Need Zone Times</a></li>
-                <li><a href="#fur-variants" style={styles.link} onClick={scrollToId('fur-variants')}>Fur Variants</a></li>
-                <li><a href="#fur-variant-rarity" style={styles.link} onClick={scrollToId('fur-variant-rarity')}>Fur Variant Rarity</a></li>
+              <ol className="wiki-toc">
+                <li><a href="#features" className="wiki-link" onClick={scrollToId('features')}>Features</a></li>
+                <li><a href="#need-zone-times" className="wiki-link" onClick={scrollToId('need-zone-times')}>Need Zone Times</a></li>
+                <li><a href="#fur-variants" className="wiki-link" onClick={scrollToId('fur-variants')}>Fur Variants</a></li>
+                <li><a href="#fur-variant-rarity" className="wiki-link" onClick={scrollToId('fur-variant-rarity')}>Fur Variant Rarity</a></li>
               </ol>
             </div>
 
             {/* FEATURES */}
-            <h2 id="features" style={styles.h2}>Features</h2>
-            <table style={styles.table}>
+            <h2 id="features" className="wiki-h2">Features</h2>
+            <table className="wiki-table">
               <thead>
                 <tr>
-                    <th style={{...styles.th, width: '25%'}}></th>
-                    <th style={styles.th}>Description</th>
+                    <th className="wiki-th wiki-th-w25"></th>
+                    <th className="wiki-th">Description</th>
                 </tr>
               </thead>
               <tbody>
                 {features.map((item, index) => (
                   <tr key={index}>
-                    <td style={{...styles.td, fontWeight: 'bold'}}>{item.label}</td>
-                    <td style={{...styles.td, fontStyle: item.italic ? 'italic' : 'normal'}}>
-                        {item.isLink ? <span style={styles.link}>{item.value}</span> : item.value}
+                    <td className="wiki-td wiki-td-bold">{item.label}</td>
+                    <td className={`wiki-td ${item.italic ? 'wiki-td-italic' : ''}`}>
+                        {item.isLink ? <span className="wiki-link">{item.value}</span> : item.value}
                     </td>
                   </tr>
                 ))}
@@ -411,23 +190,23 @@ const CollaredPeccary = () => {
             </table>
             
             {/* NEED ZONE TIMES */}
-            <h2 id="need-zone-times" style={styles.h2}>Need Zone Times</h2>
-            <div style={{display:'inline-block'}}>
-                <table style={{...styles.table, width: '300px'}}>
+            <h2 id="need-zone-times" className="wiki-h2">Need Zone Times</h2>
+            <div className="wiki-inline-block">
+                <table className="wiki-table wiki-table-fixed">
                     <thead>
-                        <tr><th colSpan="2" style={{...styles.th, textAlign: 'center'}}>Rancho del Arroyo</th></tr>
+                        <tr><th colSpan="2" className="wiki-th wiki-th-center">Rancho del Arroyo</th></tr>
                         <tr>
-                            <th style={{...styles.th, backgroundColor: '#0f2e48'}}>Times</th>
-                            <th style={{...styles.th, backgroundColor: '#0f2e48'}}>Activity</th>
+                            <th className="wiki-th wiki-th-alt">Times</th>
+                            <th className="wiki-th wiki-th-alt">Activity</th>
                         </tr>
                     </thead>
                     <tbody>
                         {needZonesData[0].schedule.map((zone, i) => (
                         <tr key={i}>
-                            <td style={styles.td}>{zone.time}</td>
-                            <td style={styles.td}>
-                                <div style={{display:'flex', alignItems:'center'}}>
-                                    <img src={zone.icon} alt={zone.type} style={{width:'20px', height: '20px', verticalAlign: 'middle', marginRight: '6px'}}/> 
+                            <td className="wiki-td">{zone.time}</td>
+                            <td className="wiki-td">
+                                <div className="wiki-flex-center">
+                                    <img src={zone.icon} alt={zone.type} className="wiki-class-icon"/> 
                                     {zone.type}
                                 </div>
                             </td>
@@ -440,48 +219,48 @@ const CollaredPeccary = () => {
             {/* Shot scheme removed per request */}
 
             {/* FUR VARIANTS (Gallery) */}
-            <h2 id="fur-variants" style={styles.h2}>Fur Variants</h2>
-            <div style={styles.galleryGrid}>
+            <h2 id="fur-variants" className="wiki-h2">Fur Variants</h2>
+            <div className="wiki-gallery-grid">
               {furGallery.map((item, i) => (
-                <div key={i} style={styles.galleryItem}>
-                  <div style={styles.galleryImgPlaceholder}>
-                    <img src={item.src} alt={item.name} style={{width:'100%', height: '100%', objectFit: 'contain'}} />
+                <div key={i} className="wiki-gallery-item">
+                  <div className="wiki-gallery-placeholder">
+                    <img src={item.src} alt={item.name} className="wiki-img-contain" />
                   </div>
-                  <span style={styles.galleryLabel}>{item.name}</span>
+                  <span className="wiki-gallery-label">{item.name}</span>
                 </div>
               ))}
             </div>
 
             {/* FUR VARIANT RARITY TABLE */}
-            <h2 id="fur-variant-rarity" style={styles.h2}>Fur Variant Rarity</h2>
-            <div style={{overflowX: 'auto'}}>
-                <table style={styles.table}>
+            <h2 id="fur-variant-rarity" className="wiki-h2">Fur Variant Rarity</h2>
+            <div className="wiki-overflow-auto">
+                <table className="wiki-table">
                     <thead>
                         <tr>
-                            <th style={styles.th}>Sex</th>
-                            <th style={{...styles.th, ...styles.rarityCommon}}>Common</th>
-                            <th style={{...styles.th, ...styles.rarityUncommon}}>Uncommon</th>
-                            <th style={{...styles.th, ...styles.rarityRare}}>Rare</th>
-                            <th style={{...styles.th, ...styles.rarityVeryRare}}>Very Rare</th>
+                            <th className="wiki-th">Sex</th>
+                            <th className="wiki-th wiki-common">Common</th>
+                            <th className="wiki-th wiki-uncommon">Uncommon</th>
+                            <th className="wiki-th wiki-rare">Rare</th>
+                            <th className="wiki-th wiki-very-rare">Very Rare</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td style={{...styles.td, color: '#3498db', fontStyle: 'italic', fontWeight: 'bold'}}>
-                                Male<span style={{color: '#dbe4eb'}}>/</span><span style={{color: '#d63384'}}>Female</span>
+                            <td className="wiki-td wiki-td-muted">
+                                Male<span className="wiki-text-divider">/</span><span className="wiki-text-female">Female</span>
                             </td>
-                            <td style={styles.td}>
+                            <td className="wiki-td">
                                 Brown (37.35%)<br/>
                                 Grey (37.35%)<br/>
                                 Dark Brown (12.50%)<br/>
                                 Dark Gray (12.50%)
                             </td>
-                            <td style={styles.td}>X</td>
-                            <td style={styles.td}>
+                            <td className="wiki-td">X</td>
+                            <td className="wiki-td">
                                 Leucistic (0.10%)<br/>
                                 Ochre (0.10%)
                             </td>
-                            <td style={styles.td}>
+                            <td className="wiki-td">
                                 Albino (0.05%)<br/>
                                 Melanistic (0.05%)
                             </td>
@@ -492,7 +271,7 @@ const CollaredPeccary = () => {
 
             {/* Trivia removed per request */}
 
-            <div style={{marginTop: '40px'}}>
+            <div className="wiki-mt-40">
                 <AnimalsTableMini />
             </div>
             

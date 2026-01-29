@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../pages/home/Home.css';
+import '../pages/Home/Home.css';
 import class1Icon from '../assets/Class1Icon.webp';
 import class2Icon from '../assets/Class2Icon.webp';
 import class3Icon from '../assets/Class3Icon.webp';

@@ -1,15 +1,15 @@
 import React from 'react';
-import ReserveAnimalsTable from '../components/ReserveAnimalsTable';
+import ReserveAnimalsTable from '../../components/ReserveAnimalsTable';
 
-import mallardIcon from '../assets/MallardIcon.webp';
-import merriamTurkeyIcon from '../assets/MerriamTurkeyIcon.webp';
-import whiteTailedJackrabbitIcon from '../assets/White-tailedJackrabbitIcon.webp';
-import coyoteIcon from '../assets/CoyoteIcon.webp';
-import blacktailDeerIcon from '../assets/BlacktailDeerIcon.webp';
-import whitetailDeerIcon from '../assets/WhitetailDeerIcon.webp';
-import blackBearIcon from '../assets/BlackBearIcon.webp';
-import rooseveltElkIcon from '../assets/RooseveltElkIcon.webp';
-import mooseIcon from '../assets/MooseIcon.webp';
+import mallardIcon from '../../assets/MallardIcon.webp';
+import merriamTurkeyIcon from '../../assets/MerriamTurkeyIcon.webp';
+import whiteTailedJackrabbitIcon from '../../assets/White-tailedJackrabbitIcon.webp';
+import coyoteIcon from '../../assets/CoyoteIcon.webp';
+import blacktailDeerIcon from '../../assets/BlacktailDeerIcon.webp';
+import whitetailDeerIcon from '../../assets/WhitetailDeerIcon.webp';
+import blackBearIcon from '../../assets/BlackBearIcon.webp';
+import rooseveltElkIcon from '../../assets/RooseveltElkIcon.webp';
+import mooseIcon from '../../assets/MooseIcon.webp';
 
 const LaytonLakeHuntableAnimalsTable = () => {
   const data = {

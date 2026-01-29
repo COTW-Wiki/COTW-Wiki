@@ -64,300 +64,87 @@ const SnowGoose = () => {
     { name: "White Morph - Back", src: SnowGoose_WhiteMorphBack },
   ];
 
-  // --- STYLES OBJECT ---
-  const styles = {
-    container: {
-      backgroundColor: '#0b1a26',
-      color: '#dbe4eb',
-      fontFamily: '"Segoe UI", Roboto, Helvetica, Arial, sans-serif',
-      padding: '40px',
-      minHeight: '100vh',
-      lineHeight: '1.6',
-    },
-    innerWrapper: {
-      maxWidth: '1200px',
-      margin: '0 auto',
-    },
-    // Main Header
-    mainHeader: {
-      fontSize: '2.5rem',
-      fontWeight: '400',
-      borderBottom: '1px solid #3a5a75',
-      paddingBottom: '15px',
-      marginBottom: '20px',
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-    },
-    editActions: {
-      fontSize: '0.9rem',
-      color: '#6fb2e6',
-      display: 'flex',
-      gap: '15px',
-      fontWeight: 'bold',
-      cursor: 'pointer',
-    },
-    // Layout Columns
-    layout: {
-      display: 'flex',
-      gap: '30px',
-      alignItems: 'flex-start',
-      flexDirection: 'row-reverse', // Sidebar on the right
-    },
-    mainColumn: {
-      flex: 1,
-    },
-    sidebarColumn: {
-      width: '320px',
-      flexShrink: 0,
-      backgroundColor: '#0f2e48',
-      border: '1px solid #1f405a',
-      borderRadius: '4px',
-    },
-    // Sidebar Specifics
-    sidebarHeader: {
-      backgroundColor: '#05121c',
-      padding: '12px',
-      textAlign: 'center',
-      fontWeight: 'bold',
-      fontSize: '1.1rem',
-      borderBottom: '2px solid #cfaa3e', // Gold accent
-    },
-    sidebarImage: {
-      height: '180px',
-      backgroundColor: '#1f3a52',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      color: '#6fb2e6',
-      fontStyle: 'italic',
-      borderBottom: '1px solid #1f405a',
-      position: 'relative',
-    },
-    sidebarSection: {
-      padding: '10px 15px',
-      borderBottom: '1px solid #2a4b63',
-      fontSize: '0.95rem',
-    },
-    sidebarLabel: {
-      fontWeight: 'bold',
-      display: 'block',
-      marginBottom: '5px',
-      color: '#fff',
-    },
-    trophyGrid: {
-      display: 'grid',
-      gridTemplateColumns: 'repeat(3, 1fr)',
-      gap: '5px',
-      marginTop: '5px',
-      textAlign: 'center',
-    },
-    trophyItem: {
-      backgroundColor: '#16334a',
-      padding: '6px 2px',
-      borderRadius: '4px',
-    },
-    trophyLabel: {
-      fontSize: '0.75rem',
-      display: 'block',
-      fontWeight: 'bold',
-      marginBottom: '2px',
-    },
-    silver: { color: '#bdc3c7' },
-    gold: { color: '#f1c40f' },
-    diamond: { color: '#3498db' },
-    
-    // Content Components
-    quoteBox: {
-      fontStyle: 'italic',
-      backgroundColor: '#0f2e48',
-      borderLeft: '4px solid #3a5a75',
-      padding: '15px 20px',
-      margin: '0 0 20px 0',
-      color: '#a4cce8',
-    },
-    link: {
-      color: '#6fb2e6',
-      textDecoration: 'none',
-      cursor: 'pointer',
-    },
-    h2: {
-      color: '#6fb2e6',
-      borderBottom: '1px solid #3a5a75',
-      paddingBottom: '5px',
-      marginTop: '30px',
-      marginBottom: '15px',
-      fontSize: '1.5rem',
-      display: 'flex',
-      alignItems: 'center',
-      fontWeight: '500',
-    },
-    h2Icon: {
-      fontSize: '0.8rem',
-      marginLeft: '10px',
-      opacity: 0.7,
-      cursor: 'pointer',
-    },
-    
-    // Tables
-    table: {
-      width: '100%',
-      borderCollapse: 'collapse',
-      backgroundColor: '#0f2e48',
-      fontSize: '0.95rem',
-      marginBottom: '20px',
-    },
-    th: {
-      backgroundColor: '#164060',
-      padding: '10px 15px',
-      textAlign: 'left',
-      color: '#fff',
-      borderBottom: '2px solid #3a5a75',
-      fontWeight: 'bold',
-    },
-    td: {
-      padding: '10px 15px',
-      borderBottom: '1px solid #2a4b63',
-      color: '#dbe4eb',
-    },
-    
-    // Shot Scheme
-    shotContainer: {
-      display: 'flex',
-      backgroundColor: '#112233',
-      marginTop: '10px',
-      border: '1px solid #1f405a',
-    },
-    shotImage: {
-      width: '300px',
-      height: '220px',
-      backgroundColor: '#000',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      color: '#555',
-      flexShrink: 0,
-    },
-    shotInfo: {
-      padding: '20px',
-      display: 'flex',
-      alignItems: 'center',
-      color: '#fff',
-    },
-
-    // Gallery
-    galleryGrid: {
-      display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fill, minmax(160px, 1fr))',
-      gap: '15px',
-    },
-    galleryItem: {
-      backgroundColor: 'transparent',
-    },
-    galleryImgPlaceholder: {
-      height: '180px',
-      backgroundColor: '#2a4b63',
-      border: '4px solid #1f3a52', 
-      marginBottom: '8px',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      position: 'relative',
-    },
-    galleryLabel: {
-      fontSize: '0.9rem',
-      display: 'block',
-      lineHeight: '1.2',
-    },
-
-    // Rarity Colors
-    common: { color: '#2ecc71', fontWeight: 'bold' },
-    rare: { color: '#9b59b6', fontWeight: 'bold' },
-    veryRare: { color: '#e74c3c', fontWeight: 'bold' },
-    uncommon: { color: '#3498db', fontWeight: 'bold' },
-  };
-
   return (
-    <div style={styles.container}>
-      <div style={styles.innerWrapper}>
+    <div className="wiki-page">
+      <div className="wiki-inner">
         
         {/* PAGE HEADER */}
-        <div style={styles.mainHeader}>
+        <div className="wiki-header">
           <span>Snow Goose</span>
-          <div style={styles.editActions}>
+          <div className="wiki-edit-actions">
           </div>
         </div>
 
-        <div style={styles.layout}>
+        <div className="wiki-layout">
           
           {/* --- RIGHT SIDEBAR (General Information) --- */}
-          <aside style={styles.sidebarColumn}>
-            <div style={styles.sidebarHeader}>Snow Goose</div>
-            <div style={styles.sidebarImage}>
+          <aside className="wiki-sidebar">
+            <div className="wiki-sidebar-header">Snow Goose</div>
+            <div className="wiki-sidebar-image">
               <img src={SnowGooseImg} alt="Snow Goose" style={{width: '268.4px', height: '134.2px', objectFit: 'cover'}} />
               <span style={{position:'absolute', bottom:'5px', right:'5px', fontSize:'0.8rem'}}>📷</span>
             </div>
             
-            <div style={styles.sidebarHeader}>General Information</div>
+            <div className="wiki-sidebar-header">General Information</div>
             
-            <div style={styles.sidebarSection}>
-              <span style={styles.sidebarLabel}>Class</span>
+            <div className="wiki-sidebar-section">
+              <span className="wiki-sidebar-label">Class</span>
               <span>
                 <img src={class1Icon} alt="Class 1" style={{width: '12px', height: '12px', verticalAlign: 'middle', marginRight: '6px'}} />
                 1
               </span>
             </div>
 
-            <div style={styles.sidebarSection}>
-              <span style={styles.sidebarLabel}>Difficulty</span>
+            <div className="wiki-sidebar-section">
+              <span className="wiki-sidebar-label">Difficulty</span>
               <span>1: Trivial — 5: Medium</span>
             </div>
 
-            <div style={styles.sidebarSection}>
-              <span style={styles.sidebarLabel}>Trophy Type</span>
+            <div className="wiki-sidebar-section">
+              <span className="wiki-sidebar-label">Trophy Type</span>
               <span>Weight</span>
-              <div style={styles.trophyGrid}>
-                <div style={styles.trophyItem}>
-                   <span style={{...styles.trophyLabel, ...styles.silver}}>◆ Silver</span>
+              <div className="wiki-trophy-grid">
+                <div className="wiki-trophy-item">
+                   <span className="wiki-trophy-label wiki-trophy-silver">◆ Silver</span>
                    <span>TBA</span>
                 </div>
-                <div style={styles.trophyItem}>
-                   <span style={{...styles.trophyLabel, ...styles.gold}}>☗ Gold</span>
+                <div className="wiki-trophy-item">
+                   <span className="wiki-trophy-label wiki-trophy-gold">☗ Gold</span>
                    <span>TBA</span>
                 </div>
-                <div style={styles.trophyItem}>
-                   <span style={{...styles.trophyLabel, ...styles.diamond}}>☗ Diamond</span>
+                <div className="wiki-trophy-item">
+                   <span className="wiki-trophy-label wiki-trophy-diamond">☗ Diamond</span>
                    <span>3.85</span>
                 </div>
               </div>
             </div>
 
-            <div style={styles.sidebarSection}>
-               <span style={styles.sidebarLabel}>Plumage</span>
+            <div className="wiki-sidebar-section">
+               <span className="wiki-sidebar-label">Plumage</span>
                <span style={{fontSize: '0.85rem'}}>
                  Albino, Blue Morph, Hybrid, Intermediate Morph, Melanistic, White Morph
                </span>
             </div>
 
-            <div style={styles.sidebarHeader}>Locations</div>
-            <div style={styles.sidebarSection}>
-               <div style={{marginBottom:'4px'}}><span style={styles.link}>Askiy Ridge Hunting Preserve</span></div>
+            <div className="wiki-sidebar-header">Locations</div>
+            <div className="wiki-sidebar-section">
+               <div className="wiki-mb-4"><span className="wiki-link">Askiy Ridge Hunting Preserve</span></div>
             </div>
           </aside>
 
           {/* --- MAIN CONTENT --- */}
-          <main style={styles.mainColumn}>
+          <main className="wiki-main">
 
             {/* Quote Block */}
-            <div style={styles.quoteBox}>
+            <div className="wiki-quote">
               "The snow goose is a migratory waterfowl found in wetlands and agricultural fields across North America. These medium-sized geese are known for their striking white plumage, with black wingtips and a pinkish-orange bill. Snow geese are highly social, often forming large flocks during migration. They feed primarily on grasses, sedges, and grains, often in open fields. Snow geese are famous for their long migrations, traveling thousands of miles between breeding grounds in the Arctic and wintering areas in the southern U.S. and Mexico. Snow geese are known to form massive "V" formations during flight to conserve energy while migrating."
               <br/><br/>
               — In-Game Description
             </div>
 
             {/* Intro Text */}
-            <p style={{marginBottom: '20px'}}>
-              The <strong>Snow Goose</strong> is a <span style={styles.link}>class 1</span> waterfowl that can only be hunted on <span style={styles.link}>Askiy Ridge Hunting Preserve</span>.
+            <p className="wiki-mb-20">
+              The <strong>Snow Goose</strong> is a <span className="wiki-link">class 1</span> waterfowl that can only be hunted on <span className="wiki-link">Askiy Ridge Hunting Preserve</span>.
             </p>
 
             {/* Table of Contents (page-specific) */}
@@ -413,17 +200,17 @@ const SnowGoose = () => {
             })()}
 
             {/* FEATURES */}
-            <h2 id="features" style={styles.h2}>Features</h2>
-            <table style={styles.table}>
+            <h2 id="features" className="wiki-h2">Features</h2>
+            <table className="wiki-table">
               <tbody>
                 <tr>
-                    <th style={{...styles.th, width: '25%'}}></th>
-                    <th style={styles.th}>Description</th>
+                    <th className="wiki-th wiki-th-w25"></th>
+                    <th className="wiki-th">Description</th>
                 </tr>
                 {features.map((item, index) => (
                   <tr key={index}>
-                    <td style={{...styles.td, fontWeight: 'bold'}}>{item.label}</td>
-                    <td style={{...styles.td, fontStyle: item.italic ? 'italic' : 'normal'}}>
+                    <td className="wiki-td wiki-td-bold">{item.label}</td>
+                    <td className={`wiki-td ${item.italic ? 'wiki-td-italic' : ''}`}>
                         {item.value}
                     </td>
                   </tr>
@@ -432,26 +219,26 @@ const SnowGoose = () => {
             </table>
 
             {/* TIPS */}
-            <h2 id="tips" style={styles.h2}>Tips</h2>
-            <p style={{marginBottom: '10px'}}>Place decoys around 50m from your blind and use callers to attract flocks; geese often land into the wind.</p>
+            <h2 id="tips" className="wiki-h2">Tips</h2>
+            <p className="wiki-mb-10">Place decoys around 50m from your blind and use callers to attract flocks; geese often land into the wind.</p>
 
             {/* NEED ZONE TIMES */}
-            <h2 id="need-zones" style={styles.h2}>Need Zone Times</h2>
+            <h2 id="need-zones" className="wiki-h2">Need Zone Times</h2>
             <div style={{display: 'inline-block'}}>
-                <table style={{...styles.table, width: '300px'}}>
+                <table className="wiki-table wiki-table-fixed">
                     <thead>
-                        <tr><th colSpan="2" style={{...styles.th, textAlign: 'center'}}>Askiy Ridge<sup>[1]</sup></th></tr>
+                        <tr><th colSpan="2" className="wiki-th wiki-th-center">Askiy Ridge<sup>[1]</sup></th></tr>
                         <tr>
-                            <th style={{...styles.th, backgroundColor: '#0f2e48'}}>Times</th>
-                            <th style={{...styles.th, backgroundColor: '#0f2e48'}}>Activity</th>
+                            <th className="wiki-th wiki-th-alt">Times</th>
+                            <th className="wiki-th wiki-th-alt">Activity</th>
                         </tr>
                     </thead>
                     <tbody>
                         {needZones.map((zone, i) => (
                         <tr key={i}>
-                          <td style={styles.td}>{zone.time}</td>
-                          <td style={styles.td}>
-                            <img src={zone.icon} alt={zone.type} style={{width: '30px', height: '30px', verticalAlign: 'middle', marginRight: '8px'}} />
+                          <td className="wiki-td">{zone.time}</td>
+                          <td className="wiki-td">
+                            <img src={zone.icon} alt={zone.type} className="wiki-zone-icon-lg" />
                             {zone.type}
                           </td>
                         </tr>
@@ -461,9 +248,9 @@ const SnowGoose = () => {
             </div>
 
             {/* SHOT SCHEME */}
-            <h2 style={styles.h2}>Shot scheme</h2>
+            <h2 className="wiki-h2">Shot scheme</h2>
             <div style={{backgroundColor: '#0f2e48', padding: '10px'}}>
-              <div style={{fontWeight:'bold', color: '#fff', paddingBottom: '5px', borderBottom: '1px solid #3a5a75'}}>Color code</div>
+              <div className="wiki-shot-title">Color code</div>
               <div style={{display: 'flex', justifyContent: 'center', paddingTop: '10px'}}>
                 <img src={SnowGooseShotScheme} alt="Snow Goose shot scheme" style={{width: '500px', height: '444px', objectFit: 'contain', border: '1px solid #1f405a'}} />
               </div>
@@ -471,41 +258,41 @@ const SnowGoose = () => {
             </div>
 
             {/* PLUMAGE VARIANTS (Gallery) */}
-            <h2 id="plumage-variants" style={styles.h2}>Plumage Variants</h2>
-            <div style={styles.galleryGrid}>
+            <h2 id="plumage-variants" className="wiki-h2">Plumage Variants</h2>
+            <div className="wiki-gallery-grid">
               {plumageImages.map((img, i) => (
-                <div key={i} style={styles.galleryItem}>
+                <div key={i} className="wiki-gallery-item">
                   <img src={img.src} alt={img.name} style={{width: '146px', height: '165px', objectFit: 'cover', border: '4px solid #1f3a52', marginBottom: '8px'}} />
-                  <span style={styles.galleryLabel}>{img.name}</span>
+                  <span className="wiki-gallery-label">{img.name}</span>
                 </div>
               ))}
             </div>
 
             {/* PLUMAGE RARITY TABLE */}
-            <h2 id="plumage-rarity" style={styles.h2}>Plumage Variant Rarity</h2>
-            <table style={styles.table}>
+            <h2 id="plumage-rarity" className="wiki-h2">Plumage Variant Rarity</h2>
+            <table className="wiki-table">
                 <thead>
                     <tr>
-                        <th style={styles.th}>Sex</th>
-                        <th style={styles.th}><span style={styles.common}>Common</span></th>
-                        <th style={styles.th}><span style={styles.uncommon}>Uncommon</span></th>
-                        <th style={styles.th}><span style={styles.rare}>Rare</span></th>
-                        <th style={styles.th}><span style={styles.veryRare}>Very Rare</span></th>
+                        <th className="wiki-th">Sex</th>
+                        <th className="wiki-th"><span className="wiki-common">Common</span></th>
+                        <th className="wiki-th"><span className="wiki-uncommon">Uncommon</span></th>
+                        <th className="wiki-th"><span className="wiki-rare">Rare</span></th>
+                        <th className="wiki-th"><span className="wiki-very-rare">Very Rare</span></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td style={{...styles.td, color: '#9b59b6', fontStyle: 'italic'}}>Male/Female</td>
-                        <td style={styles.td}>
+                        <td className="wiki-td wiki-td-rare">Male/Female</td>
+                        <td className="wiki-td">
                             White Morph (99.60%)
                         </td>
-                        <td style={styles.td}>X</td>
-                        <td style={styles.td}>
+                        <td className="wiki-td">X</td>
+                        <td className="wiki-td">
                             Blue Morph (0.10%)<br/>
                             Hybrid (0.10%)<br/>
                             Intermediate Morph (0.10%)
                         </td>
-                        <td style={styles.td}>
+                        <td className="wiki-td">
                             Albino (0.05%)<br/>
                             Melanistic (0.05%)
                         </td>

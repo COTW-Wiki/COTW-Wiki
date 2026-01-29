@@ -1,3 +1,26 @@
+/* Logo hover: enlarge + yellow tint – moved from inline <style> in Home.jsx */
+.map-container a[class*="logo"] img {
+  transition: transform 180ms ease, filter 180ms ease, box-shadow 180ms ease;
+  transform-origin: center center;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.map-container a:focus,
+.map-container a:focus img {
+  outline: none;
+}
+
+.map-container a[class*="logo"]:hover img {
+  transform: scale(1.25);
+  filter: sepia(1) saturate(10000%) hue-rotate(10deg) brightness(1);
+  z-index: 999;
+  box-shadow: none;
+  border: none;
+  outline: none;
+}
+
 .map-container {
     position: relative;
     width: 100%;

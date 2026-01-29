@@ -17,7 +17,7 @@ import sundarLogo from '../../assets/Sundarpartan-removebg-preview.png';
 import medvedLogo from '../../assets/Medved_taiga-removebg-preview.png';
 import parqueFernandoLogo from '../../assets/Parque_Fernando-removebg-preview.png';
 import revontuliLogo from '../../assets/Revontuli_Coast-removebg-preview.png';
-import vurhongaLogo from '../../assets/VurhongaIcon.png';
+import geminiLogo from '../../assets/Gemini_Generated_Image_do1hjzdo1hjzdo1h-removebg-preview.png';
 import emeraldLogo from '../../assets/Emerald_coast-removebg-preview (1).png';
 import homePageImage from '../../assets/Home_Page_Image.png';
 import EquipmentTable from '../../components/EquipmentTable';
@@ -29,25 +29,6 @@ import Quests from '../../components/Quests';
 const Map = () => {
   return (
     <div className="map-container">
-      {/* Inline CSS for hover effect on logos: enlarge + yellow tint */}
-      <style>{` 
-        .map-container img[class*="logo-"]{ 
-          transition: transform 180ms ease, filter 180ms ease, box-shadow 180ms ease; 
-          transform-origin: center center; 
-          cursor: pointer; 
-          border: none; 
-          outline: none; 
-        }
-        .map-container a:focus, .map-container a:focus img{ outline: none; }
-        .map-container img[class*="logo-"]:hover{ 
-          transform: scale(1.25); 
-          color:rgba(255,178,0,1);
-          filter: sepia(1) saturate(10000%) hue-rotate(10deg) brightness(1);
-          z-index: 999; 
-          box-shadow: none; /* remove glow */
-          border: none;
-          outline: none;
-      `}</style>
       <img className="map-image" src={worldMap} alt="World Map" />
       <Link to="/maps/layton-lake" aria-label="Layton Lake Logo" className="logo" style={{ '--mask': `url("${reserveLogo}")` }} data-tooltip="Layton Lake District">
         <img src={reserveLogo} alt="Layton Lake Logo" />
@@ -91,8 +72,8 @@ const Map = () => {
       <Link to="/maps/parque-fernando" aria-label="Parque Fernando Logo" className="logo-parque" style={{ '--mask': `url("${parqueFernandoLogo}")` }} data-tooltip="Parque Fernando">
         <img src={parqueFernandoLogo} alt="Parque Fernando Logo" />
       </Link>
-      <Link to="/maps/vurhonga" aria-label="Vurhonga Savanna Logo" className="logo-vurhonga" style={{ '--mask': `url("${vurhongaLogo}")` }} data-tooltip="Vurhonga Savanna">
-        <img src={vurhongaLogo} alt="Vurhonga Savanna Logo" />
+      <Link to="/maps/gemini-generated" aria-label="Gemini Generated Logo" className="logo-gemini" style={{ '--mask': `url("${geminiLogo}")` }} data-tooltip="Gemini Generated Image">
+        <img src={geminiLogo} alt="Gemini Generated Logo" />
       </Link>
       <Link to="/maps/sundarpatan" aria-label="Sundarpatan Logo" className="logo-sundar" style={{ '--mask': `url("${sundarLogo}")` }} data-tooltip="Sundarpatan">
         <img src={sundarLogo} alt="Sundarpatan Logo" />

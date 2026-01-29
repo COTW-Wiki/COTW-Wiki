@@ -86,316 +86,96 @@ const GreylagGoose = () => {
     { name: "Leucistic Variation 5 - Back", color: "#9e9e9e" },
   ];
 
-  // --- STYLES OBJECT ---
-  const styles = {
-    container: {
-      backgroundColor: '#0b1a26',
-      color: '#dbe4eb',
-      fontFamily: '"Segoe UI", Roboto, Helvetica, Arial, sans-serif',
-      padding: '40px',
-      minHeight: '100vh',
-      lineHeight: '1.6',
-    },
-    innerWrapper: {
-      maxWidth: '1200px',
-      margin: '0 auto',
-    },
-    // Main Header
-    mainHeader: {
-      fontSize: '2.5rem',
-      fontWeight: '400',
-      borderBottom: '1px solid #3a5a75',
-      paddingBottom: '15px',
-      marginBottom: '20px',
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-    },
-    editActions: {
-      fontSize: '0.9rem',
-      color: '#6fb2e6',
-      display: 'flex',
-      gap: '15px',
-      fontWeight: 'bold',
-      cursor: 'pointer',
-    },
-    // Layout Columns
-    layout: {
-      display: 'flex',
-      gap: '30px',
-      alignItems: 'flex-start',
-      flexDirection: 'row-reverse', // Sidebar on the right
-    },
-    mainColumn: {
-      flex: 1,
-    },
-    sidebarColumn: {
-      width: '320px',
-      flexShrink: 0,
-      backgroundColor: '#0f2e48',
-      border: '1px solid #1f405a',
-      borderRadius: '4px',
-    },
-    // Sidebar Specifics
-    sidebarHeader: {
-      backgroundColor: '#05121c',
-      padding: '12px',
-      textAlign: 'center',
-      fontWeight: 'bold',
-      fontSize: '1.1rem',
-      borderBottom: '2px solid #cfaa3e', // Gold accent
-    },
-    sidebarImage: {
-      height: '180px',
-      backgroundColor: '#1f3a52',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      color: '#6fb2e6',
-      fontStyle: 'italic',
-      borderBottom: '1px solid #1f405a',
-      position: 'relative',
-    },
-    sidebarSection: {
-      padding: '10px 15px',
-      borderBottom: '1px solid #2a4b63',
-      fontSize: '0.95rem',
-    },
-    sidebarLabel: {
-      fontWeight: 'bold',
-      display: 'block',
-      marginBottom: '5px',
-      color: '#fff',
-    },
-    trophyGrid: {
-      display: 'grid',
-      gridTemplateColumns: 'repeat(3, 1fr)',
-      gap: '5px',
-      marginTop: '5px',
-      textAlign: 'center',
-    },
-    trophyItem: {
-      backgroundColor: '#16334a',
-      padding: '6px 2px',
-      borderRadius: '4px',
-    },
-    trophyLabel: {
-      fontSize: '0.75rem',
-      display: 'block',
-      fontWeight: 'bold',
-      marginBottom: '2px',
-    },
-    silver: { color: '#bdc3c7' },
-    gold: { color: '#f1c40f' },
-    diamond: { color: '#3498db' },
-    
-    // Content Components
-    quoteBox: {
-      fontStyle: 'italic',
-      backgroundColor: '#0f2e48',
-      borderLeft: '4px solid #3a5a75',
-      padding: '15px 20px',
-      margin: '0 0 20px 0',
-      color: '#a4cce8',
-    },
-    link: {
-      color: '#6fb2e6',
-      textDecoration: 'none',
-      cursor: 'pointer',
-    },
-    h2: {
-      color: '#6fb2e6',
-      borderBottom: '1px solid #3a5a75',
-      paddingBottom: '5px',
-      marginTop: '30px',
-      marginBottom: '15px',
-      fontSize: '1.5rem',
-      display: 'flex',
-      alignItems: 'center',
-      fontWeight: '500',
-    },
-    h2Icon: {
-      fontSize: '0.8rem',
-      marginLeft: '10px',
-      opacity: 0.7,
-      cursor: 'pointer',
-    },
-    
-    // Tables
-    table: {
-      width: '100%',
-      borderCollapse: 'collapse',
-      backgroundColor: '#0f2e48',
-      fontSize: '0.95rem',
-      marginBottom: '20px',
-    },
-    th: {
-      backgroundColor: '#164060',
-      padding: '10px 15px',
-      textAlign: 'left',
-      color: '#fff',
-      borderBottom: '2px solid #3a5a75',
-      fontWeight: 'bold',
-    },
-    td: {
-      padding: '10px 15px',
-      borderBottom: '1px solid #2a4b63',
-      color: '#dbe4eb',
-    },
-    
-    // Zone Flex Container
-    zoneContainer: {
-        display: 'flex',
-        gap: '20px',
-        flexWrap: 'wrap'
-    },
-    
-    // Shot Scheme
-    shotContainer: {
-      display: 'flex',
-      backgroundColor: '#112233',
-      marginTop: '10px',
-      border: '1px solid #1f405a',
-    },
-    shotImage: {
-      width: '300px',
-      height: '220px',
-      backgroundColor: '#000',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      color: '#555',
-      flexShrink: 0,
-    },
-    shotInfo: {
-      padding: '20px',
-      display: 'flex',
-      alignItems: 'center',
-      color: '#fff',
-    },
-
-    // Gallery
-    galleryGrid: {
-      display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fill, minmax(160px, 1fr))',
-      gap: '15px',
-    },
-    galleryItem: {
-      backgroundColor: 'transparent',
-    },
-    galleryImgPlaceholder: {
-      height: '180px',
-      backgroundColor: '#2a4b63',
-      border: '4px solid #1f3a52', 
-      marginBottom: '8px',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      position: 'relative',
-    },
-    galleryLabel: {
-      fontSize: '0.9rem',
-      display: 'block',
-      lineHeight: '1.2',
-    },
-
-    // Rarity Colors
-    common: { color: '#2ecc71', fontWeight: 'bold' },
-    rare: { color: '#9b59b6', fontWeight: 'bold' },
-    veryRare: { color: '#e74c3c', fontWeight: 'bold' },
-    uncommon: { color: '#3498db', fontWeight: 'bold' },
-  };
-
   return (
-    <div style={styles.container}>
-      <div style={styles.innerWrapper}>
+    <div className="wiki-page">
+      <div className="wiki-inner">
         
         {/* PAGE HEADER */}
-        <div style={styles.mainHeader}>
+        <div className="wiki-header">
           <span>Greylag Goose</span>
-          <div style={styles.editActions}>
+          <div className="wiki-edit-actions">
 
           </div>
         </div>
 
-        <div style={styles.layout}>
+        <div className="wiki-layout">
           
           {/* --- RIGHT SIDEBAR --- */}
-          <aside style={styles.sidebarColumn}>
-            <div style={styles.sidebarHeader}>Greylag Goose</div>
-            <div style={styles.sidebarImage}>
+          <aside className="wiki-sidebar">
+            <div className="wiki-sidebar-header">Greylag Goose</div>
+            <div className="wiki-sidebar-image">
               <img src={GreylagGooseImg} alt="Greylag Goose" style={{width: '268.4px', height: '134.2px', objectFit: 'cover', borderRadius: '4px'}} />
               <span style={{position:'absolute', bottom:'5px', right:'5px', fontSize:'0.8rem'}}>📷</span>
             </div>
             
-            <div style={styles.sidebarHeader}>General Information</div>
+            <div className="wiki-sidebar-header">General Information</div>
             
-            <div style={styles.sidebarSection}>
-              <span style={styles.sidebarLabel}>Class</span>
-              <div style={{display: 'flex', alignItems: 'center', gap: '6px'}}>
+            <div className="wiki-sidebar-section">
+              <span className="wiki-sidebar-label">Class</span>
+              <div className="wiki-flex-center">
                 <img src={class1Icon} alt="Class 1" style={{width: '15px', height: '15px'}} />
                 <span>1</span>
               </div>
             </div>
 
-            <div style={styles.sidebarSection}>
-              <span style={styles.sidebarLabel}>Difficulty</span>
+            <div className="wiki-sidebar-section">
+              <span className="wiki-sidebar-label">Difficulty</span>
               <span>1: Trivial — 5: Medium</span>
             </div>
 
-            <div style={styles.sidebarSection}>
-              <span style={styles.sidebarLabel}>Trophy Type</span>
+            <div className="wiki-sidebar-section">
+              <span className="wiki-sidebar-label">Trophy Type</span>
               <span>Weight</span>
-              <div style={styles.trophyGrid}>
-                <div style={styles.trophyItem}>
-                   <span style={{...styles.trophyLabel, ...styles.silver}}>◆ Silver</span>
+              <div className="wiki-trophy-grid">
+                <div className="wiki-trophy-item">
+                   <span className="wiki-trophy-label wiki-trophy-silver">◆ Silver</span>
                    <span>2.80</span>
                 </div>
-                <div style={styles.trophyItem}>
-                   <span style={{...styles.trophyLabel, ...styles.gold}}>☗ Gold</span>
+                <div className="wiki-trophy-item">
+                   <span className="wiki-trophy-label wiki-trophy-gold">☗ Gold</span>
                    <span>3.40</span>
                 </div>
-                <div style={styles.trophyItem}>
-                   <span style={{...styles.trophyLabel, ...styles.diamond}}>☗ Diamond</span>
+                <div className="wiki-trophy-item">
+                   <span className="wiki-trophy-label wiki-trophy-diamond">☗ Diamond</span>
                    <span>3.85</span>
                 </div>
               </div>
             </div>
 
-            <div style={styles.sidebarSection}>
-               <span style={styles.sidebarLabel}>Weight</span>
+            <div className="wiki-sidebar-section">
+               <span className="wiki-sidebar-label">Weight</span>
                2.5kg — 4kg<br/>
                6lbs — 9lbs
             </div>
 
-            <div style={styles.sidebarSection}>
-               <span style={styles.sidebarLabel}>Plumage</span>
+            <div className="wiki-sidebar-section">
+               <span className="wiki-sidebar-label">Plumage</span>
                <span style={{fontSize: '0.85rem'}}>
                  Brown, Grey, Hybrid, Leucistic
                </span>
             </div>
 
-            <div style={styles.sidebarHeader}>Locations</div>
-            <div style={styles.sidebarSection}>
-               <div style={{marginBottom:'4px'}}><span style={styles.link}>Revontuli Coast</span></div>
-               <div style={{marginBottom:'4px'}}><span style={styles.link}>Sundarpatan</span></div>
-               <div style={{marginBottom:'4px'}}><span style={styles.link}>Salzwiesen Park</span></div>
+            <div className="wiki-sidebar-header">Locations</div>
+            <div className="wiki-sidebar-section">
+               <div className="wiki-mb-4"><span className="wiki-link">Revontuli Coast</span></div>
+               <div className="wiki-mb-4"><span className="wiki-link">Sundarpatan</span></div>
+               <div className="wiki-mb-4"><span className="wiki-link">Salzwiesen Park</span></div>
             </div>
           </aside>
 
           {/* --- MAIN CONTENT --- */}
-          <main style={styles.mainColumn}>
+          <main className="wiki-main">
 
             {/* Quote Block */}
-            <div style={styles.quoteBox}>
+            <div className="wiki-quote">
               "The Greylag Goose is a large Eurasian goose species. It is very common throughout its natural range, and is the ancestor of most domesticated breeds as a result. Greylag Geese live in mated pairs and familial groups during the breeding season, but in the autumn they gather in large flocks to prepare for their yearly migration. These large flocks spend the best part of the day feeding in preparation for the long flight ahead."
               <br/><br/>
               — In-Game Description
             </div>
 
             {/* Intro Text */}
-            <p style={{marginBottom: '20px'}}>
-              The <strong>Greylag Goose</strong> is a <span style={styles.link}>class 1</span> goose that can be hunted on <span style={styles.link}>Revontuli Coast</span>, <span style={styles.link}>Sundarpatan</span> and <span style={styles.link}>Salzwiesen Park</span>.
+            <p className="wiki-mb-20">
+              The <strong>Greylag Goose</strong> is a <span className="wiki-link">class 1</span> goose that can be hunted on <span className="wiki-link">Revontuli Coast</span>, <span className="wiki-link">Sundarpatan</span> and <span className="wiki-link">Salzwiesen Park</span>.
             </p>
 
             {/* Table of Contents (page-specific) */}
@@ -453,17 +233,17 @@ const GreylagGoose = () => {
             })()}
 
             {/* FEATURES */}
-            <h2 id="features" style={styles.h2}>Features</h2>
-            <table style={styles.table}>
+            <h2 id="features" className="wiki-h2">Features</h2>
+            <table className="wiki-table">
               <tbody>
                 <tr>
-                    <th style={{...styles.th, width: '25%'}}></th>
-                    <th style={styles.th}>Description</th>
+                    <th className="wiki-th wiki-th-w25"></th>
+                    <th className="wiki-th">Description</th>
                 </tr>
                 {features.map((item, index) => (
                   <tr key={index}>
-                    <td style={{...styles.td, fontWeight: 'bold'}}>{item.label}</td>
-                    <td style={{...styles.td, fontStyle: item.italic ? 'italic' : 'normal'}}>
+                    <td className="wiki-td wiki-td-bold">{item.label}</td>
+                    <td className={`wiki-td ${item.italic ? 'wiki-td-italic' : ''}`}>
                         {item.value}
                     </td>
                   </tr>
@@ -472,8 +252,8 @@ const GreylagGoose = () => {
             </table>
 
             {/* TIPS */}
-            <h2 id="tips" style={styles.h2}>Tips</h2>
-            <p style={{marginBottom: '10px'}}>
+            <h2 id="tips" className="wiki-h2">Tips</h2>
+            <p className="wiki-mb-10">
               Hunting Geese is similar to hunting other waterfowl. The added benefit being, you can hunt Geese in open fields. Fields give players the freedom to place decoys as far away from a blind as possible, as compared to water which has limits on how far away from shore you can place decoys.
             </p>
             <p>
@@ -481,24 +261,24 @@ const GreylagGoose = () => {
             </p>
 
             {/* NEED ZONES */}
-            <h2 id="need-zones" style={styles.h2}>Need Zone Times</h2>
-            <div style={styles.zoneContainer}>
+            <h2 id="need-zones" className="wiki-h2">Need Zone Times</h2>
+            <div className="wiki-shot-wrap">
                 
                 {/* Revontuli Coast Table */}
-                <table style={{...styles.table, width: '300px'}}>
+                <table className="wiki-table wiki-table-fixed">
                     <thead>
-                        <tr><th colSpan="2" style={{...styles.th, textAlign: 'center'}}>Revontuli Coast</th></tr>
+                        <tr><th colSpan="2" className="wiki-th wiki-th-center">Revontuli Coast</th></tr>
                         <tr>
-                            <th style={{...styles.th, backgroundColor: '#0f2e48'}}>Time</th>
-                            <th style={{...styles.th, backgroundColor: '#0f2e48'}}>Activity</th>
+                            <th className="wiki-th wiki-th-alt">Time</th>
+                            <th className="wiki-th wiki-th-alt">Activity</th>
                         </tr>
                     </thead>
                     <tbody>
                         {needZones.revontuli.map((zone, i) => (
                         <tr key={i}>
-                            <td style={styles.td}>{zone.time}</td>
-                            <td style={styles.td}>
-                              <img src={zone.type === 'Resting' ? RestingZoneIcon : FeedingZoneIcon} alt={zone.type} style={{width: '30px', height: '30px', verticalAlign: 'middle', marginRight: '8px'}} />
+                            <td className="wiki-td">{zone.time}</td>
+                            <td className="wiki-td">
+                              <img src={zone.type === 'Resting' ? RestingZoneIcon : FeedingZoneIcon} alt={zone.type} className="wiki-zone-icon-lg" />
                               {zone.type}
                             </td>
                         </tr>
@@ -507,20 +287,20 @@ const GreylagGoose = () => {
                 </table>
 
                 {/* Sundarpatan Table */}
-                <table style={{...styles.table, width: '300px'}}>
+                <table className="wiki-table wiki-table-fixed">
                     <thead>
-                        <tr><th colSpan="2" style={{...styles.th, textAlign: 'center'}}>Sundarpatan<sup>[1]</sup></th></tr>
+                        <tr><th colSpan="2" className="wiki-th wiki-th-center">Sundarpatan<sup>[1]</sup></th></tr>
                         <tr>
-                            <th style={{...styles.th, backgroundColor: '#0f2e48'}}>Time</th>
-                            <th style={{...styles.th, backgroundColor: '#0f2e48'}}>Activity</th>
+                            <th className="wiki-th wiki-th-alt">Time</th>
+                            <th className="wiki-th wiki-th-alt">Activity</th>
                         </tr>
                     </thead>
                     <tbody>
                         {needZones.sundarpatan.map((zone, i) => (
                         <tr key={i}>
-                            <td style={styles.td}>{zone.time}</td>
-                            <td style={styles.td}>
-                              <img src={zone.type === 'Resting' ? RestingZoneIcon : FeedingZoneIcon} alt={zone.type} style={{width: '30px', height: '30px', verticalAlign: 'middle', marginRight: '8px'}} />
+                            <td className="wiki-td">{zone.time}</td>
+                            <td className="wiki-td">
+                              <img src={zone.type === 'Resting' ? RestingZoneIcon : FeedingZoneIcon} alt={zone.type} className="wiki-zone-icon-lg" />
                               {zone.type}
                             </td>
                         </tr>
@@ -530,115 +310,115 @@ const GreylagGoose = () => {
             </div>
 
             {/* SHOT SCHEME */}
-            <h2 id="shot-scheme" style={styles.h2}>Shot scheme</h2>
+            <h2 id="shot-scheme" className="wiki-h2">Shot scheme</h2>
             <div style={{backgroundColor: '#0f2e48', padding: '10px'}}>
-                <div style={{fontWeight:'bold', color: '#fff', paddingBottom: '5px', borderBottom: '1px solid #3a5a75'}}>Color code</div>
-                  <div style={styles.shotContainer}>
-                    <div style={{...styles.shotImage, width: '500px', height: '444px', minWidth: '500px', minHeight: '444px', maxWidth: '500px', maxHeight: '444px', padding: 0, backgroundColor: '#000', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+                <div className="wiki-shot-title">Color code</div>
+                  <div className="wiki-shot-container">
+                    <div className="wiki-shot-image">
                       <img src={GreylagGooseXRay} alt="Greylag Goose X-Ray" style={{width: '500px', height: '444px', objectFit: 'cover', borderRadius: '4px'}} />
                     </div>
-                    <div style={styles.shotInfo}>
+                    <div className="wiki-shot-info">
                       No Color - Every hit will kill the animal
                     </div>
                   </div>
             </div>
 
             {/* PLUMAGE VARIANTS (Gallery) */}
-            <h2 id="plumage-variants" style={styles.h2}>Plumage Variants</h2>
+            <h2 id="plumage-variants" className="wiki-h2">Plumage Variants</h2>
             <div style={{display:'flex', flexWrap:'wrap', gap:'10px'}}>
               {/* Front-view images (146x165) */}
               <div style={{width:'146px', textAlign:'center'}}>
-                <img src={GreylagGoose_BrownFront} alt="Brown - Front" style={{width:'146px', height:'165px', objectFit:'cover', borderRadius:'4px', marginBottom:'5px'}} />
-                <span style={styles.galleryLabel}>Brown - Front</span>
+                <img src={GreylagGoose_BrownFront} alt="Brown - Front" />
+                <span className="wiki-gallery-label">Brown - Front</span>
               </div>
               <div style={{width:'146px', textAlign:'center'}}>
-                <img src={GreylagGoose_GreyFront} alt="Grey - Front" style={{width:'146px', height:'165px', objectFit:'cover', borderRadius:'4px', marginBottom:'5px'}} />
-                <span style={styles.galleryLabel}>Grey - Front</span>
+                <img src={GreylagGoose_GreyFront} alt="Grey - Front" />
+                <span className="wiki-gallery-label">Grey - Front</span>
               </div>
               <div style={{width:'146px', textAlign:'center'}}>
-                <img src={GreylagGoose_HybridFront} alt="Hybrid - Front" style={{width:'146px', height:'165px', objectFit:'cover', borderRadius:'4px', marginBottom:'5px'}} />
-                <span style={styles.galleryLabel}>Hybrid - Front</span>
+                <img src={GreylagGoose_HybridFront} alt="Hybrid - Front" />
+                <span className="wiki-gallery-label">Hybrid - Front</span>
               </div>
               <div style={{width:'146px', textAlign:'center'}}>
-                <img src={GreylagGoose_LeucisticVariation1Front} alt="Leucistic 1 - Front" style={{width:'146px', height:'165px', objectFit:'cover', borderRadius:'4px', marginBottom:'5px'}} />
-                <span style={styles.galleryLabel}>Leucistic 1 - Front</span>
+                <img src={GreylagGoose_LeucisticVariation1Front} alt="Leucistic 1 - Front" />
+                <span className="wiki-gallery-label">Leucistic 1 - Front</span>
               </div>
               <div style={{width:'146px', textAlign:'center'}}>
-                <img src={GreylagGoose_LeucisticVariation2Front} alt="Leucistic 2 - Front" style={{width:'146px', height:'165px', objectFit:'cover', borderRadius:'4px', marginBottom:'5px'}} />
-                <span style={styles.galleryLabel}>Leucistic 2 - Front</span>
+                <img src={GreylagGoose_LeucisticVariation2Front} alt="Leucistic 2 - Front" />
+                <span className="wiki-gallery-label">Leucistic 2 - Front</span>
               </div>
               <div style={{width:'146px', textAlign:'center'}}>
-                <img src={GreylagGoose_LeucisticVariation3Front} alt="Leucistic 3 - Front" style={{width:'146px', height:'165px', objectFit:'cover', borderRadius:'4px', marginBottom:'5px'}} />
-                <span style={styles.galleryLabel}>Leucistic 3 - Front</span>
+                <img src={GreylagGoose_LeucisticVariation3Front} alt="Leucistic 3 - Front" />
+                <span className="wiki-gallery-label">Leucistic 3 - Front</span>
               </div>
               <div style={{width:'146px', textAlign:'center'}}>
-                <img src={GreylagGoose_LeucisticVariation4Front} alt="Leucistic 4 - Front" style={{width:'146px', height:'165px', objectFit:'cover', borderRadius:'4px', marginBottom:'5px'}} />
-                <span style={styles.galleryLabel}>Leucistic 4 - Front</span>
+                <img src={GreylagGoose_LeucisticVariation4Front} alt="Leucistic 4 - Front" />
+                <span className="wiki-gallery-label">Leucistic 4 - Front</span>
               </div>
               <div style={{width:'146px', textAlign:'center'}}>
-                <img src={GreylagGoose_LeucisticVariation5Front} alt="Leucistic 5 - Front" style={{width:'146px', height:'165px', objectFit:'cover', borderRadius:'4px', marginBottom:'5px'}} />
-                <span style={styles.galleryLabel}>Leucistic 5 - Front</span>
+                <img src={GreylagGoose_LeucisticVariation5Front} alt="Leucistic 5 - Front" />
+                <span className="wiki-gallery-label">Leucistic 5 - Front</span>
               </div>
             </div>
 
             <div style={{display:'flex', flexWrap:'wrap', gap:'10px', marginTop:'8px'}}>
               {/* Back-view images (146x165) */}
               <div style={{width:'146px', textAlign:'center'}}>
-                <img src={GreylagGoose_BrownBack} alt="Brown - Back" style={{width:'146px', height:'165px', objectFit:'cover', borderRadius:'4px', marginBottom:'5px'}} />
-                <span style={styles.galleryLabel}>Brown - Back</span>
+                <img src={GreylagGoose_BrownBack} alt="Brown - Back" />
+                <span className="wiki-gallery-label">Brown - Back</span>
               </div>
               <div style={{width:'146px', textAlign:'center'}}>
-                <img src={GreylagGoose_GreyBack} alt="Grey - Back" style={{width:'146px', height:'165px', objectFit:'cover', borderRadius:'4px', marginBottom:'5px'}} />
-                <span style={styles.galleryLabel}>Grey - Back</span>
+                <img src={GreylagGoose_GreyBack} alt="Grey - Back" />
+                <span className="wiki-gallery-label">Grey - Back</span>
               </div>
               <div style={{width:'146px', textAlign:'center'}}>
-                <img src={GreylagGoose_HybridBack} alt="Hybrid - Back" style={{width:'146px', height:'165px', objectFit:'cover', borderRadius:'4px', marginBottom:'5px'}} />
-                <span style={styles.galleryLabel}>Hybrid - Back</span>
+                <img src={GreylagGoose_HybridBack} alt="Hybrid - Back" />
+                <span className="wiki-gallery-label">Hybrid - Back</span>
               </div>
               <div style={{width:'146px', textAlign:'center'}}>
-                <img src={GreylagGoose_LeucisticVariation1Back} alt="Leucistic 1 - Back" style={{width:'146px', height:'165px', objectFit:'cover', borderRadius:'4px', marginBottom:'5px'}} />
-                <span style={styles.galleryLabel}>Leucistic 1 - Back</span>
+                <img src={GreylagGoose_LeucisticVariation1Back} alt="Leucistic 1 - Back" />
+                <span className="wiki-gallery-label">Leucistic 1 - Back</span>
               </div>
               <div style={{width:'146px', textAlign:'center'}}>
-                <img src={GreylagGoose_LeucisticVariation2Back} alt="Leucistic 2 - Back" style={{width:'146px', height:'165px', objectFit:'cover', borderRadius:'4px', marginBottom:'5px'}} />
-                <span style={styles.galleryLabel}>Leucistic 2 - Back</span>
+                <img src={GreylagGoose_LeucisticVariation2Back} alt="Leucistic 2 - Back" />
+                <span className="wiki-gallery-label">Leucistic 2 - Back</span>
               </div>
               <div style={{width:'146px', textAlign:'center'}}>
-                <img src={GreylagGoose_LeucisticVariation3Back} alt="Leucistic 3 - Back" style={{width:'146px', height:'165px', objectFit:'cover', borderRadius:'4px', marginBottom:'5px'}} />
-                <span style={styles.galleryLabel}>Leucistic 3 - Back</span>
+                <img src={GreylagGoose_LeucisticVariation3Back} alt="Leucistic 3 - Back" />
+                <span className="wiki-gallery-label">Leucistic 3 - Back</span>
               </div>
               <div style={{width:'146px', textAlign:'center'}}>
-                <img src={GreylagGoose_LeucisticVariation4Back} alt="Leucistic 4 - Back" style={{width:'146px', height:'165px', objectFit:'cover', borderRadius:'4px', marginBottom:'5px'}} />
-                <span style={styles.galleryLabel}>Leucistic 4 - Back</span>
+                <img src={GreylagGoose_LeucisticVariation4Back} alt="Leucistic 4 - Back" />
+                <span className="wiki-gallery-label">Leucistic 4 - Back</span>
               </div>
               <div style={{width:'146px', textAlign:'center'}}>
-                <img src={GreylagGoose_LeucisticVariation5Back} alt="Leucistic 5 - Back" style={{width:'146px', height:'165px', objectFit:'cover', borderRadius:'4px', marginBottom:'5px'}} />
-                <span style={styles.galleryLabel}>Leucistic 5 - Back</span>
+                <img src={GreylagGoose_LeucisticVariation5Back} alt="Leucistic 5 - Back" />
+                <span className="wiki-gallery-label">Leucistic 5 - Back</span>
               </div>
             </div>
 
             {/* PLUMAGE RARITY TABLE */}
-            <h2 id="plumage-rarity" style={styles.h2}>Plumage Variant Rarity</h2>
-            <table style={styles.table}>
+            <h2 id="plumage-rarity" className="wiki-h2">Plumage Variant Rarity</h2>
+            <table className="wiki-table">
                 <thead>
                     <tr>
-                        <th style={styles.th}>Sex</th>
-                        <th style={styles.th}><span style={styles.common}>Common</span></th>
-                        <th style={styles.th}><span style={styles.uncommon}>Uncommon</span></th>
-                        <th style={styles.th}><span style={styles.rare}>Rare</span></th>
-                        <th style={styles.th}><span style={styles.veryRare}>Very Rare</span></th>
+                        <th className="wiki-th">Sex</th>
+                        <th className="wiki-th"><span className="wiki-common">Common</span></th>
+                        <th className="wiki-th"><span className="wiki-uncommon">Uncommon</span></th>
+                        <th className="wiki-th"><span className="wiki-rare">Rare</span></th>
+                        <th className="wiki-th"><span className="wiki-very-rare">Very Rare</span></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td style={{...styles.td, color: '#9b59b6', fontStyle: 'italic'}}>Male/Female</td>
-                        <td style={styles.td}>
+                        <td className="wiki-td wiki-td-rare">Male/Female</td>
+                        <td className="wiki-td">
                             Brown (74.94%)<br/>
                             Grey (24.98%)
                         </td>
-                        <td style={styles.td}>X</td>
-                        <td style={styles.td}>X</td>
-                        <td style={styles.td}>
+                        <td className="wiki-td">X</td>
+                        <td className="wiki-td">X</td>
+                        <td className="wiki-td">
                             Hybrid (0.01%)<br/>
                             Leucistic Variation 1 (0.01%)<br/>
                             Leucistic Variation 2 (0.01%)<br/>
@@ -651,21 +431,21 @@ const GreylagGoose = () => {
             </table>
 
             {/* TRIVIA */}
-            <h2 id="trivia" style={styles.h2}>Trivia</h2>
+            <h2 id="trivia" className="wiki-h2">Trivia</h2>
             <ul style={{paddingLeft: '20px', marginBottom: '30px'}}>
-                <li style={{marginBottom:'8px'}}>The origins of the name <em>Greylag</em> is mysterious. Most people believe that the <em>lag</em> part in <em>Greylag</em> comes simply from the fact that Greylag Goose "lag" behind other goose species when it comes to starting their migration.[2]</li>
-                <li style={{marginBottom:'8px'}}>The Greylag goose is the largest member of the genus <em>Anser</em>, making it the largest native goose species in Europe. It is only surpassed by the recently introduced <span style={styles.link}>Canada Goose</span>.[3]</li>
+                <li className="wiki-li">The origins of the name <em>Greylag</em> is mysterious. Most people believe that the <em>lag</em> part in <em>Greylag</em> comes simply from the fact that Greylag Goose "lag" behind other goose species when it comes to starting their migration.[2]</li>
+                <li className="wiki-li">The Greylag goose is the largest member of the genus <em>Anser</em>, making it the largest native goose species in Europe. It is only surpassed by the recently introduced <span className="wiki-link">Canada Goose</span>.[3]</li>
                 <li>Geese were often associated with fertility and "good times". Not only were they associated with many fertility goddesses, but even their fat was considered a strong aphrodisiac in ancient times.[4][5]</li>
             </ul>
 
             {/* REFERENCES */}
-            <h2 id="references" style={styles.h2}>References</h2>
+            <h2 id="references" className="wiki-h2">References</h2>
             <ol style={{paddingLeft: '25px', color: '#6fb2e6'}}>
-                <li><span style={styles.link}>Greylag Goose Need Zones, Sundarpatan</span></li>
-                <li><span style={styles.link}>https://www.dictionary.com/browse/greylag</span></li>
-                <li><span style={styles.link}>https://en.wikipedia.org/wiki/Greylag_goose</span></li>
-                <li><span style={styles.link}>http://galsonestate.pbworks.com/w/page/5401103/Greylag%20Goose</span></li>
-                <li><span style={styles.link}>https://amateurnithologist.blogspot.com/2015/11/domestic-greylag-goose.html</span></li>
+                <li><span className="wiki-link">Greylag Goose Need Zones, Sundarpatan</span></li>
+                <li><span className="wiki-link">https://www.dictionary.com/browse/greylag</span></li>
+                <li><span className="wiki-link">https://en.wikipedia.org/wiki/Greylag_goose</span></li>
+                <li><span className="wiki-link">http://galsonestate.pbworks.com/w/page/5401103/Greylag%20Goose</span></li>
+                <li><span className="wiki-link">https://amateurnithologist.blogspot.com/2015/11/domestic-greylag-goose.html</span></li>
             </ol>
 
             <AnimalsTableMini />

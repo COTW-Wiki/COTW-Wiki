@@ -76,173 +76,6 @@ const Lion = () => {
       { name: "Tan", src: Lion_TanFemale },
     ];
 
-  // --- STYLES OBJECT ---
-  const styles = {
-    container: {
-      backgroundColor: '#0b1a26',
-      color: '#dbe4eb',
-      fontFamily: '"Segoe UI", Roboto, Helvetica, Arial, sans-serif',
-      padding: '40px',
-      minHeight: '100vh',
-      lineHeight: '1.6',
-    },
-    innerWrapper: {
-      maxWidth: '1200px',
-      margin: '0 auto',
-    },
-    mainHeader: {
-      fontSize: '2.5rem',
-      fontWeight: '400',
-      borderBottom: '1px solid #3a5a75',
-      paddingBottom: '15px',
-      marginBottom: '20px',
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-    },
-    layout: {
-      display: 'flex',
-      gap: '30px',
-      alignItems: 'flex-start',
-      flexDirection: 'row-reverse',
-    },
-    mainColumn: {
-      flex: 1,
-    },
-    sidebarColumn: {
-      width: '320px',
-      flexShrink: 0,
-      backgroundColor: '#0f2e48',
-      border: '1px solid #1f405a',
-      borderRadius: '4px',
-    },
-    sidebarHeader: {
-      backgroundColor: '#05121c',
-      padding: '12px',
-      textAlign: 'center',
-      fontWeight: 'bold',
-      fontSize: '1.1rem',
-      borderBottom: '2px solid #cfaa3e',
-    },
-    sidebarImage: {
-      height: '180px',
-      backgroundColor: '#1f3a52',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      color: '#6fb2e6',
-      fontStyle: 'italic',
-      borderBottom: '1px solid #1f405a',
-      position: 'relative',
-    },
-    sidebarSection: {
-      padding: '10px 15px',
-      borderBottom: '1px solid #2a4b63',
-      fontSize: '0.95rem',
-    },
-    sidebarLabel: {
-      fontWeight: 'bold',
-      display: 'block',
-      marginBottom: '5px',
-      color: '#fff',
-    },
-    trophyGrid: {
-      display: 'grid',
-      gridTemplateColumns: 'repeat(3, 1fr)',
-      gap: '5px',
-      marginTop: '5px',
-      textAlign: 'center',
-    },
-    trophyItem: {
-      backgroundColor: '#16334a',
-      padding: '6px 2px',
-      borderRadius: '4px',
-    },
-    trophyLabel: {
-      fontSize: '0.75rem',
-      display: 'block',
-      fontWeight: 'bold',
-      marginBottom: '2px',
-    },
-    silver: { color: '#bdc3c7' },
-    gold: { color: '#f1c40f' },
-    diamond: { color: '#3498db' },
-    
-    quoteBox: {
-      fontStyle: 'italic',
-      backgroundColor: '#0f2e48',
-      borderLeft: '4px solid #3a5a75',
-      padding: '15px 20px',
-      margin: '0 0 20px 0',
-      color: '#a4cce8',
-    },
-    link: {
-      color: '#6fb2e6',
-      textDecoration: 'none',
-      cursor: 'pointer',
-    },
-    h2: {
-      color: '#6fb2e6',
-      borderBottom: '1px solid #3a5a75',
-      paddingBottom: '5px',
-      marginTop: '30px',
-      marginBottom: '15px',
-      fontSize: '1.5rem',
-      display: 'flex',
-      alignItems: 'center',
-      fontWeight: '500',
-    },
-    table: {
-      width: '100%',
-      borderCollapse: 'collapse',
-      backgroundColor: '#0f2e48',
-      fontSize: '0.95rem',
-      marginBottom: '20px',
-    },
-    th: {
-      backgroundColor: '#164060',
-      padding: '10px 15px',
-      textAlign: 'left',
-      color: '#fff',
-      borderBottom: '2px solid #3a5a75',
-      fontWeight: 'bold',
-    },
-    td: {
-      padding: '10px 15px',
-      borderBottom: '1px solid #2a4b63',
-      color: '#dbe4eb',
-      verticalAlign: 'top',
-    },
-    galleryGrid: {
-      display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fill, minmax(160px, 1fr))',
-      gap: '15px',
-    },
-    galleryItem: {
-      backgroundColor: 'transparent',
-    },
-    galleryImgPlaceholder: {
-      height: '180px',
-      backgroundColor: '#2a4b63',
-      border: '4px solid #1f3a52', 
-      marginBottom: '8px',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      position: 'relative',
-    },
-    galleryLabel: {
-      fontSize: '0.9rem',
-      display: 'block',
-      lineHeight: '1.2',
-      textAlign: 'center'
-    },
-    rarityCommon: { color: '#2ecc71', fontWeight: 'bold' },
-    rarityUncommon: { color: '#3498db', fontWeight: 'bold' },
-    rarityRare: { color: '#9b59b6', fontWeight: 'bold' },
-    rarityVeryRare: { color: '#e74c3c', fontWeight: 'bold' },
-  };
-
   // Smooth-scroll helper for TOC links
   function scrollToId(e, id) {
     if (e && e.preventDefault) e.preventDefault();
@@ -254,129 +87,121 @@ const Lion = () => {
   }
 
   return (
-    <div style={styles.container}>
-      <div style={styles.innerWrapper}>
+    <div className="wiki-page">
+      <div className="wiki-inner">
         
         {/* PAGE HEADER */}
-        <div style={styles.mainHeader}>
+        <div className="wiki-header">
           <span>Lion</span>
         </div>
 
-        <div style={styles.layout}>
+        <div className="wiki-layout">
           
           {/* --- RIGHT SIDEBAR (General Information) --- */}
-          <aside style={styles.sidebarColumn}>
-            <div style={styles.sidebarHeader}>Lion</div>
-            <div style={styles.sidebarImage}>
-              <img src={LionMain} alt="Lion" style={{width:'100%', height: '100%', objectFit: 'cover'}} />
+          <aside className="wiki-sidebar">
+            <div className="wiki-sidebar-header">Lion</div>
+            <div className="wiki-sidebar-image">
+              <img src={LionMain} alt="Lion" />
             </div>
             
-            <div style={styles.sidebarHeader}>General Information</div>
+            <div className="wiki-sidebar-header">General Information</div>
             
-            <div style={styles.sidebarSection}>
-              <span style={styles.sidebarLabel}>Class</span>
-              <span><img src={class9Icon} alt="Class 9" style={{width:'24px', height:'24px', verticalAlign: 'middle', marginRight: '6px'}}/>9</span>
+            <div className="wiki-sidebar-section">
+              <span className="wiki-sidebar-label">Class</span>
+              <span><img src={class9Icon} alt="Class 9" className="wiki-class-icon-lg"/>9</span>
             </div>
 
-            <div style={styles.sidebarSection}>
-              <span style={styles.sidebarLabel}>Difficulty</span>
+            <div className="wiki-sidebar-section">
+              <span className="wiki-sidebar-label">Difficulty</span>
               <span>1: Trivial — 9: Legendary</span>
             </div>
 
-            <div style={styles.sidebarSection}>
-              <span style={styles.sidebarLabel}>Trophy Type</span>
+            <div className="wiki-sidebar-section">
+              <span className="wiki-sidebar-label">Trophy Type</span>
               <span>Skull</span>
-              <div style={styles.trophyGrid}>
-                <div style={styles.trophyItem}>
-                  <span style={{...styles.trophyLabel, ...styles.silver}}>◆ Silver</span>
+              <div className="wiki-trophy-grid">
+                <div className="wiki-trophy-item">
+                  <span className="wiki-trophy-label wiki-trophy-silver">◆ Silver</span>
                   <span>38</span>
                 </div>
-                <div style={styles.trophyItem}>
-                  <span style={{...styles.trophyLabel, ...styles.gold}}>☗ Gold</span>
+                <div className="wiki-trophy-item">
+                  <span className="wiki-trophy-label wiki-trophy-gold">☗ Gold</span>
                   <span>44</span>
                 </div>
-                <div style={styles.trophyItem}>
-                  <span style={{...styles.trophyLabel, ...styles.diamond}}>☗ Diamond</span>
+                <div className="wiki-trophy-item">
+                  <span className="wiki-trophy-label wiki-trophy-diamond">☗ Diamond</span>
                   <span>48.5</span>
                 </div>
               </div>
             </div>
 
-            <div style={styles.sidebarSection}>
-              <span style={styles.sidebarLabel}>Weight</span>
+            <div className="wiki-sidebar-section">
+              <span className="wiki-sidebar-label">Weight</span>
               135kg — 270kg<br/>
-              <span style={{color: '#88a0b8', fontSize: '0.85rem'}}>298lbs — 595lbs</span>
+              <span className="wiki-sidebar-muted">298lbs — 595lbs</span>
             </div>
 
-            <div style={styles.sidebarSection}>
-               <span style={styles.sidebarLabel}>Fur</span>
-               <span style={{fontSize:'0.85rem'}}>
+            <div className="wiki-sidebar-section">
+               <span className="wiki-sidebar-label">Fur</span>
+               <span className="wiki-fs-sm">
                  Albino, Blonde, Dark-Brown, Light Brown, Tan
                </span>
             </div>
 
-            <div style={styles.sidebarHeader}>Locations</div>
-            <div style={styles.sidebarSection}>
-               <div style={{marginBottom:'4px'}}><span style={styles.link}>Vurhonga Savanna</span></div>
+            <div className="wiki-sidebar-header">Locations</div>
+            <div className="wiki-sidebar-section">
+               <div className="wiki-mb-4"><span className="wiki-link">Vurhonga Savanna</span></div>
             </div>
           </aside>
 
           {/* --- MAIN CONTENT --- */}
-          <main style={styles.mainColumn}>
+          <main className="wiki-main">
 
             {/* Quote Block */}
-            <div style={styles.quoteBox}>
+            <div className="wiki-quote">
               "Embodying the symbols of royalty and poise in human culture around the world, the lion is the second-largest of the cats. Lions are muscular and deep-chested, and the density of their muscles severely complicates shot placement and shot penetration. Male lions can weigh upwards of 190.00 kg and stand tall at over a 1.00 m in height and over 2.00 m in length. Despite the common conception that lions are only found in prides, males are often found in coalitions or as individuals, aggressively defending or marking territory. Lionesses spend most of their time rearing cubs and often hunt more than male lions do. They're rarely maneaters, but do attack humans that invade their territory."
               <br/><br/>
               — In-Game Description
             </div>
 
             {/* Intro Text */}
-            <p style={{marginBottom:'20px'}}>
-              The <strong>Lion</strong> is a <span style={styles.link}>class 9</span> feline. It can be hunted in the <span style={styles.link}>Vurhonga Savanna Reserve</span>.
+            <p className="wiki-p-mb">
+              The <strong>Lion</strong> is a <span className="wiki-link">class 9</span> feline. It can be hunted in the <span className="wiki-link">Vurhonga Savanna Reserve</span>.
             </p>
 
             {/* Table of Contents */}
-            <div style={{
-                border: '1px solid #3a5a75',
-                backgroundColor: '#0f2e48',
-                display: 'inline-block',
-                padding: '10px 20px',
-                borderRadius: '4px',
-                minWidth: '200px',
-                marginBottom: '30px'
-            }}>
-              <div style={{fontWeight:'bold', borderBottom: '1px solid #3a5a75', marginBottom: '5px'}}>
-                🔢 Contents <span style={{float:'right', color: '#6fb2e6', fontSize:'0.8rem', cursor: 'pointer'}}>[hide]</span>
+            <div className="wiki-toc">
+              <div className="wiki-toc-title">
+                🔢 Contents <span className="wiki-toc-toggle">[hide]</span>
               </div>
-              <ol style={{margin:'0', paddingLeft: '20px', color: '#6fb2e6'}}>
-                <li><a href="#features" onClick={(e)=>scrollToId(e,'features')} style={styles.link}>Features</a></li>
-                <li><a href="#need-zones" onClick={(e)=>scrollToId(e,'need-zones')} style={styles.link}>Need Zone Times</a></li>
-                <li><a href="#fur-variants" onClick={(e)=>scrollToId(e,'fur-variants')} style={styles.link}>Fur Variants</a></li>
+              <ol className="wiki-toc">
+                <li><a href="#features" onClick={(e)=>scrollToId(e,'features')} className="wiki-link">Features</a></li>
+                <li><a href="#need-zones" onClick={(e)=>scrollToId(e,'need-zones')} className="wiki-link">Need Zone Times</a></li>
+                <li><a href="#fur-variants" onClick={(e)=>scrollToId(e,'fur-variants')} className="wiki-link">Fur Variants</a></li>
                 <ol style={{listStyleType: 'none', marginLeft: '-20px'}}>
                       <li><a href="#fur-male" onClick={(e)=>scrollToId(e,'fur-male')} style={{...styles.link, marginLeft:'20px'}}>3.1. Male</a></li>
                       <li><a href="#fur-female" onClick={(e)=>scrollToId(e,'fur-female')} style={{...styles.link, marginLeft:'20px'}}>3.2. Female</a></li>
                 </ol>
-                <li><a href="#variant-rarity" onClick={(e)=>scrollToId(e,'variant-rarity')} style={styles.link}>Fur Variant Rarity</a></li>
-                <li><a href="#gallery" onClick={(e)=>scrollToId(e,'gallery')} style={styles.link}>Gallery</a></li>
+                <li><a href="#variant-rarity" onClick={(e)=>scrollToId(e,'variant-rarity')} className="wiki-link">Fur Variant Rarity</a></li>
+                <li><a href="#gallery" onClick={(e)=>scrollToId(e,'gallery')} className="wiki-link">Gallery</a></li>
               </ol>
             </div>
 
             {/* FEATURES */}
-            <h2 style={styles.h2} id="features">Features</h2>
-            <table style={styles.table}>
+            <h2 className="wiki-h2" id="features">Features</h2>
+            <table className="wiki-table">
               <thead>
                 <tr>
-                    <th style={{...styles.th, width: '25%'}}></th>
-                    <th style={styles.th}>Description</th>
+                    <th className="wiki-th wiki-th-w25"></th>
+                    <th className="wiki-th">Description</th>
                 </tr>
               </thead>
               <tbody>
                 {features.map((item, index) => (
                   <tr key={index}>
-                    <td style={{...styles.td, fontWeight: 'bold'}}>{item.label}</td>
-                    <td style={{...styles.td, fontStyle: item.italic ? 'italic' : 'normal'}}>
-                        {item.isLink ? <span style={styles.link}>{item.value}</span> : item.value}
+                    <td className="wiki-td wiki-td-bold">{item.label}</td>
+                    <td className={`wiki-td ${item.italic ? 'wiki-td-italic' : ''}`}>
+                        {item.isLink ? <span className="wiki-link">{item.value}</span> : item.value}
                     </td>
                   </tr>
                 ))}
@@ -384,23 +209,23 @@ const Lion = () => {
             </table>
             
             {/* NEED ZONE TIMES */}
-            <h2 style={styles.h2} id="need-zones">Need Zone Times</h2>
-            <div style={{display:'inline-block'}}>
-                <table style={{...styles.table, width: '300px'}}>
+            <h2 className="wiki-h2" id="need-zones">Need Zone Times</h2>
+            <div className="wiki-inline-block">
+                <table className="wiki-table wiki-table-fixed">
                     <thead>
-                        <tr><th colSpan="2" style={{...styles.th, textAlign: 'center'}}>Vurhonga Savanna</th></tr>
+                        <tr><th colSpan="2" className="wiki-th wiki-th-center">Vurhonga Savanna</th></tr>
                         <tr>
-                            <th style={{...styles.th, backgroundColor: '#0f2e48'}}>Times</th>
-                            <th style={{...styles.th, backgroundColor: '#0f2e48'}}>Activity</th>
+                            <th className="wiki-th wiki-th-alt">Times</th>
+                            <th className="wiki-th wiki-th-alt">Activity</th>
                         </tr>
                     </thead>
                     <tbody>
                         {needZonesData[0].schedule.map((zone, i) => (
                         <tr key={i}>
-                            <td style={styles.td}>{zone.time}</td>
-                            <td style={styles.td}>
-                                <div style={{display:'flex', alignItems:'center'}}>
-                                    <img src={zone.icon} alt={zone.type} style={{width:'20px', height: '20px', verticalAlign: 'middle', marginRight: '6px'}}/> 
+                            <td className="wiki-td">{zone.time}</td>
+                            <td className="wiki-td">
+                                <div className="wiki-flex-center">
+                                    <img src={zone.icon} alt={zone.type} className="wiki-class-icon"/> 
                                     {zone.type}
                                 </div>
                             </td>
@@ -411,66 +236,66 @@ const Lion = () => {
             </div>
 
             {/* FUR VARIANTS (Gallery) */}
-            <h2 style={styles.h2} id="fur-variants">Fur Variants</h2>
+            <h2 className="wiki-h2" id="fur-variants">Fur Variants</h2>
             
             <h3 id="fur-male" style={{marginTop:'10px', marginBottom:'8px', color: '#6fb2e6'}}>Male</h3>
-            <div style={styles.galleryGrid}>
+            <div className="wiki-gallery-grid">
               {maleFurGallery.map((item, i) => (
-                <div key={i} style={styles.galleryItem}>
-                  <div style={styles.galleryImgPlaceholder}>
-                    <img src={item.src} alt={item.name} style={{width:'100%', height: '100%', objectFit: 'contain'}} />
+                <div key={i} className="wiki-gallery-item">
+                  <div className="wiki-gallery-placeholder">
+                    <img src={item.src} alt={item.name} className="wiki-img-contain" />
                   </div>
-                  <span style={styles.galleryLabel}>{item.name}</span>
+                  <span className="wiki-gallery-label">{item.name}</span>
                 </div>
               ))}
             </div>
 
             <h3 id="fur-female" style={{marginTop:'10px', marginBottom:'8px', color: '#6fb2e6'}}>Female</h3>
-            <div style={styles.galleryGrid}>
+            <div className="wiki-gallery-grid">
               {femaleFurGallery.map((item, i) => (
-                <div key={i} style={styles.galleryItem}>
-                  <div style={styles.galleryImgPlaceholder}>
-                    <img src={item.src} alt={item.name} style={{width:'100%', height: '100%', objectFit: 'contain'}} />
+                <div key={i} className="wiki-gallery-item">
+                  <div className="wiki-gallery-placeholder">
+                    <img src={item.src} alt={item.name} className="wiki-img-contain" />
                   </div>
-                  <span style={styles.galleryLabel}>{item.name}</span>
+                  <span className="wiki-gallery-label">{item.name}</span>
                 </div>
               ))}
             </div>
 
 
             {/* FUR VARIANT RARITY TABLE */}
-            <h2 id="variant-rarity" style={styles.h2}>Fur Variant Rarity</h2>
-            <div style={{overflowX: 'auto', marginBottom: '20px'}}>
-                <table style={styles.table}>
+            <h2 id="variant-rarity" className="wiki-h2">Fur Variant Rarity</h2>
+            <div className="wiki-overflow-auto wiki-mb-20">
+                <table className="wiki-table">
                     <thead>
                         <tr>
-                            <th style={styles.th}>Sex</th>
-                            <th style={{...styles.th, ...styles.rarityCommon}}>Common</th>
-                            <th style={{...styles.th, ...styles.rarityUncommon}}>Uncommon</th>
-                            <th style={{...styles.th, ...styles.rarityRare}}>Rare</th>
-                            <th style={{...styles.th, ...styles.rarityVeryRare}}>Very Rare</th>
+                            <th className="wiki-th">Sex</th>
+                            <th className="wiki-th wiki-common">Common</th>
+                            <th className="wiki-th wiki-uncommon">Uncommon</th>
+                            <th className="wiki-th wiki-rare">Rare</th>
+                            <th className="wiki-th wiki-very-rare">Very Rare</th>
                         </tr>
                     </thead>
                     <tbody>
                         {/* Male/Female Combined Row */}
                         <tr>
-                            <td style={styles.td}>
-                                <span style={{color: '#3498db', fontStyle: 'italic', fontWeight: 'bold'}}>Male</span>
-                                <span style={{color: '#dbe4eb'}}>/</span>
-                                <span style={{color: '#d63384', fontStyle: 'italic', fontWeight: 'bold'}}>Female</span>
+                            <td className="wiki-td">
+                                <span className="wiki-text-male">Male</span>
+                                <span className="wiki-text-divider">/</span>
+                                <span className="wiki-text-female">Female</span>
                             </td>
-                            <td style={styles.td}>
+                            <td className="wiki-td">
                                 Tan (74.70%)
                             </td>
-                            <td style={styles.td}>
+                            <td className="wiki-td">
                                 Light Brown (25.00%)
                             </td>
-                            <td style={styles.td}>
+                            <td className="wiki-td">
                                 Dark Brown (0.10%)<br/>
                                 Blonde (0.10%)<br/>
                                 Albino (0.10%)
                             </td>
-                            <td style={styles.td}>
+                            <td className="wiki-td">
                                 X
                             </td>
                         </tr>
@@ -479,8 +304,8 @@ const Lion = () => {
             </div>
 
             {/* GALLERY */}
-            <h2 id="gallery" style={styles.h2}>Gallery</h2>
-            <div style={{marginBottom: '20px'}}>
+            <h2 id="gallery" className="wiki-h2">Gallery</h2>
+            <div className="wiki-mb-20">
               <div style={{position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden'}}>
                 <iframe
                   src="https://www.youtube.com/embed/gEzLaCV7S2s"
@@ -493,7 +318,7 @@ const Lion = () => {
               </div>
             </div>
 
-            <div style={{marginTop: '40px'}}>
+            <div className="wiki-mt-40">
                 <AnimalsTableMini />
             </div>
             

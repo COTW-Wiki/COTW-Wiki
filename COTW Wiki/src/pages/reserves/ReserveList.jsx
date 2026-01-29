@@ -578,114 +578,21 @@ const AnimalsByReleaseDate = () => {
       }
     ];
   
-    const styles = {
-      container: {
-        backgroundColor: '#0b1a26',
-        color: '#dbe4eb',
-        fontFamily: '"Segoe UI", Roboto, Helvetica, Arial, sans-serif',
-        padding: '20px',
-        overflowX: 'auto',
-        paddingBottom: '60px', 
-      },
-      header: {
-        fontSize: '1.5rem',
-        fontWeight: 'bold',
-        marginBottom: '10px',
-        borderBottom: '1px solid #3a5a75',
-        paddingBottom: '5px',
-        display: 'flex',
-        alignItems: 'center',
-      },
-      linkIcon: {
-        fontSize: '0.8rem',
-        color: '#6fb2e6',
-        marginLeft: '8px',
-        cursor: 'pointer',
-      },
-      instruction: {
-        marginBottom: '15px',
-        fontSize: '1rem',
-      },
-      tableWrapper: {
-        display: 'flex',
-        flexDirection: 'row',
-        backgroundColor: '#a3b4c4', 
-        border: '1px solid #000',
-        minWidth: 'min-content', 
-      },
-      column: {
-        display: 'flex',
-        flexDirection: 'column',
-        width: '135px', 
-        flexShrink: 0,
-        borderRight: '1px solid #000',
-      },
-      colHeader: {
-        backgroundColor: '#ccc',
-        color: '#000',
-        fontSize: '0.75rem',
-        fontWeight: 'bold',
-        padding: '4px',
-        textAlign: 'center',
-        borderBottom: '1px solid #000',
-        height: '35px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        lineHeight: '1.1',
-      },
-      cell: {
-        padding: '3px 4px',
-        fontSize: '0.7rem',
-        color: '#000',
-        borderBottom: '1px solid #555',
-        cursor: 'pointer',
-        textDecoration: 'none',
-        display: 'block',
-        whiteSpace: 'nowrap',
-        overflow: 'hidden',
-        textOverflow: 'ellipsis',
-        fontWeight: '500',
-      },
-        timelineContainer: {
-          marginTop: '30px',
-          display: 'flex',
-          flexWrap: 'nowrap',
-          gap: '10px',
-          justifyContent: 'flex-start',
-          padding: '8px 20px',
-          overflowX: 'auto'
-        },
-        timelineItem: {
-          fontSize: '0.8rem',
-          padding: '6px 10px',
-          color: '#000',
-          transform: 'none',
-          marginRight: '0',
-          marginBottom: '0',
-          whiteSpace: 'nowrap',
-          fontWeight: '700',
-          border: '1px solid rgba(0,0,0,0.15)',
-          borderRadius: '4px',
-          boxShadow: '0 1px 2px rgba(0,0,0,0.08)'
-        }
-    };
-  
     return (
-      <div style={styles.container}>
-        <h2 style={styles.header}>
+      <div className="wiki-page">
+        <h2 className="wiki-panel-header">
           Animals by release date (table) 
-          <span style={styles.linkIcon}></span>
+          <span className="wiki-release-link-icon"></span>
         </h2>
         
-        <p style={styles.instruction}>
+        <p className="wiki-release-instruction">
           Click on the names to get directed to the animal/reserve page:
         </p>
   
-        <div style={styles.tableWrapper}>
+        <div className="wiki-release-table-wrapper">
           {tableData.map((col, idx) => (
-            <div key={idx} style={styles.column}>
-              <div style={styles.colHeader}>
+            <div key={idx} className="wiki-release-column">
+              <div className="wiki-release-col-header">
                 {col.reserve}
               </div>
               
@@ -706,7 +613,7 @@ const AnimalsByReleaseDate = () => {
           ))}
         </div>
   
-        <div style={styles.timelineContainer}>
+        <div className="wiki-release-timeline">
             <span style={{...styles.timelineItem, backgroundColor: colors.base}}>2017-02-16 Initial Release</span>
             <span style={{...styles.timelineItem, backgroundColor: colors.medved}}>2017-10-17 Medved-Taiga DLC</span>
             <span style={{...styles.timelineItem, backgroundColor: colors.goose}}>2018-04-12 Jackrabbit Update</span>
@@ -758,105 +665,47 @@ const Reserves = () => {
     "Tòrr nan Sithean"
   ];
 
-  // --- STYLES OBJECT (Copied and adapted from CapeBuffalo) ---
-  const styles = {
-    container: {
-      backgroundColor: '#0b1a26',
-      color: '#dbe4eb',
-      fontFamily: '"Segoe UI", Roboto, Helvetica, Arial, sans-serif',
-      padding: '40px',
-      minHeight: '100vh',
-      lineHeight: '1.6',
-    },
-    innerWrapper: {
-      maxWidth: '1200px',
-      margin: '0 auto',
-    },
-    mainHeader: {
-      fontSize: '2.5rem',
-      fontWeight: '400',
-      borderBottom: '1px solid #3a5a75',
-      paddingBottom: '15px',
-      marginBottom: '20px',
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-    },
-    mainColumn: {
-      flex: 1,
-      maxWidth: '900px', // Restricted width for better readability on text-heavy pages
-    },
-    link: {
-      color: '#6fb2e6',
-      textDecoration: 'none',
-      cursor: 'pointer',
-      fontWeight: '500',
-    },
-    // Adapted H2 for list headers
-    sectionHeader: {
-        fontSize: '1.2rem',
-        color: '#dbe4eb',
-        marginTop: '25px',
-        marginBottom: '10px',
-        fontWeight: 'bold',
-    },
-    list: {
-        listStyleType: 'disc',
-        paddingLeft: '25px',
-        marginBottom: '20px',
-    },
-    listItem: {
-        marginBottom: '5px',
-        color: '#6fb2e6', // Using the link color for list items as they appear to be links in the screenshot
-        cursor: 'pointer',
-    },
-    paragraph: {
-        marginBottom: '20px',
-        color: '#dbe4eb',
-    }
-  };
-
   return (
-    <div style={styles.container}>
-      <div style={styles.innerWrapper}>
+    <div className="wiki-page">
+      <div className="wiki-inner">
         
         {/* PAGE HEADER */}
-        <div style={styles.mainHeader}>
+        <div className="wiki-header">
           <span>Reserves</span>
         </div>
 
         {/* --- MAIN CONTENT --- */}
-        <main style={styles.mainColumn}>
+        <main className="wiki-main">
 
           {/* Intro Text */}
-          <p style={styles.paragraph}>
-            <strong>Reserves</strong> are game maps/worlds which are available for players to hunt on. Including <span style={styles.link}>DLCs</span>, there are currently 18 reserves to play on.
+          <p className="wiki-paragraph">
+            <strong>Reserves</strong> are game maps/worlds which are available for players to hunt on. Including <span className="wiki-link">DLCs</span>, there are currently 18 reserves to play on.
           </p>
 
           {/* Base Game List */}
-          <div style={styles.sectionHeader}>Base game:</div>
-          <ul style={styles.list}>
+          <div className="wiki-section-header">Base game:</div>
+          <ul className="wiki-list-plain">
             {baseGameReserves.map((reserve, index) => (
-                <li key={index} style={styles.listItem}>{reserve}</li>
+                <li key={index} className="wiki-li">{reserve}</li>
             ))}
           </ul>
 
           {/* DLC List */}
-          <div style={styles.sectionHeader}>DLCs:</div>
-          <ul style={styles.list}>
+          <div className="wiki-section-header">DLCs:</div>
+          <ul className="wiki-list-plain">
             {dlcReserves.map((reserve, index) => (
-                <li key={index} style={styles.listItem}>{reserve}</li>
+                <li key={index} className="wiki-li">{reserve}</li>
             ))}
           </ul>
 
           {/* Multiplayer Info */}
-          <p style={styles.paragraph}>
-            While Layton Lake District and Hirschfelden Hunting Reserve are available with the base game, the other reserves have to be bought as DLCs. However, these reserves can be played even if a player does not own the DLC if they join a <span style={styles.link}>Multiplayer</span> session in which the host owns the DLC.
+          <p className="wiki-paragraph">
+            While Layton Lake District and Hirschfelden Hunting Reserve are available with the base game, the other reserves have to be bought as DLCs. However, these reserves can be played even if a player does not own the DLC if they join a <span className="wiki-link">Multiplayer</span> session in which the host owns the DLC.
           </p>
 
           {/* Animals Info */}
-          <p style={styles.paragraph}>
-            Reserves are located all around the world and each reserve has its own group of huntable <span style={styles.link}>animals</span>. Accordingly, the animals in a reserve reflect the wildlife that lives in the real-life counterpart of the reserve.
+          <p className="wiki-paragraph">
+            Reserves are located all around the world and each reserve has its own group of huntable <span className="wiki-link">animals</span>. Accordingly, the animals in a reserve reflect the wildlife that lives in the real-life counterpart of the reserve.
           </p>
 
         </main>
@@ -976,44 +825,6 @@ const TableOfContents = () => {
     { id: 'release-date', label: '3. Animals by release date (table)' }
   ];
 
-  const styles = {
-    tocContainer: {
-      border: '1px solid #3a5a75',
-      backgroundColor: '#0f2e48',
-      display: 'inline-block',
-      padding: '10px',
-      borderRadius: '4px',
-      minWidth: '300px',
-      maxWidth: '100%',
-      marginBottom: '30px',
-      color: '#dbe4eb',
-      fontFamily: '"Segoe UI", Roboto, Helvetica, Arial, sans-serif',
-      fontSize: '0.95rem',
-    },
-    header: {
-      fontWeight: 'bold',
-      borderBottom: isVisible ? '1px solid #3a5a75' : 'none',
-      marginBottom: isVisible ? '10px' : '0',
-      paddingBottom: isVisible ? '5px' : '0',
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-    },
-    toggleLink: {
-      color: '#6fb2e6',
-      fontSize: '0.85rem',
-      cursor: 'pointer',
-      marginLeft: '10px',
-      textDecoration: 'none',
-      userSelect: 'none',
-    },
-    list: { listStyleType: 'none', padding: '0', margin: '0' },
-    listItem: { marginBottom: '4px' },
-    subList: { listStyleType: 'none', paddingLeft: '20px', margin: '4px 0 8px 0' },
-    link: { color: '#dbe4eb', textDecoration: 'none', cursor: 'pointer' },
-    linkHover: { textDecoration: 'underline', color: '#6fb2e6' }
-  };
-
   const handleScroll = (e, id) => {
     e.preventDefault();
     const element = document.getElementById(id);
@@ -1021,24 +832,24 @@ const TableOfContents = () => {
   };
 
   return (
-    <div style={styles.tocContainer}>
-      <div style={styles.header}>
+    <div className="wiki-toc-panel">
+      <div className="wiki-panel-header">
         <span>🔢 Contents</span>
-        <span style={styles.toggleLink} onClick={() => setIsVisible(!isVisible)}>[{isVisible ? 'hide' : 'show'}]</span>
+        <span className="wiki-toc-panel-toggle" onClick={() => setIsVisible(!isVisible)}>[{isVisible ? 'hide' : 'show'}]</span>
       </div>
       {isVisible && (
-        <ul style={styles.list}>
+        <ul className="wiki-list-plain">
           {tocItems.map((item) => (
-            <li key={item.id} style={styles.listItem}>
-              <a href={`#${item.id}`} onClick={(e) => handleScroll(e, item.id)} style={styles.link}
+            <li key={item.id} className="wiki-li">
+              <a href={`#${item.id}`} onClick={(e) => handleScroll(e, item.id)} className="wiki-link"
                 onMouseEnter={(e) => e.target.style.color = styles.linkHover.color}
                 onMouseLeave={(e) => e.target.style.color = styles.link.color}
               >{item.label}</a>
               {item.subItems && (
-                <ul style={styles.subList}>
+                <ul className="wiki-toc-panel-list">
                   {item.subItems.map((sub) => (
-                    <li key={sub.id} style={styles.listItem}>
-                      <a href={`#${sub.id}`} onClick={(e) => handleScroll(e, sub.id)} style={styles.link}
+                    <li key={sub.id} className="wiki-li">
+                      <a href={`#${sub.id}`} onClick={(e) => handleScroll(e, sub.id)} className="wiki-link"
                         onMouseEnter={(e) => e.target.style.color = styles.linkHover.color}
                         onMouseLeave={(e) => e.target.style.color = styles.link.color}
                       >{sub.label}</a>
@@ -1502,60 +1313,40 @@ const HuntableAnimals = () => {
     return `/animals/${slug}`;
   };
 
-  const styles = {
-    container: { backgroundColor: '#0b1a26', color: '#dbe4eb', fontFamily: '"Segoe UI", Roboto, Helvetica, Arial, sans-serif', padding: '20px', minHeight: '100vh' },
-    mainHeader: { fontSize: '2rem', fontWeight: 'bold', marginBottom: '30px', borderBottom: '1px solid #3a5a75', paddingBottom: '10px' },
-    reserveWrapper: { marginBottom: '60px' },
-    sectionHeader: { fontSize: '1.2rem', fontWeight: 'bold', color: '#dbe4eb', marginBottom: '10px', display: 'flex', alignItems: 'center' },
-    linkIcon: { color: '#6fb2e6', marginLeft: '10px', fontSize: '0.8rem', cursor: 'pointer', textDecoration: 'none' },
-    tableContainer: { display: 'grid', gridTemplateColumns: '100px repeat(9, 1fr)', backgroundColor: '#0f2e48', borderRadius: '4px', overflow: 'hidden', border: '1px solid #1f405a' },
-    headerRow: { display: 'contents' },
-    headerCell: { backgroundColor: '#16334a', padding: '10px 5px', textAlign: 'center', borderBottom: '1px solid #3a5a75', borderRight: '1px solid #1f405a', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end', color: '#fff', fontWeight: 'bold' },
-    labelCell: { gridColumn: '1 / 2', backgroundColor: '#16334a', padding: '10px', display: 'flex', alignItems: 'center', fontWeight: 'bold', borderRight: '1px solid #3a5a75', color: '#dbe4eb' },
-    classHeaderIcon: { width: '32px', height: 'auto', marginBottom: '5px', filter: 'brightness(0) invert(1)' },
-    gridRow: { display: 'contents' },
-    rowLabel: { backgroundColor: '#16334a', padding: '20px 10px', display: 'flex', alignItems: 'center', fontWeight: 'bold', borderRight: '1px solid #3a5a75', borderTop: '1px solid #1f405a' },
-    gridCell: { padding: '10px 5px', borderRight: '1px solid #1f405a', borderTop: '1px solid #1f405a', display: 'flex', flexDirection: 'column', alignItems: 'center', minHeight: '120px', position: 'relative' },
-    emptyMarker: { color: '#88a0b8', fontSize: '1.2rem', marginTop: '40px', fontStyle: 'italic', opacity: 0.5 },
-    animalCard: { display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '15px', textAlign: 'center', width: '100%' },
-    hexIcon: { width: '64px', height: '64px', objectFit: 'contain', marginBottom: '8px', filter: 'drop-shadow(0px 2px 4px rgba(0,0,0,0.5))' },
-    animalName: { fontSize: '0.8rem', lineHeight: '1.2', maxWidth: '90px' }
-  };
-
   return (
-    <div style={styles.container}>
-      <h1 id="huntable-animals" style={styles.mainHeader}>Huntable Animals</h1>
+    <div className="wiki-page">
+      <h1 id="huntable-animals" className="wiki-header">Huntable Animals</h1>
       {reserves.map((reserve, index) => (
-        <div id={reserve.id} key={index} style={styles.reserveWrapper}>
-          <div style={styles.sectionHeader}>
+        <div id={reserve.id} key={index} className="wiki-reserve-card">
+          <div className="wiki-section-header">
             {reserve.name}
-            <span style={styles.linkIcon}></span>
+            <span className="wiki-release-link-icon"></span>
           </div>
-          <div style={styles.tableContainer}>
-            <div style={styles.headerRow}>
+          <div className="wiki-reserve-table">
+            <div className="wiki-reserve-header-row">
                 <div style={{...styles.headerCell, borderBottom: 'none', backgroundColor: '#16334a', width: '100%'}}>Class</div>
                 {classes.map((cls, i) => (
-                    <div key={cls} style={styles.headerCell}>
-                        <img src={classIcons[i]} alt={`Class ${cls}`} style={styles.classHeaderIcon} />
+                    <div key={cls} className="wiki-reserve-header-cell">
+                        <img src={classIcons[i]} alt={`Class ${cls}`} className="wiki-class-icon" />
                         <span>{cls}</span>
                     </div>
                 ))}
             </div>
-            <div style={styles.gridRow}>
-                <div style={styles.rowLabel}>Animals</div>
+            <div className="wiki-reserve-grid-row">
+                <div className="wiki-reserve-row-label">Animals</div>
                 {classes.map((cls) => {
                     const animalList = reserve.animals[cls] || [];
                     return (
-                        <div key={cls} style={styles.gridCell}>
+                        <div key={cls} className="wiki-reserve-grid-cell">
                             {animalList.length > 0 ? (
                                 animalList.map((animal, idx) => (
                                   <Link key={idx} to={toPath(animal.name)} style={{...styles.animalCard, textDecoration: 'none', color: 'inherit'}}>
-                                    <img src={animal.icon} alt={animal.name} style={styles.hexIcon} />
-                                    <span style={styles.animalName}>{animal.name}</span>
+                                    <img src={animal.icon} alt={animal.name} className="wiki-reserve-hex-icon" />
+                                    <span className="wiki-reserve-animal-name">{animal.name}</span>
                                   </Link>
                                 ))
                             ) : (
-                                <span style={styles.emptyMarker}>//</span>
+                                <span className="wiki-reserve-empty">//</span>
                             )}
                         </div>
                     );

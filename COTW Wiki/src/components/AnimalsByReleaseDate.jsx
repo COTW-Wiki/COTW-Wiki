@@ -186,109 +186,50 @@ const tableData = [
   // ... (tableData continues, omitted here for brevity in file)
 ];
 
-const AnimalsByReleaseDate = () => {
-  const styles = {
-    container: {
-      backgroundColor: '#0b1a26',
-      color: '#dbe4eb',
-      fontFamily: '"Segoe UI", Roboto, Helvetica, Arial, sans-serif',
-      padding: '20px',
-      overflowX: 'auto',
-    },
-    header: {
-      fontSize: '1.5rem',
-      fontWeight: 'bold',
-      marginBottom: '10px',
-      borderBottom: '1px solid #3a5a75',
-      paddingBottom: '5px',
-      display: 'flex',
-      alignItems: 'center',
-    },
-    linkIcon: {
-      fontSize: '0.8rem',
-      color: '#6fb2e6',
-      marginLeft: '8px',
-      cursor: 'pointer',
-    },
-    instruction: {
-      marginBottom: '15px',
-      fontSize: '1rem',
-    },
-    tableWrapper: {
-      display: 'flex',
-      flexDirection: 'row',
-      backgroundColor: '#a3b4c4',
-      border: '1px solid #000',
-      minWidth: 'min-content',
-    },
-    column: {
-      display: 'flex',
-      flexDirection: 'column',
-      width: '130px',
-      flexShrink: 0,
-      borderRight: '1px solid #000',
-    },
-    colHeader: {
-      backgroundColor: '#ccc',
-      color: '#000',
-      fontSize: '0.75rem',
-      fontWeight: 'bold',
-      padding: '4px',
-      textAlign: 'center',
-      borderBottom: '1px solid #000',
-      height: '30px',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      lineHeight: '1.1',
-    },
-    cell: {
-      padding: '2px 4px',
-      fontSize: '0.75rem',
-      color: '#000',
-      borderBottom: '1px solid #555',
-      cursor: 'pointer',
-      textDecoration: 'none',
-      display: 'block',
-      whiteSpace: 'nowrap',
-      overflow: 'hidden',
-      textOverflow: 'ellipsis',
-    },
-    timelineContainer: {
-        marginTop: '20px',
-        display: 'flex',
-        flexWrap: 'wrap',
-        gap: '5px',
-        justifyContent: 'center'
-    },
-    timelineItem: {
-        fontSize: '0.7rem',
-        padding: '2px 6px',
-        color: '#000',
-        borderRadius: '2px',
-        transform: 'rotate(-20deg)',
-        margin: '0 5px',
-        whiteSpace: 'nowrap'
-    }
-  };
+const timelineItems = [
+  { label: '2017-02-16 Initial Release', color: colors.base },
+  { label: '2017-10-17 Medved-Taiga DLC', color: colors.medved },
+  { label: '2018-04-12 Jackrabbit Update', color: colors.goose },
+  { label: '2018-08-30 Vurhonga DLC', color: colors.vurhonga },
+  { label: '2018-12-13 Parque Fernando DLC', color: colors.parque },
+  { label: '2019-06-25 Yukon Valley DLC', color: colors.yukon },
+  { label: '2019-12-10 Cuatro Colinas DLC', color: colors.cuatro },
+  { label: '2020-06-23 Silver Ridge Peaks DLC', color: colors.silver },
+  { label: '2020-12-10 Te Awaroa DLC', color: colors.teawaroa },
+  { label: '2021-06-29 Rancho del Arroyo DLC', color: colors.rancho },
+  { label: '2021-12-07 Mississippi Acres DLC', color: colors.mississippi },
+  { label: '2022-06-28 Revontuli Coast DLC', color: colors.revontuli },
+  { label: '2022-12-06 New E. Mountains DLC', color: colors.newengland },
+  { label: '2023-06-20 Emerald Coast DLC', color: colors.emerald },
+  { label: '2024-06-18 Sundarpatan DLC', color: colors.sundarpatan },
+  { label: '2024-12-03 Salzwiesen Park DLC', color: colors.salzwiesen },
+  { label: '2025-06-17 Askiy Ridge', color: colors.askiy },
+];
 
+const AnimalsByReleaseDate = () => {
   return (
-    <div style={styles.container}>
-      <h2 style={styles.header}>
+    <div className="wiki-release-container">
+      <h2 className="wiki-release-header">
         Animals by release date (table)
-        <span style={styles.linkIcon}>🔗</span>
+        <span className="wiki-release-link-icon">🔗</span>
       </h2>
 
-      <p style={styles.instruction}>
+      <p className="wiki-release-instruction">
         Click on the names to get directed to the animal/reserve page:
       </p>
 
-      <div style={styles.tableWrapper}>
+      <div className="wiki-release-table-wrapper">
         {tableData.map((col, idx) => (
-          <div key={idx} style={styles.column}>
-            <div style={styles.colHeader}>{col.reserve}</div>
+          <div key={idx} className="wiki-release-column">
+            <div className="wiki-release-col-header">{col.reserve}</div>
             {col.animals && col.animals.map((animal, aIdx) => (
-              <Link key={aIdx} to={getLink(animal.name)} style={{...styles.cell, backgroundColor: animal.color}} title={animal.name}>
+              <Link
+                key={aIdx}
+                to={getLink(animal.name)}
+                className="wiki-release-cell"
+                style={{ backgroundColor: animal.color }}
+                title={animal.name}
+              >
                 {animal.name}
               </Link>
             ))}
@@ -296,26 +237,17 @@ const AnimalsByReleaseDate = () => {
         ))}
       </div>
 
-      <div style={styles.timelineContainer}>
-          <span style={{...styles.timelineItem, backgroundColor: colors.base}}>2017-02-16 Initial Release</span>
-          <span style={{...styles.timelineItem, backgroundColor: colors.medved}}>2017-10-17 Medved-Taiga DLC</span>
-          <span style={{...styles.timelineItem, backgroundColor: colors.goose}}>2018-04-12 Jackrabbit Update</span>
-          <span style={{...styles.timelineItem, backgroundColor: colors.vurhonga}}>2018-08-30 Vurhonga DLC</span>
-          <span style={{...styles.timelineItem, backgroundColor: colors.parque}}>2018-12-13 Parque Fernando DLC</span>
-          <span style={{...styles.timelineItem, backgroundColor: colors.yukon}}>2019-06-25 Yukon Valley DLC</span>
-          <span style={{...styles.timelineItem, backgroundColor: colors.cuatro}}>2019-12-10 Cuatro Colinas DLC</span>
-          <span style={{...styles.timelineItem, backgroundColor: colors.silver}}>2020-06-23 Silver Ridge Peaks DLC</span>
-          <span style={{...styles.timelineItem, backgroundColor: colors.teawaroa}}>2020-12-10 Te Awaroa DLC</span>
-          <span style={{...styles.timelineItem, backgroundColor: colors.rancho}}>2021-06-29 Rancho del Arroyo DLC</span>
-          <span style={{...styles.timelineItem, backgroundColor: colors.mississippi}}>2021-12-07 Mississippi Acres DLC</span>
-          <span style={{...styles.timelineItem, backgroundColor: colors.revontuli}}>2022-06-28 Revontuli Coast DLC</span>
-          <span style={{...styles.timelineItem, backgroundColor: colors.newengland}}>2022-12-06 New E. Mountains DLC</span>
-          <span style={{...styles.timelineItem, backgroundColor: colors.emerald}}>2023-06-20 Emerald Coast DLC</span>
-          <span style={{...styles.timelineItem, backgroundColor: colors.sundarpatan}}>2024-06-18 Sundarpatan DLC</span>
-          <span style={{...styles.timelineItem, backgroundColor: colors.salzwiesen}}>2024-12-03 Salzwiesen Park DLC</span>
-          <span style={{...styles.timelineItem, backgroundColor: colors.askiy}}>2025-06-17 Askiy Ridge</span>
+      <div className="wiki-release-timeline">
+        {timelineItems.map((item, i) => (
+          <span
+            key={i}
+            className="wiki-release-timeline-item"
+            style={{ '--wiki-timeline-bg': item.color }}
+          >
+            {item.label}
+          </span>
+        ))}
       </div>
-
     </div>
   );
 };

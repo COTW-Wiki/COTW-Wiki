@@ -95,313 +95,133 @@ const WesternCapercaillie = () => {
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
-  // --- STYLES OBJECT ---
-  const styles = {
-    container: {
-      backgroundColor: '#0b1a26',
-      color: '#dbe4eb',
-      fontFamily: '"Segoe UI", Roboto, Helvetica, Arial, sans-serif',
-      padding: '40px',
-      minHeight: '100vh',
-      lineHeight: '1.6',
-    },
-    innerWrapper: {
-      maxWidth: '1200px',
-      margin: '0 auto',
-    },
-    mainHeader: {
-      fontSize: '2.5rem',
-      fontWeight: '400',
-      borderBottom: '1px solid #3a5a75',
-      paddingBottom: '15px',
-      marginBottom: '20px',
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-    },
-    editActions: {
-      fontSize: '0.9rem',
-      color: '#6fb2e6',
-      display: 'flex',
-      gap: '15px',
-      fontWeight: 'bold',
-      cursor: 'pointer',
-    },
-    layout: {
-      display: 'flex',
-      gap: '30px',
-      alignItems: 'flex-start',
-      flexDirection: 'row-reverse',
-    },
-    mainColumn: {
-      flex: 1,
-    },
-    sidebarColumn: {
-      width: '320px',
-      flexShrink: 0,
-      backgroundColor: '#0f2e48',
-      border: '1px solid #1f405a',
-      borderRadius: '4px',
-    },
-    sidebarHeader: {
-      backgroundColor: '#05121c',
-      padding: '12px',
-      textAlign: 'center',
-      fontWeight: 'bold',
-      fontSize: '1.1rem',
-      borderBottom: '2px solid #cfaa3e',
-    },
-    sidebarImage: {
-      height: '180px',
-      backgroundColor: '#1f3a52',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      color: '#6fb2e6',
-      fontStyle: 'italic',
-      borderBottom: '1px solid #1f405a',
-      position: 'relative',
-    },
-    sidebarSection: {
-      padding: '10px 15px',
-      borderBottom: '1px solid #2a4b63',
-      fontSize: '0.95rem',
-    },
-    sidebarLabel: {
-      fontWeight: 'bold',
-      display: 'block',
-      marginBottom: '5px',
-      color: '#fff',
-    },
-    trophyGrid: {
-      display: 'grid',
-      gridTemplateColumns: 'repeat(3, 1fr)',
-      gap: '5px',
-      marginTop: '5px',
-      textAlign: 'center',
-    },
-    trophyItem: {
-      backgroundColor: '#16334a',
-      padding: '6px 2px',
-      borderRadius: '4px',
-    },
-    trophyLabel: {
-      fontSize: '0.75rem',
-      display: 'block',
-      fontWeight: 'bold',
-      marginBottom: '2px',
-    },
-    silver: { color: '#bdc3c7' },
-    gold: { color: '#f1c40f' },
-    diamond: { color: '#3498db' },
-    
-    quoteBox: {
-      fontStyle: 'italic',
-      backgroundColor: '#0f2e48',
-      borderLeft: '4px solid #3a5a75',
-      padding: '15px 20px',
-      margin: '0 0 20px 0',
-      color: '#a4cce8',
-    },
-    link: {
-      color: '#6fb2e6',
-      textDecoration: 'none',
-      cursor: 'pointer',
-    },
-    h2: {
-      color: '#6fb2e6',
-      borderBottom: '1px solid #3a5a75',
-      paddingBottom: '5px',
-      marginTop: '30px',
-      marginBottom: '15px',
-      fontSize: '1.5rem',
-      display: 'flex',
-      alignItems: 'center',
-      fontWeight: '500',
-    },
-    table: {
-      width: '100%',
-      borderCollapse: 'collapse',
-      backgroundColor: '#0f2e48',
-      fontSize: '0.95rem',
-      marginBottom: '20px',
-    },
-    th: {
-      backgroundColor: '#164060',
-      padding: '10px 15px',
-      textAlign: 'left',
-      color: '#fff',
-      borderBottom: '2px solid #3a5a75',
-      fontWeight: 'bold',
-    },
-    td: {
-      padding: '10px 15px',
-      borderBottom: '1px solid #2a4b63',
-      color: '#dbe4eb',
-    },
-    galleryGrid: {
-      display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fill, minmax(160px, 1fr))',
-      gap: '15px',
-    },
-    galleryItem: {
-      backgroundColor: 'transparent',
-    },
-    galleryImgPlaceholder: {
-      height: '180px',
-      backgroundColor: '#2a4b63',
-      border: '4px solid #1f3a52', 
-      marginBottom: '8px',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      position: 'relative',
-    },
-    galleryLabel: {
-      fontSize: '0.9rem',
-      display: 'block',
-      lineHeight: '1.2',
-    },
-    rarityCommon: { color: '#2ecc71', fontWeight: 'bold' },
-    rarityUncommon: { color: '#3498db', fontWeight: 'bold' },
-    rarityRare: { color: '#9b59b6', fontWeight: 'bold' },
-    rarityVeryRare: { color: '#e74c3c', fontWeight: 'bold' },
-  };
-
   return (
-    <div style={styles.container}>
-      <div style={styles.innerWrapper}>
+    <div className="wiki-page">
+      <div className="wiki-inner">
         
         {/* PAGE HEADER */}
-        <div style={styles.mainHeader}>
+        <div className="wiki-header">
           <span>Western Capercaillie</span>
-          <div style={styles.editActions}>
+          <div className="wiki-edit-actions">
           </div>
         </div>
 
-        <div style={styles.layout}>
+        <div className="wiki-layout">
           
           {/* --- RIGHT SIDEBAR (General Information) --- */}
-          <aside style={styles.sidebarColumn}>
-            <div style={styles.sidebarHeader}>Western Capercaillie</div>
-            <div style={styles.sidebarImage}>
-              <img src={WesternCapercaillieMain} alt="Western Capercaillie" style={{width:'268px', height: '134px', objectFit: 'cover'}} />
+          <aside className="wiki-sidebar">
+            <div className="wiki-sidebar-header">Western Capercaillie</div>
+            <div className="wiki-sidebar-image">
+              <img src={WesternCapercaillieMain} alt="Western Capercaillie" />
             </div>
             
-            <div style={styles.sidebarHeader}>General Information</div>
+            <div className="wiki-sidebar-header">General Information</div>
             
-            <div style={styles.sidebarSection}>
-              <span style={styles.sidebarLabel}>Class</span>
-              <span><img src={class1Icon} alt="Class 1" style={{width:'20px', height:'20px', verticalAlign: 'middle', marginRight: '6px'}}/>1</span>
+            <div className="wiki-sidebar-section">
+              <span className="wiki-sidebar-label">Class</span>
+              <span><img src={class1Icon} alt="Class 1" className="wiki-class-icon"/>1</span>
             </div>
 
-            <div style={styles.sidebarSection}>
-              <span style={styles.sidebarLabel}>Difficulty</span>
+            <div className="wiki-sidebar-section">
+              <span className="wiki-sidebar-label">Difficulty</span>
               <span>1: Trivial — 3: Very Easy</span>
             </div>
 
             {/* Trophy Type */}
-            <div style={styles.sidebarSection}>
-              <span style={styles.sidebarLabel}>Trophy Type</span>
+            <div className="wiki-sidebar-section">
+              <span className="wiki-sidebar-label">Trophy Type</span>
               <span>Combined</span>
-              <div style={styles.trophyGrid}>
-                <div style={styles.trophyItem}>
-                  <span style={{...styles.trophyLabel, ...styles.silver}}>◆ Silver</span>
+              <div className="wiki-trophy-grid">
+                <div className="wiki-trophy-item">
+                  <span className="wiki-trophy-label wiki-trophy-silver">◆ Silver</span>
                   <span>2.20</span>
                 </div>
-                <div style={styles.trophyItem}>
-                  <span style={{...styles.trophyLabel, ...styles.gold}}>☗ Gold</span>
+                <div className="wiki-trophy-item">
+                  <span className="wiki-trophy-label wiki-trophy-gold">☗ Gold</span>
                   <span>3.60</span>
                 </div>
-                <div style={styles.trophyItem}>
-                  <span style={{...styles.trophyLabel, ...styles.diamond}}>☗ Diamond</span>
+                <div className="wiki-trophy-item">
+                  <span className="wiki-trophy-label wiki-trophy-diamond">☗ Diamond</span>
                   <span>4.64</span>
                 </div>
               </div>
             </div>
 
-            <div style={styles.sidebarSection}>
-              <span style={styles.sidebarLabel}>Weight</span>
+            <div className="wiki-sidebar-section">
+              <span className="wiki-sidebar-label">Weight</span>
               1.5kg — 5kg<br/>
               3lbs — 11lbs
             </div>
 
-            <div style={styles.sidebarSection}>
-               <span style={styles.sidebarLabel}>Plumage</span>
-               <span style={{fontSize:'0.85rem'}}>
+            <div className="wiki-sidebar-section">
+               <span className="wiki-sidebar-label">Plumage</span>
+               <span className="wiki-fs-sm">
                   Bright, Brown, Dark, Leucistic, Ochre, Pale
                </span>
             </div>
 
-            <div style={styles.sidebarHeader}>Locations</div>
-            <div style={styles.sidebarSection}>
-               <div style={{marginBottom:'4px'}}><span style={styles.link}>Medved-Taiga National Park</span></div>
-               <div style={{marginBottom:'4px'}}><span style={styles.link}>Revontuli Coast</span></div>
-               <div style={{marginBottom:'4px'}}><span style={styles.link}>Tòrr nan Sithean</span></div>
+            <div className="wiki-sidebar-header">Locations</div>
+            <div className="wiki-sidebar-section">
+               <div className="wiki-mb-4"><span className="wiki-link">Medved-Taiga National Park</span></div>
+               <div className="wiki-mb-4"><span className="wiki-link">Revontuli Coast</span></div>
+               <div className="wiki-mb-4"><span className="wiki-link">Tòrr nan Sithean</span></div>
             </div>
           </aside>
 
           {/* --- MAIN CONTENT --- */}
-          <main style={styles.mainColumn}>
+          <main className="wiki-main">
 
             {/* Quote Block */}
-            <div style={styles.quoteBox}>
+            <div className="wiki-quote">
               "The Western Capercaillie is the largest of all grouse species. Similar to the Black Grouse it's known for the mating ritual. Males perform for females with with puffed out feathers, strutting and very distinct calls. During mating season the ritual can get very aggressive and males can end up killing each other. Female and male capercaillie are easily distinguishable by their size and colouration. The male is much bigger than the female and their plumages are distinctly different. The female capercaillie live in flocks with their yearling chicks while the adult male are almost always solitary. The name Capercaillie comes from Gaelic 'capul coille' which translates into 'horse of the woods'."
               <br/><br/>
               — In-Game Description
             </div>
 
             {/* Intro Text */}
-            <p style={{marginBottom:'20px'}}>
-              The <strong>Western Capercaillie</strong> is a species of "upland" bird that was introduced with <span style={styles.link}>Revontuli Coast</span>. Also dwells on <span style={styles.link}>Medved-Taiga National Park</span> and <span style={styles.link}>Tòrr nan Sithean</span>.
+            <p className="wiki-p-mb">
+              The <strong>Western Capercaillie</strong> is a species of "upland" bird that was introduced with <span className="wiki-link">Revontuli Coast</span>. Also dwells on <span className="wiki-link">Medved-Taiga National Park</span> and <span className="wiki-link">Tòrr nan Sithean</span>.
             </p>
-            <p style={{marginBottom:'20px'}}>
-              It is one of 5 grouse currently huntable in game. The other Grouse include <span style={styles.link}>Rock Ptarmigan</span>, <span style={styles.link}>Willow Ptarmigan</span>, <span style={styles.link}>Black Grouse</span>, and <span style={styles.link}>Hazel Grouse</span>.
+            <p className="wiki-p-mb">
+              It is one of 5 grouse currently huntable in game. The other Grouse include <span className="wiki-link">Rock Ptarmigan</span>, <span className="wiki-link">Willow Ptarmigan</span>, <span className="wiki-link">Black Grouse</span>, and <span className="wiki-link">Hazel Grouse</span>.
             </p>
 
             {/* Table of Contents Placeholder */}
-            <div style={{
-                border: '1px solid #3a5a75',
-                backgroundColor: '#0f2e48',
-                display: 'inline-block',
-                padding: '10px 20px',
-                borderRadius: '4px',
-                minWidth: '200px'
-            }}>
-              <div style={{fontWeight:'bold', borderBottom: '1px solid #3a5a75', marginBottom: '5px'}}>
-                🔢 Contents <span style={{float:'right', color: '#6fb2e6', fontSize:'0.8rem'}}>[hide]</span>
+            <div className="wiki-toc">
+              <div className="wiki-toc-title">
+                🔢 Contents <span className="wiki-toc-toggle">[hide]</span>
               </div>
-              <ol style={{margin:'0', paddingLeft: '20px', color: '#6fb2e6'}}>
-                <li><a href="#features" onClick={scrollToId('features')} style={styles.link}>Features</a></li>
-                <li><a href="#need-zones" onClick={scrollToId('need-zones')} style={styles.link}>Need Zone Times</a></li>
+              <ol className="wiki-toc">
+                <li><a href="#features" onClick={scrollToId('features')} className="wiki-link">Features</a></li>
+                <li><a href="#need-zones" onClick={scrollToId('need-zones')} className="wiki-link">Need Zone Times</a></li>
                 <li>
-                  <a href="#plumage-variants" onClick={scrollToId('plumage-variants')} style={styles.link}>Plumage variants</a>
-                  <ul style={{listStyleType:'none', paddingLeft:'10px', margin:'5px 0'}}>
-                      <li style={{color:'#6fb2e6'}}><a href="#plumage-male" onClick={scrollToId('plumage-male')} style={styles.link}>3.1. Male</a></li>
-                      <li style={{color:'#6fb2e6'}}><a href="#plumage-female" onClick={scrollToId('plumage-female')} style={styles.link}>3.2. Female</a></li>
+                  <a href="#plumage-variants" onClick={scrollToId('plumage-variants')} className="wiki-link">Plumage variants</a>
+                  <ul >
+                      <li style={{color:'#6fb2e6'}}><a href="#plumage-male" onClick={scrollToId('plumage-male')} className="wiki-link">3.1. Male</a></li>
+                      <li style={{color:'#6fb2e6'}}><a href="#plumage-female" onClick={scrollToId('plumage-female')} className="wiki-link">3.2. Female</a></li>
                   </ul>
                 </li>
-                <li><a href="#plumage-rarity" onClick={scrollToId('plumage-rarity')} style={styles.link}>Plumage Variant Rarity</a></li>
-                <li><a href="#trivia" onClick={scrollToId('trivia')} style={styles.link}>Trivia</a></li>
-                <li><a href="#references" onClick={scrollToId('references')} style={styles.link}>References</a></li>
+                <li><a href="#plumage-rarity" onClick={scrollToId('plumage-rarity')} className="wiki-link">Plumage Variant Rarity</a></li>
+                <li><a href="#trivia" onClick={scrollToId('trivia')} className="wiki-link">Trivia</a></li>
+                <li><a href="#references" onClick={scrollToId('references')} className="wiki-link">References</a></li>
               </ol>
             </div>
 
             {/* FEATURES */}
-            <h2 id="features" style={styles.h2}>Features</h2>
-            <table style={styles.table}>
+            <h2 id="features" className="wiki-h2">Features</h2>
+            <table className="wiki-table">
               <thead>
                 <tr>
-                    <th style={{...styles.th, width: '25%'}}></th>
-                    <th style={styles.th}>Description</th>
+                    <th className="wiki-th wiki-th-w25"></th>
+                    <th className="wiki-th">Description</th>
                 </tr>
               </thead>
               <tbody>
                 {features.map((item, index) => (
                   <tr key={index}>
-                    <td style={{...styles.td, fontWeight: 'bold'}}>{item.label}</td>
-                    <td style={{...styles.td, fontStyle: item.italic ? 'italic' : 'normal'}}>
-                        {item.isLink ? <span style={styles.link}>{item.value}</span> : item.value}
+                    <td className="wiki-td wiki-td-bold">{item.label}</td>
+                    <td className={`wiki-td ${item.italic ? 'wiki-td-italic' : ''}`}>
+                        {item.isLink ? <span className="wiki-link">{item.value}</span> : item.value}
                     </td>
                   </tr>
                 ))}
@@ -409,21 +229,21 @@ const WesternCapercaillie = () => {
             </table>
             
             {/* NEED ZONE TIMES */}
-            <h2 id="need-zones" style={styles.h2}>Need Zone Times</h2>
-            <div style={{display:'inline-block'}}>
-                <table style={{...styles.table, width: '300px'}}>
+            <h2 id="need-zones" className="wiki-h2">Need Zone Times</h2>
+            <div className="wiki-inline-block">
+                <table className="wiki-table wiki-table-fixed">
                     <thead>
-                        <tr><th colSpan="2" style={{...styles.th, textAlign: 'center'}}>Revontuli Coast</th></tr>
+                        <tr><th colSpan="2" className="wiki-th wiki-th-center">Revontuli Coast</th></tr>
                         <tr>
-                            <th style={{...styles.th, backgroundColor: '#0f2e48'}}>Times</th>
-                            <th style={{...styles.th, backgroundColor: '#0f2e48'}}>Activity</th>
+                            <th className="wiki-th wiki-th-alt">Times</th>
+                            <th className="wiki-th wiki-th-alt">Activity</th>
                         </tr>
                     </thead>
                     <tbody>
                         {needZonesData[0].schedule.map((zone, i) => (
                         <tr key={i}>
-                            <td style={styles.td}>{zone.time}</td>
-                            <td style={styles.td}><img src={zone.icon} alt={zone.type} style={{width:'20px', height: '20px', verticalAlign: 'middle', marginRight: '6px'}}/> {zone.type}</td>
+                            <td className="wiki-td">{zone.time}</td>
+                            <td className="wiki-td"><img src={zone.icon} alt={zone.type} className="wiki-class-icon"/> {zone.type}</td>
                         </tr>
                         ))}
                     </tbody>
@@ -431,74 +251,74 @@ const WesternCapercaillie = () => {
             </div>
 
             {/* PLUMAGE VARIANTS (Gallery) */}
-            <h2 id="plumage-variants" style={styles.h2}>Plumage variants</h2>
+            <h2 id="plumage-variants" className="wiki-h2">Plumage variants</h2>
             
             {/* Male Section */}
             <h3 id="plumage-male" style={{...styles.h2, fontSize:'1.2rem', borderBottom:'none', marginTop:'10px'}}>Male</h3>
-            <div style={styles.galleryGrid}>
+            <div className="wiki-gallery-grid">
               {plumageGallery.male.map((item, i) => (
-                <div key={i} style={styles.galleryItem}>
-                  <div style={styles.galleryImgPlaceholder}>
-                    <img src={item.src} alt={item.name} style={{width:'146px', height: '165px', objectFit: 'cover'}} />
+                <div key={i} className="wiki-gallery-item">
+                  <div className="wiki-gallery-placeholder">
+                    <img src={item.src} alt={item.name} />
                   </div>
-                  <span style={styles.galleryLabel}>{item.name}</span>
+                  <span className="wiki-gallery-label">{item.name}</span>
                 </div>
               ))}
             </div>
 
             {/* Female Section */}
             <h3 id="plumage-female" style={{...styles.h2, fontSize:'1.2rem', borderBottom:'none', marginTop:'10px'}}>Female</h3>
-            <div style={styles.galleryGrid}>
+            <div className="wiki-gallery-grid">
               {plumageGallery.female.map((item, i) => (
-                <div key={i} style={styles.galleryItem}>
-                  <div style={styles.galleryImgPlaceholder}>
-                    <img src={item.src} alt={item.name} style={{width:'146px', height: '165px', objectFit: 'cover'}} />
+                <div key={i} className="wiki-gallery-item">
+                  <div className="wiki-gallery-placeholder">
+                    <img src={item.src} alt={item.name} />
                   </div>
-                  <span style={styles.galleryLabel}>{item.name}</span>
+                  <span className="wiki-gallery-label">{item.name}</span>
                 </div>
               ))}
             </div>
 
             {/* PLUMAGE RARITY TABLE */}
-            <h2 id="plumage-rarity" style={styles.h2}>Plumage Variant Rarity</h2>
-            <table style={styles.table}>
+            <h2 id="plumage-rarity" className="wiki-h2">Plumage Variant Rarity</h2>
+            <table className="wiki-table">
                 <thead>
                     <tr>
-                        <th style={styles.th}>Sex</th>
-                        <th style={{...styles.th, ...styles.rarityCommon}}>Common</th>
-                        <th style={{...styles.th, ...styles.rarityUncommon}}>Uncommon</th>
-                        <th style={{...styles.th, ...styles.rarityRare}}>Rare</th>
-                        <th style={{...styles.th, ...styles.rarityVeryRare}}>Very Rare</th>
+                        <th className="wiki-th">Sex</th>
+                        <th className="wiki-th wiki-common">Common</th>
+                        <th className="wiki-th wiki-uncommon">Uncommon</th>
+                        <th className="wiki-th wiki-rare">Rare</th>
+                        <th className="wiki-th wiki-very-rare">Very Rare</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td style={{...styles.td, color: '#3498db', fontStyle: 'italic', fontWeight: 'bold'}}>
+                        <td className="wiki-td wiki-td-muted">
                             Male
                         </td>
-                        <td style={styles.td}>
+                        <td className="wiki-td">
                             Dark (99.82%)
                         </td>
-                        <td style={styles.td}>X</td>
-                        <td style={styles.td}>X</td>
-                        <td style={styles.td}>
+                        <td className="wiki-td">X</td>
+                        <td className="wiki-td">X</td>
+                        <td className="wiki-td">
                             Leucistic Variation 1 (0.09%)<br/>
                             Leucistic Variation 2 (0.04%)<br/>
                             Pale (0.04%)
                         </td>
                     </tr>
                     <tr>
-                        <td style={{...styles.td, color: '#d63384', fontStyle: 'italic', fontWeight: 'bold'}}>
+                        <td className="wiki-td wiki-td-female">
                             Female
                         </td>
-                        <td style={styles.td}>
+                        <td className="wiki-td">
                             Brown (74.88%)<br/>
                             Bright (12.53%)<br/>
                             Ochra (12.53%)
                         </td>
-                        <td style={styles.td}>X</td>
-                        <td style={styles.td}>X</td>
-                        <td style={styles.td}>
+                        <td className="wiki-td">X</td>
+                        <td className="wiki-td">X</td>
+                        <td className="wiki-td">
                             Leucistic (0.07%)
                         </td>
                     </tr>
@@ -506,16 +326,16 @@ const WesternCapercaillie = () => {
             </table>
 
             {/* TRIVIA */}
-            <h2 id="trivia" style={styles.h2}>Trivia</h2>
-            <ul style={{paddingLeft:'20px', marginBottom: '30px'}}>
-              <li style={{marginBottom:'8px'}}>The <strong>Western Capercaillie</strong> is well adapted for cold climates. Not only do <strong>Capercaillie</strong> have feathers covering their legs, but they also have rowed 'Horns' on their toes which helps distribute weight when walking on snow.<sup>[1]</sup> <i>"Yes, it literally has snow shoes, lol"</i></li>
-              <li style={{marginBottom:'8px'}}>The <strong>Capercaillie</strong> is one of few animals in game that can go aggressive and is currently the only bird to do so. This is a reflection of how notoriously aggressive the <strong>Capercaillie</strong> is in real life.</li>
+            <h2 id="trivia" className="wiki-h2">Trivia</h2>
+            <ul className="wiki-ul">
+              <li className="wiki-li">The <strong>Western Capercaillie</strong> is well adapted for cold climates. Not only do <strong>Capercaillie</strong> have feathers covering their legs, but they also have rowed 'Horns' on their toes which helps distribute weight when walking on snow.<sup>[1]</sup> <i>"Yes, it literally has snow shoes, lol"</i></li>
+              <li className="wiki-li">The <strong>Capercaillie</strong> is one of few animals in game that can go aggressive and is currently the only bird to do so. This is a reflection of how notoriously aggressive the <strong>Capercaillie</strong> is in real life.</li>
             </ul>
 
             {/* REFERENCES */}
-            <h2 id="references" style={styles.h2}>References</h2>
+            <h2 id="references" className="wiki-h2">References</h2>
             <div style={{fontSize: '0.9rem'}}>
-               1. ↑ <span style={styles.link}>https://www.mindenpictures.com/stock-photo-capercaillie-tetrao-urogallus-close-up-of-foot-kuusamo-finland-march-naturephotography-image90716578.html</span>
+               1. ↑ <span className="wiki-link">https://www.mindenpictures.com/stock-photo-capercaillie-tetrao-urogallus-close-up-of-foot-kuusamo-finland-march-naturephotography-image90716578.html</span>
             </div>
 
             <AnimalsTableMini />

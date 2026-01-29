@@ -81,348 +81,127 @@ const MountainGoat = () => {
     "https://www.youtube.com/watch?v=hdY7aDVYAJs"
   ];
 
-  // --- STYLES OBJECT ---
-  const styles = {
-    container: {
-      backgroundColor: '#0b1a26',
-      color: '#dbe4eb',
-      fontFamily: '"Segoe UI", Roboto, Helvetica, Arial, sans-serif',
-      padding: '40px',
-      minHeight: '100vh',
-      lineHeight: '1.6',
-    },
-    innerWrapper: {
-      maxWidth: '1200px',
-      margin: '0 auto',
-    },
-    mainHeader: {
-      fontSize: '2.5rem',
-      fontWeight: '400',
-      borderBottom: '1px solid #3a5a75',
-      paddingBottom: '15px',
-      marginBottom: '20px',
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-    },
-    layout: {
-      display: 'flex',
-      gap: '30px',
-      alignItems: 'flex-start',
-      flexDirection: 'row-reverse',
-    },
-    mainColumn: {
-      flex: 1,
-    },
-    sidebarColumn: {
-      width: '320px',
-      flexShrink: 0,
-      backgroundColor: '#0f2e48',
-      border: '1px solid #1f405a',
-      borderRadius: '4px',
-    },
-    sidebarHeader: {
-      backgroundColor: '#05121c',
-      padding: '12px',
-      textAlign: 'center',
-      fontWeight: 'bold',
-      fontSize: '1.1rem',
-      borderBottom: '2px solid #cfaa3e',
-    },
-    sidebarImage: {
-      height: '180px',
-      backgroundColor: '#1f3a52',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      color: '#6fb2e6',
-      fontStyle: 'italic',
-      borderBottom: '1px solid #1f405a',
-      position: 'relative',
-    },
-    sidebarSection: {
-      padding: '10px 15px',
-      borderBottom: '1px solid #2a4b63',
-      fontSize: '0.95rem',
-    },
-    sidebarLabel: {
-      fontWeight: 'bold',
-      display: 'block',
-      marginBottom: '5px',
-      color: '#fff',
-    },
-    trophyGrid: {
-      display: 'grid',
-      gridTemplateColumns: 'repeat(3, 1fr)',
-      gap: '5px',
-      marginTop: '5px',
-      textAlign: 'center',
-    },
-    trophyItem: {
-      backgroundColor: '#16334a',
-      padding: '6px 2px',
-      borderRadius: '4px',
-    },
-    trophyLabel: {
-      fontSize: '0.75rem',
-      display: 'block',
-      fontWeight: 'bold',
-      marginBottom: '2px',
-    },
-    silver: { color: '#bdc3c7' },
-    gold: { color: '#f1c40f' },
-    diamond: { color: '#3498db' },
-    
-    quoteBox: {
-      fontStyle: 'italic',
-      backgroundColor: '#0f2e48',
-      borderLeft: '4px solid #3a5a75',
-      padding: '15px 20px',
-      margin: '0 0 20px 0',
-      color: '#a4cce8',
-    },
-    link: {
-      color: '#6fb2e6',
-      textDecoration: 'none',
-      cursor: 'pointer',
-    },
-    h2: {
-      color: '#6fb2e6',
-      borderBottom: '1px solid #3a5a75',
-      paddingBottom: '5px',
-      marginTop: '30px',
-      marginBottom: '15px',
-      fontSize: '1.5rem',
-      display: 'flex',
-      alignItems: 'center',
-      fontWeight: '500',
-    },
-    table: {
-      width: '100%',
-      borderCollapse: 'collapse',
-      backgroundColor: '#0f2e48',
-      fontSize: '0.95rem',
-      marginBottom: '20px',
-    },
-    th: {
-      backgroundColor: '#164060',
-      padding: '10px 15px',
-      textAlign: 'left',
-      color: '#fff',
-      borderBottom: '2px solid #3a5a75',
-      fontWeight: 'bold',
-    },
-    td: {
-      padding: '10px 15px',
-      borderBottom: '1px solid #2a4b63',
-      color: '#dbe4eb',
-      verticalAlign: 'top',
-    },
-    shotContainer: {
-      display: 'flex',
-      backgroundColor: '#112233',
-      marginTop: '10px',
-      border: '1px solid #1f405a',
-      flexDirection: 'row',
-      alignItems: 'stretch',
-    },
-    shotImageWrapper: {
-      flex: 1,
-      borderRight: '1px solid #1f405a',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      backgroundColor: '#000',
-    },
-    shotLegend: {
-      width: '240px',
-      flexShrink: 0,
-      display: 'flex',
-      flexDirection: 'column',
-    },
-    legendHeader: {
-      backgroundColor: '#162c46',
-      padding: '10px',
-      fontWeight: 'bold',
-      borderBottom: '1px solid #1f405a',
-      color: '#fff',
-      fontSize: '0.95rem',
-    },
-    legendItem: {
-      padding: '15px',
-      borderBottom: '1px solid #1f405a',
-      fontSize: '0.9rem',
-      color: '#dbe4eb',
-    },
-    galleryGrid: {
-      display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fill, minmax(160px, 1fr))',
-      gap: '15px',
-    },
-    galleryItem: {
-      backgroundColor: 'transparent',
-    },
-    galleryImgPlaceholder: {
-      height: '180px',
-      backgroundColor: '#2a4b63',
-      border: '4px solid #1f3a52', 
-      marginBottom: '8px',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      position: 'relative',
-    },
-    galleryLabel: {
-      fontSize: '0.9rem',
-      display: 'block',
-      lineHeight: '1.2',
-      textAlign: 'center'
-    },
-    rarityCommon: { color: '#2ecc71', fontWeight: 'bold' },
-    rarityUncommon: { color: '#3498db', fontWeight: 'bold' },
-    rarityRare: { color: '#9b59b6', fontWeight: 'bold' },
-    rarityVeryRare: { color: '#e74c3c', fontWeight: 'bold' },
-  };
-
-  // Smooth scroll helper for TOC links
-  const scrollToId = (e, id) => {
-    if (e && e.preventDefault) e.preventDefault();
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      try { window.history.replaceState(null, '', `#${id}`); } catch (err) { /* ignore */ }
-    }
-  };
-
   return (
-    <div style={styles.container}>
-      <div style={styles.innerWrapper}>
+    <div className="wiki-page">
+      <div className="wiki-inner">
         
         {/* PAGE HEADER */}
-        <div style={styles.mainHeader}>
+        <div className="wiki-header">
           <span>Mountain Goat</span>
         </div>
 
-        <div style={styles.layout}>
+        <div className="wiki-layout">
           
           {/* --- RIGHT SIDEBAR (General Information) --- */}
-          <aside style={styles.sidebarColumn}>
-            <div style={styles.sidebarHeader}>Mountain Goat</div>
-            <div style={styles.sidebarImage}>
-              <img src={MountainGoatMain} alt="Mountain Goat" style={{width:'100%', height: '100%', objectFit: 'cover'}} />
+          <aside className="wiki-sidebar">
+            <div className="wiki-sidebar-header">Mountain Goat</div>
+            <div className="wiki-sidebar-image">
+              <img src={MountainGoatMain} alt="Mountain Goat" />
             </div>
             
-            <div style={styles.sidebarHeader}>General Information</div>
+            <div className="wiki-sidebar-header">General Information</div>
             
-            <div style={styles.sidebarSection}>
-              <span style={styles.sidebarLabel}>Class</span>
+            <div className="wiki-sidebar-section">
+              <span className="wiki-sidebar-label">Class</span>
               {/* Cited from screenshot 1 */}
-              <span><img src={class4Icon} alt="Class 4" style={{width:'24px', height:'24px', verticalAlign: 'middle', marginRight: '6px'}}/>4</span>
+              <span><img src={class4Icon} alt="Class 4" className="wiki-class-icon-lg"/>4</span>
             </div>
 
-            <div style={styles.sidebarSection}>
-              <span style={styles.sidebarLabel}>Difficulty</span>
+            <div className="wiki-sidebar-section">
+              <span className="wiki-sidebar-label">Difficulty</span>
               {/* Cited from screenshot 1 */}
               <span>1: Trivial — 5: Medium</span>
             </div>
 
-            <div style={styles.sidebarSection}>
-              <span style={styles.sidebarLabel}>Trophy Type</span>
+            <div className="wiki-sidebar-section">
+              <span className="wiki-sidebar-label">Trophy Type</span>
               <span>Horns</span>
-              <div style={styles.trophyGrid}>
+              <div className="wiki-trophy-grid">
                 {/* Cited from screenshot 1 */}
-                <div style={styles.trophyItem}>
-                  <span style={{...styles.trophyLabel, ...styles.silver}}>◆ Silver</span>
+                <div className="wiki-trophy-item">
+                  <span className="wiki-trophy-label wiki-trophy-silver">◆ Silver</span>
                   <span>52.72</span>
                 </div>
-                <div style={styles.trophyItem}>
-                  <span style={{...styles.trophyLabel, ...styles.gold}}>☗ Gold</span>
+                <div className="wiki-trophy-item">
+                  <span className="wiki-trophy-label wiki-trophy-gold">☗ Gold</span>
                   <span>84.12</span>
                 </div>
-                <div style={styles.trophyItem}>
-                  <span style={{...styles.trophyLabel, ...styles.diamond}}>☗ Diamond</span>
+                <div className="wiki-trophy-item">
+                  <span className="wiki-trophy-label wiki-trophy-diamond">☗ Diamond</span>
                   <span>107.67</span>
                 </div>
               </div>
             </div>
 
-            <div style={styles.sidebarSection}>
-              <span style={styles.sidebarLabel}>Weight</span>
+            <div className="wiki-sidebar-section">
+              <span className="wiki-sidebar-label">Weight</span>
               {/* Cited from screenshot 1 */}
               45kg — 145kg<br/>
-              <span style={{color: '#88a0b8', fontSize: '0.85rem'}}>99lbs — 320lbs</span>
+              <span className="wiki-sidebar-muted">99lbs — 320lbs</span>
             </div>
 
-            <div style={styles.sidebarSection}>
-               <span style={styles.sidebarLabel}>Fur</span>
+            <div className="wiki-sidebar-section">
+               <span className="wiki-sidebar-label">Fur</span>
                {/* Cited from screenshot 1 */}
-               <span style={{fontSize:'0.85rem'}}>
+               <span className="wiki-fs-sm">
                  Albino, Beige, Light Brown, Light Grey, Melanistic, White
                </span>
             </div>
 
-            <div style={styles.sidebarHeader}>Locations</div>
-            <div style={styles.sidebarSection}>
+            <div className="wiki-sidebar-header">Locations</div>
+            <div className="wiki-sidebar-section">
                {/* Cited from screenshot 1 */}
-               <div style={{marginBottom:'4px'}}><span style={styles.link}>Silver Ridge Peaks</span></div>
-               <div style={{marginBottom:'4px'}}><span style={styles.link}>Askiy Ridge Hunting Preserve</span></div>
+               <div className="wiki-mb-4"><span className="wiki-link">Silver Ridge Peaks</span></div>
+               <div className="wiki-mb-4"><span className="wiki-link">Askiy Ridge Hunting Preserve</span></div>
             </div>
           </aside>
 
           {/* --- MAIN CONTENT --- */}
-          <main style={styles.mainColumn}>
+          <main className="wiki-main">
 
             {/* Quote Block */}
-            <div style={styles.quoteBox}>
+            <div className="wiki-quote">
               "The mountain goat, also known as the Rocky Mountain goat, is the largest mammal found in sub-alpine to alpine altitudes of the Rocky Mountains. Despite its name, it does not belong to the Capra genus that includes all other goats, but is the only living species of the Oreamnos genus. They are informally referred to as goat-antelopes. Both males and female mountain goats have beards and long black horns that can grow up to 0.28 min length. Contrary to most other animals, the female mountain goat is very competitive and protective of their food source. It is not uncommon for conflicts to include all nannies of the herd. The male "billy" goat weighs around 125.00 kg, while the female "nanny" goat weighs 80.00 kg"
               <br/><br/>
               — In-Game Description
             </div>
 
             {/* Intro Text */}
-            <p style={{marginBottom:'20px'}}>
-              The <strong>Mountain Goat</strong> is a species in the <span style={styles.link}>Silver Ridge Peaks reserve</span> located in the rocky mountains of Colorado. It is a <span style={styles.link}>class 4</span> animal. Both females and males have horns.
+            <p className="wiki-p-mb">
+              The <strong>Mountain Goat</strong> is a species in the <span className="wiki-link">Silver Ridge Peaks reserve</span> located in the rocky mountains of Colorado. It is a <span className="wiki-link">class 4</span> animal. Both females and males have horns.
             </p>
 
             {/* Table of Contents */}
-            <div style={{
-                border: '1px solid #3a5a75',
-                backgroundColor: '#0f2e48',
-                display: 'inline-block',
-                padding: '10px 20px',
-                borderRadius: '4px',
-                minWidth: '200px',
-                marginBottom: '30px'
-            }}>
-              <div style={{fontWeight:'bold', borderBottom: '1px solid #3a5a75', marginBottom: '5px'}}>
-                🔢 Contents <span style={{float:'right', color: '#6fb2e6', fontSize:'0.8rem', cursor: 'pointer'}}>[hide]</span>
+            <div className="wiki-toc">
+              <div className="wiki-toc-title">
+                🔢 Contents <span className="wiki-toc-toggle">[hide]</span>
               </div>
-              <ol style={{margin:'0', paddingLeft: '20px', color: '#6fb2e6'}}>
-                <li><a href="#features" onClick={(e)=>scrollToId(e,'features')} style={styles.link}>Features</a></li>
-                <li><a href="#need-zones" onClick={(e)=>scrollToId(e,'need-zones')} style={styles.link}>Need Zone Times</a></li>
-                <li><a href="#shot-scheme" onClick={(e)=>scrollToId(e,'shot-scheme')} style={styles.link}>Shot scheme</a></li>
-                <li><a href="#fur-variants" onClick={(e)=>scrollToId(e,'fur-variants')} style={styles.link}>Fur Variants</a></li>
-                <li><a href="#fur-rarity" onClick={(e)=>scrollToId(e,'fur-rarity')} style={styles.link}>Fur Variant Rarity</a></li>
-                <li><a href="#trivia" onClick={(e)=>scrollToId(e,'trivia')} style={styles.link}>Trivia</a></li>
-                <li><a href="#references" onClick={(e)=>scrollToId(e,'references')} style={styles.link}>References</a></li>
+              <ol className="wiki-toc">
+                <li><a href="#features" onClick={(e)=>scrollToId(e,'features')} className="wiki-link">Features</a></li>
+                <li><a href="#need-zones" onClick={(e)=>scrollToId(e,'need-zones')} className="wiki-link">Need Zone Times</a></li>
+                <li><a href="#shot-scheme" onClick={(e)=>scrollToId(e,'shot-scheme')} className="wiki-link">Shot scheme</a></li>
+                <li><a href="#fur-variants" onClick={(e)=>scrollToId(e,'fur-variants')} className="wiki-link">Fur Variants</a></li>
+                <li><a href="#fur-rarity" onClick={(e)=>scrollToId(e,'fur-rarity')} className="wiki-link">Fur Variant Rarity</a></li>
+                <li><a href="#trivia" onClick={(e)=>scrollToId(e,'trivia')} className="wiki-link">Trivia</a></li>
+                <li><a href="#references" onClick={(e)=>scrollToId(e,'references')} className="wiki-link">References</a></li>
               </ol>
             </div>
 
             {/* FEATURES */}
-            <h2 id="features" style={styles.h2}>Features</h2>
-            <table style={styles.table}>
+            <h2 id="features" className="wiki-h2">Features</h2>
+            <table className="wiki-table">
               <thead>
                 <tr>
-                    <th style={{...styles.th, width: '25%'}}></th>
-                    <th style={styles.th}>Description</th>
+                    <th className="wiki-th wiki-th-w25"></th>
+                    <th className="wiki-th">Description</th>
                 </tr>
               </thead>
               <tbody>
                 {features.map((item, index) => (
                   <tr key={index}>
-                    <td style={{...styles.td, fontWeight: 'bold'}}>{item.label}</td>
-                    <td style={{...styles.td, fontStyle: item.italic ? 'italic' : 'normal'}}>
-                        {item.isLink ? <span style={styles.link}>{item.value}</span> : item.value}
+                    <td className="wiki-td wiki-td-bold">{item.label}</td>
+                    <td className={`wiki-td ${item.italic ? 'wiki-td-italic' : ''}`}>
+                        {item.isLink ? <span className="wiki-link">{item.value}</span> : item.value}
                     </td>
                   </tr>
                 ))}
@@ -430,23 +209,23 @@ const MountainGoat = () => {
             </table>
             
             {/* NEED ZONE TIMES */}
-            <h2 id="need-zones" style={styles.h2}>Need Zone Times</h2>
-            <div style={{display:'inline-block'}}>
-                <table style={{...styles.table, width: '300px'}}>
+            <h2 id="need-zones" className="wiki-h2">Need Zone Times</h2>
+            <div className="wiki-inline-block">
+                <table className="wiki-table wiki-table-fixed">
                     <thead>
-                        <tr><th colSpan="2" style={{...styles.th, textAlign: 'center'}}>Askiy Ridge</th></tr>
+                        <tr><th colSpan="2" className="wiki-th wiki-th-center">Askiy Ridge</th></tr>
                         <tr>
-                            <th style={{...styles.th, backgroundColor: '#0f2e48'}}>Times</th>
-                            <th style={{...styles.th, backgroundColor: '#0f2e48'}}>Activity</th>
+                            <th className="wiki-th wiki-th-alt">Times</th>
+                            <th className="wiki-th wiki-th-alt">Activity</th>
                         </tr>
                     </thead>
                     <tbody>
                         {needZonesData[0].schedule.map((zone, i) => (
                         <tr key={i}>
-                            <td style={styles.td}>{zone.time}</td>
-                            <td style={styles.td}>
-                                <div style={{display:'flex', alignItems:'center'}}>
-                                    <img src={zone.icon} alt={zone.type} style={{width:'20px', height: '20px', verticalAlign: 'middle', marginRight: '6px'}}/> 
+                            <td className="wiki-td">{zone.time}</td>
+                            <td className="wiki-td">
+                                <div className="wiki-flex-center">
+                                    <img src={zone.icon} alt={zone.type} className="wiki-class-icon"/> 
                                     {zone.type}
                                 </div>
                             </td>
@@ -457,65 +236,65 @@ const MountainGoat = () => {
             </div>
 
             {/* SHOT SCHEME */}
-            <h2 id="shot-scheme" style={styles.h2}>Shot scheme</h2>
-            <div style={styles.shotContainer}>
-               <div style={styles.shotImageWrapper}>
-                 <img src={ShotSchemeImg} alt="Shot Scheme" style={{width: '100%', height: 'auto', maxHeight:'350px', objectFit: 'contain'}} />
+            <h2 id="shot-scheme" className="wiki-h2">Shot scheme</h2>
+            <div className="wiki-shot-container">
+               <div className="wiki-shot-container">
+                 <img src={ShotSchemeImg} alt="Shot Scheme" className="wiki-shot-scheme-img" />
                </div>
-               <div style={styles.shotLegend}>
-                 <div style={styles.legendHeader}>Color code</div>
-                 <div style={styles.legendItem}>Red - Kills immediately</div>
-                 <div style={styles.legendItem}>Blue - Kills very quick</div>
-                 <div style={styles.legendItem}>Orange - Kills slowly</div>
-                 <div style={{...styles.legendItem, borderBottom: 'none'}}>No Color - Unlikely to kill</div>
+               <div className="wiki-shot-wrap">
+                 <div className="wiki-shot-title">Color code</div>
+                 <div className="wiki-shot-info">Red - Kills immediately</div>
+                 <div className="wiki-shot-info">Blue - Kills very quick</div>
+                 <div className="wiki-shot-info">Orange - Kills slowly</div>
+                 <div className="wiki-legend-item wiki-legend-item-last">No Color - Unlikely to kill</div>
                </div>
             </div>
 
             {/* FUR VARIANTS (Gallery) */}
-            <h2 id="fur-variants" style={styles.h2}>Fur Variants</h2>
-            <div style={styles.galleryGrid}>
+            <h2 id="fur-variants" className="wiki-h2">Fur Variants</h2>
+            <div className="wiki-gallery-grid">
               {furGallery.map((item, i) => (
-                <div key={i} style={styles.galleryItem}>
-                  <div style={styles.galleryImgPlaceholder}>
-                    <img src={item.src} alt={item.name} style={{width:'100%', height: '100%', objectFit: 'contain'}} />
+                <div key={i} className="wiki-gallery-item">
+                  <div className="wiki-gallery-placeholder">
+                    <img src={item.src} alt={item.name} className="wiki-img-contain" />
                   </div>
-                  <span style={styles.galleryLabel}>{item.name}</span>
+                  <span className="wiki-gallery-label">{item.name}</span>
                 </div>
               ))}
             </div>
 
             {/* FUR VARIANT RARITY TABLE */}
-            <h2 id="fur-rarity" style={styles.h2}>Fur Variant Rarity</h2>
-            <div style={{overflowX: 'auto'}}>
-                <table style={styles.table}>
+            <h2 id="fur-rarity" className="wiki-h2">Fur Variant Rarity</h2>
+            <div className="wiki-overflow-auto">
+                <table className="wiki-table">
                     <thead>
                         <tr>
-                            <th style={styles.th}>Sex</th>
-                            <th style={{...styles.th, ...styles.rarityCommon}}>Common</th>
-                            <th style={{...styles.th, ...styles.rarityUncommon}}>Uncommon</th>
-                            <th style={{...styles.th, ...styles.rarityRare}}>Rare</th>
-                            <th style={{...styles.th, ...styles.rarityVeryRare}}>Very Rare</th>
+                            <th className="wiki-th">Sex</th>
+                            <th className="wiki-th wiki-common">Common</th>
+                            <th className="wiki-th wiki-uncommon">Uncommon</th>
+                            <th className="wiki-th wiki-rare">Rare</th>
+                            <th className="wiki-th wiki-very-rare">Very Rare</th>
                         </tr>
                     </thead>
                     <tbody>
                         {/* Combined Male/Female Row as per screenshot */}
                         <tr>
-                            <td style={{...styles.td, color: '#3498db', fontStyle: 'italic', fontWeight: 'bold'}}>
-                                Male<span style={{color: '#dbe4eb'}}>/</span><span style={{color: '#d63384'}}>Female</span>
+                            <td className="wiki-td wiki-td-muted">
+                                Male<span className="wiki-text-divider">/</span><span className="wiki-text-female">Female</span>
                             </td>
-                            <td style={styles.td}>
+                            <td className="wiki-td">
                                 Beige (24.97%)<br/>
                                 Light Brown (24.97%)<br/>
                                 Light Grey (24.97%)<br/>
                                 White (24.97%)
                             </td>
-                            <td style={styles.td}>
+                            <td className="wiki-td">
                                 X
                             </td>
-                            <td style={styles.td}>
+                            <td className="wiki-td">
                                 X
                             </td>
-                            <td style={styles.td}>
+                            <td className="wiki-td">
                                 Albino (0.05%)<br/>
                                 Melanistic (0.05%)
                             </td>
@@ -525,24 +304,24 @@ const MountainGoat = () => {
             </div>
 
             {/* TRIVIA */}
-            <h2 id="trivia" style={styles.h2}>Trivia</h2>
-            <ul style={{fontSize: '0.95rem', paddingLeft: '20px', listStyleType: 'disc', color: '#dbe4eb'}}>
+            <h2 id="trivia" className="wiki-h2">Trivia</h2>
+            <ul className="wiki-ul wiki-ul-disc">
                 {triviaData.map((point, idx) => (
-                    <li key={idx} style={{marginBottom: '10px'}}>{point}</li>
+                    <li key={idx} className="wiki-mb-10">{point}</li>
                 ))}
             </ul>
 
             {/* REFERENCES */}
-            <h2 id="references" style={styles.h2}>References</h2>
-            <ol style={{fontSize: '0.95rem', paddingLeft: '20px', color: '#6fb2e6'}}>
+            <h2 id="references" className="wiki-h2">References</h2>
+            <ol className="wiki-ol-ref">
               {referencesData.map((ref, idx) => (
-                 <li key={idx} style={{marginBottom: '5px'}}>
-                  <span style={{color: '#dbe4eb'}}>↑</span> <span style={styles.link}>{ref}</span>
+                 <li key={idx} className="wiki-mb-5">
+                  <span className="wiki-text-divider">↑</span> <span className="wiki-link">{ref}</span>
                  </li>
               ))}
             </ol>
 
-            <div style={{marginTop: '40px'}}>
+            <div className="wiki-mt-40">
                 <AnimalsTableMini />
             </div>
             

@@ -153,342 +153,145 @@ const RingNeckedPheasant = () => {
     "https://statesymbolsusa.org/states/united-states/south-dakota"
   ];
 
-  // --- STYLES OBJECT ---
-  const styles = {
-    container: {
-      backgroundColor: '#0b1a26',
-      color: '#dbe4eb',
-      fontFamily: '"Segoe UI", Roboto, Helvetica, Arial, sans-serif',
-      padding: '40px',
-      minHeight: '100vh',
-      lineHeight: '1.6',
-    },
-    innerWrapper: {
-      maxWidth: '1200px',
-      margin: '0 auto',
-    },
-    mainHeader: {
-      fontSize: '2.5rem',
-      fontWeight: '400',
-      borderBottom: '1px solid #3a5a75',
-      paddingBottom: '15px',
-      marginBottom: '20px',
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-    },
-    editActions: {
-      fontSize: '0.9rem',
-      color: '#6fb2e6',
-      display: 'flex',
-      gap: '15px',
-      fontWeight: 'bold',
-      cursor: 'pointer',
-    },
-    layout: {
-      display: 'flex',
-      gap: '30px',
-      alignItems: 'flex-start',
-      flexDirection: 'row-reverse',
-    },
-    mainColumn: {
-      flex: 1,
-    },
-    sidebarColumn: {
-      width: '320px',
-      flexShrink: 0,
-      backgroundColor: '#0f2e48',
-      border: '1px solid #1f405a',
-      borderRadius: '4px',
-    },
-    sidebarHeader: {
-      backgroundColor: '#05121c',
-      padding: '12px',
-      textAlign: 'center',
-      fontWeight: 'bold',
-      fontSize: '1.1rem',
-      borderBottom: '2px solid #cfaa3e',
-    },
-    sidebarImage: {
-      height: '180px',
-      backgroundColor: '#1f3a52',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      color: '#6fb2e6',
-      fontStyle: 'italic',
-      borderBottom: '1px solid #1f405a',
-      position: 'relative',
-    },
-    sidebarSection: {
-      padding: '10px 15px',
-      borderBottom: '1px solid #2a4b63',
-      fontSize: '0.95rem',
-    },
-    sidebarLabel: {
-      fontWeight: 'bold',
-      display: 'block',
-      marginBottom: '5px',
-      color: '#fff',
-    },
-    trophyGrid: {
-      display: 'grid',
-      gridTemplateColumns: 'repeat(3, 1fr)',
-      gap: '5px',
-      marginTop: '5px',
-      textAlign: 'center',
-    },
-    trophyItem: {
-      backgroundColor: '#16334a',
-      padding: '6px 2px',
-      borderRadius: '4px',
-    },
-    trophyLabel: {
-      fontSize: '0.75rem',
-      display: 'block',
-      fontWeight: 'bold',
-      marginBottom: '2px',
-    },
-    silver: { color: '#bdc3c7' },
-    gold: { color: '#f1c40f' },
-    diamond: { color: '#3498db' },
-    greatOne: { color: '#a0e0c0', fontWeight: 'bold', display: 'block', marginTop: '10px', textAlign: 'center', fontSize: '0.9rem' },
-    
-    quoteBox: {
-      fontStyle: 'italic',
-      backgroundColor: '#0f2e48',
-      borderLeft: '4px solid #3a5a75',
-      padding: '15px 20px',
-      margin: '0 0 20px 0',
-      color: '#a4cce8',
-    },
-    link: {
-      color: '#6fb2e6',
-      textDecoration: 'none',
-      cursor: 'pointer',
-    },
-    h2: {
-      color: '#6fb2e6',
-      borderBottom: '1px solid #3a5a75',
-      paddingBottom: '5px',
-      marginTop: '30px',
-      marginBottom: '15px',
-      fontSize: '1.5rem',
-      display: 'flex',
-      alignItems: 'center',
-      fontWeight: '500',
-    },
-    table: {
-      width: '100%',
-      borderCollapse: 'collapse',
-      backgroundColor: '#0f2e48',
-      fontSize: '0.95rem',
-      marginBottom: '20px',
-    },
-    th: {
-      backgroundColor: '#164060',
-      padding: '10px 15px',
-      textAlign: 'left',
-      color: '#fff',
-      borderBottom: '2px solid #3a5a75',
-      fontWeight: 'bold',
-    },
-    td: {
-      padding: '10px 15px',
-      borderBottom: '1px solid #2a4b63',
-      color: '#dbe4eb',
-    },
-    shotContainer: {
-      display: 'flex',
-      backgroundColor: '#112233',
-      marginTop: '10px',
-      border: '1px solid #1f405a',
-    },
-    shotImage: {
-      width: '500px',
-      backgroundColor: '#000',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      color: '#555',
-      flexShrink: 0,
-    },
-    shotInfo: {
-      padding: '20px',
-      flex: 1,
-      color: '#fff',
-    },
-    galleryGrid: {
-      display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fill, minmax(160px, 1fr))',
-      gap: '15px',
-    },
-    galleryItem: {
-      backgroundColor: 'transparent',
-    },
-    galleryImgPlaceholder: {
-      height: '180px',
-      backgroundColor: '#2a4b63',
-      border: '4px solid #1f3a52', 
-      marginBottom: '8px',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      position: 'relative',
-    },
-    galleryLabel: {
-      fontSize: '0.9rem',
-      display: 'block',
-      lineHeight: '1.2',
-    },
-  };
-
   return (
-    <div style={styles.container}>
-      <div style={styles.innerWrapper}>
+    <div className="wiki-page">
+      <div className="wiki-inner">
         
         {/* PAGE HEADER */}
-        <div style={styles.mainHeader}>
+        <div className="wiki-header">
           <span>Ring-Necked Pheasant</span>
-          <div style={styles.editActions}>
+          <div className="wiki-edit-actions">
           </div>
         </div>
 
-        <div style={styles.layout}>
+        <div className="wiki-layout">
           
           {/* --- RIGHT SIDEBAR (General Information) --- */}
-          <aside style={styles.sidebarColumn}>
-            <div style={styles.sidebarHeader}>Ring-Necked Pheasant</div>
-            <div style={styles.sidebarImage}>
-              <img src={RingNeckedPheasantMain} alt="Ring-Necked Pheasant" style={{width:'268px', height: '134px', objectFit: 'cover'}} />
+          <aside className="wiki-sidebar">
+            <div className="wiki-sidebar-header">Ring-Necked Pheasant</div>
+            <div className="wiki-sidebar-image">
+              <img src={RingNeckedPheasantMain} alt="Ring-Necked Pheasant" />
             </div>
             
-            <div style={styles.sidebarHeader}>General Information</div>
+            <div className="wiki-sidebar-header">General Information</div>
             
-            <div style={styles.sidebarSection}>
-              <span style={styles.sidebarLabel}>Class</span>
-              <span><img src={class1Icon} alt="Class 1" style={{width:'20px', height:'20px', verticalAlign: 'middle', marginRight: '6px'}}/>1</span>
+            <div className="wiki-sidebar-section">
+              <span className="wiki-sidebar-label">Class</span>
+              <span><img src={class1Icon} alt="Class 1" className="wiki-class-icon"/>1</span>
             </div>
 
-            <div style={styles.sidebarSection}>
-              <span style={styles.sidebarLabel}>Difficulty</span>
+            <div className="wiki-sidebar-section">
+              <span className="wiki-sidebar-label">Difficulty</span>
               <span>1: Trivial — 3: Very Easy<br/>10: Fabled</span>
             </div>
 
             {/* Trophy Type */}
-            <div style={styles.sidebarSection}>
-              <span style={styles.sidebarLabel}>Trophy Type</span>
+            <div className="wiki-sidebar-section">
+              <span className="wiki-sidebar-label">Trophy Type</span>
               <span>Combined</span>
-              <div style={styles.trophyGrid}>
-                <div style={styles.trophyItem}>
-                  <span style={{...styles.trophyLabel, ...styles.silver}}>◆ Silver</span>
+              <div className="wiki-trophy-grid">
+                <div className="wiki-trophy-item">
+                  <span className="wiki-trophy-label wiki-trophy-silver">◆ Silver</span>
                   <span>9.10</span>
                 </div>
-                <div style={styles.trophyItem}>
-                  <span style={{...styles.trophyLabel, ...styles.gold}}>☗ Gold</span>
+                <div className="wiki-trophy-item">
+                  <span className="wiki-trophy-label wiki-trophy-gold">☗ Gold</span>
                   <span>15.50</span>
                 </div>
-                <div style={styles.trophyItem}>
-                  <span style={{...styles.trophyLabel, ...styles.diamond}}>☗ Diamond</span>
+                <div className="wiki-trophy-item">
+                  <span className="wiki-trophy-label wiki-trophy-diamond">☗ Diamond</span>
                   <span>20.30</span>
                 </div>
               </div>
-              <div style={styles.greatOne}>
+              <div className="wiki-great-one-badge">
                  ❖ Great One
               </div>
             </div>
 
-            <div style={styles.sidebarSection}>
-              <span style={styles.sidebarLabel}>Weight</span>
+            <div className="wiki-sidebar-section">
+              <span className="wiki-sidebar-label">Weight</span>
               500g — 3kg<br/>
               1.1lbs — 7lbs
             </div>
 
             {/* Plumage */}
-            <div style={styles.sidebarSection}>
-               <span style={styles.sidebarLabel}>Plumage</span>
-               <span style={{fontSize:'0.85rem'}}>
+            <div className="wiki-sidebar-section">
+               <span className="wiki-sidebar-label">Plumage</span>
+               <span className="wiki-fs-sm">
                   Albino, Brown, Grey, Leucistic, Melanistic, Molting, White Brown<br/>
                   <strong>Fabled Exclusive:</strong> Citrine, Emerald, Garnet, Morganite, Obsidian, Pearl, Ruby, Sapphire
                </span>
             </div>
 
-            <div style={styles.sidebarHeader}>Locations</div>
-            <div style={styles.sidebarSection}>
-               <div style={{marginBottom:'4px'}}><span style={styles.link}>Rancho del Arroyo</span></div>
-               <div style={{marginBottom:'4px'}}><span style={styles.link}>Hirschfelden Hunting Reserve</span></div>
-               <div style={{marginBottom:'4px'}}><span style={styles.link}>Cuatro Colinas Game Reserve</span></div>
-               <div style={{marginBottom:'4px'}}><span style={styles.link}>New England Mountains</span></div>
-               <div style={{marginBottom:'4px'}}><span style={styles.link}>Salzwiesen Park</span></div>
-               <div style={{marginBottom:'4px'}}><span style={styles.link}>Askiy Ridge Hunting Preserve</span></div>
-               <div style={{marginBottom:'4px'}}><span style={styles.link}>Tòrr nan Sithean</span></div>
+            <div className="wiki-sidebar-header">Locations</div>
+            <div className="wiki-sidebar-section">
+               <div className="wiki-mb-4"><span className="wiki-link">Rancho del Arroyo</span></div>
+               <div className="wiki-mb-4"><span className="wiki-link">Hirschfelden Hunting Reserve</span></div>
+               <div className="wiki-mb-4"><span className="wiki-link">Cuatro Colinas Game Reserve</span></div>
+               <div className="wiki-mb-4"><span className="wiki-link">New England Mountains</span></div>
+               <div className="wiki-mb-4"><span className="wiki-link">Salzwiesen Park</span></div>
+               <div className="wiki-mb-4"><span className="wiki-link">Askiy Ridge Hunting Preserve</span></div>
+               <div className="wiki-mb-4"><span className="wiki-link">Tòrr nan Sithean</span></div>
             </div>
           </aside>
 
           {/* --- MAIN CONTENT --- */}
-          <main style={styles.mainColumn}>
+          <main className="wiki-main">
 
             {/* Quote Block */}
-            <div style={styles.quoteBox}>
+            <div className="wiki-quote">
               "Ring-necked pheasants are a subspecies of the common pheasant, named after the ring of white feathers at the base of their neck. The common pheasant is an extremely popular game bird all over the world. Originating in Asia, the species has been introduced in many countries for the purpose of hunting. Pheasants live in loose flocks that break up into mated pairs come the breeding season. They exhibit strong sexual dimorphism. Males have a vibrant plumage with a distinctive blue-green head and red wattles on their face. Females have a duller light-brown plumage with black spots. Pheasants live on the ground in open prairies and farmlands, where they feed on seeds and insects. They are not adept flyers and only take to the air as a last ditch effort to escape immediate danger."
               <br/><br/>
               — In-Game Description
             </div>
 
             {/* Intro Text */}
-            <p style={{marginBottom:'20px'}}>
-              The <strong>Ring-Necked Pheasant</strong> is a <span style={styles.link}>class 1</span> pheasant species that can be hunted on <span style={styles.link}>Rancho del Arroyo</span>, <span style={styles.link}>Hirschfelden Hunting Reserve</span>, <span style={styles.link}>Cuatro Colinas Game Reserve</span>, <span style={styles.link}>New England Mountains</span>, <span style={styles.link}>Salzwiesen Park</span>, and <span style={styles.link}>Tòrr nan Sithean</span>.
+            <p className="wiki-p-mb">
+              The <strong>Ring-Necked Pheasant</strong> is a <span className="wiki-link">class 1</span> pheasant species that can be hunted on <span className="wiki-link">Rancho del Arroyo</span>, <span className="wiki-link">Hirschfelden Hunting Reserve</span>, <span className="wiki-link">Cuatro Colinas Game Reserve</span>, <span className="wiki-link">New England Mountains</span>, <span className="wiki-link">Salzwiesen Park</span>, and <span className="wiki-link">Tòrr nan Sithean</span>.
             </p>
-            <p style={{marginBottom:'20px'}}>
-              With the release of Salzwiesen Park, the Ring-Necked Pheasant received a <span style={styles.link}>Great One</span> variant. It is currently the only bird species in game with this distinction.
+            <p className="wiki-p-mb">
+              With the release of Salzwiesen Park, the Ring-Necked Pheasant received a <span className="wiki-link">Great One</span> variant. It is currently the only bird species in game with this distinction.
             </p>
 
             {/* Table of Contents Placeholder */}
-            <div style={{
-                border: '1px solid #3a5a75',
-                backgroundColor: '#0f2e48',
-                display: 'inline-block',
-                padding: '10px 20px',
-                borderRadius: '4px',
-                minWidth: '200px'
-            }}>
-              <div style={{fontWeight:'bold', borderBottom: '1px solid #3a5a75', marginBottom: '5px'}}>
-                🔢 Contents <span style={{float:'right', color: '#6fb2e6', fontSize:'0.8rem'}}>[hide]</span>
+            <div className="wiki-toc">
+              <div className="wiki-toc-title">
+                🔢 Contents <span className="wiki-toc-toggle">[hide]</span>
               </div>
-              <ol style={{margin:'0', paddingLeft: '20px', color: '#6fb2e6'}}>
-                <li><a href="#features" onClick={(e)=>{e.preventDefault(); const el=document.getElementById('features'); if(el) el.scrollIntoView({behavior:'smooth', block:'start'});}} style={styles.link}>Features</a></li>
-                <li><a href="#need-zones" onClick={(e)=>{e.preventDefault(); const el=document.getElementById('need-zones'); if(el) el.scrollIntoView({behavior:'smooth', block:'start'});}} style={styles.link}>Need Zone Times</a></li>
-                <li><a href="#shot-scheme" onClick={(e)=>{e.preventDefault(); const el=document.getElementById('shot-scheme'); if(el) el.scrollIntoView({behavior:'smooth', block:'start'});}} style={styles.link}>Shot scheme</a></li>
+              <ol className="wiki-toc">
+                <li><a href="#features" onClick={(e)=>{e.preventDefault(); const el=document.getElementById('features'); if(el) el.scrollIntoView({behavior:'smooth', block:'start'});}} className="wiki-link">Features</a></li>
+                <li><a href="#need-zones" onClick={(e)=>{e.preventDefault(); const el=document.getElementById('need-zones'); if(el) el.scrollIntoView({behavior:'smooth', block:'start'});}} className="wiki-link">Need Zone Times</a></li>
+                <li><a href="#shot-scheme" onClick={(e)=>{e.preventDefault(); const el=document.getElementById('shot-scheme'); if(el) el.scrollIntoView({behavior:'smooth', block:'start'});}} className="wiki-link">Shot scheme</a></li>
                 <li>
-                  <a href="#plumage-variants" onClick={(e)=>{e.preventDefault(); const el=document.getElementById('plumage-variants'); if(el) el.scrollIntoView({behavior:'smooth', block:'start'});}} style={styles.link}>Plumage Variants</a>
-                  <ul style={{listStyleType:'none', paddingLeft:'10px', margin:'5px 0'}}>
-                      <li style={{color:'#6fb2e6'}}><a href="#plumage-male" onClick={(e)=>{e.preventDefault(); const el=document.getElementById('plumage-male'); if(el) el.scrollIntoView({behavior:'smooth', block:'start'});}} style={styles.link}>4.1. Male</a></li>
-                      <li style={{color:'#6fb2e6'}}><a href="#plumage-female" onClick={(e)=>{e.preventDefault(); const el=document.getElementById('plumage-female'); if(el) el.scrollIntoView({behavior:'smooth', block:'start'});}} style={styles.link}>4.2. Female</a></li>
+                  <a href="#plumage-variants" onClick={(e)=>{e.preventDefault(); const el=document.getElementById('plumage-variants'); if(el) el.scrollIntoView({behavior:'smooth', block:'start'});}} className="wiki-link">Plumage Variants</a>
+                  <ul >
+                      <li style={{color:'#6fb2e6'}}><a href="#plumage-male" onClick={(e)=>{e.preventDefault(); const el=document.getElementById('plumage-male'); if(el) el.scrollIntoView({behavior:'smooth', block:'start'});}} className="wiki-link">4.1. Male</a></li>
+                      <li style={{color:'#6fb2e6'}}><a href="#plumage-female" onClick={(e)=>{e.preventDefault(); const el=document.getElementById('plumage-female'); if(el) el.scrollIntoView({behavior:'smooth', block:'start'});}} className="wiki-link">4.2. Female</a></li>
                   </ul>
                 </li>
-                <li><a href="#plumage-greatone" onClick={(e)=>{e.preventDefault(); const el=document.getElementById('plumage-greatone'); if(el) el.scrollIntoView({behavior:'smooth', block:'start'});}} style={styles.link}>Plumage Variants | Great One</a></li>
-                <li><a href="#plumage-rarity" onClick={(e)=>{e.preventDefault(); const el=document.getElementById('plumage-rarity'); if(el) el.scrollIntoView({behavior:'smooth', block:'start'});}} style={styles.link}>Plumage Variant Rarity</a></li>
-                <li><a href="#tips" onClick={(e)=>{e.preventDefault(); const el=document.getElementById('tips'); if(el) el.scrollIntoView({behavior:'smooth', block:'start'});}} style={styles.link}>Tips</a></li>
-                <li><a href="#trivia" onClick={(e)=>{e.preventDefault(); const el=document.getElementById('trivia'); if(el) el.scrollIntoView({behavior:'smooth', block:'start'});}} style={styles.link}>Trivia</a></li>
-                <li><a href="#references" onClick={(e)=>{e.preventDefault(); const el=document.getElementById('references'); if(el) el.scrollIntoView({behavior:'smooth', block:'start'});}} style={styles.link}>References</a></li>
+                <li><a href="#plumage-greatone" onClick={(e)=>{e.preventDefault(); const el=document.getElementById('plumage-greatone'); if(el) el.scrollIntoView({behavior:'smooth', block:'start'});}} className="wiki-link">Plumage Variants | Great One</a></li>
+                <li><a href="#plumage-rarity" onClick={(e)=>{e.preventDefault(); const el=document.getElementById('plumage-rarity'); if(el) el.scrollIntoView({behavior:'smooth', block:'start'});}} className="wiki-link">Plumage Variant Rarity</a></li>
+                <li><a href="#tips" onClick={(e)=>{e.preventDefault(); const el=document.getElementById('tips'); if(el) el.scrollIntoView({behavior:'smooth', block:'start'});}} className="wiki-link">Tips</a></li>
+                <li><a href="#trivia" onClick={(e)=>{e.preventDefault(); const el=document.getElementById('trivia'); if(el) el.scrollIntoView({behavior:'smooth', block:'start'});}} className="wiki-link">Trivia</a></li>
+                <li><a href="#references" onClick={(e)=>{e.preventDefault(); const el=document.getElementById('references'); if(el) el.scrollIntoView({behavior:'smooth', block:'start'});}} className="wiki-link">References</a></li>
               </ol>
             </div>
 
             {/* FEATURES */}
-            <h2 id="features" style={styles.h2}>Features</h2>
-            <table style={styles.table}>
+            <h2 id="features" className="wiki-h2">Features</h2>
+            <table className="wiki-table">
               <thead>
                 <tr>
-                    <th style={{...styles.th, width: '25%'}}></th>
-                    <th style={styles.th}>Description</th>
+                    <th className="wiki-th wiki-th-w25"></th>
+                    <th className="wiki-th">Description</th>
                 </tr>
               </thead>
               <tbody>
                 {features.map((item, index) => (
                   <tr key={index}>
-                    <td style={{...styles.td, fontWeight: 'bold'}}>{item.label}</td>
-                    <td style={{...styles.td, fontStyle: item.italic ? 'italic' : 'normal'}}>
-                        {item.isLink ? <span style={styles.link}>{item.value}</span> : item.value}
+                    <td className="wiki-td wiki-td-bold">{item.label}</td>
+                    <td className={`wiki-td ${item.italic ? 'wiki-td-italic' : ''}`}>
+                        {item.isLink ? <span className="wiki-link">{item.value}</span> : item.value}
                     </td>
                   </tr>
                 ))}
@@ -496,21 +299,21 @@ const RingNeckedPheasant = () => {
             </table>
             
             {/* NEED ZONE TIMES */}
-            <h2 id="need-zones" style={styles.h2}>Need Zone Times</h2>
-            <div style={{display:'inline-block'}}>
-                <table style={{...styles.table, width: '300px'}}>
+            <h2 id="need-zones" className="wiki-h2">Need Zone Times</h2>
+            <div className="wiki-inline-block">
+                <table className="wiki-table wiki-table-fixed">
                     <thead>
-                        <tr><th colSpan="2" style={{...styles.th, textAlign: 'center'}}>Hirschfelden & Askiy Ridge</th></tr>
+                        <tr><th colSpan="2" className="wiki-th wiki-th-center">Hirschfelden & Askiy Ridge</th></tr>
                         <tr>
-                            <th style={{...styles.th, backgroundColor: '#0f2e48'}}>Times</th>
-                            <th style={{...styles.th, backgroundColor: '#0f2e48'}}>Activity</th>
+                            <th className="wiki-th wiki-th-alt">Times</th>
+                            <th className="wiki-th wiki-th-alt">Activity</th>
                         </tr>
                     </thead>
                     <tbody>
                         {needZonesData[0].schedule.map((zone, i) => (
                         <tr key={i}>
-                            <td style={styles.td}>{zone.time}</td>
-                            <td style={styles.td}><img src={zone.icon} alt={zone.type} style={{width:'20px', height: '20px', verticalAlign: 'middle', marginRight: '6px'}}/> {zone.type}</td>
+                            <td className="wiki-td">{zone.time}</td>
+                            <td className="wiki-td"><img src={zone.icon} alt={zone.type} className="wiki-class-icon"/> {zone.type}</td>
                         </tr>
                         ))}
                     </tbody>
@@ -518,12 +321,12 @@ const RingNeckedPheasant = () => {
             </div>
 
             {/* SHOT SCHEME */}
-            <h2 id="shot-scheme" style={styles.h2}>Shot scheme</h2>
-            <div style={styles.shotContainer}>
-              <div style={styles.shotImage}>
-                <img src={RingNeckedPheasantShotScheme} alt="Shot Scheme" style={{maxWidth: '100%', maxHeight: '400px'}} />
+            <h2 id="shot-scheme" className="wiki-h2">Shot scheme</h2>
+            <div className="wiki-shot-container">
+              <div className="wiki-shot-image">
+                <img src={RingNeckedPheasantShotScheme} alt="Shot Scheme" />
               </div>
-               <div style={styles.shotInfo}>
+               <div className="wiki-shot-info">
                   <strong>Color code</strong>
                   <div style={{marginTop: '20px'}}>
                      No Color - Every hit will kill the animal
@@ -532,89 +335,89 @@ const RingNeckedPheasant = () => {
             </div>
 
             {/* PLUMAGE VARIANTS (Gallery) */}
-            <h2 id="plumage-variants" style={styles.h2}>Plumage Variants</h2>
+            <h2 id="plumage-variants" className="wiki-h2">Plumage Variants</h2>
             
             {/* Male Section */}
             <h3 id="plumage-male" style={{...styles.h2, fontSize:'1.2rem', borderBottom:'none', marginTop:'10px'}}>Male</h3>
-            <div style={styles.galleryGrid}>
+            <div className="wiki-gallery-grid">
               {plumageGallery.male.map((item, i) => (
-                <div key={i} style={styles.galleryItem}>
-                  <div style={styles.galleryImgPlaceholder}>
-                    <img src={item.src} alt={item.name} style={{width:'146px', height: '165px', objectFit: 'cover'}} />
+                <div key={i} className="wiki-gallery-item">
+                  <div className="wiki-gallery-placeholder">
+                    <img src={item.src} alt={item.name} />
                   </div>
-                  <span style={styles.galleryLabel}>{item.name}</span>
+                  <span className="wiki-gallery-label">{item.name}</span>
                 </div>
               ))}
             </div>
 
             {/* Female Section */}
             <h3 id="plumage-female" style={{...styles.h2, fontSize:'1.2rem', borderBottom:'none', marginTop:'10px'}}>Female</h3>
-            <div style={styles.galleryGrid}>
+            <div className="wiki-gallery-grid">
               {plumageGallery.female.map((item, i) => (
-                <div key={i} style={styles.galleryItem}>
-                  <div style={styles.galleryImgPlaceholder}>
-                    <img src={item.src} alt={item.name} style={{width:'146px', height: '165px', objectFit: 'cover'}} />
+                <div key={i} className="wiki-gallery-item">
+                  <div className="wiki-gallery-placeholder">
+                    <img src={item.src} alt={item.name} />
                   </div>
-                  <span style={styles.galleryLabel}>{item.name}</span>
+                  <span className="wiki-gallery-label">{item.name}</span>
                 </div>
               ))}
             </div>
 
             {/* PLUMAGE VARIANTS | GREAT ONE (Added section) */}
-            <h2 id="plumage-greatone" style={styles.h2}>Plumage Variants | Great One</h2>
-            <div style={styles.galleryGrid}>
+            <h2 id="plumage-greatone" className="wiki-h2">Plumage Variants | Great One</h2>
+            <div className="wiki-gallery-grid">
               {plumageGallery.greatOne.map((item, i) => (
-                <div key={i} style={styles.galleryItem}>
-                  <div style={styles.galleryImgPlaceholder}>
-                    <img src={item.src} alt={item.name} style={{width:'146px', height: '165px', objectFit: 'cover'}} />
+                <div key={i} className="wiki-gallery-item">
+                  <div className="wiki-gallery-placeholder">
+                    <img src={item.src} alt={item.name} />
                   </div>
-                  <span style={styles.galleryLabel}>{item.name}</span>
+                  <span className="wiki-gallery-label">{item.name}</span>
                 </div>
               ))}
             </div>
 
             {/* PLUMAGE RARITY TABLE */}
-            <h2 id="plumage-rarity" style={styles.h2}>Plumage Variant Rarity</h2>
-            <table style={styles.table}>
+            <h2 id="plumage-rarity" className="wiki-h2">Plumage Variant Rarity</h2>
+            <table className="wiki-table">
                 <thead>
                     <tr>
-                        <th style={styles.th}>Sex</th>
-                        <th style={styles.th}><span style={styles.common}>Common</span></th>
-                        <th style={styles.th}><span style={styles.uncommon}>Uncommon</span></th>
-                        <th style={styles.th}><span style={styles.rare}>Rare</span></th>
-                        <th style={styles.th}><span style={styles.veryRare}>Very Rare</span></th>
+                        <th className="wiki-th">Sex</th>
+                        <th className="wiki-th"><span className="wiki-common">Common</span></th>
+                        <th className="wiki-th"><span className="wiki-uncommon">Uncommon</span></th>
+                        <th className="wiki-th"><span className="wiki-rare">Rare</span></th>
+                        <th className="wiki-th"><span className="wiki-very-rare">Very Rare</span></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td style={{...styles.td, color: '#3498db', fontStyle: 'italic', fontWeight: 'bold'}}>
+                        <td className="wiki-td wiki-td-muted">
                             Male
                         </td>
-                        <td style={styles.td}>
+                        <td className="wiki-td">
                             White Brown (37.45%)<br/>
                             Brown (37.45%)<br/>
                             Molting (12.50%)<br/>
                             Grey (12.50%)
                         </td>
-                        <td style={styles.td}>X</td>
-                        <td style={styles.td}>X</td>
-                        <td style={styles.td}>
+                        <td className="wiki-td">X</td>
+                        <td className="wiki-td">X</td>
+                        <td className="wiki-td">
                             Albino (0.03%)<br/>
                             Leucistic (0.03%)<br/>
                             Melanistic (0.03%)
                         </td>
                     </tr>
                     <tr>
-                        <td style={{...styles.td, color: '#d63384', fontStyle: 'italic', fontWeight: 'bold'}}>
+                        <td className="wiki-td wiki-td-female">
                             Female
                         </td>
-                        <td style={styles.td}>
+                        <td className="wiki-td">
                             Brown (87.98%)<br/>
                             Grey (11.78%)
                         </td>
-                        <td style={styles.td}>X</td>
-                        <td style={styles.td}>X</td>
-                        <td style={styles.td}>
+                        <td className="wiki-td">X</td>
+                        <td className="wiki-td">X</td>
+                        <td className="wiki-td">
                             Albino (0.08%)<br/>
                             Leucistic (0.08%)<br/>
                             Melanistic (0.08%)
@@ -624,28 +427,28 @@ const RingNeckedPheasant = () => {
             </table>
 
             {/* TIPS (Added section) */}
-            <h2 id="tips" style={styles.h2}>Tips</h2>
-            <p style={{marginBottom: '20px'}}>
-               Must be shot in the air. Shooting pheasants on the ground or in the process of landing gives no integrity points and shows "grounded". The ethical way to kill them as mentioned by TreeKiwi (one of the developers) is to run toward them and <span style={styles.link}>whistle</span>. This will make them airborne/make them fly.
+            <h2 id="tips" className="wiki-h2">Tips</h2>
+            <p className="wiki-mb-20">
+               Must be shot in the air. Shooting pheasants on the ground or in the process of landing gives no integrity points and shows "grounded". The ethical way to kill them as mentioned by TreeKiwi (one of the developers) is to run toward them and <span className="wiki-link">whistle</span>. This will make them airborne/make them fly.
             </p>
 
             {/* TRIVIA */}
-            <h2 id="trivia" style={styles.h2}>Trivia</h2>
-            <ul style={{paddingLeft:'20px', marginBottom: '30px'}}>
-              <li style={{marginBottom:'8px'}}>The Ring-Necked Pheasant was the first upland bird species added to game, and came with a distinct <i>grounded</i> mechanic. This mechanic punishes players for shooting the bird on the ground, resulting in a score of 0 every time. To prevent this, players must allow the Pheasant to fly into the air order to get full score.</li>
-              <li style={{marginBottom:'8px'}}>The word <i>Pheasant</i> comes from the Greek word <i>phasianos</i> meaning <i>Phasian Bird</i>. The Phasis river at one point was thought to have once been full of Pheasants, and possibly would have been where Europeans first encountered the bird.</li>
-              <li style={{marginBottom:'8px'}}>While the Ring-Necked Pheasant is a widespread game bird, it is thought to have originated from East Asia and spread westward over time. This is why a common name for the Ring-Necked Pheasant is the <i>Chinese Pheasant</i>.</li>
-              <li style={{marginBottom:'8px'}}>It is the Official State Bird of South Dakota.</li>
-              <li style={{marginBottom:'8px'}}>The Ring-Necked Pheasant is one of many species retroactively added to certain maps with the "Granite Update". Other species in this list include, the <span style={styles.link}>Canada Goose</span>, <span style={styles.link}>Merriam Turkey</span>, <span style={styles.link}>Gray Wolf</span>, <span style={styles.link}>Western Capercaillie</span>, <span style={styles.link}>Eurasian Wigeon</span>, <span style={styles.link}>Collared Peccary</span>, <span style={styles.link}>Mallard</span>, <span style={styles.link}>Pronghorn</span>, and the <span style={styles.link}>Green Winged Teal</span>. The Ring-Necked Pheasant was added to <span style={styles.link}>Hirschfelden</span> specifically.</li>
-              <li style={{marginBottom:'8px'}}>With the release of <span style={styles.link}>Salzwiesen Park</span>, 8 <span style={styles.link}>Great One</span> variations were added.</li>
+            <h2 id="trivia" className="wiki-h2">Trivia</h2>
+            <ul className="wiki-ul">
+              <li className="wiki-li">The Ring-Necked Pheasant was the first upland bird species added to game, and came with a distinct <i>grounded</i> mechanic. This mechanic punishes players for shooting the bird on the ground, resulting in a score of 0 every time. To prevent this, players must allow the Pheasant to fly into the air order to get full score.</li>
+              <li className="wiki-li">The word <i>Pheasant</i> comes from the Greek word <i>phasianos</i> meaning <i>Phasian Bird</i>. The Phasis river at one point was thought to have once been full of Pheasants, and possibly would have been where Europeans first encountered the bird.</li>
+              <li className="wiki-li">While the Ring-Necked Pheasant is a widespread game bird, it is thought to have originated from East Asia and spread westward over time. This is why a common name for the Ring-Necked Pheasant is the <i>Chinese Pheasant</i>.</li>
+              <li className="wiki-li">It is the Official State Bird of South Dakota.</li>
+              <li className="wiki-li">The Ring-Necked Pheasant is one of many species retroactively added to certain maps with the "Granite Update". Other species in this list include, the <span className="wiki-link">Canada Goose</span>, <span className="wiki-link">Merriam Turkey</span>, <span className="wiki-link">Gray Wolf</span>, <span className="wiki-link">Western Capercaillie</span>, <span className="wiki-link">Eurasian Wigeon</span>, <span className="wiki-link">Collared Peccary</span>, <span className="wiki-link">Mallard</span>, <span className="wiki-link">Pronghorn</span>, and the <span className="wiki-link">Green Winged Teal</span>. The Ring-Necked Pheasant was added to <span className="wiki-link">Hirschfelden</span> specifically.</li>
+              <li className="wiki-li">With the release of <span className="wiki-link">Salzwiesen Park</span>, 8 <span className="wiki-link">Great One</span> variations were added.</li>
             </ul>
 
             {/* REFERENCES (Added section) */}
-            <h2 id="references" style={styles.h2}>References</h2>
-            <ol style={{fontSize: '0.9rem', paddingLeft: '20px'}}>
+            <h2 id="references" className="wiki-h2">References</h2>
+            <ol className="wiki-ol-ref">
                {references.map((ref, idx) => (
-                  <li key={idx} style={{marginBottom: '4px'}}>
-                     <span style={styles.link}>{ref}</span>
+                  <li key={idx} className="wiki-mb-4">
+                     <span className="wiki-link">{ref}</span>
                   </li>
                ))}
             </ol>
