@@ -70,8 +70,12 @@
 }
 
 .wiki-sidebar-image {
-  height: 180px;
+  height: 350px;
   background-color: var(--wiki-bg-sidebar-image);
+  background-image: url('../../../assets/il_570xN.3501403238_kjz2.webp'); /* Replace with your file path */
+  background-size: cover;   /* Ensures image covers the whole box */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents tiling */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -83,8 +87,9 @@
 
 .wiki-sidebar-image img {
   width: 268px;
-  height: 134px;
+  height: 280px;
   object-fit: cover;
+  border-radius: 10px;
 }
 
 .wiki-sidebar-image img.wiki-img-custom {

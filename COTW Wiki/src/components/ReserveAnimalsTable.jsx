@@ -31,7 +31,7 @@ const ReserveAnimalsTable = ({ reserveData }) => {
       <div className="wiki-reserve-table">
         {/* Header Row */}
         <div className="wiki-reserve-header-row">
-          <div style={{ ...styles.headerCell, borderBottom: 'none', backgroundColor: '#16334a', width: '100%' }}>Class</div>
+          <div className="w-full bg-[#16334a] border-b-0 px-3 py-2 text-white font-semibold">Class</div>
           {classes.map((cls, i) => (
             <div key={cls} className="wiki-reserve-header-cell">
               <img src={classIcons[i]} alt={`Class ${cls}`} className="wiki-class-icon" />

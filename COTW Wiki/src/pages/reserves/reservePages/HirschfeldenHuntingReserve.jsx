@@ -75,6 +75,7 @@ const Hirschfelden = () => {
                 {/* Replace src with your actual map image import */}
                 <img src={HirschfeldenMapImage} alt="Hirschfelden Map" />
             </div>
+
           </aside>
 
           {/* --- MAIN CONTENT --- */}
@@ -110,9 +111,9 @@ const Hirschfelden = () => {
 
             {/* LOCATION (World map preview with highlighted logo) */}
             <h2 className="wiki-h2" id="location">Location</h2>
-            <div className="map-container" style={{padding: '1rem 0', width: '1200px', maxWidth: '800px', margin: '0 auto'}}>
-              <img className="map-image" src={worldMapImage} alt="World map" style={{width: '100%', height: 'auto'}} />
-              <Link to="/maps/hirschfelden" className="logo-hirsch" style={{ '--mask': `url("${hirschLogo}")`, marginLeft:'-390px', marginTop:'-20px', width: '70px', height: '70px'}} data-tooltip="Hirschfelden Hunting Reserve">
+            <div className="map-container">
+              <img className="map-image" src={worldMapImage} alt="World map" />
+              <Link to="/maps/hirschfelden" className="logo-hirsch" data-tooltip="Hirschfelden Hunting Reserve">
                 <img src={hirschLogo} alt="Hirschfelden Logo" />
               </Link>
             </div>
@@ -128,32 +129,32 @@ const Hirschfelden = () => {
                 </thead>
                 <tbody>
                     {regionsData.map((row, idx) => (
-                        <tr key={idx}>
-                            <td style={{...styles.td, color: '#6fb2e6'}}>{row.region}</td>
+                          <tr key={idx}>
+                            <td className="wiki-td wiki-td-highlight">{row.region}</td>
                             <td className="wiki-td">
-                                {row.subregions.map((sub, sIdx) => (
-                                    <div key={sIdx} style={{marginBottom:'2px', color: '#6fb2e6'}}>{sub}</div>
-                                ))}
+                              {row.subregions.map((sub, sIdx) => (
+                                <div key={sIdx} className="subregion-item">{sub}</div>
+                              ))}
                             </td>
-                        </tr>
+                          </tr>
                     ))}
                 </tbody>
             </table>
 
             {/* HUNTABLE ANIMALS */}
             <h2 className="wiki-h2" id="huntable-animals">Huntable Animals</h2>
-            <div style={{marginBottom: '30px'}}>
+            <div className="mb-30">
                 {/* Embedding the specific table component for Hirschfelden */}
                 <HirschfeldenHuntableAnimalsTable />
             </div>
-            <div style={{fontSize: '0.95rem', color: '#dbe4eb', marginBottom: '20px'}}>
-              <p style={{margin: 0}}>There are 3 "boss animals" on this map: A gold red deer, a gold European bison, and a wild boar named Wurst (diamond).</p>
-              <p style={{margin: '8px 0 0 0'}}>This map contains 5 'great ones': fallow deer, red deer, ring-necked pheasant, red fox, wild boar.</p>
+            <div className="muted-note">
+              <p className="no-margin">There are 3 "boss animals" on this map: A gold red deer, a gold European bison, and a wild boar named Wurst (diamond).</p>
+              <p className="mt-8">This map contains 5 'great ones': fallow deer, red deer, ring-necked pheasant, red fox, wild boar.</p>
             </div>
 
             {/* MISSIONS */}
             <h2 className="wiki-h2" id="missions">Missions</h2>
-            <div style={{marginBottom: '15px', fontStyle: 'italic'}}>
+            <div className="missions-note">
                 Main article: <span className="wiki-link">Hirschfelden Hunting Reserve Missions</span>
             </div>
             <p>
@@ -162,7 +163,7 @@ const Hirschfelden = () => {
 
             {/* DESCRIPTION (TRAILER) */}
             <h2 className="wiki-h2" id="description">Description (Trailer)</h2>
-            <div style={{fontStyle: 'italic', color: '#dbe4eb', marginBottom: '15px'}}>
+            <div className="trailer-note">
                 "Coming out here, struck by the silence... but then, if you stand there for a minute, you realize it isn't silent at all.
                 <br/><br/>
                 Lots of people feel like they are visiting, but when you are hunting, you are not just visiting - you are part of it.
@@ -191,7 +192,7 @@ const Hirschfelden = () => {
 
             {/* GALLERY */}
             <h2 className="wiki-h2" id="gallery">Gallery</h2>
-            <div style={{marginBottom: '24px'}}>
+            <div className="mb-24">
               <GallerySlideshow images={[
                 { src: g1, alt: 'Hirschfelden 1' },
                 { src: g2, alt: 'Hirschfelden 2' },

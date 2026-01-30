@@ -139,3 +139,34 @@
   font-weight: bold;
   border-radius: 2px;
 }
+
+/* --- Page-specific helpers (moved from inline styles) --- */
+.map-container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 0;
+}
+.map-container .map-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.logo-hirsch {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-390px, -20px);
+  width: 70px;
+  height: 70px;
+}
+.wiki-td-highlight { color: #6fb2e6; }
+.subregion-item { margin-bottom: 2px; color: #6fb2e6; }
+.mb-30 { margin-bottom: 30px; }
+.muted-note { font-size: 0.95rem; color: #dbe4eb; margin-bottom: 20px; }
+.no-margin { margin: 0; }
+.mt-8 { margin: 8px 0 0 0; }
+.missions-note { margin-bottom: 15px; font-style: italic; }
+.trailer-note { font-style: italic; color: #dbe4eb; margin-bottom: 15px; }
+.mb-24 { margin-bottom: 24px; }
