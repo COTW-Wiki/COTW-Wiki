@@ -104,6 +104,14 @@ const Blackbuck = () => {
     "In the 20th century the Blackbuck was hunted to near extinction in some areas of India. Since then, lots of conservation efforts were made and the population is recovering."
   ];
 
+  // Smooth scroll helper for TOC links
+  const scrollToId = (id) => (e) => {
+    if (e && e.preventDefault) e.preventDefault();
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    try { window.history.replaceState(null, '', `#${id}`); } catch (err) {}
+  };
+
   return (
     <div className="wiki-page">
       <div className="wiki-inner">
@@ -118,15 +126,15 @@ const Blackbuck = () => {
           {/* --- RIGHT SIDEBAR (General Information) --- */}
           <aside className="wiki-sidebar">
             <div className="wiki-sidebar-header">Blackbuck</div>
-            <div className="wiki-sidebar-image">
-              <img src={BlackbuckMain} alt="Blackbuck" />
+            <div className="wiki-sidebar-image wiki-sidebar-image--contain">
+              <img src={BlackbuckMain} alt="Blackbuck" className="wiki-img-contain" />
             </div>
             
             <div className="wiki-sidebar-header">General Information</div>
             
             <div className="wiki-sidebar-section">
               <span className="wiki-sidebar-label">Class</span>
-              <span><img src={class3Icon} alt="Class 3" className="wiki-class-icon-lg"/>3</span>
+              <span><img src={class3Icon} alt="Class 3" className="inline-block wiki-class-icon-sm align-middle mr-1.5" />3</span>
             </div>
 
             <div className="wiki-sidebar-section">
@@ -265,7 +273,7 @@ const Blackbuck = () => {
              <h2 id="shot-scheme" className="wiki-h2">Shot scheme</h2>
             <div className="wiki-shot-container">
                 <div className="wiki-shot-container">
-                   <img src={ShotSchemeImage} alt="Shot Scheme" className="wiki-shot-scheme-img" />
+                   <img src={ShotSchemeImage} alt="Shot Scheme" className="wiki-shot-scheme-img-sm" />
                 </div>
                 <div className="wiki-shot-wrap">
                    <div className="wiki-shot-title">Color code</div>
@@ -279,7 +287,7 @@ const Blackbuck = () => {
             {/* FUR VARIANTS (Gallery) */}
             <h2 id="fur-variants" className="wiki-h2">Fur Variants</h2>
 
-            <h3 id="male-variants" style={{...styles.h2, fontSize: '1.1rem'}}>Male</h3>
+            <h3 id="male-variants" className="wiki-h3 text-[1.1rem] mt-2 border-b-0">Male</h3>
             <div className="wiki-gallery-grid">
               {maleGallery.map((item, i) => (
                 <div key={"m-"+i} className="wiki-gallery-item">
@@ -291,7 +299,7 @@ const Blackbuck = () => {
               ))}
             </div>
 
-            <h3 id="female-variants" style={{...styles.h2, fontSize: '1.1rem'}}>Female</h3>
+            <h3 id="female-variants" className="wiki-h3 text-[1.1rem] mt-2 border-b-0">Female</h3>
             <div className="wiki-gallery-grid">
               {femaleGallery.map((item, i) => (
                 <div key={"f-"+i} className="wiki-gallery-item">

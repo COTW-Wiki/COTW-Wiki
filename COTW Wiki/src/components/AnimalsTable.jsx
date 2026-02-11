@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../pages/Home/Home.css';
+import '..//styles/wiki.css';
+
+// --- ASSET IMPORTS (Unchanged) ---
 import class1Icon from '../assets/Class1Icon.webp';
 import class2Icon from '../assets/Class2Icon.webp';
 import class3Icon from '../assets/Class3Icon.webp';
@@ -129,1808 +131,291 @@ import europeanBadgerIcon from '../assets/EuropeanBadgerIcon.webp';
 import eurasianPineMartenIcon from '../assets/EurasianPineMartenIcon.webp';
 import eurasianWoodcockIcon from '../assets/EurasianWoodcockIcon.webp';
 
-export default function AnimalsTable() {
+// --- HELPER COMPONENT FOR ANIMAL CARDS ---
+const AnimalCard = ({ name, icon }) => {
+  const [first, ...rest] = name.split(' ');
+  const second = rest.join(' ');
+
   return (
-      <section className="mt-8 w-full">
-        <div className="max-w-3xl mx-auto px-4">
-          <h3 className="text-xl font-semibold mb-2">All Animals by class</h3>
-          <table className="home-blank-table" aria-label="Blank two-column table">
-            <colgroup>
-              <col className="col-10" />
-              <col className="col-90" />
-            </colgroup>
-            <tbody>
-              <tr>
-                <td className="col-10" style={{textAlign: 'center', verticalAlign: 'middle'}}>
-                  <img src={class1Icon} alt="Class 1" className="class1-icon" />
-                  <div className="class1-label">Class 1</div>
-                </td>
-                <td className="col-90">
-                  <div className="home-animal-list">
-                    {[
-                      { name: 'Canada Goose', icon: canadaGooseIcon },
-                      { name: 'Greylag Goose', icon: greylagGooseIcon },
-                      { name: 'Magpie Goose', icon: magpieGooseIcon },
-                      { name: 'Tundra Bean Goose', icon: tundraBeanGooseIcon },
-                      { name: 'Snow Goose', icon: snowGooseIcon },
-                      { name: 'Eurasian Wigeon', icon: eurasianWigeonIcon },
-                      { name: 'Goldeneye', icon: goldeneyeIcon },
-                      { name: 'Green Winged Teal', icon: greenWingTealIcon },
-                      { name: 'Wood Duck', icon: woodDuckIcon },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                        { name: 'Harlequin Duck', icon: harlequinDuckIcon },
-                        { name: 'Cinnamon Teal', icon: cinnamonTealIcon },
-                        { name: 'Mallard', icon: mallardIcon },
-                        { name: 'Tufted Duck', icon: tuftedDuckIcon },
-                        { name: 'Ferruginous Duck', icon: ferruginousDuckIcon },
-                        { name: 'Gadwall', icon: gadwallIcon },
-                        { name: 'Eurasian Teal', icon: eurasianTealIcon },
-                        { name: 'Northern Pintail', icon: northernPintailIcon },
-                        { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                        { name: 'Black Grouse', icon: blackGrouseIcon },
-                        { name: 'Hazel Grouse', icon: hazelGrouseIcon },
-                        { name: 'Dusky Grouse', icon: duskyGrouseIcon },
-                        { name: 'Red Grouse', icon: redGrouseIcon },
-                        { name: 'Bobwhite Quail', icon: bobwhiteQuailIcon },
-                        { name: 'Stubble Quail', icon: stubbleQuailIcon },
-                        { name: 'Rock Ptarmigan', icon: rockPtarmiganIcon },
-                        { name: 'Willow Ptarmigan', icon: willowPtarmiganIcon },
-                        { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                        { name: 'Eastern Wild Turkey', icon: easternWildTurkeyIcon },
-                        { name: 'Merriam Turkey', icon: merriamTurkeyIcon },
-                        { name: 'Rio Grande Turkey', icon: rioGrandeTurkeyIcon },
-                        { name: 'Ring-Necked Pheasant', icon: ringNeckedPheasantIcon },
-                        { name: 'Western Capercaillie', icon: westernCapercaillieIcon },
-                        { name: 'SPACER', icon: null },
-                        { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                        { name: 'Eurasian Woodcock', icon: eurasianWoodcockIcon },
-                        { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                        { name: 'Antelope Jackrabbit', icon: antelopeJackrabbitIcon },
-                        { name: 'Eastern Cottontail Rabbit', icon: easternCottontailIcon },
-                        { name: 'European Hare', icon: europeanHareIcon },
-                        { name: 'European Rabbit', icon: europeanRabbitIcon },
-                        { name: 'Mountain Hare', icon: mountainHareIcon },
-                        { name: 'Scrub Hare', icon: scrubHareIcon },
-                        { name: 'White-tailed Jackrabbit', icon: whiteTailedJackrabbitIcon },
-                        { name: 'Woolly Hare', icon: woollyHareIcon },
-                        { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                        { name: 'American Mink', icon: americanMinkIcon },
-                        { name: 'Eurasian Pine Marten', icon: eurasianPineMartenIcon },
-                    ].map(({ name, icon }, index) => {
-    // 1. CHECK FOR SPACER
-    if (name === 'SPACER') {
-      return (
-        <div 
-          key={`spacer-${index}`} 
-          className="home-animal-block" 
-          style={{ visibility: 'hidden' }} 
-        />
-      );
-    }
-
-    // 2. RENDER NORMAL ANIMAL (Your existing code)
-    return (
-      <div key={name} className="home-animal-block home-animal-entry">
-        <Link to={`/animals/${encodeURIComponent(name.replace(/\s+/g, '-'))}`}>
-          <img src={icon} alt={name} className="home-animal-icon home-animal-link" />
-        </Link>
-        
-        <div className="home-animal-name">
-          {name.includes(' ') ? name.split(' ')[0] : name}
-        </div>
-        
-        <div style={{ display: 'none' }}></div>
-        
-        <div className="home-animal-name-line2" aria-hidden="true">
-          {name.includes(' ') ? name.split(' ').slice(1).join(' ') : ''}
-        </div>
+    <Link 
+      to={`/animals/${encodeURIComponent(name.replace(/\s+/g, '-'))}`} 
+      className="animal-card"
+    >
+      <img src={icon} alt={name} />
+      <div className="animal-card-name">
+        <div className="name-line1">{first}</div>
+        {second && <div className="name-line2">{second}</div>}
       </div>
-    );
-  })}
-                  </div>
-                </td>
-              </tr>
-              
-              <tr>
-                <td className="col-10" style={{textAlign: 'center', verticalAlign: 'middle'}}>
-                  <img src={class2Icon} alt="Class 2" className="class1-icon" />
-                  <div className="class1-label">Class 2</div>
-                </td>
-                <td className="col-90">
-                  <div className="home-animal-list">
-                    {[
-                      { name: 'Northern Red Muntjac', icon: northernRedMuntjacIcon },
-                      { name: 'Siberian Musk Deer', icon: siberianMuskDeerIcon },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'Raccoon Dog', icon: raccoonDogIcon },
-                      { name: 'Coyote', icon: coyoteIcon },
-                      { name: 'Side-striped Jackal', icon: sideStripedJackalIcon },
-                      { name: 'Gray Fox', icon: grayFoxIcon },
-                      { name: 'Red Fox', icon: redFoxIcon },
-                      { name: 'Tibetan Fox', icon: tibetanFoxIcon },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'Common Raccoon', icon: commonRaccoonIcon },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'European Badger', icon: europeanBadgerIcon },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'North American Beaver', icon: northAmericanBeaverIcon },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'Bobcat', icon: bobcatIcon },
-                      { name: 'Mexican Bobcat', icon: mexicanBobcatIcon },
-                    ].map(({ name, icon }, index) => {
-    // 1. CHECK FOR SPACER
-    if (name === 'SPACER') {
-      return (
-        <div 
-          key={`spacer-${index}`} 
-          className="home-animal-block" 
-          style={{ visibility: 'hidden' }} 
-        />
-      );
-    }
+    </Link>
+  );
+};
 
-    // 2. RENDER NORMAL ANIMAL (Your existing code)
-    return (
-      <div key={name} className="home-animal-block home-animal-entry">
-        <Link to={`/animals/${encodeURIComponent(name.replace(/\s+/g, '-'))}`}>
-          <img src={icon} alt={name} className="home-animal-icon home-animal-link" />
-        </Link>
-        
-        <div className="home-animal-name">
-          {name.includes(' ') ? name.split(' ')[0] : name}
-        </div>
-        
-        <div style={{ display: 'none' }}></div>
-        
-        <div className="home-animal-name-line2" aria-hidden="true">
-          {name.includes(' ') ? name.split(' ').slice(1).join(' ') : ''}
-        </div>
+// --- HELPER COMPONENT FOR CLASS ROWS ---
+const ClassRow = ({ classIcon, classLabel, animals, rows }) => {
+  const rowGroups = rows ?? (animals ? [animals] : []);
+
+  return (
+    <div className="animal-class-row">
+      <div className="class-badge">
+        <img src={classIcon} alt={classLabel} />
+        <span>{classLabel}</span>
       </div>
-    );
-  })}
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td className="col-10" style={{textAlign: 'center', verticalAlign: 'middle'}}>
-                  <img src={class3Icon} alt="Class 3" className="class1-icon" />
-                  <div className="class1-label">Class 3</div>
-                </td>
-                <td className="col-90">
-                  <div className="home-animal-list">
-                    {[
-                      { name: 'Axis Deer', icon: axisDeerIcon },
-                      { name: 'Hog Deer', icon: hogDeerIcon },
-                      { name: 'Roe Deer', icon: roeDeerIcon },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'Blackbuck', icon: blackbuckIcon },
-                      { name: 'Springbok', icon: springbokIcon },
-                      { name: 'Pronghorn', icon: pronghornIcon },
-                      { name: 'Feral Goat', icon: feralGoatIcon },
-                      { name: 'Chamois', icon: chamoisIcon },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'Eurasian Lynx', icon: eurasianLynxIcon },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'Collared Peccary', icon: collaredPeccaryIcon },
-                    ].map(({ name, icon }, index) => {
-    // 1. CHECK FOR SPACER
-    if (name === 'SPACER') {
-      return (
-        <div 
-          key={`spacer-${index}`} 
-          className="home-animal-block" 
-          style={{ visibility: 'hidden' }} 
-        />
-      );
-    }
-
-    // 2. RENDER NORMAL ANIMAL (Your existing code)
-    return (
-      <div key={name} className="home-animal-block home-animal-entry">
-        <Link to={`/animals/${encodeURIComponent(name.replace(/\s+/g, '-'))}`}>
-          <img src={icon} alt={name} className="home-animal-icon home-animal-link" />
-        </Link>
-        
-        <div className="home-animal-name">
-          {name.includes(' ') ? name.split(' ')[0] : name}
-        </div>
-        
-        <div style={{ display: 'none' }}></div>
-        
-        <div className="home-animal-name-line2" aria-hidden="true">
-          {name.includes(' ') ? name.split(' ').slice(1).join(' ') : ''}
-        </div>
+      <div className="animal-grid">
+        {rowGroups.map((row, idx) => (
+          <div key={`${classLabel}-row-${idx}`} className="animal-grid-row">
+            {row.map((animal) => (
+              <AnimalCard key={animal.name} name={animal.name} icon={animal.icon} />
+            ))}
+          </div>
+        ))}
       </div>
-    );
-  })}
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td className="col-10" style={{textAlign: 'center', verticalAlign: 'middle'}}>
-                  <img src={class4Icon} alt="Class 4" className="class1-icon" />
-                  <div className="class1-label">Class 4</div>
-                </td>
-                <td className="col-90">
-                  <div className="home-animal-list">
-                    {[
-                      { name: 'Blacktail Deer', icon: blacktailDeerIcon },
-                      { name: 'Whitetail Deer', icon: whitetailDeerIcon },
-                      { name: 'Fallow Deer', icon: fallowDeerIcon },
-                      { name: 'Sika Deer', icon: sikaDeerIcon },
-                      { name: 'Lesser Kudu', icon: lesserKuduIcon },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'Mountain Goat', icon: mountainGoatIcon },
-                      { name: 'Beceite Ibex', icon: beceiteIbexIcon },
-                      { name: 'Ronda Ibex', icon: rondaIbexIcon },
-                      { name: 'Gredos Ibex', icon: gredosIbexIcon },
-                      { name: 'Southeastern Spanish Ibex', icon: southeasternSpanishIbexIcon },
-                      { name: 'Iberian Mouflon', icon: iberianMouflonIcon },
-                      { name: 'Blue Sheep', icon: blueSheepIcon },
-                      { name: 'Tahr', icon: tahrIcon },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'Snow Leopard', icon: snowLeopardIcon },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'Warthog', icon: warthogIcon },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'Eastern Gray Kangaroo', icon: easternGrayKangarooIcon },
-                    ].map(({ name, icon }, index) => {
-    // 1. CHECK FOR SPACER
-    if (name === 'SPACER') {
-      return (
-        <div 
-          key={`spacer-${index}`} 
-          className="home-animal-block" 
-          style={{ visibility: 'hidden' }} 
+    </div>
+  );
+};
+
+export default function AnimalsTable({ containerClassName = 'max-w-6xl mx-auto px-4' }) {
+  return (
+    <section className="animal-table-section">
+      <div className={containerClassName}>
+        <h2 className="wiki-h2">All Animals by Class</h2>
+
+        <ClassRow 
+          classIcon={class1Icon} 
+          classLabel="Class 1" 
+          rows={[
+            // --- Rows shown in the screenshot ---
+            [
+              { name: 'Canada Goose', icon: canadaGooseIcon },
+              { name: 'Greylag Goose', icon: greylagGooseIcon },
+              { name: 'Magpie Goose', icon: magpieGooseIcon },
+              { name: 'Tundra Bean Goose', icon: tundraBeanGooseIcon },
+              { name: 'Snow Goose', icon: snowGooseIcon },
+              { name: 'Eurasian Wigeon', icon: eurasianWigeonIcon },
+              { name: 'Goldeneye', icon: goldeneyeIcon },
+              { name: 'Green Winged Teal', icon: greenWingTealIcon },
+              { name: 'Wood Duck', icon: woodDuckIcon },
+            ],
+            [
+              { name: 'Harlequin Duck', icon: harlequinDuckIcon },
+              { name: 'Cinnamon Teal', icon: cinnamonTealIcon },
+              { name: 'Mallard', icon: mallardIcon },
+              { name: 'Tufted Duck', icon: tuftedDuckIcon },
+              { name: 'Ferruginous Duck', icon: ferruginousDuckIcon },
+              { name: 'Gadwall', icon: gadwallIcon },
+              { name: 'Eurasian Teal', icon: eurasianTealIcon },
+              { name: 'Northern Pintail', icon: northernPintailIcon },
+            ],
+            [
+              { name: 'Black Grouse', icon: blackGrouseIcon },
+              { name: 'Hazel Grouse', icon: hazelGrouseIcon },
+              { name: 'Dusky Grouse', icon: duskyGrouseIcon },
+              { name: 'Red Grouse', icon: redGrouseIcon },
+              { name: 'Bobwhite Quail', icon: bobwhiteQuailIcon },
+              { name: 'Stubble Quail', icon: stubbleQuailIcon },
+              { name: 'Rock Ptarmigan', icon: rockPtarmiganIcon },
+              { name: 'Willow Ptarmigan', icon: willowPtarmiganIcon },
+            ],
+            [
+              { name: 'Eastern Wild Turkey', icon: easternWildTurkeyIcon },
+              { name: 'Merriam Turkey', icon: merriamTurkeyIcon },
+              { name: 'Rio Grande Turkey', icon: rioGrandeTurkeyIcon },
+              { name: 'Ring-Necked Pheasant', icon: ringNeckedPheasantIcon },
+              { name: 'Western Capercaillie', icon: westernCapercaillieIcon },
+            ],
+            [{ name: 'Eurasian Woodcock', icon: eurasianWoodcockIcon }],
+
+            // --- Remaining Class 1 animals (kept, continue after the screenshot portion) ---
+            [
+              { name: 'Antelope Jackrabbit', icon: antelopeJackrabbitIcon },
+              { name: 'Eastern Cottontail Rabbit', icon: easternCottontailIcon },
+              { name: 'European Hare', icon: europeanHareIcon },
+              { name: 'European Rabbit', icon: europeanRabbitIcon },
+              { name: 'Mountain Hare', icon: mountainHareIcon },
+              { name: 'Scrub Hare', icon: scrubHareIcon },
+              { name: 'White-tailed Jackrabbit', icon: whiteTailedJackrabbitIcon },
+              { name: 'Woolly Hare', icon: woollyHareIcon },
+            ],
+            [
+              { name: 'American Mink', icon: americanMinkIcon },
+              { name: 'Eurasian Pine Marten', icon: eurasianPineMartenIcon },
+            ],
+          ]}
         />
-      );
-    }
 
-    // 2. RENDER NORMAL ANIMAL (Your existing code)
-    return (
-      <div key={name} className="home-animal-block home-animal-entry">
-        <Link to={`/animals/${encodeURIComponent(name.replace(/\s+/g, '-'))}`}>
-          <img src={icon} alt={name} className="home-animal-icon home-animal-link" />
-        </Link>
-        
-        <div className="home-animal-name">
-          {name.includes(' ') ? name.split(' ')[0] : name}
-        </div>
-        
-        <div style={{ display: 'none' }}></div>
-        
-        <div className="home-animal-name-line2" aria-hidden="true">
-          {name.includes(' ') ? name.split(' ').slice(1).join(' ') : ''}
-        </div>
+        <ClassRow 
+          classIcon={class2Icon} 
+          classLabel="Class 2" 
+          rows={[
+            // --- Rows shown in the screenshot ---
+            [
+              { name: 'Northern Red Muntjac', icon: northernRedMuntjacIcon },
+              { name: 'Siberian Musk Deer', icon: siberianMuskDeerIcon },
+            ],
+            [
+              { name: 'Raccoon Dog', icon: raccoonDogIcon },
+              { name: 'Coyote', icon: coyoteIcon },
+              { name: 'Side-striped Jackal', icon: sideStripedJackalIcon },
+              { name: 'Gray Fox', icon: grayFoxIcon },
+              { name: 'Red Fox', icon: redFoxIcon },
+              { name: 'Tibetan Fox', icon: tibetanFoxIcon },
+            ],
+
+            // --- Remaining Class 2 animals (continue after the screenshot portion) ---
+            [
+              { name: 'Common Raccoon', icon: commonRaccoonIcon },
+            ],
+            [{ name: 'European Badger', icon: europeanBadgerIcon }],
+            [{ name: 'North American Beaver', icon: northAmericanBeaverIcon }],
+            [
+              { name: 'Bobcat', icon: bobcatIcon },
+              { name: 'Mexican Bobcat', icon: mexicanBobcatIcon },
+            ],
+          ]}
+        />
+
+        <ClassRow 
+          classIcon={class3Icon} 
+          classLabel="Class 3" 
+          rows={[
+            [
+              { name: 'Axis Deer', icon: axisDeerIcon },
+              { name: 'Hog Deer', icon: hogDeerIcon },
+              { name: 'Roe Deer', icon: roeDeerIcon },
+            ],
+            [
+              { name: 'Blackbuck', icon: blackbuckIcon },
+              { name: 'Springbok', icon: springbokIcon },
+              { name: 'Pronghorn', icon: pronghornIcon },
+              { name: 'Feral Goat', icon: feralGoatIcon },
+              { name: 'Chamois', icon: chamoisIcon },
+            ],
+            [{ name: 'Eurasian Lynx', icon: eurasianLynxIcon }],
+            [{ name: 'Collared Peccary', icon: collaredPeccaryIcon }],
+          ]}
+        />
+
+        <ClassRow 
+          classIcon={class4Icon} 
+          classLabel="Class 4" 
+          rows={[
+            // --- Row shown in the screenshot ---
+            [
+              { name: 'Blacktail Deer', icon: blacktailDeerIcon },
+              { name: 'Whitetail Deer', icon: whitetailDeerIcon },
+              { name: 'Fallow Deer', icon: fallowDeerIcon },
+              { name: 'Sika Deer', icon: sikaDeerIcon },
+              { name: 'Lesser Kudu', icon: lesserKuduIcon },
+            ],
+
+            // --- Remaining Class 4 animals (continue after the screenshot portion) ---
+            [
+              { name: 'Mountain Goat', icon: mountainGoatIcon },
+              { name: 'Beceite Ibex', icon: beceiteIbexIcon },
+              { name: 'Ronda Ibex', icon: rondaIbexIcon },
+              { name: 'Gredos Ibex', icon: gredosIbexIcon },
+              { name: 'Southeastern Spanish Ibex', icon: southeasternSpanishIbexIcon },
+              { name: 'Iberian Mouflon', icon: iberianMouflonIcon },
+              { name: 'Blue Sheep', icon: blueSheepIcon },
+              { name: 'Tahr', icon: tahrIcon },
+            ],
+            [{ name: 'Snow Leopard', icon: snowLeopardIcon }],
+            [{ name: 'Warthog', icon: warthogIcon }],
+            [{ name: 'Eastern Gray Kangaroo', icon: easternGrayKangarooIcon }],
+          ]}
+        />
+
+        <ClassRow 
+          classIcon={class5Icon} 
+          classLabel="Class 5" 
+          rows={[
+            [
+              { name: 'Javan Rusa', icon: javanRusaIcon },
+              { name: 'Mule Deer', icon: muleDeerIcon },
+              { name: 'Desert Bighorn Sheep', icon: desertBighornSheepIcon },
+              { name: 'Rocky Mountain Bighorn Sheep', icon: rockyMountainBighornSheepIcon },
+            ],
+            [
+              { name: 'Mountain Lion', icon: mountainLionIcon },
+              { name: 'Puma', icon: pumaIcon },
+            ],
+            [
+              { name: 'Wild Boar', icon: wildBoarIcon },
+              { name: 'Feral Pig', icon: feralPigIcon },
+              { name: 'Wild Hog', icon: wildHogIcon },
+            ],
+          ]}
+        />
+
+        <ClassRow 
+          classIcon={class6Icon} 
+          classLabel="Class 6" 
+          rows={[
+            [
+              { name: 'Red Deer', icon: redDeerIcon },
+              { name: 'Mountain Reindeer', icon: mountainReindeerIcon },
+              { name: 'Grant Caribou', icon: grantCaribouIcon },
+              { name: 'Woodland Caribou', icon: woodlandCaribouIcon },
+              { name: 'Blue Wildebeest', icon: blueWildebeestIcon },
+              { name: 'Gemsbok', icon: gemsbokIcon },
+              { name: 'Barasingha', icon: barasinghaIcon },
+              { name: 'Nilgai', icon: nilgaiIcon },
+            ],
+            [
+              { name: 'Gray Wolf', icon: grayWolfIcon },
+              { name: 'Iberian Wolf', icon: iberianWolfIcon },
+            ],
+          ]}
+        />
+
+        <ClassRow 
+          classIcon={class7Icon} 
+          classLabel="Class 7" 
+          rows={[
+            [
+              { name: 'Sambar', icon: sambarIcon },
+              { name: 'Rocky Mountain Elk', icon: rockyMountainElkIcon },
+              { name: 'Roosevelt Elk', icon: rooseveltElkIcon },
+              { name: 'Manitoban Elk', icon: manitobanElkIcon },
+            ],
+            [
+              { name: 'Black Bear', icon: blackBearIcon },
+              { name: 'Eurasian Brown Bear', icon: eurasianBrownBearIcon },
+            ],
+            [{ name: 'American Alligator', icon: americanAlligatorIcon }],
+          ]}
+        />
+
+        <ClassRow 
+          classIcon={class8Icon} 
+          classLabel="Class 8" 
+          rows={[
+            [{ name: 'Moose', icon: mooseIcon }],
+            [{ name: 'Grizzly Bear', icon: grizzlyBearIcon }],
+            [{ name: 'Saltwater Crocodile', icon: saltwaterCrocodileIcon }],
+          ]}
+        />
+
+        <ClassRow 
+          classIcon={class9Icon} 
+          classLabel="Class 9" 
+          rows={[
+            [
+              { name: 'Banteng', icon: bantengIcon },
+              { name: 'Cape Buffalo', icon: capeBuffaloIcon },
+              { name: 'European Bison', icon: europeanBisonIcon },
+              { name: 'Plains Bison', icon: plainsBisonIcon },
+              { name: 'Wood Bison', icon: woodBisonIcon },
+              { name: 'Water Buffalo', icon: waterBuffaloIcon },
+              { name: 'Wild Yak', icon: wildYakIcon },
+            ],
+            [
+              { name: 'Lion', icon: lionIcon },
+              { name: 'Bengal Tiger', icon: bengalTigerIcon },
+            ],
+          ]}
+        />
+
       </div>
-    );
-  })}
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td className="col-10" style={{textAlign: 'center', verticalAlign: 'middle'}}>
-                  <img src={class5Icon} alt="Class 5" className="class1-icon" />
-                  <div className="class1-label">Class 5</div>
-                </td>
-                <td className="col-90">
-                  <div className="home-animal-list">
-                    {[
-                      { name: 'Javan Rusa', icon: javanRusaIcon },
-                      { name: 'Mule Deer', icon: muleDeerIcon },
-                      { name: 'Desert Bighorn Sheep', icon: desertBighornSheepIcon },
-                      { name: 'Rocky Mountain Bighorn Sheep', icon: rockyMountainBighornSheepIcon },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'Mountain Lion', icon: mountainLionIcon },
-                      { name: 'Puma', icon: pumaIcon },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'Wild Boar', icon: wildBoarIcon },
-                      { name: 'Feral Pig', icon: feralPigIcon },
-                      { name: 'Wild Hog', icon: wildHogIcon },
-                    ].map(({ name, icon }, index) => {
-                      if (name === 'SPACER') {
-                        return (
-                          <div
-                            key={`spacer-class5-${index}`}
-                            className="home-animal-block"
-                            style={{ visibility: 'hidden' }}
-                          />
-                        );
-                      }
-
-                      return (
-                        <div key={name} className="home-animal-block home-animal-entry">
-                          <Link to={`/animals/${encodeURIComponent(name.replace(/\s+/g, '-'))}`}>
-                            <img src={icon} alt={name} className="home-animal-icon home-animal-link" />
-                          </Link>
-
-                          <div className="home-animal-name">
-                            {name.includes(' ') ? name.split(' ')[0] : name}
-                          </div>
-
-                          <div style={{ display: 'none' }}></div>
-
-                          <div className="home-animal-name-line2" aria-hidden="true">
-                            {name.includes(' ') ? name.split(' ').slice(1).join(' ') : ''}
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td className="col-10" style={{textAlign: 'center', verticalAlign: 'middle'}}>
-                  <img src={class6Icon} alt="Class 6" className="class1-icon" />
-                  <div className="class1-label">Class 6</div>
-                </td>
-                <td className="col-90">
-                  <div className="home-animal-list">
-                    {[
-                      { name: 'Red Deer', icon: redDeerIcon },
-                      { name: 'Mountain Reindeer', icon: mountainReindeerIcon },
-                      { name: 'Grant Caribou', icon: grantCaribouIcon },
-                      { name: 'Woodland Caribou', icon: woodlandCaribouIcon },
-                      { name: 'Blue Wildebeest', icon: blueWildebeestIcon },
-                      { name: 'Gemsbok', icon: gemsbokIcon },
-                      { name: 'Barasingha', icon: barasinghaIcon },
-                      { name: 'Nilgai', icon: nilgaiIcon },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'Gray Wolf', icon: grayWolfIcon },
-                      { name: 'Iberian Wolf', icon: iberianWolfIcon },
-                    ].map(({ name, icon }, index) => {
-                      if (name === 'SPACER') {
-                        return (
-                          <div
-                            key={`spacer-class6-${index}`}
-                            className="home-animal-block"
-                            style={{ visibility: 'hidden' }}
-                          />
-                        );
-                      }
-
-                      return (
-                        <div key={name} className="home-animal-block home-animal-entry">
-                          <Link to={`/animals/${encodeURIComponent(name.replace(/\s+/g, '-'))}`}>
-                            <img src={icon} alt={name} className="home-animal-icon home-animal-link" />
-                          </Link>
-
-                          <div className="home-animal-name">
-                            {name.includes(' ') ? name.split(' ')[0] : name}
-                          </div>
-
-                          <div style={{ display: 'none' }}></div>
-
-                          <div className="home-animal-name-line2" aria-hidden="true">
-                            {name.includes(' ') ? name.split(' ').slice(1).join(' ') : ''}
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td className="col-10" style={{textAlign: 'center', verticalAlign: 'middle'}}>
-                  <img src={class7Icon} alt="Class 7" className="class1-icon" />
-                  <div className="class1-label">Class 7</div>
-                </td>
-                <td className="col-90">
-                  <div className="home-animal-list">
-                    {[
-                      { name: 'Sambar', icon: sambarIcon },
-                      { name: 'Rocky Mountain Elk', icon: rockyMountainElkIcon },
-                      { name: 'Roosevelt Elk', icon: rooseveltElkIcon },
-                      { name: 'Manitoban Elk', icon: manitobanElkIcon },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'Black Bear', icon: blackBearIcon },
-                      { name: 'Eurasian Brown Bear', icon: eurasianBrownBearIcon },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'American Alligator', icon: americanAlligatorIcon },
-                    ].map(({ name, icon }, index) => {
-                      if (name === 'SPACER') {
-                        return (
-                          <div
-                            key={`spacer-class7-${index}`}
-                            className="home-animal-block"
-                            style={{ visibility: 'hidden' }}
-                          />
-                        );
-                      }
-
-                      return (
-                        <div key={name} className="home-animal-block home-animal-entry">
-                          <Link to={`/animals/${encodeURIComponent(name.replace(/\s+/g, '-'))}`}>
-                            <img src={icon} alt={name} className="home-animal-icon home-animal-link" />
-                          </Link>
-
-                          <div className="home-animal-name">
-                            {name.includes(' ') ? name.split(' ')[0] : name}
-                          </div>
-
-                          <div style={{ display: 'none' }}></div>
-
-                          <div className="home-animal-name-line2" aria-hidden="true">
-                            {name.includes(' ') ? name.split(' ').slice(1).join(' ') : ''}
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td className="col-10" style={{textAlign: 'center', verticalAlign: 'middle'}}>
-                  <img src={class8Icon} alt="Class 8" className="class1-icon" />
-                  <div className="class1-label">Class 8</div>
-                </td>
-                <td className="col-90">
-                  <div className="home-animal-list">
-                    {[
-                      { name: 'Moose', icon: mooseIcon },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'Grizzly Bear', icon: grizzlyBearIcon },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'Saltwater Crocodile', icon: saltwaterCrocodileIcon },
-                    ].map(({ name, icon }, index) => {
-                      if (name === 'SPACER') {
-                        return (
-                          <div
-                            key={`spacer-class8-${index}`}
-                            className="home-animal-block"
-                            style={{ visibility: 'hidden' }}
-                          />
-                        );
-                      }
-
-                      return (
-                        <div key={name} className="home-animal-block home-animal-entry">
-                          <Link to={`/animals/${encodeURIComponent(name.replace(/\s+/g, '-'))}`}>
-                            <img src={icon} alt={name} className="home-animal-icon home-animal-link" />
-                          </Link>
-
-                          <div className="home-animal-name">
-                            {name.includes(' ') ? name.split(' ')[0] : name}
-                          </div>
-
-                          <div style={{ display: 'none' }}></div>
-
-                          <div className="home-animal-name-line2" aria-hidden="true">
-                            {name.includes(' ') ? name.split(' ').slice(1).join(' ') : ''}
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td className="col-10" style={{textAlign: 'center', verticalAlign: 'middle'}}>
-                  <img src={class9Icon} alt="Class 9" className="class1-icon" />
-                  <div className="class1-label">Class 9</div>
-                </td>
-                <td className="col-90">
-                  <div className="home-animal-list">
-                    {[
-                      { name: 'Banteng', icon: bantengIcon },
-                      { name: 'Cape Buffalo', icon: capeBuffaloIcon },
-                      { name: 'European Bison', icon: europeanBisonIcon },
-                      { name: 'Plains Bison', icon: plainsBisonIcon },
-                      { name: 'Wood Bison', icon: woodBisonIcon },
-                      { name: 'Water Buffalo', icon: waterBuffaloIcon },
-                      { name: 'Wild Yak', icon: wildYakIcon },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'SPACER', icon: null },
-                      { name: 'Lion', icon: lionIcon },
-                      { name: 'Bengal Tiger', icon: bengalTigerIcon },
-                    ].map(({ name, icon }, index) => {
-                      if (name === 'SPACER') {
-                        return (
-                          <div
-                            key={`spacer-class9-${index}`}
-                            className="home-animal-block"
-                            style={{ visibility: 'hidden' }}
-                          />
-                        );
-                      }
-
-                      return (
-                        <div key={name} className="home-animal-block home-animal-entry">
-                          <Link to={`/animals/${encodeURIComponent(name.replace(/\s+/g, '-'))}`}>
-                            <img src={icon} alt={name} className="home-animal-icon home-animal-link" />
-                          </Link>
-
-                          <div className="home-animal-name">
-                            {name.includes(' ') ? name.split(' ')[0] : name}
-                          </div>
-
-                          <div style={{ display: 'none' }}></div>
-
-                          <div className="home-animal-name-line2" aria-hidden="true">
-                            {name.includes(' ') ? name.split(' ').slice(1).join(' ') : ''}
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
+    </section>
   );
 }

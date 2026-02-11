@@ -95,6 +95,14 @@ const Pronghorn = () => {
     "The Pronghorn's blazing speed is an example of an evolutionary anachronism; a phenomenon where animals keep useful traits despite not needing them anymore. It is believed that Pronghorns developed this trait to run away from now extinct predators such as the American Cheetah (Miracinonyx)."
   ];
 
+  // Smooth scroll helper for TOC links
+  const scrollToId = (id) => (e) => {
+    if (e && e.preventDefault) e.preventDefault();
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    try { window.history.replaceState(null, '', `#${id}`); } catch (err) {}
+  };
+
   return (
     <div className="wiki-page">
       <div className="wiki-inner">
@@ -109,15 +117,15 @@ const Pronghorn = () => {
           {/* --- RIGHT SIDEBAR (General Information) --- */}
           <aside className="wiki-sidebar">
             <div className="wiki-sidebar-header">Pronghorn</div>
-            <div className="wiki-sidebar-image">
-              <img src={PronghornMain} alt="Pronghorn" />
+            <div className="wiki-sidebar-image wiki-sidebar-image--contain">
+              <img src={PronghornMain} alt="Pronghorn" className="wiki-img-contain" />
             </div>
             
             <div className="wiki-sidebar-header">General Information</div>
             
             <div className="wiki-sidebar-section">
               <span className="wiki-sidebar-label">Class</span>
-              <span><img src={class3Icon} alt="Class 3" className="wiki-class-icon-lg"/>3</span>
+              <span><img src={class3Icon} alt="Class 3" className="inline-block wiki-class-icon-sm align-middle mr-1.5" />3</span>
             </div>
 
             <div className="wiki-sidebar-section">
@@ -254,7 +262,7 @@ const Pronghorn = () => {
              <h2 id="shot-scheme" className="wiki-h2">Shot scheme</h2>
             <div className="wiki-shot-container">
                 <div className="wiki-shot-container">
-                   <img src={ShotSchemeImage} alt="Shot Scheme" className="wiki-shot-scheme-img" />
+                   <img src={ShotSchemeImage} alt="Shot Scheme" className="wiki-shot-scheme-img-sm" />
                 </div>
                 <div className="wiki-shot-wrap">
                    <div className="wiki-shot-title">Color code</div>
@@ -273,7 +281,7 @@ const Pronghorn = () => {
 
             {/* FUR VARIANTS (Gallery) */}
             <h2 id="fur-variants" className="wiki-h2">Fur Variants</h2>
-            <h3 id="male-variants" style={{color: '#9fd3ff', marginTop: '10px'}}>Male</h3>
+            <h3 id="male-variants" className="wiki-h3 text-[1.1rem] mt-2 border-b-0">Male</h3>
             <div className="wiki-gallery-grid">
               {maleGallery.map((item, i) => (
                 <div key={i} className="wiki-gallery-item">
@@ -285,7 +293,7 @@ const Pronghorn = () => {
               ))}
             </div>
 
-            <h3 id="female-variants" style={{color: '#9fd3ff', marginTop: '14px'}}>Female</h3>
+            <h3 id="female-variants" className="wiki-h3 text-[1.1rem] mt-2 border-b-0">Female</h3>
             <div className="wiki-gallery-grid">
               {femaleGallery.map((item, i) => (
                 <div key={i} className="wiki-gallery-item">

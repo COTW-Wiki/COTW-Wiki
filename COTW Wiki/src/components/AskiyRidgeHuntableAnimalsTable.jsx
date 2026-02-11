@@ -1,25 +1,25 @@
 import React from 'react';
-import ReserveAnimalsTable from '../../components/ReserveAnimalsTable';
+import ReserveAnimalsTable from '../components/ReserveAnimalsTable';
 
-import ringNeckedPheasantIcon from '../../assets/Ring-NeckedPheasantIcon.webp';
-import canadaGooseIcon from '../../assets/CanadaGooseIcon.webp';
-import snowGooseIcon from '../../assets/SnowGooseIcon.webp';
-import duskyGrouseIcon from '../../assets/DuskyGrouseIcon.webp';
-import mallardIcon from '../../assets/MallardIcon.webp';
-import woodDuckIcon from '../../assets/WoodDuckIcon.webp';
-import northernPintailIcon from '../../assets/NorthernPintailIcon.webp';
-import northAmericanBeaverIcon from '../../assets/NorthAmericanBeaverIcon.webp';
-import pronghornIcon from '../../assets/PronghornIcon.webp';
-import mountainGoatIcon from '../../assets/MountainGoatIcon.webp';
-import whitetailDeerIcon from '../../assets/WhitetailDeerIcon.webp';
-import rockyMountainBighornSheepIcon from '../../assets/RockyMountainBighornSheepIcon.webp';
-import muleDeerIcon from '../../assets/MuleDeerIcon.webp';
-import grayWolfIcon from '../../assets/GrayWolfIcon.webp';
-import woodlandCaribouIcon from '../../assets/WoodlandCaribouIcon.webp';
-import blackBearIcon from '../../assets/BlackBearIcon.webp';
-import manitobanElkIcon from '../../assets/ManitobanElkIcon.webp';
-import mooseIcon from '../../assets/MooseIcon.webp';
-import woodBisonIcon from '../../assets/WoodBisonIcon.webp';
+import ringNeckedPheasantIcon from '../assets/Ring-NeckedPheasantIcon.webp';
+import canadaGooseIcon from '../assets/CanadaGooseIcon.webp';
+import snowGooseIcon from '../assets/SnowGooseIcon.webp';
+import duskyGrouseIcon from '../assets/DuskyGrouseIcon.webp';
+import mallardIcon from '../assets/MallardIcon.webp';
+import woodDuckIcon from '../assets/WoodDuckIcon.webp';
+import northernPintailIcon from '../assets/NorthernPintailIcon.webp';
+import northAmericanBeaverIcon from '../assets/NorthAmericanBeaverIcon.webp';
+import pronghornIcon from '../assets/PronghornIcon.webp';
+import mountainGoatIcon from '../assets/MountainGoatIcon.webp';
+import whitetailDeerIcon from '../assets/WhitetailDeerIcon.webp';
+import rockyMountainBighornSheepIcon from '../assets/RockyMountainBighornSheepIcon.webp';
+import muleDeerIcon from '../assets/MuleDeerIcon.webp';
+import grayWolfIcon from '../assets/GrayWolfIcon.webp';
+import woodlandCaribouIcon from '../assets/WoodlandCaribouIcon.webp';
+import blackBearIcon from '../assets/BlackBearIcon.webp';
+import manitobanElkIcon from '../assets/ManitobanElkIcon.webp';
+import mooseIcon from '../assets/MooseIcon.webp';
+import woodBisonIcon from '../assets/WoodBisonIcon.webp';
 
 const AskiyRidgeHuntableAnimalsTable = () => {
   const data = {
@@ -46,7 +46,12 @@ const AskiyRidgeHuntableAnimalsTable = () => {
     }
   };
 
-  return <ReserveAnimalsTable reserveData={data} />;
+  return (
+    <>
+      <div className="wiki-sidebar-header">{data.name}</div>
+      <ReserveAnimalsTable reserveData={data} showHeader={false} />
+    </>
+  );
 };
 
 export default AskiyRidgeHuntableAnimalsTable;

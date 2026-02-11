@@ -71,6 +71,14 @@ const CollaredPeccary = () => {
   const triviaData = [
   ];
 
+  // Smooth scroll helper for TOC links
+  const scrollToId = (id) => (e) => {
+    if (e && e.preventDefault) e.preventDefault();
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    try { window.history.replaceState(null, '', `#${id}`); } catch (err) {}
+  };
+
   return (
     <div className="wiki-page">
       <div className="wiki-inner">
@@ -86,14 +94,14 @@ const CollaredPeccary = () => {
           <aside className="wiki-sidebar">
             <div className="wiki-sidebar-header">Collared Peccary</div>
             <div className="wiki-sidebar-image">
-              <img src={CollaredPeccaryMain} alt="Collared Peccary" />
+              <img src={CollaredPeccaryMain} alt="Collared Peccary" className="wiki-img-contain" />
             </div>
             
             <div className="wiki-sidebar-header">General Information</div>
             
             <div className="wiki-sidebar-section">
               <span className="wiki-sidebar-label">Class</span>
-              <span><img src={class3Icon} alt="Class 3" className="wiki-class-icon-lg"/>3</span>
+              <span><img src={class3Icon} alt="Class 3" className="inline-block wiki-class-icon-sm align-middle mr-1.5" />3</span>
             </div>
 
             <div className="wiki-sidebar-section">

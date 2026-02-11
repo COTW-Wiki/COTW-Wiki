@@ -1,0 +1,175 @@
+/* AnimalsTableMini standalone stylesheet
+	 Replaces Tailwind/inline styles for the compact animals table.
+	 Designed to be small, compact, and closely match the COTW wiki styling.
+*/
+
+:root{
+	--atm-bg: #030c12; /* deep blue */
+	--atm-border: #d6b44a; /* gold */
+	--atm-text: #cfe8ff; /* pale blue text */
+	--atm-muted: #9cc5e0; /* muted */
+	--atm-accent: #2a6a94; /* slightly lighter shade */
+}
+
+/* Root container */
+.animals-table-mini {
+	box-sizing: border-box !important;
+	width: 100% !important;
+	font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
+	font-size: 12px !important; /* compact */
+	color: var(--atm-text) !important;
+	-webkit-font-smoothing: antialiased !important;
+}
+
+.animals-table-mini__card {
+	background: linear-gradient(180deg, rgba(19,64,86,0.98) 0%, var(--atm-bg) 100%) !important;
+	border: 2px solid var(--atm-border) !important;
+	padding: 8px !important;
+	border-radius: 4px !important;
+	overflow: hidden !important;
+}
+
+.animals-table-mini__header {
+	display:flex !important;
+	align-items:center !important;
+	justify-content:space-between !important;
+	gap:8px !important;
+	padding:4px 6px !important;
+	margin-bottom:6px !important;
+	font-weight:700 !important;
+	color: var(--atm-text) !important;
+}
+
+.animals-table-mini__title {
+	display:flex !important;
+	align-items:center !important;
+	gap:8px !important;
+	font-size:13px !important;
+}
+
+.animals-table-mini__collapse {
+	background: transparent !important;
+	border:1px solid rgba(255,255,255,0.08) !important;
+	color: var(--atm-text) !important;
+	padding:4px 6px !important;
+	border-radius:3px !important;
+	font-size:11px !important;
+	cursor:pointer !important;
+}
+
+.animals-table-mini__body {
+	/* stronger divider between title and content */
+	border-top:2px solid rgba(214,180,74,0.18) !important; /* gold-ish thicker line */
+	padding-top:8px !important;
+	display:block !important;
+}
+
+.animals-table-mini__class {
+	display:flex !important;
+	align-items:flex-start !important;
+	gap:12px !important;
+	padding:8px 0 !important;
+	border-bottom:1.5px solid rgba(214,180,74,0.10) !important; /* slightly thicker subtle gold */
+}
+
+.animals-table-mini__class:last-child {
+	border-bottom: none !important;
+}
+
+.animals-table-mini__classLabel {
+	width:110px !important; /* wider to allow "Class 1" on one line */
+	flex:0 0 110px !important;
+	display:flex !important;
+	align-items:center !important;
+	gap:8px !important;
+	color: var(--atm-text) !important;
+	font-weight:600 !important;
+	/* right-side divider to separate class column from items */
+	border-right:2px solid rgba(214,180,74,0.12) !important;
+	padding-right:10px !important;
+}
+
+.animals-table-mini__classLabel .class-icon {
+	width:26px !important;
+	height:26px !important;
+	display:inline-block !important;
+	transform: none !important; /* keep horizontal */
+	object-fit: contain !important;
+}
+
+/* class title styling to keep on one line */
+.animals-table-mini__classTitle {
+	white-space: nowrap !important;
+	font-size:14px !important;
+	font-weight:800 !important;
+	color: #ffc400 !important;
+	line-height:1 !important;
+}
+
+.animals-table-mini__items {
+	flex:1 1 auto !important;
+	display:flex !important;
+	flex-wrap:wrap !important;
+	gap:6px 10px !important;
+	align-items:center !important;
+}
+
+.animals-table-mini__item {
+	display:inline-flex !important;
+	align-items:center !important;
+	gap:6px !important;
+	color: var(--atm-text) !important;
+	background: transparent !important;
+	padding:3px 6px !important;
+	border-radius:999px !important; /* pill look */
+	line-height:1 !important;
+	font-size:12px !important;
+	white-space:nowrap !important;
+}
+
+.animals-table-mini__item .animal-icon {
+	width:16px !important;
+	height:16px !important;
+	display:inline-block !important;
+	vertical-align:middle !important;
+}
+
+.animals-table-mini__item .animal-name {
+	display:inline-block !important;
+	margin-left:4px !important;
+	color: var(--atm-text) !important;
+}
+
+/* Make icons and text a bit dimmer when needed */
+.animals-table-mini--muted .animals-table-mini__item,
+.animals-table-mini__item--muted {
+	color: var(--atm-muted) !important;
+	opacity:0.95 !important;
+}
+
+/* Compact responsive tweaks */
+@media (max-width:900px){
+	.animals-table-mini { font-size:11px !important; }
+	.animals-table-mini__classLabel { width:90px !important; flex:0 0 90px !important; }
+	.animals-table-mini__item { padding:2px 4px !important; }
+	.animals-table-mini__item .animal-icon { width:14px !important; height:14px !important; }
+	.animals-table-mini__classLabel .class-icon { width:20px !important; height:20px !important; transform: none !important; }
+}
+
+/* Utility to force small layout even if Tailwind injected larger sizes */
+.animals-table-mini * { box-sizing: border-box !important; }
+
+/* Accessibility helpers */
+.animals-table-mini__collapse:focus { outline:2px solid rgba(214,180,74,0.25) !important; }
+
+/* If you need to override specific Tailwind rules, increase specificity e.g. */
+.animals-table-mini .tw\:text-sm { font-size:12px !important; }
+
+/* End of AnimalsTableMini stylesheet */
+
+/* When `plumage-rarity` is the last section on the page, add a gap above
+	 the mini table so it doesn't sit immediately after the plumage table. */
+.animals-table-mini__card {
+	margin-top: 24px !important;
+}
+

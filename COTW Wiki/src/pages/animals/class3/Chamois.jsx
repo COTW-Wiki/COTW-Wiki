@@ -68,6 +68,14 @@ const Chamois = () => {
     "In French and British English, Chamois is pronounced (Sham-mwah). However in American English it is pronounced (Sham-me)."
   ];
 
+  // Smooth scroll helper for TOC links
+  const scrollToId = (id) => (e) => {
+    if (e && e.preventDefault) e.preventDefault();
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    try { window.history.replaceState(null, '', `#${id}`); } catch (err) {}
+  };
+
   return (
     <div className="wiki-page">
       <div className="wiki-inner">
@@ -90,7 +98,7 @@ const Chamois = () => {
             
             <div className="wiki-sidebar-section">
               <span className="wiki-sidebar-label">Class</span>
-              <span><img src={class3Icon} alt="Class 3" className="wiki-class-icon-lg"/>3</span>
+              <span><img src={class3Icon} alt="Class 3" className="inline-block wiki-class-icon-sm align-middle mr-1.5" />3</span>
             </div>
 
             <div className="wiki-sidebar-section">

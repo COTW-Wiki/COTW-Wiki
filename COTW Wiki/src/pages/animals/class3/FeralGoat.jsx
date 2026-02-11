@@ -115,14 +115,14 @@ const FeralGoat = () => {
           <aside className="wiki-sidebar">
             <div className="wiki-sidebar-header">Feral Goat</div>
             <div className="wiki-sidebar-image">
-              <img src={FeralGoatMain} alt="Feral Goat" />
+              <img src={FeralGoatMain} alt="Feral Goat" className="max-w-full max-h-[190px] object-contain" />
             </div>
             
             <div className="wiki-sidebar-header">General Information</div>
             
             <div className="wiki-sidebar-section">
               <span className="wiki-sidebar-label">Class</span>
-              <span><img src={class3Icon} alt="Class 3" className="wiki-class-icon-lg"/>3</span>
+              <span><img src={class3Icon} alt="Class 3" className="inline-block wiki-class-icon-sm align-middle mr-1.5" />3</span>
             </div>
 
             <div className="wiki-sidebar-section">
@@ -196,7 +196,7 @@ const FeralGoat = () => {
                 <li><a href="#shot-scheme" onClick={scrollToId('shot-scheme')} className="wiki-link">Shot scheme</a></li>
                 <li>
                   <a href="#fur-variants" onClick={scrollToId('fur-variants')} className="wiki-link">Fur variants</a>
-                  <ol style={{margin: '4px 0 0 18px', paddingLeft: 0, listStyleType: 'none'}}>
+                  <ol className="mt-1 ml-4 pl-0 list-none">
                     <li><a href="#fur-variants-male" onClick={scrollToId('fur-variants-male')} className="wiki-link">4.1 Male</a></li>
                     <li><a href="#fur-variants-female" onClick={scrollToId('fur-variants-female')} className="wiki-link">4.2 Female</a></li>
                   </ol>
@@ -257,7 +257,7 @@ const FeralGoat = () => {
              <h2 id="shot-scheme" className="wiki-h2">Shot scheme</h2>
             <div className="wiki-shot-container">
                 <div className="wiki-shot-container">
-                   <img src={ShotSchemeImage} alt="Shot Scheme" className="wiki-shot-scheme-img" />
+                   <img src={ShotSchemeImage} alt="Shot Scheme" className="wiki-shot-scheme-img-sm" />
                 </div>
                 <div className="wiki-shot-wrap">
                    <div className="wiki-shot-title">Color code</div>

@@ -120,16 +120,18 @@ const EurasianWigeon = () => {
           {/* --- RIGHT SIDEBAR (General Information) --- */}
           <aside className="wiki-sidebar">
             <div className="wiki-sidebar-header">Eurasian Wigeon</div>
-            <div className="wiki-sidebar-image">
-              <img src={EurasianWigeonImg} alt="Eurasian Wigeon" style={{width: '268.4px', height: '134.2px', objectFit: 'cover'}} />
-              <span style={{position:'absolute', bottom:'5px', right:'5px', fontSize:'0.8rem'}}>📷</span>
+            <div className="wiki-sidebar-image wiki-sidebar-image--contain">
+              <div className="w-full h-[280px]">
+                <img src={EurasianWigeonImg} alt="Eurasian Wigeon" className="w-full h-full object-contain rounded" />
+              </div>
+              <span className="absolute bottom-1 right-1 text-[0.8rem]"></span>
             </div>
             
             <div className="wiki-sidebar-header">General Information</div>
             
             <div className="wiki-sidebar-section">
               <span className="wiki-sidebar-label">Class</span>
-              <span><img src={class1Icon} alt="Class 1" style={{width: '12px', height: '12px', verticalAlign: 'middle', marginRight: '6px'}} />1</span>
+              <span><img src={class1Icon} alt="Class 1" className="inline-block wiki-class-icon-sm align-middle mr-1.5" />1</span>
             </div>
 
             <div className="wiki-sidebar-section">
@@ -164,7 +166,7 @@ const EurasianWigeon = () => {
 
             <div className="wiki-sidebar-section">
                <span className="wiki-sidebar-label">Plumage</span>
-               <span style={{fontSize: '0.85rem'}}>
+               <span className="text-[0.85rem]">
                  Brown, Dark, Eclipse, Grey, Hybrid, Leucistic
                </span>
             </div>
@@ -194,7 +196,7 @@ const EurasianWigeon = () => {
             </p>
 
             {/* Table of Contents (page-specific) */}
-            {(() => {
+              {(() => {
               const tocItems = [
                 { id: 'features', label: 'Features' },
                 { id: 'need-zones', label: 'Need Zone Times' },
@@ -209,37 +211,27 @@ const EurasianWigeon = () => {
               ];
 
               const LocalTOC = ({ items }) => {
-                const stylesTOC = {
-                  container: { backgroundColor: '#0b1e3b', border: '1px solid #3a5a75', borderRadius: '4px', color: '#fff', width: '250px', fontFamily: '"Segoe UI", Roboto, Helvetica, Arial, sans-serif', fontSize: '14px', marginTop: '20px', boxShadow: '0 4px 6px rgba(0,0,0,0.3)' },
-                  header: { padding: '8px 12px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid #3a5a75' },
-                  title: { fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '8px' },
-                  toggleBtn: { color: '#6fb2e6', fontSize: '0.85em' },
-                  list: { margin: 0, padding: '10px 15px 10px 35px', listStyleType: 'none' },
-                  listItem: { marginBottom: '6px', color: '#fff', cursor: 'pointer' },
-                  linkText: { color: '#6fb2e6' }
-                };
-
                 const scrollTo = (id) => {
                   const el = document.getElementById(id);
                   if (el) el.scrollIntoView({ behavior: 'smooth' });
                 };
 
                 return (
-                  <div style={stylesTOC.container}>
-                    <div style={stylesTOC.header}>
-                      <div style={stylesTOC.title}>Contents</div>
+                  <div className="bg-[#0b1e3b] border border-[#3a5a75] rounded text-white w-[250px] text-sm mt-5 shadow-md">
+                    <div className="px-3 py-2 flex justify-between items-center border-b border-[#3a5a75]">
+                      <div className="font-bold flex items-center gap-2">Contents</div>
                     </div>
-                    <ol style={stylesTOC.list}>
+                    <ol className="m-0 p-2 pl-8 list-none">
                       {items.map((it, i) => (
-                        <li key={it.id} style={stylesTOC.listItem} onClick={() => scrollTo(it.id)}>
-                          <span style={{color: '#fff', fontWeight: '700', marginRight: '8px'}}>{i + 1}.</span>
-                          <span style={stylesTOC.linkText}>{it.label}</span>
+                        <li key={it.id} className="mb-1 cursor-pointer" onClick={() => scrollTo(it.id)}>
+                          <span className="text-white font-bold mr-2">{i + 1}.</span>
+                          <span className="text-[#6fb2e6]">{it.label}</span>
                           {it.children && (
-                            <ol style={{ listStyleType: 'none', marginTop: '6px', marginLeft: '16px', paddingLeft: '6px' }}>
+                            <ol className="list-none mt-1.5 ml-4 pl-1.5">
                               {it.children.map((c, j) => (
-                                <li key={c.id} style={stylesTOC.listItem} onClick={() => scrollTo(c.id)}>
-                                  <span style={{color: '#fff', fontWeight: '700', marginRight: '8px'}}>{i + 1}.{j + 1}</span>
-                                  <span style={stylesTOC.linkText}>{c.label}</span>
+                                <li key={c.id} className="mb-1 cursor-pointer" onClick={() => scrollTo(c.id)}>
+                                  <span className="text-white font-bold mr-2">{i + 1}.{j + 1}</span>
+                                  <span className="text-[#6fb2e6]">{c.label}</span>
                                 </li>
                               ))}
                             </ol>
@@ -275,7 +267,7 @@ const EurasianWigeon = () => {
 
             {/* NEED ZONE TIMES */}
             <h2 id="need-zones" className="wiki-h2">Need Zone Times</h2>
-            <div style={{display: 'inline-block'}}>
+            <div className="inline-block">
                 <table className="wiki-table wiki-table-fixed">
                     <thead>
                         <tr><th colSpan="2" className="wiki-th wiki-th-center">Revontuli Coast</th></tr>
@@ -308,9 +300,9 @@ const EurasianWigeon = () => {
             
             <h3 id="plumage-male" className="wiki-h3">Male</h3>
             <div className="wiki-gallery-grid">
-              {malePlumageImages.map((img, i) => (
+                {malePlumageImages.map((img, i) => (
                 <div key={i} className="wiki-gallery-item">
-                  <img src={img.src} alt={img.name} style={{width: '146px', height: '165px', objectFit: 'cover', border: '4px solid #1f3a52', marginBottom: '8px'}} />
+                  <img src={img.src} alt={img.name} className="w-[146px] h-[165px] object-cover border-4 border-[#1f3a52] mb-2" />
                   <span className="wiki-gallery-label">{img.name}</span>
                 </div>
               ))}
@@ -320,7 +312,7 @@ const EurasianWigeon = () => {
             <div className="wiki-gallery-grid">
               {femalePlumageImages.map((img, i) => (
                 <div key={i} className="wiki-gallery-item">
-                  <img src={img.src} alt={img.name} style={{width: '146px', height: '165px', objectFit: 'cover', border: '4px solid #1f3a52', marginBottom: '8px'}} />
+                  <img src={img.src} alt={img.name} className="w-[146px] h-[165px] object-cover border-4 border-[#1f3a52] mb-2" />
                   <span className="wiki-gallery-label">{img.name}</span>
                 </div>
               ))}
@@ -356,7 +348,7 @@ const EurasianWigeon = () => {
                     </tr>
                     {/* Female Row */}
                     <tr>
-                        <td style={{...styles.td, color: '#e91e63', fontStyle: 'italic'}}>Female</td>
+                        <td className="wiki-td text-[#e91e63] italic">Female</td>
                         <td className="wiki-td">
                             Brown (49.82%)<br/>
                             Grey (49.82%)
@@ -373,7 +365,7 @@ const EurasianWigeon = () => {
 
             {/* TRIVIA */}
             <h2 id="trivia" className="wiki-h2">Trivia</h2>
-            <ul style={{paddingLeft: '20px', marginBottom: '30px'}}>
+            <ul className="pl-5 mb-8">
                 <li className="wiki-li">The word <em>wigeon</em>, like most words in etymology, is of unknown origin. However, it may come from a French word 'vigeon' meaning <em>small crane</em>.[1]</li>
                 <li className="wiki-li">The Eurasian Widgeon's scientific name <em>penelope</em> is a reference to a Greek Myth in which the Ithacan Queen Penelope was saved by a duck.[2]</li>
                 <li>The Eurasian Widgeon is one of many species retroactively added to certain maps with the "Granite Update". Other species in this list include, the <span className="wiki-link">Ring-Necked Pheasant</span>, <span className="wiki-link">Merriam Turkey</span>, <span className="wiki-link">Gray Wolf</span>, <span className="wiki-link">Western Capercaillie</span>, <span className="wiki-link">Canada Goose</span>, <span className="wiki-link">Collared Peccary</span>, <span className="wiki-link">Mallard</span>, <span className="wiki-link">Pronghorn</span>, and the <span className="wiki-link">Green Winged Teal</span>. The Eurasian Widgeon was added to <span className="wiki-link">Vurhonga Savanna</span> specifically.</li>
@@ -381,7 +373,7 @@ const EurasianWigeon = () => {
 
             {/* REFERENCES */}
             <h2 id="references" className="wiki-h2">References</h2>
-            <ol style={{paddingLeft: '25px', color: '#6fb2e6'}}>
+            <ol className="pl-6 text-[#6fb2e6]">
                 <li><span className="wiki-link">https://www.etymonline.com/word/widgeon</span></li>
                 <li><span className="wiki-link">https://www.allaboutbirds.org/guide/Eurasian_Wigeon/overview</span></li>
             </ol>

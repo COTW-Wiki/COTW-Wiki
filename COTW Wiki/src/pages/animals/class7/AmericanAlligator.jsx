@@ -129,14 +129,14 @@ const AmericanAlligator = () => {
           <aside className="wiki-sidebar">
             <div className="wiki-sidebar-header">American Alligator</div>
             <div className="wiki-sidebar-image">
-              <img src={AmericanAlligatorMain} alt="American Alligator" />
+              <img src={AmericanAlligatorMain} alt="American Alligator" className="max-w-full max-h-[200px] object-contain" />
             </div>
             
             <div className="wiki-sidebar-header">General Information</div>
             
             <div className="wiki-sidebar-section">
               <span className="wiki-sidebar-label">Class</span>
-              <span><img src={class7Icon} alt="Class 7" className="wiki-class-icon-lg"/>7</span>
+              <span><img src={class7Icon} alt="Class 7" className="inline-block wiki-class-icon-sm align-middle mr-1.5"/>7</span>
             </div>
 
             <div className="wiki-sidebar-section">

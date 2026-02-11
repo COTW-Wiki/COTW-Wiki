@@ -144,7 +144,7 @@ const NorthernRedMuntjac = () => {
             
             <div className="wiki-sidebar-section">
               <span className="wiki-sidebar-label">Class</span>
-              <span><img src={class2Icon} alt="Class 2" className="wiki-class-icon-lg"/>2</span>
+              <span><img src={class2Icon} alt="Class 2" className="inline-block wiki-class-icon-sm align-middle mr-1.5" />2</span>
             </div>
 
             <div className="wiki-sidebar-section">
@@ -283,7 +283,7 @@ const NorthernRedMuntjac = () => {
              <h2 id="shot-scheme" className="wiki-h2">Shot scheme</h2>
             <div className="wiki-shot-container">
                 <div className="wiki-shot-container">
-                   <img src={ShotSchemeImage} alt="Shot Scheme" className="wiki-shot-scheme-img" />
+                   <img src={ShotSchemeImage} alt="Shot Scheme" className="wiki-shot-scheme-img-sm" />
                 </div>
                 <div className="wiki-shot-wrap">
                    <div className="wiki-shot-title">Color code</div>
@@ -297,7 +297,7 @@ const NorthernRedMuntjac = () => {
             {/* FUR VARIANTS (Gallery) */}
             <h2 id="fur-variants" className="wiki-h2">Fur variants</h2>
 
-            <h3 id="fur-male" style={{...styles.h2, fontSize: '1.15rem', marginTop: '10px'}}>Male</h3>
+            <h3 id="fur-male" className="wiki-h3 mt-2.5 text-[1.15rem] border-b-0">Male</h3>
             <div className="wiki-gallery-grid">
               {maleGallery.map((item, i) => (
                 <div key={i} className="wiki-gallery-item">
@@ -309,7 +309,7 @@ const NorthernRedMuntjac = () => {
               ))}
             </div>
 
-            <h3 id="fur-female" style={{...styles.h2, fontSize: '1.15rem', marginTop: '18px'}}>Female</h3>
+            <h3 id="fur-female" className="wiki-h3 mt-4.5 text-[1.15rem] border-b-0">Female</h3>
             <div className="wiki-gallery-grid">
               {femaleGallery.map((item, i) => (
                 <div key={i} className="wiki-gallery-item">

@@ -80,15 +80,15 @@ const MagpieGoose = () => {
           <aside className="wiki-sidebar">
             <div className="wiki-sidebar-header">Magpie Goose</div>
             <div className="wiki-sidebar-image">
-              <img src={MagpieGooseImg} alt="Magpie Goose" style={{width: '268.4px', height: '134.2px', objectFit: 'cover'}} />
-              <span style={{position:'absolute', bottom:'5px', right:'5px', fontSize:'0.8rem'}}>📷</span>
+              <img src={MagpieGooseImg} alt="Magpie Goose" className="w-[268.4px] h-[134.2px] object-cover" />
+              
             </div>
             
             <div className="wiki-sidebar-header">General Information</div>
             
             <div className="wiki-sidebar-section">
               <span className="wiki-sidebar-label">Class</span>
-              <span><img src={class1Icon} alt="Class 1" className="wiki-class-icon-sm"/>1</span>
+              <span><img src={class1Icon} alt="Class 1" className="inline-block wiki-class-icon-sm align-middle mr-1.5"/>1</span>
             </div>
 
             <div className="wiki-sidebar-section">
@@ -123,7 +123,7 @@ const MagpieGoose = () => {
 
             <div className="wiki-sidebar-section">
                <span className="wiki-sidebar-label">Plumage</span>
-               <span style={{fontSize: '0.85rem'}}>
+               <span className="text-[0.85rem]">
                  Orange, Yellow, Maroon, Piebald, Leucistic, Melanistic
                </span>
             </div>
@@ -227,7 +227,7 @@ const MagpieGoose = () => {
 
             {/* NEED ZONE TIMES */}
             <h2 id="need-zones" className="wiki-h2">Need Zone Times</h2>
-            <div style={{display: 'inline-block'}}>
+            <div className="inline-block">
                 <table className="wiki-table wiki-table-fixed">
                     <thead>
                         <tr>
@@ -307,7 +307,7 @@ const MagpieGoose = () => {
 
             {/* TRIVIA */}
             <h2 id="trivia" className="wiki-h2">Trivia</h2>
-            <ul style={{paddingLeft: '20px', marginBottom: '30px'}}>
+            <ul className="pl-5 mb-8">
                 <li className="wiki-li">The word <em>Magpie</em> comes from two words. The first part '<em>Mag</em>, an appreciation for <em>Margaret</em>, is used to describe someone or something who is chatty. The second part <em>Pie</em>, is also an old word used to describe Chattering.[1]</li>
                 <li className="wiki-li">The Magpie Goose is the sole member of the <em>Anseranatidae</em> family. As such it is not considered a <em>True Goose</em>, as all <em>True Geese</em> are classified under the <em>Anatidae</em> family.</li>
                 <li className="wiki-li">This extremely weird bird has many unique traits that distinguish it from other waterfowl. It has the longest legs proportional to its body of any waterfowl. The Magpie Gooses toes are also only partially webbed, instead of being fully webbed; which, along with it's strong back toe, allows it to be the only goose species that can perch and sleep on trees. This is why its scientific name is <em>semipalmeta</em>.[2][3][4]</li>
@@ -317,7 +317,7 @@ const MagpieGoose = () => {
 
             {/* REFERENCES */}
             <h2 id="references" className="wiki-h2">References</h2>
-            <ol style={{paddingLeft: '25px', color: '#6fb2e6'}}>
+            <ol className="pl-6 text-[#6fb2e6]">
                 <li><span className="wiki-link">https://www.etymonline.com/word/magpie</span></li>
                 <li><span className="wiki-link">https://www.britannica.com/animal/magpie-goose</span></li>
                 <li><span className="wiki-link">https://seaworld.org/animals/facts/birds/magpie-goose/</span></li>

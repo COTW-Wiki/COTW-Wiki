@@ -77,6 +77,24 @@ const TuftedDuck = () => {
     { name: "Leucistic Variation 2 - Back", src: TuftedDuck_LeucisticVariation2FemaleBack },
   ];
 
+  const toc = [
+    { id: 'features', title: 'Features' },
+    { id: 'need-zones', title: 'Need Zone Times' },
+    { id: 'tips', title: 'Tips' },
+    { id: 'plumage-variants', title: 'Plumage Variants', children: [
+      { id: 'plumage-male', title: 'Male' },
+      { id: 'plumage-female', title: 'Female' },
+    ] },
+    { id: 'plumage-rarity', title: 'Plumage Variant Rarity' },
+    { id: 'trivia', title: 'Trivia' },
+    { id: 'references', title: 'References' },
+  ];
+
+  function handleTOCClick(targetId) {
+    const el = document.getElementById(targetId);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
   return (
     <div className="wiki-page">
       <div className="wiki-inner">
@@ -94,14 +112,14 @@ const TuftedDuck = () => {
           <aside className="wiki-sidebar">
             <div className="wiki-sidebar-header">Tufted Duck</div>
             <div className="wiki-sidebar-image">
-              <img src={TuftedDuckMain} alt="Tufted Duck" style={{width: '100%', height: '100%', objectFit: 'cover', display: 'block', margin: 0}} />
+              <img src={TuftedDuckMain} alt="Tufted Duck" className="w-full h-full object-cover block m-0" />
             </div>
             
             <div className="wiki-sidebar-header">General Information</div>
             
             <div className="wiki-sidebar-section">
               <span className="wiki-sidebar-label">Class</span>
-              <span style={{display: 'inline-flex', alignItems: 'center', gap: '8px'}}><img src={class1Icon} alt="Class 1" style={{width: '20px', height: '20px'}} />1</span>
+              <span className="inline-flex items-center gap-2"><img src={class1Icon} alt="Class 1" className="inline-block wiki-class-icon-sm align-middle mr-1.5" />1</span>
             </div>
 
             <div className="wiki-sidebar-section">
@@ -115,15 +133,15 @@ const TuftedDuck = () => {
               <div className="wiki-trophy-grid">
                 <div className="wiki-trophy-item">
                    <span className="wiki-trophy-label wiki-trophy-silver">◆ Silver</span>
-                   <span>TBA</span>
+                   <span>704</span>
                 </div>
                 <div className="wiki-trophy-item">
                    <span className="wiki-trophy-label wiki-trophy-gold">☗ Gold</span>
-                   <span>TBA</span>
+                   <span>852</span>
                 </div>
                 <div className="wiki-trophy-item">
                    <span className="wiki-trophy-label wiki-trophy-diamond">☗ Diamond</span>
-                   <span>TBA</span>
+                   <span>963</span>
                 </div>
               </div>
             </div>
@@ -135,10 +153,8 @@ const TuftedDuck = () => {
             </div>
 
             <div className="wiki-sidebar-section">
-               <span className="wiki-sidebar-label">Plumage</span>
-               <span style={{fontSize: '0.85rem'}}>
-                 Albino, Black, Brown, Cream, Eclipse, Leucistic
-               </span>
+              <span className="wiki-sidebar-label">Plumage</span>
+              <span className="text-[0.85rem]">Albino, Black, Brown, Cream, Eclipse, Leucistic</span>
             </div>
 
             <div className="wiki-sidebar-header">Locations</div>
@@ -165,18 +181,16 @@ const TuftedDuck = () => {
 
             {/* Table of Contents Placeholder */}
             <div className="wiki-toc">
-                <div style={{fontWeight: 'bold', borderBottom: '1px solid #3a5a75', marginBottom: '5px'}}>
-                  🔢 Contents <span className="wiki-toc-toggle">[hide]</span>
-                </div>
-                <ol style={{margin: '0', paddingLeft: '20px', color: '#6fb2e6', listStyleType: 'none'}}>
+                <div className="font-bold border-b border-[#3a5a75] mb-1">🔢 Contents <span className="wiki-toc-toggle">[hide]</span></div>
+                <ol className="m-0 pl-5 text-[#6fb2e6] list-none">
                   {toc.map((item, i) => (
-                    <li key={item.id} style={{marginBottom: item.children ? '6px' : '4px'}}>
-                      <a onClick={() => handleTOCClick(item.id)} style={{...styles.link, cursor: 'pointer'}}>{`${i+1}. ${item.title}`}</a>
+                    <li key={item.id} className={item.children ? 'mb-1.5' : 'mb-1'}>
+                      <a onClick={() => handleTOCClick(item.id)} className="cursor-pointer text-[#6fb2e6]">{`${i+1}. ${item.title}`}</a>
                       {item.children && (
-                        <ol style={{marginTop: '6px', paddingLeft: '18px', listStyleType: 'none'}}>
+                        <ol className="mt-1 pl-4 list-none">
                           {item.children.map((child, j) => (
                             <li key={child.id}>
-                              <a onClick={() => handleTOCClick(child.id)} style={{...styles.link, cursor: 'pointer'}}>{`${i+1}.${j+1} ${child.title}`}</a>
+                              <a onClick={() => handleTOCClick(child.id)} className="cursor-pointer text-[#6fb2e6]">{`${i+1}.${j+1} ${child.title}`}</a>
                             </li>
                           ))}
                         </ol>
@@ -207,8 +221,8 @@ const TuftedDuck = () => {
 
             {/* NEED ZONE TIMES */}
             <h2 id="need-zones" className="wiki-h2">Need Zone Times</h2>
-            <div style={{display: 'inline-block'}}>
-                <table className="wiki-table wiki-table-fixed">
+            <div>
+              <table className="wiki-table wiki-table-fixed">
                     <thead>
                         <tr><th colSpan="2" className="wiki-th wiki-th-center">Revontuli Coast</th></tr>
                         <tr>
@@ -220,7 +234,7 @@ const TuftedDuck = () => {
                         {needZones.map((zone, i) => (
                         <tr key={i}>
                           <td className="wiki-td">{zone.time}</td>
-                          <td className="wiki-td"><img src={zone.icon} alt={zone.type} style={{width: '20px', height: '20px', verticalAlign: 'middle', marginRight: '8px'}} />{zone.type}</td>
+                          <td className="wiki-td"><img src={zone.icon} alt={zone.type} className="inline-block wiki-zone-icon-lg align-middle mr-1.5" />{zone.type}</td>
                         </tr>
                         ))}
                     </tbody>
@@ -242,8 +256,8 @@ const TuftedDuck = () => {
             <div className="wiki-gallery-grid">
               {plumageMale.map((img, i) => (
                 <div key={i} className="wiki-gallery-item">
-                  <div style={{...styles.galleryImgPlaceholder, height: '165px', width: '146px', padding: 0}}>
-                    <img src={img.src} alt={img.name} style={{width: '146px', height: '165px', objectFit: 'cover', display: 'block'}} />
+                  <div className="w-[146px] h-[165px] p-0">
+                    <img src={img.src} alt={img.name} className="w-[146px] h-[165px] object-cover block" />
                   </div>
                   <span className="wiki-gallery-label">{img.name}</span>
                 </div>
@@ -254,8 +268,8 @@ const TuftedDuck = () => {
             <div className="wiki-gallery-grid">
               {plumageFemale.map((img, i) => (
                 <div key={i} className="wiki-gallery-item">
-                  <div style={{...styles.galleryImgPlaceholder, height: '165px', width: '146px', padding: 0}}>
-                    <img src={img.src} alt={img.name} style={{width: '146px', height: '165px', objectFit: 'cover', display: 'block'}} />
+                  <div className="w-[146px] h-[165px] p-0">
+                    <img src={img.src} alt={img.name} className="w-[146px] h-[165px] object-cover block" />
                   </div>
                   <span className="wiki-gallery-label">{img.name}</span>
                 </div>
@@ -293,7 +307,7 @@ const TuftedDuck = () => {
                     </tr>
                     {/* Female Row */}
                     <tr>
-                        <td style={{...styles.td, color: '#e91e63', fontStyle: 'italic'}}>Female</td>
+                      <td className="wiki-td italic text-[#e91e63]">Female</td>
                         <td className="wiki-td">
                             Brown (99.78%)
                         </td>
@@ -311,7 +325,7 @@ const TuftedDuck = () => {
 
             {/* TRIVIA */}
             <h2 id="trivia" className="wiki-h2">Trivia</h2>
-            <ul style={{paddingLeft: '20px', marginBottom: '30px'}}>
+            <ul className="pl-5 mb-8">
                 <li className="wiki-li">The Tufted Duck is called <em>Tukkasotka</em> in Finnish.</li>
                 <li className="wiki-li">The Genus name for this bird <em>Aythya</em> is derived from the Greek word "aithuia". That word is either referencing a specific "unidentified seabird" in Ancient Greek myth, or just a generic "unidentified seabird".</li>
                 <li className="wiki-li">One more thing about the word "aithuia": in Ancient Greek Tradition, it was common for people to assign Surnames to Gods as to recognize their many accomplishments. One of these surnames for the goddess Athena was "aithuia". If translated loosely, it would mean something like "of the Diver-bird".</li>
@@ -320,7 +334,7 @@ const TuftedDuck = () => {
 
             {/* REFERENCES */}
             <h2 id="references" className="wiki-h2">References</h2>
-            <ol style={{paddingLeft: '25px', color: '#6fb2e6'}}>
+            <ol className="pl-6 text-[#6fb2e6]">
                 <li><span className="wiki-link">Tufted Duck Need Zones, Revontuli Coast</span></li>
                 <li><span className="wiki-link">theHunter: Call of the Wild Wiki</span></li>
             </ol>

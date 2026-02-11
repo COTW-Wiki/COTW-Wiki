@@ -60,9 +60,6 @@ const MountainReindeer = () => {
     { label: "Species", value: "Rangifer tarandus", italic: true, isLink: true },
     { label: "Difficulty", value: "Average" },
   ];
-
-c
-
   // Trivia Data (Updated from Screenshot)
   const triviaData = [
     "The word origin for the word 'Reindeer' is greatly misunderstood. It has nothing to do with \"rain\" or the \"reins\" of a sleigh. But instead it descends from the Old Norse word \"hreindyri\" consisting of two parts \"hreinn\" and \"dyri\" (animal). \"Hreinn\" itself was already the usual name for the animal, but earlier Proto-Germanic word \"khrinda\" means \"to run\". So \"reindeer\" is \"running beast\". [1] [2]",
@@ -77,6 +74,25 @@ c
     "https://www.etymonline.com/word/reindeer",
     "https://www.viovet.co.uk/blog/p65-When-did-Reindeer-become-associated-with-Christmas",
     "http://www.todayifoundout.com/index.php/2016/12/real-reindeer-became-associated-christmas/"
+  ];
+
+  // Gallery data for fur variants
+  const maleGallery = [
+    { name: 'Albino', src: MountainReindeer_AlbinoMale },
+    { name: 'Dark Brown', src: MountainReindeer_DarkBrownMale },
+    { name: 'Leucistic', src: MountainReindeer_LeucisticMale },
+    { name: 'Light Brown', src: MountainReindeer_LightBrownMale },
+    { name: 'Melanistic', src: MountainReindeer_MelanisticMale },
+    { name: 'Piebald', src: MountainReindeer_PiebaldMale },
+  ];
+
+  const femaleGallery = [
+    { name: 'Albino', src: MountainReindeer_AlbinoFemale },
+    { name: 'Brown', src: MountainReindeer_BrownFemale },
+    { name: 'Leucistic', src: MountainReindeer_LeucisticFemale },
+    { name: 'Melanistic', src: MountainReindeer_MelanisticFemale },
+    { name: 'Piebald', src: MountainReindeer_PiebaldFemale },
+    { name: 'Tan', src: MountainReindeer_TanFemale },
   ];
 
   // Smooth-scroll helper for TOC links
@@ -111,7 +127,7 @@ c
             
             <div className="wiki-sidebar-section">
               <span className="wiki-sidebar-label">Class</span>
-              <span><img src={class6Icon} alt="Class 6" className="wiki-class-icon-lg"/>6</span>
+              <span><img src={class6Icon} alt="Class 6" className="inline-block wiki-class-icon-sm align-middle mr-1.5"/>6</span>
             </div>
 
             <div className="wiki-sidebar-section">
@@ -244,7 +260,7 @@ c
             <h2 className="wiki-h2" id="shot-scheme">Shot scheme</h2>
             <div className="wiki-shot-container">
                <div className="wiki-shot-container">
-                 <img src={ShotSchemeImg} alt="Shot Scheme" className="wiki-shot-scheme-img" />
+                 <img src={ShotSchemeImg} alt="Shot Scheme" className="wiki-shot-scheme-img-sm" />
                </div>
                <div className="wiki-shot-wrap">
                  <div className="wiki-shot-title">Color code</div>

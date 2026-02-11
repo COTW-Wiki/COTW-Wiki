@@ -99,15 +99,15 @@ const BlueWildebeest = () => {
           {/* --- RIGHT SIDEBAR (General Information) --- */}
           <aside className="wiki-sidebar">
             <div className="wiki-sidebar-header">Blue Wildebeest</div>
-            <div className="wiki-sidebar-image">
-              <img src={BlueWildebeestMain} alt="Blue Wildebeest" />
+            <div className="wiki-sidebar-image wiki-sidebar-image--contain">
+              <img src={BlueWildebeestMain} alt="Blue Wildebeest" className="wiki-img-contain" />
             </div>
             
             <div className="wiki-sidebar-header">General Information</div>
             
             <div className="wiki-sidebar-section">
               <span className="wiki-sidebar-label">Class</span>
-              <span><img src={class6Icon} alt="Class 6" className="wiki-class-icon-lg"/>6</span>
+              <span><img src={class6Icon} alt="Class 6" className="inline-block wiki-class-icon-sm align-middle mr-1.5"/>6</span>
             </div>
 
             <div className="wiki-sidebar-section">
@@ -235,7 +235,7 @@ const BlueWildebeest = () => {
             <h2 className="wiki-h2" id="shot-scheme">Shot scheme</h2>
             <div className="wiki-shot-container">
                <div className="wiki-shot-container">
-                 <img src={ShotSchemeImg} alt="Shot Scheme" className="wiki-shot-scheme-img" />
+                 <img src={ShotSchemeImg} alt="Shot Scheme" className="wiki-shot-scheme-img-sm" />
                </div>
                <div className="wiki-shot-wrap">
                  <div className="wiki-shot-title">Color code</div>

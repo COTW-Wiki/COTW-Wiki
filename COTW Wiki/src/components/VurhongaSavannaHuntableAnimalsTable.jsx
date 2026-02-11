@@ -1,16 +1,16 @@
 import React from 'react';
-import ReserveAnimalsTable from '../../components/ReserveAnimalsTable';
+import ReserveAnimalsTable from '../components/ReserveAnimalsTable';
 
-import eurasianWigeonIcon from '../../assets/EurasianWigeonIcon.webp';
-import scrubHareIcon from '../../assets/ScrubHareIcon.webp';
-import sideStripedJackalIcon from '../../assets/Side-stripedJackalIcon.webp';
-import springbokIcon from '../../assets/SpringbokIcon.webp';
-import warthogIcon from '../../assets/WarthogIcon.webp';
-import lesserKuduIcon from '../../assets/LesserKuduIcon.webp';
-import blueWildebeestIcon from '../../assets/BlueWildebeestIcon.webp';
-import gemsbokIcon from '../../assets/GemsbokIcon.webp';
-import capeBuffaloIcon from '../../assets/CapeBuffaloIcon.webp';
-import lionIcon from '../../assets/LionIcon.webp';
+import eurasianWigeonIcon from '../assets/EurasianWigeonIcon.webp';
+import scrubHareIcon from '../assets/ScrubHareIcon.webp';
+import sideStripedJackalIcon from '../assets/Side-stripedJackalIcon.webp';
+import springbokIcon from '../assets/SpringbokIcon.webp';
+import warthogIcon from '../assets/WarthogIcon.webp';
+import lesserKuduIcon from '../assets/LesserKuduIcon.webp';
+import blueWildebeestIcon from '../assets/BlueWildebeestIcon.webp';
+import gemsbokIcon from '../assets/GemsbokIcon.webp';
+import capeBuffaloIcon from '../assets/CapeBuffaloIcon.webp';
+import lionIcon from '../assets/LionIcon.webp';
 
 const VurhongaSavannaHuntableAnimalsTable = () => {
   const data = {
@@ -28,7 +28,12 @@ const VurhongaSavannaHuntableAnimalsTable = () => {
     }
   };
 
-  return <ReserveAnimalsTable reserveData={data} />;
+  return (
+    <>
+      <div className="wiki-sidebar-header">{data.name}</div>
+      <ReserveAnimalsTable reserveData={data} showHeader={false} />
+    </>
+  );
 };
 
 export default VurhongaSavannaHuntableAnimalsTable;

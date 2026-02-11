@@ -122,7 +122,7 @@ const HazelGrouse = () => {
             
             <div className="wiki-sidebar-section">
               <span className="wiki-sidebar-label">Class</span>
-              <span><img src={class1Icon} alt="Class 1" className="wiki-class-icon"/>1</span>
+              <span><img src={class1Icon} alt="Class 1" className="inline-block wiki-class-icon-sm align-middle mr-1.5"/>1</span>
             </div>
 
             <div className="wiki-sidebar-section">
@@ -231,7 +231,7 @@ const HazelGrouse = () => {
             <h2 id="plumage-variants" className="wiki-h2">Plumage variants</h2>
             
             {/* Male Section */}
-            <h3 id="plumage-male" style={{...styles.h2, fontSize:'1.2rem', borderBottom:'none', marginTop:'10px'}}>Male</h3>
+            <h3 id="plumage-male" className="wiki-h3 mt-2.5 text-[1.2rem] border-b-0">Male</h3>
             <div className="wiki-gallery-grid">
               {plumageGallery.male.map((item, i) => (
                 <div key={i} className="wiki-gallery-item">
@@ -244,7 +244,7 @@ const HazelGrouse = () => {
             </div>
 
             {/* Female Section */}
-            <h3 id="plumage-female" style={{...styles.h2, fontSize:'1.2rem', borderBottom:'none', marginTop:'10px'}}>Female</h3>
+            <h3 id="plumage-female" className="wiki-h3 mt-2.5 text-[1.2rem] border-b-0">Female</h3>
             <div className="wiki-gallery-grid">
               {plumageGallery.female.map((item, i) => (
                 <div key={i} className="wiki-gallery-item">

@@ -128,15 +128,15 @@ const BlackGrouse = () => {
           {/* --- RIGHT SIDEBAR (General Information) --- */}
           <aside className="wiki-sidebar">
             <div className="wiki-sidebar-header">Black Grouse</div>
-            <div className="wiki-sidebar-image">
-              <img src={BlackGrouseMain} alt="Black Grouse" />
+            <div className="h-[180px] bg-[#2a4b63] flex items-center justify-center p-2.5">
+              <img src={BlackGrouseMain} alt="Black Grouse" className="max-w-full max-h-full object-contain rounded-sm" />
             </div>
             
             <div className="wiki-sidebar-header">General Information</div>
             
             <div className="wiki-sidebar-section">
               <span className="wiki-sidebar-label">Class</span>
-              <span><img src={class1Icon} alt="Class 1" className="wiki-class-icon"/>1</span>
+              <span><img src={class1Icon} alt="Class 1" className="inline-block wiki-class-icon-sm align-middle mr-1.5"/>1</span>
             </div>
 
             <div className="wiki-sidebar-section">
@@ -206,13 +206,13 @@ const BlackGrouse = () => {
               </div>
               <ol className="wiki-toc">
                 {toc.map((item, i) => (
-                  <li key={item.id} style={{marginBottom: item.children ? '6px' : '3px'}}>
-                    <a href={`#${item.id}`} onClick={(e)=>{e.preventDefault(); handleScroll(item.id);}} style={{color:'#6fb2e6', textDecoration: 'none'}}>{item.title}</a>
+                  <li key={item.id} className={item.children ? 'mb-[6px]' : 'mb-[3px]'}>
+                    <a href={`#${item.id}`} onClick={(e)=>{e.preventDefault(); handleScroll(item.id);}} className="text-[#6fb2e6] no-underline">{item.title}</a>
                     {item.children && (
-                      <ol style={{marginTop: '6px', marginLeft: '12px', listStyle: 'none', padding: 0}}>
+                      <ol className="mt-[6px] ml-[12px] list-none p-0">
                         {item.children.map((c, j) => (
                           <li key={c.id} className="wiki-mb-4">
-                            <a href={`#${c.id}`} onClick={(e)=>{e.preventDefault(); handleScroll(c.id);}} style={{color:'#6fb2e6', textDecoration: 'none'}}>{`${i+1}.${j+1} ${c.title}`}</a>
+                            <a href={`#${c.id}`} onClick={(e)=>{e.preventDefault(); handleScroll(c.id);}} className="text-[#6fb2e6] no-underline">{`${i+1}.${j+1} ${c.title}`}</a>
                           </li>
                         ))}
                       </ol>
@@ -267,7 +267,7 @@ const BlackGrouse = () => {
             <h2 id="plumage-variants" className="wiki-h2">Plumage Variants</h2>
             
             {/* Male Section */}
-            <h3 id="plumage-male" style={{...styles.h2, fontSize:'1.2rem', borderBottom:'none', marginTop:'10px'}}>Male</h3>
+            <h3 id="plumage-male" className="wiki-h3">Male</h3>
             <div className="wiki-gallery-grid">
               {plumageGallery.male.map((item, i) => (
                 <div key={i} className="wiki-gallery-item">
@@ -280,7 +280,7 @@ const BlackGrouse = () => {
             </div>
 
             {/* Female Section */}
-            <h3 id="plumage-female" style={{...styles.h2, fontSize:'1.2rem', borderBottom:'none', marginTop:'10px'}}>Female</h3>
+            <h3 id="plumage-female" className="wiki-h3">Female</h3>
             <div className="wiki-gallery-grid">
               {plumageGallery.female.map((item, i) => (
                 <div key={i} className="wiki-gallery-item">
@@ -345,7 +345,7 @@ const BlackGrouse = () => {
 
             {/* REFERENCES */}
             <h2 id="references" className="wiki-h2">References</h2>
-            <ol style={{paddingLeft:'20px', marginBottom: '30px', color: '#6fb2e6'}}>
+            <ol className="pl-5 mb-[30px] text-[#6fb2e6]">
                 <li className="wiki-mb-4"><span className="wiki-link">etymonline.com</span></li>
                 <li className="wiki-mb-4"><span className="wiki-link">merriam-webster.com</span></li>
                 <li className="wiki-mb-4"><span className="wiki-link">bro.org</span></li>

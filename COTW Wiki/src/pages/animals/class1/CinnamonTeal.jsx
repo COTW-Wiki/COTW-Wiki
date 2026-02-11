@@ -108,16 +108,16 @@ const CinnamonTeal = () => {
           <aside className="wiki-sidebar">
             <div className="wiki-sidebar-header">Cinnamon Teal</div>
             <div className="wiki-sidebar-image">
-              <img src={CinnamonTealMain} alt="Cinnamon Teal" style={{width: '268.4px', height: '134.2px', objectFit: 'cover', display: 'block'}} />
-              <span style={{position:'absolute', bottom:'5px', right:'5px', fontSize:'0.8rem'}}></span>
+              <img src={CinnamonTealMain} alt="Cinnamon Teal" className="w-[268.4px] h-[134.2px] object-cover block" />
+              <span className="absolute bottom-[5px] right-[5px] text-[0.8rem]"></span>
             </div>
             
             <div className="wiki-sidebar-header">General Information</div>
             
             <div className="wiki-sidebar-section">
               <span className="wiki-sidebar-label">Class</span>
-              <div style={{display: 'flex', alignItems: 'center', gap: '8px'}}>
-                <img src={class1Icon} alt="Class 1" style={{width: '28px', height: '28px', display: 'block'}} />
+              <div className="flex items-center gap-2">
+                <img src={class1Icon} alt="Class 1" className="inline-block wiki-class-icon-sm align-middle mr-1.5" />
                 <span>1</span>
               </div>
             </div>
@@ -154,7 +154,7 @@ const CinnamonTeal = () => {
 
             <div className="wiki-sidebar-section">
                <span className="wiki-sidebar-label">Plumage</span>
-               <span style={{fontSize: '0.85rem'}}>
+               <span className="text-[0.85rem]">
                  Beige, Cinnamon, Melanistic, Piebald, Red
                </span>
             </div>
@@ -184,19 +184,19 @@ const CinnamonTeal = () => {
 
             {/* Table of Contents Placeholder */}
             <div className="wiki-toc">
-                <div style={{fontWeight: 'bold', borderBottom: '1px solid #3a5a75', marginBottom: '5px'}}>
+                <div className="font-bold border-b border-[#3a5a75] mb-[5px]">
                   🔢 Contents <span className="wiki-toc-toggle">[hide]</span>
                 </div>
-                <ol style={{margin: '0', paddingLeft: '12px', color: '#6fb2e6', listStyleType: 'none'}}>
+                <ol className="m-0 pl-3 text-[#6fb2e6] list-none">
                   {toc.map((item, i) => (
-                    <li key={item.id} style={{cursor: 'pointer', marginBottom: '6px'}} onClick={() => handleTOCClick(item.id)}>
-                      <span style={{marginRight: '8px', fontWeight: 'bold'}}>{i + 1}.</span>
+                    <li key={item.id} className="cursor-pointer mb-[6px]" onClick={() => handleTOCClick(item.id)}>
+                      <span className="mr-2 font-bold">{i + 1}.</span>
                       {item.label}
                       {item.children && item.children.length > 0 && (
-                        <ol style={{marginTop: '6px', marginLeft: '18px', listStyleType: 'none'}}>
+                        <ol className="mt-[6px] ml-[18px] list-none">
                           {item.children.map((child, j) => (
-                            <li key={child.id} style={{cursor: 'pointer', color: '#9fd6ff'}} onClick={(e) => { e.stopPropagation(); handleTOCClick(child.id); }}>
-                              <span style={{marginRight: '8px', fontWeight: 'bold'}}>{`${i + 1}.${j + 1}`}</span>
+                            <li key={child.id} className="cursor-pointer text-[#9fd6ff]" onClick={(e) => { e.stopPropagation(); handleTOCClick(child.id); }}>
+                              <span className="mr-2 font-bold">{`${i + 1}.${j + 1}`}</span>
                               {child.label}
                             </li>
                           ))}
@@ -240,7 +240,7 @@ const CinnamonTeal = () => {
               {plumageMale.map((img, i) => (
                   <div key={i} className="wiki-gallery-item">
                       <div className="wiki-gallery-placeholder">
-                        <img src={img.src} alt={img.name} style={{width: '146px', height: '165px', objectFit: 'cover', display: 'block'}} />
+                        <img src={img.src} alt={img.name} className="w-[146px] h-[165px] object-cover block" />
                       </div>
                       <span className="wiki-gallery-label">{img.name}</span>
                   </div>
@@ -252,7 +252,7 @@ const CinnamonTeal = () => {
               {plumageFemale.map((img, i) => (
                   <div key={i} className="wiki-gallery-item">
                       <div className="wiki-gallery-placeholder">
-                        <img src={img.src} alt={img.name} style={{width: '146px', height: '165px', objectFit: 'cover', display: 'block'}} />
+                        <img src={img.src} alt={img.name} className="w-[146px] h-[165px] object-cover block" />
                       </div>
                       <span className="wiki-gallery-label">{img.name}</span>
                   </div>
@@ -286,11 +286,11 @@ const CinnamonTeal = () => {
                     </tr>
                     {/* Female Row */}
                     <tr>
-                        <td style={{...styles.td, color: '#e91e63', fontStyle: 'italic'}}>Female</td>
-                        <td className="wiki-td">
-                            Cinnamon (85.49%)<br/>
-                            Red (14.31%)
-                        </td>
+                      <td className="wiki-td wiki-td-female">Female</td>
+                      <td className="wiki-td">
+                        Cinnamon (85.49%)<br/>
+                        Red (14.31%)
+                      </td>
                         <td className="wiki-td">X</td>
                         <td className="wiki-td">Beige (0.20%)</td>
                         <td className="wiki-td">X</td>
@@ -300,7 +300,7 @@ const CinnamonTeal = () => {
 
             {/* TRIVIA */}
             <h2 id="trivia" className="wiki-h2">Trivia</h2>
-            <ul style={{paddingLeft: '20px', marginBottom: '30px'}}>
+            <ul className="pl-5 mb-[30px]">
                 <li className="wiki-li">It's genus name <em>Spatula</em> is named after a spatula. However the etymology of the word <em>Spatula</em> comes from Ancient Latin and Greek, and means something along the lines of <em>a broad flat blade</em>.[1]</li>
                 <li className="wiki-li">Cinnamon Teals are relatively quiet compared to other ducks. However, if they are to speak, their preferred vocalization is a distinctive "Chattering" which is performed by the males.[2][3]</li>
                 <li className="wiki-li">These birds are special, in that, unlike most duck species, the male does not abandon the female immediately, electing to stay and look after his mate until her eggs hatch.[4]</li>
@@ -308,7 +308,7 @@ const CinnamonTeal = () => {
 
             {/* REFERENCES */}
             <h2 id="references" className="wiki-h2">References</h2>
-            <ol style={{paddingLeft: '25px', color: '#6fb2e6'}}>
+            <ol className="pl-[25px] text-[#6fb2e6]">
                 <li><span className="wiki-link">https://www.etymonline.com/word/spatula</span></li>
                 <li><span className="wiki-link">https://seaworld.org/animals/facts/birds/cinnamon-teal/</span></li>
                 <li><span className="wiki-link">https://www.audubon.org/field-guide/bird/cinnamon-teal</span></li>

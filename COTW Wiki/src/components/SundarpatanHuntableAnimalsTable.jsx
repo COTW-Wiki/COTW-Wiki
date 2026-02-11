@@ -1,19 +1,19 @@
 import React from 'react';
-import ReserveAnimalsTable from '../../components/ReserveAnimalsTable';
+import ReserveAnimalsTable from '../components/ReserveAnimalsTable';
 
-import greylagGooseIcon from '../../assets/GreylagGooseIcon.webp';
-import woollyHareIcon from '../../assets/WoollyHareIcon.webp';
-import northernRedMuntjacIcon from '../../assets/NorthernRedMuntjacIcon.webp';
-import tibetanFoxIcon from '../../assets/TibetanFoxIcon.webp';
-import blackbuckIcon from '../../assets/BlackbuckIcon.webp';
-import blueSheepIcon from '../../assets/BlueSheepIcon.webp';
-import snowLeopardIcon from '../../assets/SnowLeopardIcon.webp';
-import tahrIcon from '../../assets/TahrIcon.webp';
-import barasinghaIcon from '../../assets/BarasinghaIcon.webp';
-import nilgaiIcon from '../../assets/NilgaiIcon.webp';
-import bengalTigerIcon from '../../assets/BengalTigerIcon.webp';
-import waterBuffaloIcon from '../../assets/WaterBuffaloIcon.webp';
-import wildYakIcon from '../../assets/WildYakIcon.webp';
+import greylagGooseIcon from '../assets/GreylagGooseIcon.webp';
+import woollyHareIcon from '../assets/WoollyHareIcon.webp';
+import northernRedMuntjacIcon from '../assets/NorthernRedMuntjacIcon.webp';
+import tibetanFoxIcon from '../assets/TibetanFoxIcon.webp';
+import blackbuckIcon from '../assets/BlackbuckIcon.webp';
+import blueSheepIcon from '../assets/BlueSheepIcon.webp';
+import snowLeopardIcon from '../assets/SnowLeopardIcon.webp';
+import tahrIcon from '../assets/TahrIcon.webp';
+import barasinghaIcon from '../assets/BarasinghaIcon.webp';
+import nilgaiIcon from '../assets/NilgaiIcon.webp';
+import bengalTigerIcon from '../assets/BengalTigerIcon.webp';
+import waterBuffaloIcon from '../assets/WaterBuffaloIcon.webp';
+import wildYakIcon from '../assets/WildYakIcon.webp';
 
 const SundarpatanHuntableAnimalsTable = () => {
   const data = {
@@ -31,7 +31,12 @@ const SundarpatanHuntableAnimalsTable = () => {
     }
   };
 
-  return <ReserveAnimalsTable reserveData={data} />;
+  return (
+    <>
+      <div className="wiki-sidebar-header">{data.name}</div>
+      <ReserveAnimalsTable reserveData={data} showHeader={false} />
+    </>
+  );
 };
 
 export default SundarpatanHuntableAnimalsTable;

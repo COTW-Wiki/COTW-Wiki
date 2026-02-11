@@ -1,15 +1,15 @@
 import React from 'react';
-import ReserveAnimalsTable from '../../components/ReserveAnimalsTable';
+import ReserveAnimalsTable from '../components/ReserveAnimalsTable';
 
-import merriamTurkeyIcon from '../../assets/MerriamTurkeyIcon.webp';
-import pronghornIcon from '../../assets/PronghornIcon.webp';
-import mountainGoatIcon from '../../assets/MountainGoatIcon.webp';
-import rockyMountainBighornSheepIcon from '../../assets/RockyMountainBighornSheepIcon.webp';
-import mountainLionIcon from '../../assets/MountainLionIcon.webp';
-import muleDeerIcon from '../../assets/MuleDeerIcon.webp';
-import blackBearIcon from '../../assets/BlackBearIcon.webp';
-import rockyMountainElkIcon from '../../assets/RockyMountainElkIcon.webp';
-import plainsBisonIcon from '../../assets/PlainsBisonIcon.webp';
+import merriamTurkeyIcon from '../assets/MerriamTurkeyIcon.webp';
+import pronghornIcon from '../assets/PronghornIcon.webp';
+import mountainGoatIcon from '../assets/MountainGoatIcon.webp';
+import rockyMountainBighornSheepIcon from '../assets/RockyMountainBighornSheepIcon.webp';
+import mountainLionIcon from '../assets/MountainLionIcon.webp';
+import muleDeerIcon from '../assets/MuleDeerIcon.webp';
+import blackBearIcon from '../assets/BlackBearIcon.webp';
+import rockyMountainElkIcon from '../assets/RockyMountainElkIcon.webp';
+import plainsBisonIcon from '../assets/PlainsBisonIcon.webp';
 
 const SilverRidgePeaksHuntableAnimalsTable = () => {
   const data = {
@@ -32,7 +32,12 @@ const SilverRidgePeaksHuntableAnimalsTable = () => {
     }
   };
 
-  return <ReserveAnimalsTable reserveData={data} />;
+  return (
+    <>
+      <div className="wiki-sidebar-header">{data.name}</div>
+      <ReserveAnimalsTable reserveData={data} showHeader={false} />
+    </>
+  );
 };
 
 export default SilverRidgePeaksHuntableAnimalsTable;

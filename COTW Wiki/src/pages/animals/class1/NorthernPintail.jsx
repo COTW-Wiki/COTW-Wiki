@@ -153,15 +153,15 @@ const NorthernPintail = () => {
           {/* --- RIGHT SIDEBAR (General Information) --- */}
           <aside className="wiki-sidebar">
             <div className="wiki-sidebar-header">Northern Pintail</div>
-            <div className="wiki-sidebar-image">
-              <img src={NorthernPintailMain} alt="Northern Pintail" />
+            <div className="h-[180px] bg-[#2a4b63] flex items-center justify-center p-2.5">
+              <img src={NorthernPintailMain} alt="Northern Pintail" className="max-w-full max-h-full object-contain rounded-sm" />
             </div>
             
             <div className="wiki-sidebar-header">General Information</div>
             
             <div className="wiki-sidebar-section">
               <span className="wiki-sidebar-label">Class</span>
-              <span><img src={class1Icon} alt="Class 1" className="wiki-class-icon"/>1</span>
+              <span><img src={class1Icon} alt="Class 1" className="inline-block wiki-class-icon-sm align-middle mr-1.5"/>1</span>
             </div>
 
             <div className="wiki-sidebar-section">
@@ -175,15 +175,15 @@ const NorthernPintail = () => {
               <div className="wiki-trophy-grid">
                 <div className="wiki-trophy-item">
                   <span className="wiki-trophy-label wiki-trophy-silver">◆ Silver</span>
-                  <span>4.40</span>
+                  <span>620</span>
                 </div>
                 <div className="wiki-trophy-item">
                   <span className="wiki-trophy-label wiki-trophy-gold">☗ Gold</span>
-                  <span>6.80</span>
+                  <span>860</span>
                 </div>
                 <div className="wiki-trophy-item">
                   <span className="wiki-trophy-label wiki-trophy-diamond">☗ Diamond</span>
-                  <span>8.59</span>
+                  <span>1040</span>
                 </div>
               </div>
             </div>
@@ -303,7 +303,7 @@ const NorthernPintail = () => {
                 <div className="wiki-shot-title">Color code</div>
                   <div className="wiki-shot-container">
                     <div className="wiki-shot-image">
-                      <img src={NorthernPintail_shot_scheme} alt="Northern Pintail X-ray shot scheme" style={{width:'500px', height: '444px', objectFit: 'contain'}} />
+                      <img src={NorthernPintail_shot_scheme} alt="Northern Pintail X-ray shot scheme" className="w-[500px] h-[444px] object-contain" />
                     </div>
                     <div className="wiki-shot-info">
                       No Color - Every hit will kill the animal

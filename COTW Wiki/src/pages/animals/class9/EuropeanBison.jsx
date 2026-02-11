@@ -114,14 +114,14 @@ const EuropeanBison = () => {
           <aside className="wiki-sidebar">
             <div className="wiki-sidebar-header">European Bison</div>
             <div className="wiki-sidebar-image">
-              <img src={EuroBisonMain} alt="European Bison" />
+              <img src={EuroBisonMain} alt="European Bison" className="max-w-full max-h-[220px] object-contain"/>
             </div>
             
             <div className="wiki-sidebar-header">General Information</div>
             
             <div className="wiki-sidebar-section">
               <span className="wiki-sidebar-label">Class</span>
-              <span><img src={class9Icon} alt="Class 9" className="wiki-class-icon-lg"/>9</span>
+              <span><img src={class9Icon} alt="Class 9" className="inline-block wiki-class-icon-sm align-middle mr-1.5"/>9</span>
             </div>
 
             <div className="wiki-sidebar-section">
@@ -193,10 +193,10 @@ const EuropeanBison = () => {
                 <li><a href="#shot-scheme" onClick={(e)=>scrollToId(e,'shot-scheme')} className="wiki-link">Shot Scheme</a></li>
                 <li><a href="#tips" onClick={(e)=>scrollToId(e,'tips')} className="wiki-link">Tips</a></li>
                 <li><a href="#fur-variants" onClick={(e)=>scrollToId(e,'fur-variants')} className="wiki-link">Fur Variants</a></li>
-                <ol style={{listStyleType: 'none', marginLeft: '-20px'}}>
-                      <li><a href="#fur-male" onClick={(e)=>scrollToId(e,'fur-male')} style={{...styles.link, marginLeft:'20px'}}>5.1. Male</a></li>
-                      <li><a href="#fur-female" onClick={(e)=>scrollToId(e,'fur-female')} style={{...styles.link, marginLeft:'20px'}}>5.2. Female</a></li>
-                </ol>
+                    <ol style={{listStyleType: 'none', marginLeft: '-20px'}}>
+                      <li><a href="#fur-male" onClick={(e)=>scrollToId(e,'fur-male')} className="wiki-link" style={{marginLeft:'20px'}}>5.1. Male</a></li>
+                      <li><a href="#fur-female" onClick={(e)=>scrollToId(e,'fur-female')} className="wiki-link" style={{marginLeft:'20px'}}>5.2. Female</a></li>
+                    </ol>
                 <li><a href="#variant-rarity" onClick={(e)=>scrollToId(e,'variant-rarity')} className="wiki-link">Fur Variant Rarity</a></li>
                 <li><a href="#trivia" onClick={(e)=>scrollToId(e,'trivia')} className="wiki-link">Trivia</a></li>
               </ol>
@@ -254,7 +254,7 @@ const EuropeanBison = () => {
             <h2 className="wiki-h2" id="shot-scheme">Shot Scheme</h2>
             <div className="wiki-shot-container">
                <div className="wiki-shot-container">
-                 <img src={ShotSchemeImg} alt="Shot Scheme" className="wiki-shot-scheme-img" />
+                 <img src={ShotSchemeImg} alt="Shot Scheme" className="wiki-shot-scheme-img-sm" />
                </div>
                <div className="wiki-shot-wrap">
                  <div className="wiki-shot-title">Color code</div>

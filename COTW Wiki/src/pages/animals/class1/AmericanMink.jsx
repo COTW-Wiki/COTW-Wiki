@@ -96,8 +96,8 @@ const AmericanMink = () => {
           {/* --- RIGHT SIDEBAR (General Information) --- */}
           <aside className="wiki-sidebar">
             <div className="wiki-sidebar-header">American Mink</div>
-            <div className="wiki-sidebar-image">
-              <img src={AmericanMinkMain} alt="American Mink" />
+            <div className="wiki-sidebar-image flex items-center justify-center">
+              <img src={AmericanMinkMain} alt="American Mink" className="max-w-full max-h-[180px] object-contain" />
             </div>
             
             <div className="wiki-sidebar-header">General Information</div>
@@ -229,8 +229,8 @@ const AmericanMink = () => {
             <div className="wiki-gallery-grid">
               {furGallery.map((item, i) => (
                 <div key={i} className="wiki-gallery-item">
-                  <div className="wiki-gallery-placeholder">
-                    <img src={item.src} alt={item.name} />
+                  <div className="wiki-gallery-placeholder w-[146px] h-[165px] flex items-center justify-center">
+                    <img src={item.src} alt={item.name} className="max-w-full max-h-full object-contain rounded-sm" />
                   </div>
                   <span className="wiki-gallery-label">{item.name}</span>
                 </div>

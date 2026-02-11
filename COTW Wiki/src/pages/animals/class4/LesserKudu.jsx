@@ -27,6 +27,13 @@ import LesserKudu_RedBrownFemale from '../../../assets/LesserKudu_RedBrownFemale
 
 const LesserKudu = () => {
 
+  // Smooth-scroll helper for TOC links (prevents ReferenceError when called)
+  function scrollToId(e, id) {
+    if (e && e.preventDefault) e.preventDefault();
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  }
+
   // --- DATA SOURCES ---
 
   // Need Zone Times
@@ -99,7 +106,7 @@ const LesserKudu = () => {
             <div className="wiki-sidebar-section">
               <span className="wiki-sidebar-label">Class</span>
               {/* Cited from screenshot 1 */}
-              <span><img src={class4Icon} alt="Class 4" className="wiki-class-icon-lg"/>4</span>
+              <span><img src={class4Icon} alt="Class 4" className="inline-block wiki-class-icon-sm align-middle mr-1.5" />4</span>
             </div>
 
             <div className="wiki-sidebar-section">
@@ -236,7 +243,7 @@ const LesserKudu = () => {
                       <h2 className="wiki-h2" id="shot-scheme">Shot scheme</h2>
                       <div className="wiki-shot-container">
                         <div className="wiki-shot-container">
-                           <img src={ShotSchemeImg} alt="Shot Scheme" className="wiki-shot-scheme-img" />
+                           <img src={ShotSchemeImg} alt="Shot Scheme" className="wiki-shot-scheme-img-sm" />
                         </div>
                         <div className="wiki-shot-wrap">
                            <div className="wiki-shot-title">Color code</div>

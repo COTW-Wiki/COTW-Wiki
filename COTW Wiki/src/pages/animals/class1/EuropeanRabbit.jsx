@@ -112,7 +112,7 @@ const EuropeanRabbit = () => {
             
             <div className="wiki-sidebar-section">
               <span className="wiki-sidebar-label">Class</span>
-              <span><img src={class1Icon} alt="Class 1" className="wiki-class-icon"/>1</span>
+              <span><img src={class1Icon} alt="Class 1" className="inline-block wiki-class-icon-sm align-middle mr-1.5"/>1</span>
             </div>
 
             <div className="wiki-sidebar-section">
@@ -259,7 +259,7 @@ const EuropeanRabbit = () => {
                </div>
                <div className="wiki-shot-info">
                   <strong>Color code</strong>
-                  <div style={{marginTop: '20px'}}>
+                  <div className="mt-5">
                      No Color - Every hit will kill the animal
                   </div>
                </div>

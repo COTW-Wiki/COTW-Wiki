@@ -4,7 +4,11 @@ import MapsList from '../pages/reserves/ReserveList';
 import MapPage from '../pages/reserves/Map';
 import RegionPage from '../pages/reserves/RegionPage';
 import HirschfeldenHuntingReserve from '../pages/reserves/reservePages/HirschfeldenHuntingReserve';
+import LaytonLakeDistrict from '../pages/reserves/reservePages/LaytonLakeDistrict';
 import SubregionPage from '../pages/reserves/SubregionPage';
+import ParqueFernando from '../pages/reserves/reservePages/ParqueFernando';
+import MedvedTaiga from '../pages/reserves/reservePages/Medved-TaigaNationalPark';
+import VurhongaSavanna from '../pages/reserves/reservePages/VurhongaSavanna';
 import WeaponsComparison from '../pages/loadouts/weapons/WeaponsComparison';
 import WeaponsList from '../pages/loadouts/weapons/Weapons';
 import Docent223 from '../pages/loadouts/weapons/rifles/223Docent';
@@ -330,6 +334,11 @@ export default function AppRouter() {
       <Route path="/multi-mounts" element={<MultiTrophyMountsPage />} />
       <Route path="/maps" element={<MapsList />} />
       <Route path="/maps/hirschfelden" element={<HirschfeldenHuntingReserve />} />
+      <Route path="/maps/layton-lake" element={<LaytonLakeDistrict />} />
+        <Route path="/maps/vurhonga" element={<VurhongaSavanna />} />
+        <Route path="/maps/medved" element={<MedvedTaiga />} />
+        <Route path="/maps/medved-taiga" element={<MedvedTaiga />} />
+      <Route path="/maps/parque-fernando" element={<ParqueFernando />} />
       <Route path="/maps/:regionId" element={<RegionPage />} />
       <Route path="/maps/:regionId/:subregionId" element={<SubregionPage />} />
       <Route path="/weapons" element={<WeaponsList />} />

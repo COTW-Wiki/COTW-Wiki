@@ -44,18 +44,15 @@ const TableOfContents = () => {
           [{isVisible ? 'hide' : 'show'}]
         </span>
       </div>
-
       {isVisible && (
         <ul className="wiki-list-plain">
           {tocItems.map((item) => (
             <li key={item.id} className="wiki-li">
               {/* Main Level Link */}
-              <a 
-                href={`#${item.id}`} 
+              <a
+                href={`#${item.id}`}
                 onClick={(e) => handleScroll(e, item.id)}
                 className="wiki-link"
-                onMouseEnter={(e) => e.target.style.color = styles.linkHover.color}
-                onMouseLeave={(e) => e.target.style.color = styles.link.color}
               >
                 {item.label}
               </a>
@@ -65,12 +62,10 @@ const TableOfContents = () => {
                 <ul className="wiki-toc-panel-list">
                   {item.subItems.map((sub) => (
                     <li key={sub.id} className="wiki-li">
-                      <a 
-                        href={`#${sub.id}`} 
+                      <a
+                        href={`#${sub.id}`}
                         onClick={(e) => handleScroll(e, sub.id)}
                         className="wiki-link"
-                        onMouseEnter={(e) => e.target.style.color = styles.linkHover.color}
-                        onMouseLeave={(e) => e.target.style.color = styles.link.color}
                       >
                         {sub.label}
                       </a>
@@ -85,5 +80,13 @@ const TableOfContents = () => {
     </div>
   );
 };
+
+// Smooth scroll helper used by many pages
+function handleScroll(e, id) {
+  if (e && e.preventDefault) e.preventDefault();
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  try { history.replaceState(null, '', `#${id}`); } catch (err) {}
+}
 
 export default TableOfContents;

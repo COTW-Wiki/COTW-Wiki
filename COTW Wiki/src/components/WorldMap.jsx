@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import './WorldMap'; // Removed external CSS import
 import worldMap from '../assets/world-map-vector-removebg-preview.png';
 import reserveLogo from '../assets/Layton_Lake-removebg-preview.png';
 import hirschLogo from '../assets/Hirschfelden_reserve_logo-removebg-preview.png';
@@ -22,257 +21,106 @@ import emeraldLogo from '../assets/Emerald_coast-removebg-preview (1).png';
 
 export default function WorldMap() {
   
-  // Inline Styles Definition
+  const markerBase = {
+    position: 'absolute',
+    transform: 'translate(-50%, -50%)',
+    transition: 'all 0.2s ease-in-out',
+    zIndex: 10,
+  };
+
   const styles = {
     container: {
       position: 'relative',
       width: '100%',
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      padding: '1rem 0',
+      maxWidth: '1200px',
+      margin: '0 auto',
+      backgroundColor: '#05121c',
+      borderRadius: '12px',
+      overflow: 'hidden',
+      border: '1px solid #1f405a',
+      padding: 0
     },
     mapImage: {
-      width: '89%',
-      maxWidth: '1200px',
+      width: '100%',
       height: 'auto',
-      zIndex: 0,
+      display: 'block',
+      opacity: '0.6',
     },
-    // Shared base style for logos could be extracted, but mapped individually below for clarity
-    layton: {
-      position: 'absolute',
-      top: '265px',
-      left: '157px',
-      width: '40px',
-      height: 'auto',
-      zIndex: 1,
-    },
-    hirsch: {
-      position: 'absolute',
-      top: '245px',
-      left: '433px',
-      width: '40px',
-      height: 'auto',
-      zIndex: 1,
-    },
-    yukon: {
-      position: 'absolute',
-      top: '180px',
-      left: '80px',
-      width: '80px',
-      height: 'auto',
-      zIndex: 1,
-    },
-    mississippi: {
-      position: 'absolute',
-      top: '267px',
-      left: '228px',
-      width: '50px',
-      height: 'auto',
-      zIndex: 1,
-    },
-    salzwiesen: {
-      position: 'absolute',
-      top: '240px',
-      left: '400px',
-      width: '39px',
-      height: 'auto',
-      zIndex: 1,
-    },
-    revontuli: {
-      position: 'absolute',
-      top: '190px',
-      left: '445px',
-      width: '48px',
-      height: 'auto',
-      zIndex: 1,
-    },
-    cuatro: {
-      position: 'absolute',
-      top: '269px',
-      left: '372px',
-      width: '90px',
-      height: 'auto',
-      zIndex: 1,
-    },
-    silver: {
-      position: 'absolute',
-      top: '272px',
-      left: '188px',
-      width: '40px',
-      height: 'auto',
-      zIndex: 1,
-    },
-    teawaroa: {
-      position: 'absolute',
-      top: '454px',
-      left: '758px',
-      width: '40px',
-      height: 'auto',
-      zIndex: 1,
-    },
-    rancho: {
-      position: 'absolute',
-      top: '323px',
-      left: '168px',
-      width: '120px',
-      height: 'auto',
-      zIndex: 1,
-    },
-    askiy: {
-      position: 'absolute',
-      top: '230px',
-      left: '170px',
-      width: '50px',
-      height: 'auto',
-      zIndex: 1,
-    },
-    newEngland: {
-      position: 'absolute',
-      top: '245px',
-      left: '240px',
-      width: '50px',
-      height: 'auto',
-      zIndex: 1,
-    },
-    sundar: {
-      position: 'absolute',
-      top: '310px',
-      left: '555px',
-      width: '50px',
-      height: 'auto',
-      zIndex: 1,
-    },
-    medved: {
-      position: 'absolute',
-      top: '134px',
-      left: '615px',
-      width: '50px',
-      height: 'auto',
-      zIndex: 1,
-    },
-    parque: {
-      position: 'absolute',
-      top: '430px',
-      left: '226px',
-      width: '130px',
-      height: 'auto',
-      zIndex: 1,
-    },
-    gemini: {
-      position: 'absolute',
-      top: '395px',
-      left: '466px',
-      width: '48px',
-      height: 'auto',
-      zIndex: 1,
-    },
-    emerald: {
-      position: 'absolute',
-      top: '400px',
-      left: '686px',
-      width: '60px',
-      height: 'auto',
-      zIndex: 1,
-    },
+    // ADJUSTED PERCENTAGES BASED ON REFERENCE MAP
+    yukon:       { ...markerBase, top: '36%', left: '8.5%', width: '9%' },
+    askiy:       { ...markerBase, top: '40%', left: '18%', width: '5%' },
+    layton:      { ...markerBase, top: '47.5%', left: '15%', width: '5%' },
+    silver:      { ...markerBase, top: '51%', left: '20%', width: '4.5%' },
+    rancho:      { ...markerBase, top: '64%', left: '23%', width: '10%' },
+    mississippi: { ...markerBase, top: '56%', left: '25.1%', width: '4%' },
+    newEngland:  { ...markerBase, top: '49%', left: '28.4%', width: '5%' },
+    
+    parque:      { ...markerBase, top: '85%', left: '30.9%', width: '12%' },
+    
+    salzwiesen:  { ...markerBase, top: '45.3%', left: '48.8%', width: '3%' },
+    revontuli:   { ...markerBase, top: '37%', left: '54%', width: '4%' },
+    hirsch:      { ...markerBase, top: '48%', left: '50%', width: '2.5%' },
+    cuatro:      { ...markerBase, top: '53%', left: '46%', width: '8%' },
+    
+    vurhonga:    { ...markerBase, top: '76%', left: '56.6%', width: '5%' },
+    
+    medved:      { ...markerBase, top: '28%', left: '75%', width: '4%' },
+    sundar:      { ...markerBase, top: '59%', left: '68%', width: '4%' },
+    
+    emerald:     { ...markerBase, top: '78.3%', left: '85.3%', width: '5.5%' },
+    teawaroa:    { ...markerBase, top: '89.7%', left: '92.6%', width: '3.5%' },
+    
+    // Placeholder for generated or unknown
+    gemini:      { ...markerBase, top: '75%', left: '52%', width: '4%' },
   };
 
   return (
-    <div className="map-container" style={styles.container}>
-      {/* Keep this internal style block for HOVER effects and TRANSITIONS, 
-         as inline styles cannot handle pseudo-selectors like :hover 
-      */}
+    <div className="world-map-wrapper" style={styles.container}>
       <style>{` 
-        .map-container img[class*="logo-"]{ 
-          transition: transform 180ms ease, filter 180ms ease, box-shadow 180ms ease; 
-          transform-origin: center center; 
-          cursor: pointer; 
-          border: none; 
-          outline: none; 
+        .world-map-wrapper a:hover {
+          transform: translate(-50%, -50%) scale(1.3) !important;
+          z-index: 100 !important;
         }
-        .map-container a:focus, .map-container a:focus img{ outline: none; }
-        .map-container img[class*="logo-"]:hover{ 
-          transform: scale(1.25); 
-          filter: sepia(1) saturate(10000%) hue-rotate(10deg) brightness(1);
-          z-index: 999; 
-          box-shadow: none; 
-          border: none;
-          outline: none;
+        .world-map-wrapper a:hover img {
+          filter: sepia(1) saturate(10000%) hue-rotate(10deg) brightness(1.3);
+        }
+        .world-map-wrapper img {
+          max-width: 100%;
+          height: auto;
+          pointer-events: none;
         }
       `}</style>
 
-      <img className="map-image" src={worldMap} alt="World Map" style={styles.mapImage} />
+      <img src={worldMap} alt="World Map" style={styles.mapImage} />
 
-      {/* Note: We merge the positioning styles with the existing mask variable */}
-      
-      <Link to="/maps/layton-lake" className="logo" style={{ ...styles.layton, '--mask': `url("${reserveLogo}")` }} data-tooltip="Layton Lake District">
-        <img src={reserveLogo} alt="Layton Lake Logo" />
-      </Link>
+      {/* NORTH AMERICA */}
+      <Link to="/maps/yukon-valley" style={styles.yukon} data-tooltip="Yukon Valley"><img src={yukonLogo} alt="" /></Link>
+      <Link to="/maps/askiy-ridge" style={styles.askiy} data-tooltip="Askiy Ridge"><img src={askiyLogo} alt="" /></Link>
+      <Link to="/maps/layton-lake" style={styles.layton} data-tooltip="Layton Lake District"><img src={reserveLogo} alt="" /></Link>
+      <Link to="/maps/silver-ridge-peaks" style={styles.silver} data-tooltip="Silver Ridge Peaks"><img src={silverLogo} alt="" /></Link>
+      <Link to="/maps/rancho-del-arroyo" style={styles.rancho} data-tooltip="Rancho del Arroyo"><img src={ranchoLogo} alt="" /></Link>
+      <Link to="/maps/mississippi-acres" style={styles.mississippi} data-tooltip="Mississippi Acres"><img src={mississippiLogo} alt="" /></Link>
+      <Link to="/maps/new-england-mountains" style={styles.newEngland} data-tooltip="New England Mountains"><img src={newEnglandLogo} alt="" /></Link>
 
-      <Link to="/maps/hirschfelden" className="logo-hirsch" style={{ ...styles.hirsch, '--mask': `url("${hirschLogo}")` }} data-tooltip="Hirschfelden Hunting Reserve">
-        <img src={hirschLogo} alt="Hirschfelden Logo" />
-      </Link>
+      {/* SOUTH AMERICA */}
+      <Link to="/maps/parque-fernando" style={styles.parque} data-tooltip="Parque Fernando"><img src={parqueFernandoLogo} alt="" /></Link>
 
-      <Link to="/maps/yukon-valley" className="logo-yukon" style={{ ...styles.yukon, '--mask': `url("${yukonLogo}")` }} data-tooltip="Yukon Valley">
-        <img src={yukonLogo} alt="Yukon Valley Logo" />
-      </Link>
+      {/* EUROPE */}
+      <Link to="/maps/salzwiesen-park" style={styles.salzwiesen} data-tooltip="Salzwiesen Park"><img src={salzwiesenLogo} alt="" /></Link>
+      <Link to="/maps/revontuli-coast" style={styles.revontuli} data-tooltip="Revontuli Coast"><img src={revontuliLogo} alt="" /></Link>
+      <Link to="/maps/hirschfelden" style={styles.hirsch} data-tooltip="Hirschfelden Hunting Reserve"><img src={hirschLogo} alt="" /></Link>
+      <Link to="/maps/cuatro-colinas" style={styles.cuatro} data-tooltip="Cuatro Colinas Game Reserve"><img src={cuatroLogo} alt="" /></Link>
 
-      <Link to="/maps/cuatro-colinas" className="logo-cuatro" style={{ ...styles.cuatro, '--mask': `url("${cuatroLogo}")` }} data-tooltip="Cuatro Colinas Game Reserve">
-        <img src={cuatroLogo} alt="Cuatro Colinas Logo" />
-      </Link>
+      {/* AFRICA */}
+      <Link to="/maps/vurhonga" style={styles.vurhonga} data-tooltip="Vurhonga Savanna"><img src={geminiLogo} alt="" /></Link>
 
-      <Link to="/maps/silver-ridge-peaks" className="logo-silver" style={{ ...styles.silver, '--mask': `url("${silverLogo}")` }} data-tooltip="Silver Ridge Peaks">
-        <img src={silverLogo} alt="Silver Ridge Peaks Logo" />
-      </Link>
+      {/* ASIA */}
+      <Link to="/maps/medved-taiga" style={styles.medved} data-tooltip="Medved-Taiga National Park"><img src={medvedLogo} alt="" /></Link>
+      <Link to="/maps/sundarpatan" style={styles.sundar} data-tooltip="Sundarpatan"><img src={sundarLogo} alt="" /></Link>
 
-      <Link to="/maps/te-awaroa" className="logo-teawaroa" style={{ ...styles.teawaroa, '--mask': `url("${teAwaroaLogo}")` }} data-tooltip="Te Awaroa National Park">
-        <img src={teAwaroaLogo} alt="Te Awaroa Logo" />
-      </Link>
-
-      <Link to="/maps/rancho-del-arroyo" className="logo-rancho" style={{ ...styles.rancho, '--mask': `url("${ranchoLogo}")` }} data-tooltip="Rancho del Arroyo">
-        <img src={ranchoLogo} alt="Rancho Del Arroyo Logo" />
-      </Link>
-
-      <Link to="/maps/askiy-ridge" className="logo-askiy" style={{ ...styles.askiy, '--mask': `url("${askiyLogo}")` }} data-tooltip="Askiy Ridge Hunting Preserve">
-        <img src={askiyLogo} alt="Askiy Ridge Logo" />
-      </Link>
-
-      <Link to="/maps/mississippi-acres" className="logo-mississippi" style={{ ...styles.mississippi, '--mask': `url("${mississippiLogo}")` }} data-tooltip="Mississippi Acres Preserve">
-        <img src={mississippiLogo} alt="Mississippi Acres Logo" />
-      </Link>
-
-      <Link to="/maps/salzwiesen-park" className="logo-salzwiesen" style={{ ...styles.salzwiesen, '--mask': `url("${salzwiesenLogo}")` }} data-tooltip="Salzwiesen Park">
-        <img src={salzwiesenLogo} alt="Salzwiesen Logo" />
-      </Link>
-
-      <Link to="/maps/revontuli-coast" className="logo-revontuli" style={{ ...styles.revontuli, '--mask': `url("${revontuliLogo}")` }} data-tooltip="Revontuli Coast">
-        <img src={revontuliLogo} alt="Revontuli Coast Logo" />
-      </Link>
-
-      <Link to="/maps/emerald-coast" className="logo-emerald" style={{ ...styles.emerald, '--mask': `url("${emeraldLogo}")` }} data-tooltip="Emerald Coast">
-        <img src={emeraldLogo} alt="Emerald Coast Logo" />
-      </Link>
-
-      <Link to="/maps/new-england-mountains" className="logo-newengland" style={{ ...styles.newEngland, '--mask': `url("${newEnglandLogo}")` }} data-tooltip="New England Mountains">
-        <img src={newEnglandLogo} alt="New England Logo" />
-      </Link>
-
-      <Link to="/maps/parque-fernando" className="logo-parque" style={{ ...styles.parque, '--mask': `url("${parqueFernandoLogo}")` }} data-tooltip="Parque Fernando">
-        <img src={parqueFernandoLogo} alt="Parque Fernando Logo" />
-      </Link>
-
-      <Link to="/maps/gemini-generated" className="logo-gemini" style={{ ...styles.gemini, '--mask': `url("${geminiLogo}")` }} data-tooltip="Gemini Generated Image">
-        <img src={geminiLogo} alt="Gemini Generated Logo" />
-      </Link>
-
-      <Link to="/maps/sundarpatan" className="logo-sundar" style={{ ...styles.sundar, '--mask': `url("${sundarLogo}")` }} data-tooltip="Sundarpatan">
-        <img src={sundarLogo} alt="Sundarpatan Logo" />
-      </Link>
-
-      <Link to="/maps/medved-taiga" className="logo-medved" style={{ ...styles.medved, '--mask': `url("${medvedLogo}")` }} data-tooltip="Medved-Taiga National Park">
-        <img src={medvedLogo} alt="Medved Taiga Logo" />
-      </Link>
-
+      {/* OCEANIA */}
+      <Link to="/maps/emerald-coast" style={styles.emerald} data-tooltip="Emerald Coast"><img src={emeraldLogo} alt="" /></Link>
+      <Link to="/maps/te-awaroa" style={styles.teawaroa} data-tooltip="Te Awaroa National Park"><img src={teAwaroaLogo} alt="" /></Link>
     </div>
   );
 }

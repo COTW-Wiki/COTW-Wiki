@@ -103,9 +103,10 @@ const GreylagGoose = () => {
           {/* --- RIGHT SIDEBAR --- */}
           <aside className="wiki-sidebar">
             <div className="wiki-sidebar-header">Greylag Goose</div>
-            <div className="wiki-sidebar-image">
-              <img src={GreylagGooseImg} alt="Greylag Goose" style={{width: '268.4px', height: '134.2px', objectFit: 'cover', borderRadius: '4px'}} />
-              <span style={{position:'absolute', bottom:'5px', right:'5px', fontSize:'0.8rem'}}>📷</span>
+            <div className="wiki-sidebar-image wiki-sidebar-image--contain">
+              <div className="w-full h-[280px]">
+                <img src={GreylagGooseImg} alt="Greylag Goose" className="w-full h-full object-contain rounded" />
+              </div>
             </div>
             
             <div className="wiki-sidebar-header">General Information</div>
@@ -113,7 +114,7 @@ const GreylagGoose = () => {
             <div className="wiki-sidebar-section">
               <span className="wiki-sidebar-label">Class</span>
               <div className="wiki-flex-center">
-                <img src={class1Icon} alt="Class 1" style={{width: '15px', height: '15px'}} />
+                <img src={class1Icon} alt="Class 1" className="inline-block wiki-class-icon-sm align-middle mr-1.5" />
                 <span>1</span>
               </div>
             </div>
@@ -150,7 +151,7 @@ const GreylagGoose = () => {
 
             <div className="wiki-sidebar-section">
                <span className="wiki-sidebar-label">Plumage</span>
-               <span style={{fontSize: '0.85rem'}}>
+               <span className="text-[0.85rem]">
                  Brown, Grey, Hybrid, Leucistic
                </span>
             </div>
@@ -192,41 +193,32 @@ const GreylagGoose = () => {
               ];
 
               const LocalTOC = ({ items }) => {
-                const stylesTOC = {
-                  container: { backgroundColor: '#0b1e3b', border: '1px solid #3a5a75', borderRadius: '4px', color: '#fff', width: '250px', fontFamily: '"Segoe UI", Roboto, Helvetica, Arial, sans-serif', fontSize: '14px', marginTop: '20px', boxShadow: '0 4px 6px rgba(0,0,0,0.3)' },
-                  header: { padding: '8px 12px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid #3a5a75' },
-                  title: { fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '8px' },
-                  list: { margin: 0, padding: '10px 15px 10px 35px', listStyleType: 'decimal' },
-                  listItem: { marginBottom: '6px', color: '#fff', cursor: 'pointer' },
-                  linkText: { color: '#6fb2e6' }
-                };
+                  const scrollTo = (id) => {
+                    const el = document.getElementById(id);
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                  };
 
-                const scrollTo = (id) => {
-                  const el = document.getElementById(id);
-                  if (el) el.scrollIntoView({ behavior: 'smooth' });
-                };
-
-                return (
-                  <div style={stylesTOC.container}>
-                    <div style={stylesTOC.header}><div style={stylesTOC.title}>Contents</div></div>
-                    <ol style={stylesTOC.list}>
-                      {items.map((it) => (
-                        <li key={it.id} style={stylesTOC.listItem} onClick={() => scrollTo(it.id)}>
-                          <span style={stylesTOC.linkText}>{it.label}</span>
-                          {it.children && (
-                            <ol style={{ listStyleType: 'decimal', marginTop: '6px', marginLeft: '16px', paddingLeft: '6px' }}>
-                              {it.children.map((c) => (
-                                <li key={c.id} style={stylesTOC.listItem} onClick={() => scrollTo(c.id)}>
-                                  <span style={stylesTOC.linkText}>{c.label}</span>
-                                </li>
-                              ))}
-                            </ol>
-                          )}
-                        </li>
-                      ))}
-                    </ol>
-                  </div>
-                );
+                  return (
+                    <div className="bg-[#0b1e3b] border border-[#3a5a75] rounded text-white w-[250px] font-sans text-sm mt-5 shadow-[0_4px_6px_rgba(0,0,0,0.3)]">
+                      <div className="px-3 py-2 flex justify-between items-center border-b border-[#3a5a75]"><div className="font-bold flex items-center gap-2">Contents</div></div>
+                      <ol className="m-0 p-2 pl-8 list-decimal">
+                        {items.map((it) => (
+                          <li key={it.id} className="mb-1 text-white cursor-pointer" onClick={() => scrollTo(it.id)}>
+                            <span className="text-[#6fb2e6]">{it.label}</span>
+                            {it.children && (
+                              <ol className="list-decimal mt-1 ml-4 pl-1">
+                                {it.children.map((c) => (
+                                  <li key={c.id} className="mb-1 text-white cursor-pointer" onClick={() => scrollTo(c.id)}>
+                                    <span className="text-[#6fb2e6]">{c.label}</span>
+                                  </li>
+                                ))}
+                              </ol>
+                            )}
+                          </li>
+                        ))}
+                      </ol>
+                    </div>
+                  );
               };
 
               return <LocalTOC items={tocItems} />;
@@ -262,60 +254,61 @@ const GreylagGoose = () => {
 
             {/* NEED ZONES */}
             <h2 id="need-zones" className="wiki-h2">Need Zone Times</h2>
-            <div className="wiki-shot-wrap">
-                
-                {/* Revontuli Coast Table */}
-                <table className="wiki-table wiki-table-fixed">
-                    <thead>
-                        <tr><th colSpan="2" className="wiki-th wiki-th-center">Revontuli Coast</th></tr>
-                        <tr>
-                            <th className="wiki-th wiki-th-alt">Time</th>
-                            <th className="wiki-th wiki-th-alt">Activity</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {needZones.revontuli.map((zone, i) => (
-                        <tr key={i}>
-                            <td className="wiki-td">{zone.time}</td>
-                            <td className="wiki-td">
-                              <img src={zone.type === 'Resting' ? RestingZoneIcon : FeedingZoneIcon} alt={zone.type} className="wiki-zone-icon-lg" />
-                              {zone.type}
-                            </td>
-                        </tr>
-                        ))}
-                    </tbody>
+            <div className="flex flex-nowrap gap-6 items-start overflow-x-auto">
+              <div className="w-full md:w-[360px] order-1">
+                <table className="wiki-table w-[360px] table-fixed">
+                  <thead>
+                    <tr><th colSpan="2" className="wiki-th wiki-th-center py-3">Revontuli Coast</th></tr>
+                    <tr>
+                      <th className="wiki-th wiki-th-alt py-3">Time</th>
+                      <th className="wiki-th wiki-th-alt py-3">Activity</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {needZones.revontuli.map((zone, i) => (
+                      <tr key={i}>
+                        <td className="wiki-td py-3">{zone.time}</td>
+                        <td className="wiki-td py-3">
+                          <img src={zone.type === 'Resting' ? RestingZoneIcon : FeedingZoneIcon} alt={zone.type} className="wiki-zone-icon-lg" />
+                          <span className="align-middle">{zone.type}</span>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
                 </table>
+              </div>
 
-                {/* Sundarpatan Table */}
-                <table className="wiki-table wiki-table-fixed">
-                    <thead>
-                        <tr><th colSpan="2" className="wiki-th wiki-th-center">Sundarpatan<sup>[1]</sup></th></tr>
-                        <tr>
-                            <th className="wiki-th wiki-th-alt">Time</th>
-                            <th className="wiki-th wiki-th-alt">Activity</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {needZones.sundarpatan.map((zone, i) => (
-                        <tr key={i}>
-                            <td className="wiki-td">{zone.time}</td>
-                            <td className="wiki-td">
-                              <img src={zone.type === 'Resting' ? RestingZoneIcon : FeedingZoneIcon} alt={zone.type} className="wiki-zone-icon-lg" />
-                              {zone.type}
-                            </td>
-                        </tr>
-                        ))}
-                    </tbody>
+              <div className="w-full md:w-[360px] order-2">
+                <table className="wiki-table w-[360px] table-fixed">
+                  <thead>
+                    <tr><th colSpan="2" className="wiki-th wiki-th-center py-3">Sundarpatan<sup>[1]</sup></th></tr>
+                    <tr>
+                      <th className="wiki-th wiki-th-alt py-3">Time</th>
+                      <th className="wiki-th wiki-th-alt py-3">Activity</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {needZones.sundarpatan.map((zone, i) => (
+                      <tr key={i}>
+                        <td className="wiki-td py-3">{zone.time}</td>
+                        <td className="wiki-td py-3">
+                          <img src={zone.type === 'Resting' ? RestingZoneIcon : FeedingZoneIcon} alt={zone.type} className="wiki-zone-icon-lg" />
+                          <span className="align-middle">{zone.type}</span>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
                 </table>
+              </div>
             </div>
 
             {/* SHOT SCHEME */}
             <h2 id="shot-scheme" className="wiki-h2">Shot scheme</h2>
-            <div style={{backgroundColor: '#0f2e48', padding: '10px'}}>
+            <div className="bg-[#0f2e48] p-2.5 rounded">
                 <div className="wiki-shot-title">Color code</div>
                   <div className="wiki-shot-container">
                     <div className="wiki-shot-image">
-                      <img src={GreylagGooseXRay} alt="Greylag Goose X-Ray" style={{width: '500px', height: '444px', objectFit: 'cover', borderRadius: '4px'}} />
+                      <img src={GreylagGooseXRay} alt="Greylag Goose X-Ray" className="w-[500px] h-[444px] object-cover rounded" />
                     </div>
                     <div className="wiki-shot-info">
                       No Color - Every hit will kill the animal
@@ -325,75 +318,75 @@ const GreylagGoose = () => {
 
             {/* PLUMAGE VARIANTS (Gallery) */}
             <h2 id="plumage-variants" className="wiki-h2">Plumage Variants</h2>
-            <div style={{display:'flex', flexWrap:'wrap', gap:'10px'}}>
+            <div className="flex flex-wrap gap-2.5">
               {/* Front-view images (146x165) */}
-              <div style={{width:'146px', textAlign:'center'}}>
-                <img src={GreylagGoose_BrownFront} alt="Brown - Front" />
-                <span className="wiki-gallery-label">Brown - Front</span>
+              <div className="w-[146px] text-center">
+                <img src={GreylagGoose_BrownFront} alt="Brown - Front" className="w-[146px] h-[165px] object-cover border-4 border-[#1f3a52] mb-2" />
+                <span className="text-[0.9em]">Brown - Front</span>
               </div>
-              <div style={{width:'146px', textAlign:'center'}}>
-                <img src={GreylagGoose_GreyFront} alt="Grey - Front" />
-                <span className="wiki-gallery-label">Grey - Front</span>
+              <div className="w-[146px] text-center">
+                <img src={GreylagGoose_GreyFront} alt="Grey - Front" className="w-[146px] h-[165px] object-cover border-4 border-[#1f3a52] mb-2" />
+                <span className="text-[0.9em]">Grey - Front</span>
               </div>
-              <div style={{width:'146px', textAlign:'center'}}>
-                <img src={GreylagGoose_HybridFront} alt="Hybrid - Front" />
-                <span className="wiki-gallery-label">Hybrid - Front</span>
+              <div className="w-[146px] text-center">
+                <img src={GreylagGoose_HybridFront} alt="Hybrid - Front" className="w-[146px] h-[165px] object-cover border-4 border-[#1f3a52] mb-2" />
+                <span className="text-[0.9em]">Hybrid - Front</span>
               </div>
-              <div style={{width:'146px', textAlign:'center'}}>
-                <img src={GreylagGoose_LeucisticVariation1Front} alt="Leucistic 1 - Front" />
-                <span className="wiki-gallery-label">Leucistic 1 - Front</span>
+              <div className="w-[146px] text-center">
+                <img src={GreylagGoose_LeucisticVariation1Front} alt="Leucistic 1 - Front" className="w-[146px] h-[165px] object-cover border-4 border-[#1f3a52] mb-2" />
+                <span className="text-[0.9em]">Leucistic 1 - Front</span>
               </div>
-              <div style={{width:'146px', textAlign:'center'}}>
-                <img src={GreylagGoose_LeucisticVariation2Front} alt="Leucistic 2 - Front" />
-                <span className="wiki-gallery-label">Leucistic 2 - Front</span>
+              <div className="w-[146px] text-center">
+                <img src={GreylagGoose_LeucisticVariation2Front} alt="Leucistic 2 - Front" className="w-[146px] h-[165px] object-cover border-4 border-[#1f3a52] mb-2" />
+                <span className="text-[0.9em]">Leucistic 2 - Front</span>
               </div>
-              <div style={{width:'146px', textAlign:'center'}}>
-                <img src={GreylagGoose_LeucisticVariation3Front} alt="Leucistic 3 - Front" />
-                <span className="wiki-gallery-label">Leucistic 3 - Front</span>
+              <div className="w-[146px] text-center">
+                <img src={GreylagGoose_LeucisticVariation3Front} alt="Leucistic 3 - Front" className="w-[146px] h-[165px] object-cover border-4 border-[#1f3a52] mb-2" />
+                <span className="text-[0.9em]">Leucistic 3 - Front</span>
               </div>
-              <div style={{width:'146px', textAlign:'center'}}>
-                <img src={GreylagGoose_LeucisticVariation4Front} alt="Leucistic 4 - Front" />
-                <span className="wiki-gallery-label">Leucistic 4 - Front</span>
+              <div className="w-[146px] text-center">
+                <img src={GreylagGoose_LeucisticVariation4Front} alt="Leucistic 4 - Front" className="w-[146px] h-[165px] object-cover border-4 border-[#1f3a52] mb-2" />
+                <span className="text-[0.9em]">Leucistic 4 - Front</span>
               </div>
-              <div style={{width:'146px', textAlign:'center'}}>
-                <img src={GreylagGoose_LeucisticVariation5Front} alt="Leucistic 5 - Front" />
-                <span className="wiki-gallery-label">Leucistic 5 - Front</span>
+              <div className="w-[146px] text-center">
+                <img src={GreylagGoose_LeucisticVariation5Front} alt="Leucistic 5 - Front" className="w-[146px] h-[165px] object-cover border-4 border-[#1f3a52] mb-2" />
+                <span className="text-[0.9em]">Leucistic 5 - Front</span>
               </div>
             </div>
 
-            <div style={{display:'flex', flexWrap:'wrap', gap:'10px', marginTop:'8px'}}>
+            <div className="flex flex-wrap gap-2.5 mt-2">
               {/* Back-view images (146x165) */}
-              <div style={{width:'146px', textAlign:'center'}}>
-                <img src={GreylagGoose_BrownBack} alt="Brown - Back" />
-                <span className="wiki-gallery-label">Brown - Back</span>
+              <div className="w-[146px] text-center">
+                <img src={GreylagGoose_BrownBack} alt="Brown - Back" className="w-[146px] h-[165px] object-cover border-4 border-[#1f3a52] mb-2" />
+                <span className="text-[0.9em]">Brown - Back</span>
               </div>
-              <div style={{width:'146px', textAlign:'center'}}>
-                <img src={GreylagGoose_GreyBack} alt="Grey - Back" />
-                <span className="wiki-gallery-label">Grey - Back</span>
+              <div className="w-[146px] text-center">
+                <img src={GreylagGoose_GreyBack} alt="Grey - Back" className="w-[146px] h-[165px] object-cover border-4 border-[#1f3a52] mb-2" />
+                <span className="text-[0.9em]">Grey - Back</span>
               </div>
-              <div style={{width:'146px', textAlign:'center'}}>
-                <img src={GreylagGoose_HybridBack} alt="Hybrid - Back" />
-                <span className="wiki-gallery-label">Hybrid - Back</span>
+              <div className="w-[146px] text-center">
+                <img src={GreylagGoose_HybridBack} alt="Hybrid - Back" className="w-[146px] h-[165px] object-cover border-4 border-[#1f3a52] mb-2" />
+                <span className="text-[0.9em]">Hybrid - Back</span>
               </div>
-              <div style={{width:'146px', textAlign:'center'}}>
-                <img src={GreylagGoose_LeucisticVariation1Back} alt="Leucistic 1 - Back" />
-                <span className="wiki-gallery-label">Leucistic 1 - Back</span>
+              <div className="w-[146px] text-center">
+                <img src={GreylagGoose_LeucisticVariation1Back} alt="Leucistic 1 - Back" className="w-[146px] h-[165px] object-cover border-4 border-[#1f3a52] mb-2" />
+                <span className="text-[0.9em]">Leucistic 1 - Back</span>
               </div>
-              <div style={{width:'146px', textAlign:'center'}}>
-                <img src={GreylagGoose_LeucisticVariation2Back} alt="Leucistic 2 - Back" />
-                <span className="wiki-gallery-label">Leucistic 2 - Back</span>
+              <div className="w-[146px] text-center">
+                <img src={GreylagGoose_LeucisticVariation2Back} alt="Leucistic 2 - Back" className="w-[146px] h-[165px] object-cover border-4 border-[#1f3a52] mb-2" />
+                <span className="text-[0.9em]">Leucistic 2 - Back</span>
               </div>
-              <div style={{width:'146px', textAlign:'center'}}>
-                <img src={GreylagGoose_LeucisticVariation3Back} alt="Leucistic 3 - Back" />
-                <span className="wiki-gallery-label">Leucistic 3 - Back</span>
+              <div className="w-[146px] text-center">
+                <img src={GreylagGoose_LeucisticVariation3Back} alt="Leucistic 3 - Back" className="w-[146px] h-[165px] object-cover border-4 border-[#1f3a52] mb-2" />
+                <span className="text-[0.9em]">Leucistic 3 - Back</span>
               </div>
-              <div style={{width:'146px', textAlign:'center'}}>
-                <img src={GreylagGoose_LeucisticVariation4Back} alt="Leucistic 4 - Back" />
-                <span className="wiki-gallery-label">Leucistic 4 - Back</span>
+              <div className="w-[146px] text-center">
+                <img src={GreylagGoose_LeucisticVariation4Back} alt="Leucistic 4 - Back" className="w-[146px] h-[165px] object-cover border-4 border-[#1f3a52] mb-2" />
+                <span className="text-[0.9em]">Leucistic 4 - Back</span>
               </div>
-              <div style={{width:'146px', textAlign:'center'}}>
-                <img src={GreylagGoose_LeucisticVariation5Back} alt="Leucistic 5 - Back" />
-                <span className="wiki-gallery-label">Leucistic 5 - Back</span>
+              <div className="w-[146px] text-center">
+                <img src={GreylagGoose_LeucisticVariation5Back} alt="Leucistic 5 - Back" className="w-[146px] h-[165px] object-cover border-4 border-[#1f3a52] mb-2" />
+                <span className="text-[0.9em]">Leucistic 5 - Back</span>
               </div>
             </div>
 
@@ -432,7 +425,7 @@ const GreylagGoose = () => {
 
             {/* TRIVIA */}
             <h2 id="trivia" className="wiki-h2">Trivia</h2>
-            <ul style={{paddingLeft: '20px', marginBottom: '30px'}}>
+            <ul className="pl-5 mb-8">
                 <li className="wiki-li">The origins of the name <em>Greylag</em> is mysterious. Most people believe that the <em>lag</em> part in <em>Greylag</em> comes simply from the fact that Greylag Goose "lag" behind other goose species when it comes to starting their migration.[2]</li>
                 <li className="wiki-li">The Greylag goose is the largest member of the genus <em>Anser</em>, making it the largest native goose species in Europe. It is only surpassed by the recently introduced <span className="wiki-link">Canada Goose</span>.[3]</li>
                 <li>Geese were often associated with fertility and "good times". Not only were they associated with many fertility goddesses, but even their fat was considered a strong aphrodisiac in ancient times.[4][5]</li>
@@ -440,7 +433,7 @@ const GreylagGoose = () => {
 
             {/* REFERENCES */}
             <h2 id="references" className="wiki-h2">References</h2>
-            <ol style={{paddingLeft: '25px', color: '#6fb2e6'}}>
+            <ol className="pl-6 text-[#6fb2e6]">
                 <li><span className="wiki-link">Greylag Goose Need Zones, Sundarpatan</span></li>
                 <li><span className="wiki-link">https://www.dictionary.com/browse/greylag</span></li>
                 <li><span className="wiki-link">https://en.wikipedia.org/wiki/Greylag_goose</span></li>

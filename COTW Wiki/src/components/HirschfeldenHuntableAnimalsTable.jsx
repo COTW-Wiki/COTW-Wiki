@@ -31,7 +31,12 @@ const HirschfeldenHuntableAnimalsTable = () => {
     }
   };
 
-  return <ReserveAnimalsTable reserveData={data} />;
+  return (
+    <>
+      <div className="wiki-sidebar-header">{data.name}</div>
+      <ReserveAnimalsTable reserveData={data} showHeader={false} />
+    </>
+  );
 };
 
 export default HirschfeldenHuntableAnimalsTable;

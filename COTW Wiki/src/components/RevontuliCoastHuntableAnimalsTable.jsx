@@ -1,25 +1,25 @@
 import React from 'react';
-import ReserveAnimalsTable from '../../components/ReserveAnimalsTable';
+import ReserveAnimalsTable from '../components/ReserveAnimalsTable';
 
-import eurasianTealIcon from '../../assets/EurasianTealIcon.webp';
-import eurasianWigeonIcon from '../../assets/EurasianWigeonIcon.webp';
-import goldeneyeIcon from '../../assets/GoldeneyeIcon.webp';
-import mallardIcon from '../../assets/MallardIcon.webp';
-import tuftedDuckIcon from '../../assets/TuftedDuckIcon.webp';
-import canadaGooseIcon from '../../assets/CanadaGooseIcon.webp';
-import tundraBeanGooseIcon from '../../assets/TundraBeanGooseIcon.webp';
-import greylagGooseIcon from '../../assets/GreylagGooseIcon.webp';
-import blackGrouseIcon from '../../assets/BlackGrouseIcon.webp';
-import hazelGrouseIcon from '../../assets/HazelGrouseIcon.webp';
-import westernCapercaillieIcon from '../../assets/WesternCapercaillieIcon.webp';
-import rockPtarmiganIcon from '../../assets/RockPtarmiganIcon.webp';
-import willowPtarmiganIcon from '../../assets/WillowPtarmiganIcon.webp';
-import mountainHareIcon from '../../assets/MountainHareIcon.webp';
-import raccoonDogIcon from '../../assets/RaccoonDogIcon.webp';
-import eurasianLynxIcon from '../../assets/EurasianLynxIcon.webp';
-import whitetailDeerIcon from '../../assets/WhitetailDeerIcon.webp';
-import eurasianBrownBearIcon from '../../assets/EurasianBrownBearIcon.webp';
-import mooseIcon from '../../assets/MooseIcon.webp';
+import eurasianTealIcon from '../assets/EurasianTealIcon.webp';
+import eurasianWigeonIcon from '../assets/EurasianWigeonIcon.webp';
+import goldeneyeIcon from '../assets/GoldeneyeIcon.webp';
+import mallardIcon from '../assets/MallardIcon.webp';
+import tuftedDuckIcon from '../assets/TuftedDuckIcon.webp';
+import canadaGooseIcon from '../assets/CanadaGooseIcon.webp';
+import tundraBeanGooseIcon from '../assets/TundraBeanGooseIcon.webp';
+import greylagGooseIcon from '../assets/GreylagGooseIcon.webp';
+import blackGrouseIcon from '../assets/BlackGrouseIcon.webp';
+import hazelGrouseIcon from '../assets/HazelGrouseIcon.webp';
+import westernCapercaillieIcon from '../assets/WesternCapercaillieIcon.webp';
+import rockPtarmiganIcon from '../assets/RockPtarmiganIcon.webp';
+import willowPtarmiganIcon from '../assets/WillowPtarmiganIcon.webp';
+import mountainHareIcon from '../assets/MountainHareIcon.webp';
+import raccoonDogIcon from '../assets/RaccoonDogIcon.webp';
+import eurasianLynxIcon from '../assets/EurasianLynxIcon.webp';
+import whitetailDeerIcon from '../assets/WhitetailDeerIcon.webp';
+import eurasianBrownBearIcon from '../assets/EurasianBrownBearIcon.webp';
+import mooseIcon from '../assets/MooseIcon.webp';
 
 const RevontuliCoastHuntableAnimalsTable = () => {
   const data = {
@@ -52,7 +52,12 @@ const RevontuliCoastHuntableAnimalsTable = () => {
     }
   };
 
-  return <ReserveAnimalsTable reserveData={data} />;
+  return (
+    <>
+      <div className="wiki-sidebar-header">{data.name}</div>
+      <ReserveAnimalsTable reserveData={data} showHeader={false} />
+    </>
+  );
 };
 
 export default RevontuliCoastHuntableAnimalsTable;

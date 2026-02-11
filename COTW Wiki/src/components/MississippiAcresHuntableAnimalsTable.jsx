@@ -1,16 +1,16 @@
 import React from 'react';
-import ReserveAnimalsTable from '../../components/ReserveAnimalsTable';
+import ReserveAnimalsTable from '../components/ReserveAnimalsTable';
 
-import bobwhiteQuailIcon from '../../assets/BobwhiteQuailIcon.webp';
-import easternWildTurkeyIcon from '../../assets/EasternWildTurkeyIcon.webp';
-import greenWingTealIcon from '../../assets/GreenWingTealIcon.webp';
-import easternCottontailIcon from '../../assets/EasternCottontailRabbitIcon.webp';
-import grayFoxIcon from '../../assets/GrayFoxIcon.webp';
-import commonRaccoonIcon from '../../assets/CommonRaccoonIcon.webp';
-import whitetailDeerIcon from '../../assets/WhitetailDeerIcon.webp';
-import wildHogIcon from '../../assets/WildHogIcon.webp';
-import blackBearIcon from '../../assets/BlackBearIcon.webp';
-import americanAlligatorIcon from '../../assets/AmericanAlligatorIcon.webp';
+import bobwhiteQuailIcon from '../assets/BobwhiteQuailIcon.webp';
+import easternWildTurkeyIcon from '../assets/EasternWildTurkeyIcon.webp';
+import greenWingTealIcon from '../assets/GreenWingTealIcon.webp';
+import easternCottontailIcon from '../assets/EasternCottontailRabbitIcon.webp';
+import grayFoxIcon from '../assets/GrayFoxIcon.webp';
+import commonRaccoonIcon from '../assets/CommonRaccoonIcon.webp';
+import whitetailDeerIcon from '../assets/WhitetailDeerIcon.webp';
+import wildHogIcon from '../assets/WildHogIcon.webp';
+import blackBearIcon from '../assets/BlackBearIcon.webp';
+import americanAlligatorIcon from '../assets/AmericanAlligatorIcon.webp';
 
 const MississippiAcresHuntableAnimalsTable = () => {
   const data = {
@@ -33,7 +33,12 @@ const MississippiAcresHuntableAnimalsTable = () => {
     }
   };
 
-  return <ReserveAnimalsTable reserveData={data} />;
+  return (
+    <>
+      <div className="wiki-sidebar-header">{data.name}</div>
+      <ReserveAnimalsTable reserveData={data} showHeader={false} />
+    </>
+  );
 };
 
 export default MississippiAcresHuntableAnimalsTable;

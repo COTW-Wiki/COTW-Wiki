@@ -124,7 +124,7 @@ const RoeDeer = () => {
             
             <div className="wiki-sidebar-section">
               <span className="wiki-sidebar-label">Class</span>
-              <span><img src={class3Icon} alt="Class 3" className="wiki-class-icon-lg"/>3</span>
+              <span><img src={class3Icon} alt="Class 3" className="inline-block wiki-class-icon-sm align-middle mr-1.5" />3</span>
             </div>
 
             <div className="wiki-sidebar-section">
@@ -254,7 +254,7 @@ const RoeDeer = () => {
              <h2 className="wiki-h2">Shot scheme</h2>
             <div className="wiki-shot-container">
                 <div className="wiki-shot-container">
-                   <img src={ShotSchemeImage} alt="Shot Scheme" className="wiki-shot-scheme-img" />
+                   <img src={ShotSchemeImage} alt="Shot Scheme" className="wiki-shot-scheme-img-sm" />
                 </div>
                 <div className="wiki-shot-wrap">
                    <div className="wiki-shot-title">Color code</div>

@@ -1,21 +1,21 @@
 import React from 'react';
-import ReserveAnimalsTable from '../../components/ReserveAnimalsTable';
+import ReserveAnimalsTable from '../components/ReserveAnimalsTable';
 
-import ringNeckedPheasantIcon from '../../assets/Ring-NeckedPheasantIcon.webp';
-import bobwhiteQuailIcon from '../../assets/BobwhiteQuailIcon.webp';
-import easternWildTurkeyIcon from '../../assets/EasternWildTurkeyIcon.webp';
-import goldeneyeIcon from '../../assets/GoldeneyeIcon.webp';
-import mallardIcon from '../../assets/MallardIcon.webp';
-import greenWingTealIcon from '../../assets/GreenWingTealIcon.webp';
-import easternCottontailIcon from '../../assets/EasternCottontailRabbitIcon.webp';
-import redFoxIcon from '../../assets/RedFoxIcon.webp';
-import grayFoxIcon from '../../assets/GrayFoxIcon.webp';
-import coyoteIcon from '../../assets/CoyoteIcon.webp';
-import commonRaccoonIcon from '../../assets/CommonRaccoonIcon.webp';
-import bobcatIcon from '../../assets/BobcatIcon.webp';
-import whitetailDeerIcon from '../../assets/WhitetailDeerIcon.webp';
-import blackBearIcon from '../../assets/BlackBearIcon.webp';
-import mooseIcon from '../../assets/MooseIcon.webp';
+import ringNeckedPheasantIcon from '../assets/Ring-NeckedPheasantIcon.webp';
+import bobwhiteQuailIcon from '../assets/BobwhiteQuailIcon.webp';
+import easternWildTurkeyIcon from '../assets/EasternWildTurkeyIcon.webp';
+import goldeneyeIcon from '../assets/GoldeneyeIcon.webp';
+import mallardIcon from '../assets/MallardIcon.webp';
+import greenWingTealIcon from '../assets/GreenWingTealIcon.webp';
+import easternCottontailIcon from '../assets/EasternCottontailRabbitIcon.webp';
+import redFoxIcon from '../assets/RedFoxIcon.webp';
+import grayFoxIcon from '../assets/GrayFoxIcon.webp';
+import coyoteIcon from '../assets/CoyoteIcon.webp';
+import commonRaccoonIcon from '../assets/CommonRaccoonIcon.webp';
+import bobcatIcon from '../assets/BobcatIcon.webp';
+import whitetailDeerIcon from '../assets/WhitetailDeerIcon.webp';
+import blackBearIcon from '../assets/BlackBearIcon.webp';
+import mooseIcon from '../assets/MooseIcon.webp';
 
 const NewEnglandMountainsHuntableAnimalsTable = () => {
   const data = {
@@ -47,7 +47,12 @@ const NewEnglandMountainsHuntableAnimalsTable = () => {
     }
   };
 
-  return <ReserveAnimalsTable reserveData={data} />;
+  return (
+    <>
+      <div className="wiki-sidebar-header">{data.name}</div>
+      <ReserveAnimalsTable reserveData={data} showHeader={false} />
+    </>
+  );
 };
 
 export default NewEnglandMountainsHuntableAnimalsTable;

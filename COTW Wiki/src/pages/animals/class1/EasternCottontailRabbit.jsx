@@ -73,6 +73,13 @@ const EasternCottontailRabbit = () => {
     { name: "Melanistic - Right Side", src: EasternCottontailRabbit_MelanisticRight },
   ];
 
+  // --- SCROLL HELPER ---
+  const scrollToId = (id) => (e) => {
+    e.preventDefault();
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
   return (
     <div className="wiki-page">
       <div className="wiki-inner">
@@ -97,7 +104,7 @@ const EasternCottontailRabbit = () => {
             
             <div className="wiki-sidebar-section">
               <span className="wiki-sidebar-label">Class</span>
-              <span><img src={class1Icon} alt="Class 1" className="wiki-class-icon"/>1</span>
+              <span><img src={class1Icon} alt="Class 1" className="inline-block wiki-class-icon-sm align-middle mr-1.5"/>1</span>
             </div>
 
             <div className="wiki-sidebar-section">
@@ -222,8 +229,8 @@ const EasternCottontailRabbit = () => {
             <div className="wiki-gallery-grid">
               {furGallery.map((item, i) => (
                 <div key={i} className="wiki-gallery-item">
-                  <div className="wiki-gallery-placeholder">
-                    <img src={item.src} alt={item.name} />
+                  <div className="wiki-gallery-placeholder w-[146px] h-[165px] bg-[#2a4b63] flex items-center justify-center p-2.5">
+                    <img src={item.src} alt={item.name} className="max-w-full max-h-full object-contain rounded-sm" />
                   </div>
                   <span className="wiki-gallery-label">{item.name}</span>
                 </div>

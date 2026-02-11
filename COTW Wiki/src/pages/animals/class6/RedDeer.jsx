@@ -154,7 +154,7 @@ const RedDeer = () => {
           <aside className="wiki-sidebar">
             <div className="wiki-sidebar-header">Red Deer</div>
             <div className="wiki-sidebar-image">
-              <img src={RedDeerMain} alt="Red Deer" />
+              <img src={RedDeerMain} alt="Red Deer" className="max-w-full max-h-[190px] object-contain" />
             </div>
             
             <div className="wiki-sidebar-header">General Information</div>
@@ -162,7 +162,7 @@ const RedDeer = () => {
             <div className="wiki-sidebar-section">
               <span className="wiki-sidebar-label">Class</span>
               {/* */}
-              <span><img src={class6Icon} alt="Class 6" className="wiki-class-icon-lg"/>6</span>
+              <span><img src={class6Icon} alt="Class 6" className="inline-block wiki-class-icon-sm align-middle mr-1.5"/>6</span>
             </div>
 
             <div className="wiki-sidebar-section">
@@ -193,7 +193,7 @@ const RedDeer = () => {
             </div>
 
             <div className="wiki-sidebar-section">
-               <span style={{...styles.sidebarLabel, color: '#2ecc71'}}>Great One</span>
+              <span className="wiki-sidebar-label wiki-great-one" style={{color: '#2ecc71'}}>Great One</span>
             </div>
 
             <div className="wiki-sidebar-section">
@@ -313,7 +313,7 @@ const RedDeer = () => {
             <h2 className="wiki-h2" id="shot-scheme">Shot scheme</h2>
             <div className="wiki-shot-container">
                <div className="wiki-shot-container">
-                 <img src={ShotSchemeImg} alt="Shot Scheme" className="wiki-shot-scheme-img" />
+                 <img src={ShotSchemeImg} alt="Shot Scheme" className="wiki-shot-scheme-img-sm" />
                </div>
                <div className="wiki-shot-wrap">
                  <div className="wiki-shot-title">Color code</div>

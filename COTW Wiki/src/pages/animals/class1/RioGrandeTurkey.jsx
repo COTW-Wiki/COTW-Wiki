@@ -200,8 +200,8 @@ const RioGrandeTurkey = () => {
                 <li>
                   <a href="#plumage-variants" onClick={scrollToId('plumage-variants')} className="wiki-link">Plumage Variants</a>
                   <ul >
-                      <li style={{color:'#6fb2e6'}}><a href="#plumage-male" onClick={scrollToId('plumage-male')} className="wiki-link">3.1. Male</a></li>
-                      <li style={{color:'#6fb2e6'}}><a href="#plumage-female" onClick={scrollToId('plumage-female')} className="wiki-link">3.2. Female</a></li>
+                      <li className="text-[#6fb2e6]"><a href="#plumage-male" onClick={scrollToId('plumage-male')} className="wiki-link">3.1. Male</a></li>
+                      <li className="text-[#6fb2e6]"><a href="#plumage-female" onClick={scrollToId('plumage-female')} className="wiki-link">3.2. Female</a></li>
                   </ul>
                 </li>
                 <li><a href="#plumage-rarity" onClick={scrollToId('plumage-rarity')} className="wiki-link">Plumage Variant Rarity</a></li>
@@ -233,36 +233,36 @@ const RioGrandeTurkey = () => {
             {/* NEED ZONE TIMES */}
             {/* Source: Екранна снимка 2026-01-16 121137.png */}
             <h2 id="need-zones" className="wiki-h2">Need Zones (Times)</h2>
-            <div style={{display:'flex', gap:'5px', flexWrap: 'wrap'}}>
-                {needZonesData.map((zoneData, idx) => (
-                  <div key={idx} style={{flex: '0 1 300px'}}>
-                    <table style={{...styles.table, marginBottom: 0}}>
-                        <thead>
-                            <tr>
-                                <th style={{...styles.th, backgroundColor: '#0f2e48', textAlign: 'center'}}>Times</th>
-                                <th style={{...styles.th, backgroundColor: '#0f2e48', textAlign: 'center'}}>Activity</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {zoneData.schedule.map((zone, i) => (
-                            <tr key={i}>
-                                <td style={{...styles.td, textAlign: 'center'}}>{zone.time}</td>
-                                <td style={{...styles.td, display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                                    <img src={zone.icon} alt={zone.type} className="wiki-class-icon"/> {zone.type}
-                                </td>
-                            </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                  </div>
-                ))}
+            <div className="flex gap-1.5 flex-wrap">
+              {needZonesData.map((zoneData, idx) => (
+                <div key={idx} className="flex-none w-[300px]">
+                <table className="wiki-table mb-0">
+                  <thead>
+                    <tr>
+                      <th className="wiki-th wiki-th-alt wiki-th-center">Times</th>
+                      <th className="wiki-th wiki-th-alt wiki-th-center">Activity</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {zoneData.schedule.map((zone, i) => (
+                    <tr key={i}>
+                      <td className="wiki-td text-center">{zone.time}</td>
+                      <td className="wiki-td flex items-center justify-center">
+                        <img src={zone.icon} alt={zone.type} className="wiki-class-icon"/> {zone.type}
+                      </td>
+                    </tr>
+                    ))}
+                  </tbody>
+                </table>
+                </div>
+              ))}
             </div>
 
             {/* PLUMAGE VARIANTS (Gallery) */}
             <h2 id="plumage-variants" className="wiki-h2">Plumage Variants</h2>
             
             {/* Male Section */}
-            <h3 id="plumage-male" style={{...styles.h2, fontSize:'1.2rem', borderBottom:'none', marginTop:'10px'}}>Male</h3>
+            <h3 id="plumage-male" className="wiki-h3 mt-2.5 text-[1.2rem] border-b-0">Male</h3>
             <div className="wiki-gallery-grid">
               {plumageGallery.male.map((item, i) => (
                 <div key={i} className="wiki-gallery-item">
@@ -275,7 +275,7 @@ const RioGrandeTurkey = () => {
             </div>
 
             {/* Female Section */}
-            <h3 id="plumage-female" style={{...styles.h2, fontSize:'1.2rem', borderBottom:'none', marginTop:'10px'}}>Female</h3>
+            <h3 id="plumage-female" className="wiki-h3 mt-2.5 text-[1.2rem] border-b-0">Female</h3>
             <div className="wiki-gallery-grid">
               {plumageGallery.female.map((item, i) => (
                 <div key={i} className="wiki-gallery-item">

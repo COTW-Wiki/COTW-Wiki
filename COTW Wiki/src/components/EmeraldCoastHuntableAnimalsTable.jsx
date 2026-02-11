@@ -1,20 +1,20 @@
 import React from 'react';
-import ReserveAnimalsTable from '../../components/ReserveAnimalsTable';
+import ReserveAnimalsTable from '../components/ReserveAnimalsTable';
 
-import magpieGooseIcon from '../../assets/MagpieGoose_frame.webp';
-import stubbleQuailIcon from '../../assets/StubbleQuail_frame.webp';
-import redFoxIcon from '../../assets/RedFoxIcon.webp';
-import hogDeerIcon from '../../assets/HogDeer_frame.webp';
-import axisDeerIcon from '../../assets/AxisDeerIcon.webp';
-import feralGoatIcon from '../../assets/FeralGoatIcon.webp';
-import easternGrayKangarooIcon from '../../assets/Kangaroo_frame.webp';
-import fallowDeerIcon from '../../assets/FallowDeerIcon.webp';
-import feralPigIcon from '../../assets/FeralPigIcon.webp';
-import javanRusaIcon from '../../assets/JavanRusa_frame.webp';
-import redDeerIcon from '../../assets/RedDeerIcon.webp';
-import sambarIcon from '../../assets/Sambar_frame.webp';
-import saltwaterCrocodileIcon from '../../assets/Crocodile_frame.webp';
-import bantengIcon from '../../assets/Banteng_frame.webp';
+import magpieGooseIcon from '../assets/MagpieGoose_frame.webp';
+import stubbleQuailIcon from '../assets/StubbleQuail_frame.webp';
+import redFoxIcon from '../assets/RedFoxIcon.webp';
+import hogDeerIcon from '../assets/HogDeer_frame.webp';
+import axisDeerIcon from '../assets/AxisDeerIcon.webp';
+import feralGoatIcon from '../assets/FeralGoatIcon.webp';
+import easternGrayKangarooIcon from '../assets/Kangaroo_frame.webp';
+import fallowDeerIcon from '../assets/FallowDeerIcon.webp';
+import feralPigIcon from '../assets/FeralPigIcon.webp';
+import javanRusaIcon from '../assets/JavanRusa_frame.webp';
+import redDeerIcon from '../assets/RedDeerIcon.webp';
+import sambarIcon from '../assets/Sambar_frame.webp';
+import saltwaterCrocodileIcon from '../assets/Crocodile_frame.webp';
+import bantengIcon from '../assets/Banteng_frame.webp';
 
 const EmeraldCoastHuntableAnimalsTable = () => {
   const data = {
@@ -33,7 +33,12 @@ const EmeraldCoastHuntableAnimalsTable = () => {
     }
   };
 
-  return <ReserveAnimalsTable reserveData={data} />;
+  return (
+    <>
+      <div className="wiki-sidebar-header">{data.name}</div>
+      <ReserveAnimalsTable reserveData={data} showHeader={false} />
+    </>
+  );
 };
 
 export default EmeraldCoastHuntableAnimalsTable;

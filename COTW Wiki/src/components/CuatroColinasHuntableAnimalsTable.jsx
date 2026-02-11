@@ -1,17 +1,17 @@
 import React from 'react';
-import ReserveAnimalsTable from '../../components/ReserveAnimalsTable';
+import ReserveAnimalsTable from '../components/ReserveAnimalsTable';
 
-import europeanHareIcon from '../../assets/EuropeanHareIcon.webp';
-import ringNeckedPheasantIcon from '../../assets/Ring-NeckedPheasantIcon.webp';
-import roeDeerIcon from '../../assets/RoeDeerIcon.webp';
-import rondaIbexIcon from '../../assets/RondaIbexIcon.webp';
-import beceiteIbexIcon from '../../assets/BeceiteIbexIcon.webp';
-import gredosIbexIcon from '../../assets/GredosIbexIcon.webp';
-import southeasternSpanishIbexIcon from '../../assets/SoutheasternSpanishIbexIcon.webp';
-import iberianMouflonIcon from '../../assets/IberianMouflonIcon.webp';
-import wildBoarIcon from '../../assets/WildBoarIcon.webp';
-import redDeerIcon from '../../assets/RedDeerIcon.webp';
-import iberianWolfIcon from '../../assets/IberianWolfIcon.webp';
+import europeanHareIcon from '../assets/EuropeanHareIcon.webp';
+import ringNeckedPheasantIcon from '../assets/Ring-NeckedPheasantIcon.webp';
+import roeDeerIcon from '../assets/RoeDeerIcon.webp';
+import rondaIbexIcon from '../assets/RondaIbexIcon.webp';
+import beceiteIbexIcon from '../assets/BeceiteIbexIcon.webp';
+import gredosIbexIcon from '../assets/GredosIbexIcon.webp';
+import southeasternSpanishIbexIcon from '../assets/SoutheasternSpanishIbexIcon.webp';
+import iberianMouflonIcon from '../assets/IberianMouflonIcon.webp';
+import wildBoarIcon from '../assets/WildBoarIcon.webp';
+import redDeerIcon from '../assets/RedDeerIcon.webp';
+import iberianWolfIcon from '../assets/IberianWolfIcon.webp';
 
 const CuatroColinasHuntableAnimalsTable = () => {
   const data = {
@@ -34,7 +34,12 @@ const CuatroColinasHuntableAnimalsTable = () => {
     }
   };
 
-  return <ReserveAnimalsTable reserveData={data} />;
+  return (
+    <>
+      <div className="wiki-sidebar-header">{data.name}</div>
+      <ReserveAnimalsTable reserveData={data} showHeader={false} />
+    </>
+  );
 };
 
 export default CuatroColinasHuntableAnimalsTable;

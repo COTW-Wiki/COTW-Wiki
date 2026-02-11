@@ -71,15 +71,17 @@ const CanadaGoosePage = () => {
         {/* --- RIGHT SIDEBAR (INFOBOX) --- */}
         <div className="wiki-sidebar">
           <div className="wiki-sidebar-header">Canada Goose</div>
-          <div className="wiki-sidebar-image">
-            <img src={CanadaGoose} alt="Canada Goose" style={{width: '268.4px', height: '134.2px', objectFit: 'cover', borderRadius: '4px'}} />
+          <div className="wiki-sidebar-image wiki-sidebar-image--contain">
+            <div className="w-full h-[280px]">
+              <img src={CanadaGoose} alt="Canada Goose" className="w-full h-full object-contain rounded" />
+            </div>
           </div>
           
           <div className="wiki-sidebar-header">General Information</div>
           
           <div className="wiki-sidebar-section">
             <span className="wiki-sidebar-label">Class</span>
-            <span><img src={class1Icon} alt="Class 1" style={{width: '15px', height: '15px', verticalAlign: 'middle', marginRight: '6px'}} />1</span>
+            <span><img src={class1Icon} alt="Class 1" className="inline-block wiki-class-icon-sm align-middle mr-1.5" />1</span>
           </div>
 
           <div className="wiki-sidebar-section">
@@ -91,18 +93,18 @@ const CanadaGoosePage = () => {
             <span className="wiki-sidebar-label">Trophy Type</span>
             <span>Weight</span>
             <div className="wiki-trophy-grid">
-              <div className="wiki-trophy-item">
-                 <span style={{...styles.trophyLabel, color: '#bdc3c7'}}>◆ Silver</span>
-                 <span className="wiki-trophy-val">4.40</span>
-              </div>
-              <div className="wiki-trophy-item">
-                 <span style={{...styles.trophyLabel, color: '#f1c40f'}}>☗ Gold</span>
-                 <span className="wiki-trophy-val">6.80</span>
-              </div>
-              <div className="wiki-trophy-item">
-                 <span style={{...styles.trophyLabel, color: '#3498db'}}>☗ Diamond</span>
-                 <span className="wiki-trophy-val">8.59</span>
-              </div>
+                <div className="wiki-trophy-item text-center">
+                  <span className="block text-sm font-semibold text-[#bdc3c7]">◆ Silver</span>
+                  <span className="block wiki-trophy-val">4.40</span>
+                </div>
+                <div className="wiki-trophy-item text-center">
+                  <span className="block text-sm font-semibold text-[#f1c40f]">☗ Gold</span>
+                  <span className="block wiki-trophy-val">6.80</span>
+                </div>
+                <div className="wiki-trophy-item text-center">
+                  <span className="block text-sm font-semibold text-[#3498db]">☗ Diamond</span>
+                  <span className="block wiki-trophy-val">8.59</span>
+                </div>
             </div>
           </div>
 
@@ -156,39 +158,29 @@ const CanadaGoosePage = () => {
               ];
 
               const LocalTOC = ({ items }) => {
-                const stylesTOC = {
-                  container: { backgroundColor: '#0b1e3b', border: '1px solid #3a5a75', borderRadius: '4px', color: '#fff', width: '280px', fontFamily: '"Segoe UI", Roboto, Helvetica, Arial, sans-serif', fontSize: '14px', marginTop: '20px', boxShadow: '0 4px 6px rgba(0,0,0,0.3)' },
-                  header: { padding: '8px 12px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid #3a5a75' },
-                  title: { fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '8px', color: '#fff' },
-                  list: { margin: 0, padding: '10px 15px 10px 20px', listStyleType: 'none' },
-                  listItem: { marginBottom: '6px', cursor: 'pointer', display: 'block' },
-                  number: { color: '#fff', marginRight: '8px', fontWeight: '700' },
-                  linkText: { color: '#6fb2e6' }
-                };
-
                 const scrollTo = (id) => {
                   const el = document.getElementById(id);
                   if (el) el.scrollIntoView({ behavior: 'smooth' });
                 };
 
                 return (
-                  <div style={stylesTOC.container}>
-                    <div style={stylesTOC.header}><div style={stylesTOC.title}>Contents</div></div>
-                    <ol style={stylesTOC.list}>
+                  <div className="bg-[#0b1e3b] border border-[#3a5a75] rounded text-white w-[280px] font-sans text-sm mt-5 shadow-md">
+                    <div className="px-3 py-2 border-b border-[#3a5a75] font-bold">Contents</div>
+                    <ol className="m-0 p-3 list-none">
                       {items.map((it, idx) => (
-                        <li key={it.id} style={stylesTOC.listItem}>
-                          <div onClick={() => scrollTo(it.id)} className="wiki-flex-center">
-                            <span style={stylesTOC.number}>{`${idx + 1}.`}</span>
-                            <span style={stylesTOC.linkText}>{it.label}</span>
+                        <li key={it.id} className="mb-2">
+                          <div onClick={() => scrollTo(it.id)} className="flex items-center cursor-pointer">
+                            <span className="font-bold text-white mr-2">{`${idx + 1}.`}</span>
+                            <span className="text-[#6fb2e6]">{it.label}</span>
                           </div>
 
                           {it.children && (
-                            <ol style={{ listStyleType: 'none', marginTop: '6px', marginLeft: '22px', paddingLeft: 0 }}>
+                            <ol className="list-none mt-2 ml-5 p-0">
                               {it.children.map((c, cidx) => (
-                                <li key={c.id} className="wiki-mb-4">
-                                  <div onClick={() => scrollTo(c.id)} className="wiki-flex-center">
-                                    <span style={stylesTOC.number}>{`${idx + 1}.${cidx + 1}`}</span>
-                                    <span style={stylesTOC.linkText}>{c.label}</span>
+                                <li key={c.id} className="mb-1">
+                                  <div onClick={() => scrollTo(c.id)} className="flex items-center cursor-pointer">
+                                    <span className="font-bold text-white mr-2">{`${idx + 1}.${cidx + 1}`}</span>
+                                    <span className="text-[#6fb2e6]">{c.label}</span>
                                   </div>
                                 </li>
                               ))}
@@ -231,7 +223,7 @@ const CanadaGoosePage = () => {
 
           {/* Need Zones Table */}
           <h2 id="need-zones" className="wiki-h2">Need Zone Times</h2>
-          <table style={{...styles.table, width: '400px'}}>
+          <table className="wiki-table w-[400px]">
              <thead>
                <tr><th colSpan="2" className="wiki-th wiki-th-center">Hirschfelden [1]</th></tr>
                <tr>
@@ -250,7 +242,7 @@ const CanadaGoosePage = () => {
                ))}
              </tbody>
           </table>
-          <p style={{fontSize:'0.8em', marginTop:'5px'}}>* Times are subject to change based on need zone discoveries.</p>
+          <p className="text-[0.8em] mt-1">* Times are subject to change based on need zone discoveries.</p>
 
           {/* Shot Scheme */}
           <h2 id="shot-scheme" className="wiki-h2">Shot scheme</h2>
@@ -258,7 +250,7 @@ const CanadaGoosePage = () => {
             <div className="wiki-th">Color code</div>
             <div className="wiki-shot-container">
               <div className="wiki-shot-image">
-                <img src={CanadaGooseXRay} alt="Canada Goose X-Ray" style={{width: '500px', height: '444px', objectFit: 'cover', borderRadius: '4px'}} />
+                <img src={CanadaGooseXRay} alt="Canada Goose X-Ray" className="w-[500px] h-[444px] object-cover rounded" />
               </div>
               <div className="wiki-shot-info">
                 No Color - Every hit will kill the animal
@@ -295,66 +287,66 @@ const CanadaGoosePage = () => {
 
           {/* Plumage Gallery Placeholders */}
            <h2 id="plumage-variants" className="wiki-h2">Plumage Variants</h2>
-           <div style={{display:'flex', flexWrap:'wrap', gap:'10px'}}>
-              <div style={{width:'146px', textAlign:'center'}}>
-                <img src={CanadaGooseGreyBrownFront} alt="Grey Brown" />
-                <span style={{fontSize:'0.9em'}}>Grey Brown</span>
+           <div className="flex flex-wrap gap-2.5">
+              <div className="w-[146px] text-center">
+                <img src={CanadaGooseGreyBrownFront} alt="Grey Brown" className="w-[146px] h-[165px] object-cover border-4 border-[#1f3a52] mb-2" />
+                <span className="text-[0.9em]">Grey Brown</span>
               </div>
-              <div style={{width:'146px', textAlign:'center'}}>
-                <img src={CanadaGooseLightGreyLeucisticFront} alt="Light Grey Leucistic" />
-                <span style={{fontSize:'0.9em'}}>Light Grey Leucistic</span>
+              <div className="w-[146px] text-center">
+                <img src={CanadaGooseLightGreyLeucisticFront} alt="Light Grey Leucistic" className="w-[146px] h-[165px] object-cover border-4 border-[#1f3a52] mb-2" />
+                <span className="text-[0.9em]">Light Grey Leucistic</span>
               </div>
-              <div style={{width:'146px', textAlign:'center'}}>
-                <img src={CanadaGooseMelanisticFront} alt="Melanistic" />
-                <span style={{fontSize:'0.9em'}}>Melanistic</span>
+              <div className="w-[146px] text-center">
+                <img src={CanadaGooseMelanisticFront} alt="Melanistic" className="w-[146px] h-[165px] object-cover border-4 border-[#1f3a52] mb-2" />
+                <span className="text-[0.9em]">Melanistic</span>
               </div>
-              <div style={{width:'146px', textAlign:'center'}}>
-                <img src={CanadaGooseAlbinoFront} alt="Albino" />
-                <span style={{fontSize:'0.9em'}}>Albino</span>
+              <div className="w-[146px] text-center">
+                <img src={CanadaGooseAlbinoFront} alt="Albino" className="w-[146px] h-[165px] object-cover border-4 border-[#1f3a52] mb-2" />
+                <span className="text-[0.9em]">Albino</span>
               </div>
-              <div style={{width:'146px', textAlign:'center'}}>
-                <img src={CanadaGooseBrownHybridFront} alt="Brown Hybrid" />
-                <span style={{fontSize:'0.9em'}}>Brown Hybrid</span>
+              <div className="w-[146px] text-center">
+                <img src={CanadaGooseBrownHybridFront} alt="Brown Hybrid" className="w-[146px] h-[165px] object-cover border-4 border-[#1f3a52] mb-2" />
+                <span className="text-[0.9em]">Brown Hybrid</span>
               </div>
-              <div style={{width:'146px', textAlign:'center'}}>
-                <img src={CanadaGooseGreyFront} alt="Grey" />
-                <span style={{fontSize:'0.9em'}}>Grey</span>
+              <div className="w-[146px] text-center">
+                <img src={CanadaGooseGreyFront} alt="Grey" className="w-[146px] h-[165px] object-cover border-4 border-[#1f3a52] mb-2" />
+                <span className="text-[0.9em]">Grey</span>
               </div>
-              <div style={{width:'146px', textAlign:'center'}}>
-                <img src={CanadaGooseWhiteHybridFront} alt="White Hybrid" />
-                <span style={{fontSize:'0.9em'}}>White Hybrid</span>
+              <div className="w-[146px] text-center">
+                <img src={CanadaGooseWhiteHybridFront} alt="White Hybrid" className="w-[146px] h-[165px] object-cover border-4 border-[#1f3a52] mb-2" />
+                <span className="text-[0.9em]">White Hybrid</span>
               </div>
            </div>
 
            {/* Back-view variants row */}
-           <div style={{display:'flex', flexWrap:'wrap', gap:'10px', marginTop: '8px'}}>
-              <div style={{width:'146px', textAlign:'center'}}>
-                <img src={CanadaGooseGreyBrownBack} alt="Grey Brown (Back)" />
-                <span style={{fontSize:'0.9em'}}>Grey Brown (Back)</span>
+           <div className="flex flex-wrap gap-2.5 mt-2">
+              <div className="w-[146px] text-center">
+                <img src={CanadaGooseGreyBrownBack} alt="Grey Brown (Back)" className="w-[146px] h-[165px] object-cover border-4 border-[#1f3a52] mb-2" />
+                <span className="text-[0.9em]">Grey Brown (Back)</span>
               </div>
-              <div style={{width:'146px', textAlign:'center'}}>
-                <img src={CanadaGooseLightGreyLeucisticBack} alt="Light Grey Leucistic (Back)" />
-                <span style={{fontSize:'0.9em'}}>Light Grey Leucistic (Back)</span>
+              <div className="w-[146px] text-center">
+                <img src={CanadaGooseLightGreyLeucisticBack} alt="Light Grey Leucistic (Back)" className="w-[146px] h-[165px] object-cover border-4 border-[#1f3a52] mb-2" />
+                <span className="text-[0.9em]">Light Grey Leucistic (Back)</span>
               </div>
-              <div style={{width:'146px', textAlign:'center'}}>
-                <img src={CanadaGooseMelanisticBack} alt="Melanistic (Back)" />
-                <span style={{fontSize:'0.9em'}}>Melanistic (Back)</span>
+              <div className="w-[146px] text-center">
+                <img src={CanadaGooseMelanisticBack} alt="Melanistic (Back)" className="w-[146px] h-[165px] object-cover border-4 border-[#1f3a52] mb-2" />
+                <span className="text-[0.9em]">Melanistic (Back)</span>
               </div>
-              <div style={{width:'146px', textAlign:'center'}}>
-                <img src={CanadaGooseAlbinoBack} alt="Albino (Back)" />
-                <span style={{fontSize:'0.9em'}}>Albino (Back)</span>
+              <div className="w-[146px] text-center">
+                <img src={CanadaGooseAlbinoBack} alt="Albino (Back)" className="w-[146px] h-[165px] object-cover border-4 border-[#1f3a52] mb-2" />
+                <span className="text-[0.9em]">Albino (Back)</span>
               </div>
-              <div style={{width:'146px', textAlign:'center'}}>
-                <img src={CanadaGooseBrownHybridBack} alt="Brown Hybrid (Back)" />
-                <span style={{fontSize:'0.9em'}}>Brown Hybrid (Back)</span>
+              <div className="w-[146px] text-center">
+                <img src={CanadaGooseBrownHybridBack} alt="Brown Hybrid (Back)" className="w-[146px] h-[165px] object-cover border-4 border-[#1f3a52] mb-2" />
+                <span className="text-[0.9em]">Brown Hybrid (Back)</span>
               </div>
-              <div style={{width:'146px', textAlign:'center'}}>
-                <img src={CanadaGooseGreyBack} alt="Grey (Back)" />
-                <span style={{fontSize:'0.9em'}}>Grey (Back)</span>
+              <div className="w-[146px] text-center">
+                <img src={CanadaGooseGreyBack} alt="Grey (Back)" className="w-[146px] h-[165px] object-cover border-4 border-[#1f3a52] mb-2" />
+                <span className="text-[0.9em]">Grey (Back)</span>
               </div>
-              <div style={{width:'146px', textAlign:'center'}}>
-                <img src={CanadaGooseWhiteHybridBack} alt="White Hybrid (Back)" />
-                <span style={{fontSize:'0.9em'}}>White Hybrid (Back)</span>
+              <div className="w-[146px] text-center">
+                <img src={CanadaGooseWhiteHybridBack} alt="White Hybrid (Back)" className="w-[146px] h-[165px] object-cover border-4 border-[#1f3a52] mb-2" />
+                <span className="text-[0.9em]">White Hybrid (Back)</span>
               </div>
            </div>
 
@@ -368,7 +360,7 @@ const CanadaGoosePage = () => {
 
            {/* References */}
            <h2 id="references" className="wiki-h2">References</h2>
-           <ol style={{paddingLeft:'20px', color:'#6fb2e6'}}>
+           <ol className="pl-5 text-[#6fb2e6]">
                <li><a href="#" className="wiki-link">Canada Goose Need Zones, Hirschfelden</a></li>
                <li><a href="#" className="wiki-link">audubon.org</a></li>
            </ol>

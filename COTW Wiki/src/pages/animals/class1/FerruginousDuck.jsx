@@ -154,7 +154,7 @@ const FerruginousDuck = () => {
             
             <div className="wiki-sidebar-section">
               <span className="wiki-sidebar-label">Class</span>
-              <span><img src={class1Icon} alt="Class 1" style={{width: '18px', height: '18px', verticalAlign: 'middle', marginRight: '6px'}}/>1</span>
+              <span><img src={class1Icon} alt="Class 1" className="inline-block wiki-class-icon-sm align-middle mr-1.5"/>1</span>
             </div>
 
             <div className="wiki-sidebar-section">
@@ -199,7 +199,7 @@ const FerruginousDuck = () => {
 
             {/* Quote Block */}
             <div className="wiki-quote">
-              "The Ferruginous Duck (Aythya nyroca) is a medium-sized diving duck renowned for its rich chestnut plumage and distinctive white eye during the breeding season. Ferruginous Ducks inhabit a variety of freshwater wetland habitats, including marshes, lakes, ponds, and slow-moving rivers, particularly those with abundant submerged vegetation for nesting and foraging."
+              "The Ferruginous Duck (Aythaya nyroca) is a medium-sized diving duck renowned for its rich chestnut plumage and distinctive white eye during the breeding season. Ferruginous Ducks inhabit a variety of freshwater wetland habitats, including marshes, lakes, ponds, and slow-moving rivers, particularly those with abundant submerged vegetation for nesting and foraging. As diving ducks, Ferruginous Ducks are highly adept at swimming and diving to reach their preferred food sources, which primarily consists of aquatic invertabrates, seeds, and vegetation."
               <br/><br/>
               — In-Game Description
             </div>
@@ -259,7 +259,7 @@ const FerruginousDuck = () => {
                 <div className="wiki-shot-title">Color code</div>
                   <div className="wiki-shot-container">
                     <div className="wiki-shot-image">
-                      <img src={Ferruginous_Duck_shot_scheme} alt="Ferruginous Duck X-ray shot scheme" style={{width:'500px', height: '444px', objectFit: 'contain'}} />
+                      <img src={Ferruginous_Duck_shot_scheme} alt="Ferruginous Duck X-ray shot scheme" className="w-[500px] h-[444px] object-contain" />
                     </div>
                     <div className="wiki-shot-info">
                       No Color - Every hit will kill the animal
@@ -340,7 +340,7 @@ const FerruginousDuck = () => {
 
             {/* REFERENCES */}
             <h2 id="references" className="wiki-h2">References</h2>
-            <ol style={{paddingLeft:'25px', color: '#6fb2e6'}}>
+            <ol className="pl-6 text-[#6fb2e6]">
                 <li><span className="wiki-link">Wikipedia.org</span></li>
                 <li><span className="wiki-link">Hellabrunn.de</span></li>
                 <li><span className="wiki-link">Waterfowl.org</span></li>

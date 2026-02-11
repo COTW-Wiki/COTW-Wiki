@@ -172,41 +172,53 @@ export default function SearchBar() {
     setQuery('');
   };
 
-  return (
-    <div ref={wrapperRef} className="relative w-full max-w-md mx-auto mb-6 z-50">
-      <div className="relative">
-        <input
-          type="text"
-          className="w-full bg-slate-800 text-white border border-slate-600 rounded-full py-2 px-4 pl-10 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
-          placeholder="Search wiki..."
-          value={query}
-          onChange={(e) => {
-            setQuery(e.target.value);
-            setIsOpen(true);
-          }}
-          onFocus={() => setIsOpen(true)}
-        />
-        <div className="absolute left-3 top-2.5 text-slate-400">
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-          </svg>
-        </div>
+return (
+  <div ref={wrapperRef} className="w-full z-50 mb-4"> 
+    {/* Input Section */}
+    <div className="relative">
+      <input
+        type="text"
+        className="w-full bg-white text-black border-2 border-slate-200 rounded-xl py-3 px-4 pl-11 focus:outline-none focus:ring-2 focus:ring-blue-400 shadow-sm transition-all"
+        placeholder="Search wiki..."
+        style={{ fontSize: '1.1rem' }}
+        value={query}
+        onChange={(e) => {
+          setQuery(e.target.value);
+          setIsOpen(true);
+        }}
+        onFocus={() => setIsOpen(true)}
+      />
+      {/* Icon centered on the white bar */}
+      <div className="absolute left-4 top-3.5 text-slate-400">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
       </div>
-
-      {isOpen && results.length > 0 && (
-        <div className="absolute w-full bg-slate-800 border border-slate-600 rounded-lg mt-1 shadow-xl max-h-96 overflow-y-auto">
-          {results.map((item, index) => (
-            <div
-              key={index}
-              className="px-4 py-2 hover:bg-slate-700 cursor-pointer flex justify-between items-center border-b border-slate-700/50 last:border-0"
-              onClick={() => handleSelect(item.path)}
-            >
-              <span className="text-white font-medium text-left">{item.title}</span>
-              <span className="text-xs text-slate-400 bg-slate-900 px-2 py-0.5 rounded ml-2 whitespace-nowrap">{item.category}</span>
-            </div>
-          ))}
-        </div>
-      )}
     </div>
-  );
+
+    {/* Search Results - This will now push the page content down */}
+    {isOpen && results.length > 0 && (
+      <div className="w-full bg-white border-2 border-slate-100 rounded-xl mt-3 shadow-md overflow-hidden">
+        {/* No 'absolute' here makes it push the content below down */}
+        {results.map((item, index) => (
+          <div
+            key={index}
+            className="px-5 py-4 hover:bg-slate-50 cursor-pointer flex justify-between items-center border-b border-slate-50 last:border-0 transition-colors"
+            onClick={() => handleSelect(item.path)}
+          >
+            <div className="flex flex-col text-left">
+              <span className="text-slate-900 font-bold text-lg">{item.title}</span>
+              <span className="text-[10px] text-blue-500 font-black uppercase tracking-widest">{item.category}</span>
+            </div>
+            <div className="text-slate-300">
+               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                 <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
+               </svg>
+            </div>
+          </div>
+        ))}
+      </div>
+    )}
+  </div>
+);
 }

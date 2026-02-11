@@ -115,16 +115,15 @@ const GreenWingedTeal = () => {
           {/* --- RIGHT SIDEBAR (General Information) --- */}
           <aside className="wiki-sidebar">
             <div className="wiki-sidebar-header">Green Winged Teal</div>
-            <div style={{...styles.sidebarImage, padding:'10px'}}>
-              <img src={GreenWingedTealImg} alt="Green Winged Teal" style={{width: '268.4px', height: '134.2px', objectFit: 'cover', borderRadius: '2px'}} />
-              <span style={{position:'absolute', bottom:'5px', right:'5px', fontSize:'0.8rem'}}>📷</span>
+            <div className="h-[180px] bg-[#2a4b63] flex items-center justify-center text-[#8bbce3] italic">
+              <img src={GreenWingedTealImg} alt="Green Winged Teal" className="max-w-full max-h-full object-contain rounded-sm" />
             </div>
             
             <div className="wiki-sidebar-header">General Information</div>
             
             <div className="wiki-sidebar-section">
               <span className="wiki-sidebar-label">Class</span>
-              <span><img src={class1Icon} alt="Class 1" style={{width: '18px', height: '18px', verticalAlign: 'middle', marginRight: '6px'}}/>1</span>
+              <span><img src={class1Icon} alt="Class 1" className="inline-block wiki-class-icon-sm align-middle mr-1.5"/>1</span>
             </div>
 
             <div className="wiki-sidebar-section">
@@ -152,14 +151,14 @@ const GreenWingedTeal = () => {
             </div>
 
             <div className="wiki-sidebar-section">
-               <span className="wiki-sidebar-label">Weight</span>
-               ? — ?<br/>
-               <span style={{fontSize: '0.85em', fontStyle:'italic'}}>(Text mentions ~260g)</span>
+              <span className="wiki-sidebar-label">Weight</span>
+              ? — ?<br/>
+              <span className="text-[0.85em] italic">(Text mentions ~260g)</span>
             </div>
 
             <div className="wiki-sidebar-section">
                <span className="wiki-sidebar-label">Plumage</span>
-               <span style={{fontSize: '0.85rem'}}>
+               <span className="text-[0.85rem]">
                  Albino, Light Green, Piebald
                </span>
             </div>
@@ -189,9 +188,7 @@ const GreenWingedTeal = () => {
 
             {/* Table of Contents (click to smooth-scroll) */}
             <div className="wiki-toc">
-              <div style={{fontWeight: 'bold', borderBottom: '1px solid #3a5a75', marginBottom: '5px'}}>
-                🔢 Contents <span className="wiki-toc-toggle">[hide]</span>
-              </div>
+              <div className="font-bold border-b border-[#3a5a75] mb-1">🔢 Contents <span className="wiki-toc-toggle">[hide]</span></div>
               {/** TOC data and handler */}
               {(() => {
                 const toc = [
@@ -214,21 +211,21 @@ const GreenWingedTeal = () => {
                 };
 
                 return (
-                  <ol style={{margin: '0', paddingLeft: '20px', color: '#6fb2e6', listStyleType: 'none'}}>
+                  <ol className="m-0 pl-5 text-[#6fb2e6] list-none">
                     {toc.map((t, i) => (
-                      <li key={t.id} style={{marginBottom: '6px'}}>
-                        <a href={`#${t.id}`} onClick={(e) => handleTOCClick(e, t.id)} style={{color: '#6fb2e6', textDecoration: 'none'}}>{`${i+1}. ${t.label}`}</a>
-                        {t.subs && t.subs.length > 0 && (
-                          <ol style={{listStyleType: 'none', marginTop: '6px', paddingLeft: '12px'}}>
-                            {t.subs.map((s, j) => (
-                              <li key={s.id}>
-                                <a href={`#${s.id}`} onClick={(e) => handleTOCClick(e, s.id)} style={{color: '#6fb2e6', textDecoration: 'none'}}>{`${i+1}.${j+1} ${s.label}`}</a>
-                              </li>
-                            ))}
-                          </ol>
-                        )}
-                      </li>
-                    ))}
+                        <li key={t.id} className="mb-1.5">
+                          <a href={`#${t.id}`} onClick={(e) => handleTOCClick(e, t.id)} className="text-[#6fb2e6] no-underline">{`${i+1}. ${t.label}`}</a>
+                          {t.subs && t.subs.length > 0 && (
+                            <ol className="list-none mt-1 pl-3">
+                              {t.subs.map((s, j) => (
+                                <li key={s.id}>
+                                  <a href={`#${s.id}`} onClick={(e) => handleTOCClick(e, s.id)} className="text-[#6fb2e6] no-underline">{`${i+1}.${j+1} ${s.label}`}</a>
+                                </li>
+                              ))}
+                            </ol>
+                          )}
+                        </li>
+                      ))}
                   </ol>
                 );
               })()}
@@ -255,8 +252,8 @@ const GreenWingedTeal = () => {
 
             {/* NEED ZONE TIMES */}
             <h2 id="need-zone-times" className="wiki-h2">Need Zone Times</h2>
-            <div style={{display: 'inline-block'}}>
-                <table className="wiki-table wiki-table-fixed">
+            <div>
+              <table className="wiki-table wiki-table-fixed">
                     <thead>
                         <tr>
                             <th className="wiki-th wiki-th-alt">Times</th>
@@ -267,7 +264,7 @@ const GreenWingedTeal = () => {
                         {needZones.map((zone, i) => (
                         <tr key={i}>
                           <td className="wiki-td">{zone.time}</td>
-                          <td className="wiki-td"><img src={zone.icon} alt={zone.type} style={{width: '18px', height: '18px', verticalAlign: 'middle', marginRight: '8px'}}/>{zone.type}</td>
+                          <td className="wiki-td"><img src={zone.icon} alt={zone.type} className="w-[18px] h-[18px] align-middle mr-2"/>{zone.type}</td>
                         </tr>
                         ))}
                     </tbody>
@@ -276,11 +273,11 @@ const GreenWingedTeal = () => {
 
             {/* SHOT SCHEME */}
             <h2 id="shot-scheme" className="wiki-h2">Shot scheme</h2>
-            <div style={{backgroundColor: '#0f2e48', padding: '10px'}}>
+            <div className="bg-[#0f2e48] p-2.5">
                 <div className="wiki-shot-title">Color code</div>
                 <div className="wiki-shot-container">
                     <div className="wiki-shot-image">
-                      <img src={Green_Winged_Teal_shot_scheme} alt="Green Winged Teal shot scheme" style={{width: '500px', height: '444px', objectFit: 'contain'}} />
+                  <img src={Green_Winged_Teal_shot_scheme} alt="Green Winged Teal shot scheme" className="w-[500px] h-[444px] object-contain" />
                     </div>
                     <div className="wiki-shot-info">
                         No Color - Every hit will kill the animal
@@ -301,10 +298,10 @@ const GreenWingedTeal = () => {
             <div className="wiki-gallery-grid">
               {maleImages.map((item, i) => (
                 <div key={i} className="wiki-gallery-item">
-                  <div className="wiki-gallery-placeholder">
-                    <img src={item.src} alt={item.label} style={{width: '146px', height: '165px', objectFit: 'cover', border: '4px solid #1f3a52'}} />
-                    <span style={{position:'absolute', bottom:'5px', right:'5px'}}>📷</span>
-                  </div>
+                      <div className="relative">
+                        <img src={item.src} alt={item.label} className="w-[146px] h-[165px] object-cover border-[4px] border-[#1f3a52]" />
+                        
+                      </div>
                   <span className="wiki-gallery-label">{item.label}</span>
                 </div>
               ))}
@@ -314,9 +311,9 @@ const GreenWingedTeal = () => {
             <div className="wiki-gallery-grid">
               {femaleImages.map((item, i) => (
                 <div key={i} className="wiki-gallery-item">
-                  <div className="wiki-gallery-placeholder">
-                    <img src={item.src} alt={item.label} style={{width: '146px', height: '165px', objectFit: 'cover', border: '4px solid #1f3a52'}} />
-                    <span style={{position:'absolute', bottom:'5px', right:'5px'}}>📷</span>
+                  <div className="relative">
+                    <img src={item.src} alt={item.label} className="w-[146px] h-[165px] object-cover border-[4px] border-[#1f3a52]" />
+                    
                   </div>
                   <span className="wiki-gallery-label">{item.label}</span>
                 </div>
@@ -354,7 +351,7 @@ const GreenWingedTeal = () => {
                     </tr>
                     {/* Female Row */}
                     <tr>
-                        <td style={{...styles.td, color: '#e91e63', fontStyle: 'italic'}}>Female</td>
+                      <td className="wiki-td text-[#e91e63] italic">Female</td>
                         <td className="wiki-td">
                             Light Green (99.73%)
                         </td>
@@ -370,7 +367,7 @@ const GreenWingedTeal = () => {
 
             {/* TRIVIA */}
             <h2 id="trivia" className="wiki-h2">Trivia</h2>
-            <ul style={{paddingLeft: '20px', marginBottom: '30px'}}>
+            <ul className="pl-5 mb-8">
                 <li className="wiki-li">It's scientific name is <em>anas carolinensis</em>, which translates to "Carolina Duck".</li>
                 <li className="wiki-li">A subspecies of the Green Winged Teal, native to the Aleutian Islands of Alaska, are special in that they do not migrate like most other waterfowl.[1]</li>
                 <li className="wiki-li">The Green Winged Teal is the smallest dabbling duck in North America, with a wingspan of less than 2 feet on average.[2]</li>

@@ -101,14 +101,14 @@ const Lion = () => {
           <aside className="wiki-sidebar">
             <div className="wiki-sidebar-header">Lion</div>
             <div className="wiki-sidebar-image">
-              <img src={LionMain} alt="Lion" />
+              <img src={LionMain} alt="Lion" className="max-w-full max-h-[220px] object-contain"/>
             </div>
             
             <div className="wiki-sidebar-header">General Information</div>
             
             <div className="wiki-sidebar-section">
               <span className="wiki-sidebar-label">Class</span>
-              <span><img src={class9Icon} alt="Class 9" className="wiki-class-icon-lg"/>9</span>
+              <span><img src={class9Icon} alt="Class 9" className="inline-block wiki-class-icon-sm align-middle mr-1.5"/>9</span>
             </div>
 
             <div className="wiki-sidebar-section">
@@ -178,10 +178,10 @@ const Lion = () => {
                 <li><a href="#features" onClick={(e)=>scrollToId(e,'features')} className="wiki-link">Features</a></li>
                 <li><a href="#need-zones" onClick={(e)=>scrollToId(e,'need-zones')} className="wiki-link">Need Zone Times</a></li>
                 <li><a href="#fur-variants" onClick={(e)=>scrollToId(e,'fur-variants')} className="wiki-link">Fur Variants</a></li>
-                <ol style={{listStyleType: 'none', marginLeft: '-20px'}}>
-                      <li><a href="#fur-male" onClick={(e)=>scrollToId(e,'fur-male')} style={{...styles.link, marginLeft:'20px'}}>3.1. Male</a></li>
-                      <li><a href="#fur-female" onClick={(e)=>scrollToId(e,'fur-female')} style={{...styles.link, marginLeft:'20px'}}>3.2. Female</a></li>
-                </ol>
+                    <ol style={{listStyleType: 'none', marginLeft: '-20px'}}>
+                      <li><a href="#fur-male" onClick={(e)=>scrollToId(e,'fur-male')} className="wiki-link" style={{marginLeft:'20px'}}>3.1. Male</a></li>
+                      <li><a href="#fur-female" onClick={(e)=>scrollToId(e,'fur-female')} className="wiki-link" style={{marginLeft:'20px'}}>3.2. Female</a></li>
+                    </ol>
                 <li><a href="#variant-rarity" onClick={(e)=>scrollToId(e,'variant-rarity')} className="wiki-link">Fur Variant Rarity</a></li>
                 <li><a href="#gallery" onClick={(e)=>scrollToId(e,'gallery')} className="wiki-link">Gallery</a></li>
               </ol>

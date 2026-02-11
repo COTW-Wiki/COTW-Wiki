@@ -265,8 +265,8 @@ const RingNeckedPheasant = () => {
                 <li>
                   <a href="#plumage-variants" onClick={(e)=>{e.preventDefault(); const el=document.getElementById('plumage-variants'); if(el) el.scrollIntoView({behavior:'smooth', block:'start'});}} className="wiki-link">Plumage Variants</a>
                   <ul >
-                      <li style={{color:'#6fb2e6'}}><a href="#plumage-male" onClick={(e)=>{e.preventDefault(); const el=document.getElementById('plumage-male'); if(el) el.scrollIntoView({behavior:'smooth', block:'start'});}} className="wiki-link">4.1. Male</a></li>
-                      <li style={{color:'#6fb2e6'}}><a href="#plumage-female" onClick={(e)=>{e.preventDefault(); const el=document.getElementById('plumage-female'); if(el) el.scrollIntoView({behavior:'smooth', block:'start'});}} className="wiki-link">4.2. Female</a></li>
+                      <li className="text-[#6fb2e6]"><a href="#plumage-male" onClick={(e)=>{e.preventDefault(); const el=document.getElementById('plumage-male'); if(el) el.scrollIntoView({behavior:'smooth', block:'start'});}} className="wiki-link">4.1. Male</a></li>
+                      <li className="text-[#6fb2e6]"><a href="#plumage-female" onClick={(e)=>{e.preventDefault(); const el=document.getElementById('plumage-female'); if(el) el.scrollIntoView({behavior:'smooth', block:'start'});}} className="wiki-link">4.2. Female</a></li>
                   </ul>
                 </li>
                 <li><a href="#plumage-greatone" onClick={(e)=>{e.preventDefault(); const el=document.getElementById('plumage-greatone'); if(el) el.scrollIntoView({behavior:'smooth', block:'start'});}} className="wiki-link">Plumage Variants | Great One</a></li>
@@ -328,7 +328,7 @@ const RingNeckedPheasant = () => {
               </div>
                <div className="wiki-shot-info">
                   <strong>Color code</strong>
-                  <div style={{marginTop: '20px'}}>
+                  <div className="mt-5">
                      No Color - Every hit will kill the animal
                   </div>
                </div>
@@ -338,7 +338,7 @@ const RingNeckedPheasant = () => {
             <h2 id="plumage-variants" className="wiki-h2">Plumage Variants</h2>
             
             {/* Male Section */}
-            <h3 id="plumage-male" style={{...styles.h2, fontSize:'1.2rem', borderBottom:'none', marginTop:'10px'}}>Male</h3>
+            <h3 id="plumage-male" className="wiki-h3 mt-2.5 text-[1.2rem] border-b-0">Male</h3>
             <div className="wiki-gallery-grid">
               {plumageGallery.male.map((item, i) => (
                 <div key={i} className="wiki-gallery-item">
@@ -351,7 +351,7 @@ const RingNeckedPheasant = () => {
             </div>
 
             {/* Female Section */}
-            <h3 id="plumage-female" style={{...styles.h2, fontSize:'1.2rem', borderBottom:'none', marginTop:'10px'}}>Female</h3>
+            <h3 id="plumage-female" className="wiki-h3 mt-2.5 text-[1.2rem] border-b-0">Female</h3>
             <div className="wiki-gallery-grid">
               {plumageGallery.female.map((item, i) => (
                 <div key={i} className="wiki-gallery-item">

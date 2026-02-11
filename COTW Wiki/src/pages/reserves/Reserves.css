@@ -1,135 +1,126 @@
-/* --- Huntable Animals Section --- */
+/* --- Huntable Animals Reserve Card --- */
 .wiki-reserve-card {
-  border: 1px solid var(--wiki-border-accent);
-  background-color: var(--wiki-bg-sidebar);
-  margin-bottom: 30px;
-  border-radius: var(--wiki-radius);
+    border: 1px solid var(--wiki-border-accent);
+    background-color: var(--wiki-bg-sidebar);
+    margin-bottom: 40px;
+    border-radius: var(--wiki-radius);
+    overflow: hidden;
 }
 
 .wiki-reserve-table {
-  width: 100%;
-  overflow-x: auto;
-  background-color: var(--wiki-bg);
+    display: flex;
+    flex-direction: column;
+    overflow-x: auto;
+    background-color: var(--wiki-bg);
 }
 
 .wiki-reserve-header-row {
-  display: flex;
-  background-color: var(--wiki-bg-table-header);
-  border-bottom: 2px solid var(--wiki-border-accent);
+    display: grid;
+    /* use fixed column widths so header cells match grid cell widths and do not expand */
+    grid-template-columns: 50px repeat(9, 90px);
+    /* prevent implicit extra columns from appearing */
+    grid-auto-columns: 0;
+    background-color: var(--wiki-bg-table-header);
+    border-bottom: 2px solid var(--wiki-border-accent);
+}
+
+.wiki-reserve-header-label {
+    width: 50px;
+    background-color: var(--wiki-bg-sidebar-header);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: var(--wiki-accent-gold);
+    border-right: 2px solid var(--wiki-border-accent);
 }
 
 .wiki-reserve-header-cell {
-  flex: 1;
-  min-width: 80px;
-  padding: 10px 5px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  border-right: 1px solid var(--wiki-border-accent);
+    flex: 1;
+    min-width: 90px;
+    padding: 12px 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    border-right: 1px solid var(--wiki-border-accent);
+    color: #fff;
+    font-weight: bold;
+    font-size: 0.9rem;
+    box-sizing: border-box; /* include padding/border in width calculations */
 }
 
-.wiki-reserve-header-cell span {
-  font-weight: bold;
-  font-size: 0.9rem;
-  color: #fff;
-}
-
-.wiki-reserve-grid-row {
-  display: flex;
-  min-height: 100px;
-}
+.wiki-reserve-grid-row { display: grid; grid-template-columns: 50px repeat(9, 90px); }
 
 .wiki-reserve-row-label {
-  width: 80px;
-  background-color: var(--wiki-bg-sidebar-header);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  writing-mode: vertical-lr;
-  transform: rotate(180deg);
-  border-right: 2px solid var(--wiki-border-accent);
+    width: 50px;
+    background-color: var(--wiki-bg-sidebar-header);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+    border-right: 2px solid var(--wiki-border-accent);
+    color: var(--wiki-accent-gold);
+    box-sizing: border-box;
 }
 
 .wiki-reserve-grid-cell {
-  flex: 1;
-  min-width: 80px;
-  border-right: 1px solid var(--wiki-border-light);
-  padding: 8px 4px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  align-items: center;
+    flex: 1;
+    min-width: 90px;
+    padding: 10px;
+    border-right: 1px solid var(--wiki-border-light);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    box-sizing: border-box; /* keep width parity with header cells */
 }
 
-.wiki-reserve-hex-icon {
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
-}
+.wiki-reserve-hex-icon { width: 44px; height: 44px; object-fit: contain; }
 
-.wiki-reserve-animal-name {
-  font-size: 0.7rem;
-  text-align: center;
-  line-height: 1.1;
-  color: var(--wiki-text);
-}
-
-.wiki-reserve-empty {
-  color: #333;
-  font-family: monospace;
-}
-/* --- Release Date Table --- */
+/* --- Release Table --- */
 .wiki-release-table-wrapper {
-  display: flex;
-  overflow-x: auto;
-  border: 1px solid #000;
-  background: #222;
-  padding-bottom: 5px;
+    display: flex;
+    overflow-x: auto;
+    border: 1px solid #000;
+    background: #111;
 }
 
-.wiki-release-column {
-  min-width: 130px;
-  flex-shrink: 0;
-  border-right: 1px solid #000;
-}
+.wiki-release-column { min-width: 140px; border-right: 1px solid #000; }
 
 .wiki-release-col-header {
-  background-color: #ccc;
-  color: #000;
-  font-size: 0.75rem;
-  font-weight: bold;
-  padding: 6px;
-  text-align: center;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    background-color: #ccc;
+    color: #000;
+    font-weight: bold;
+    font-size: 0.8rem;
+    padding: 8px;
+    text-align: center;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .wiki-release-cell {
-  display: block;
-  padding: 4px 6px;
-  font-size: 0.7rem;
-  color: #000 !important;
-  font-weight: 600;
-  border-bottom: 1px solid rgba(0,0,0,0.2);
-  text-decoration: none;
-}
-
-.wiki-release-cell:hover {
-  filter: brightness(1.1);
+    display: block;
+    padding: 5px 8px;
+    font-size: 0.75rem;
+    color: #000 !important;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(0,0,0,0.15);
+    text-decoration: none;
 }
 
 .wiki-release-timeline {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 20px;
-  justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 25px;
+    justify-content: center;
 }
 
 .timeline-tag {
@@ -138,6 +129,18 @@
   color: #000;
   font-weight: bold;
   border-radius: 2px;
+}
+
+/* Attach external sidebar header to reserve card to remove gap */
+.wiki-sidebar-header {
+        border-top-left-radius: var(--wiki-radius);
+        border-top-right-radius: var(--wiki-radius);
+        margin-bottom: 0;
+}
+.wiki-sidebar-header + .wiki-reserve-card {
+        margin-top: 0;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
 }
 
 /* --- Page-specific helpers (moved from inline styles) --- */
@@ -161,6 +164,28 @@
   width: 70px;
   height: 70px;
 }
+.reserve-sidebar-image,
+.wiki-sidebar-image {
+    height: 300px;
+    background-color: #1f3a52;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6fb2e6;
+    font-style: italic;
+    border-bottom: 1px solid #1f405a;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    padding: 8px;
+}
+.reserve-sidebar-image img,
+.wiki-sidebar-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+}
 .wiki-td-highlight { color: #6fb2e6; }
 .subregion-item { margin-bottom: 2px; color: #6fb2e6; }
 .mb-30 { margin-bottom: 30px; }
@@ -170,3 +195,29 @@
 .missions-note { margin-bottom: 15px; font-style: italic; }
 .trailer-note { font-style: italic; color: #dbe4eb; margin-bottom: 15px; }
 .mb-24 { margin-bottom: 24px; }
+
+/* Replacements for removed inline styles in reserve pages */
+.reserve-toc {
+    border: 1px solid #3a5a75;
+    background-color: #0f2e48;
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 4px;
+    min-width: 200px;
+    margin-bottom: 30px;
+}
+.reserve-toc ol { margin: 0; padding-left: 20px; }
+.reserve-link { color: #6fb2e6; text-decoration: none; cursor: pointer; }
+.reserve-h2 { color: #6fb2e6; border-bottom: 1px solid #3a5a75; padding-bottom: 5px; margin-top: 30px; margin-bottom: 15px; font-size: 1.5rem; display: flex; align-items: center; font-weight: 500; }
+
+/* Make table headers look like the sidebar header */
+.wiki-th {
+    background-color: var(--wiki-bg-sidebar-header);
+    padding: 12px 16px;
+    text-align: center;
+    font-weight: bold;
+    color: var(--wiki-text);
+    border-bottom: 2px solid var(--wiki-accent-gold);
+}
+
+.wiki-td { padding: 12px 16px; }

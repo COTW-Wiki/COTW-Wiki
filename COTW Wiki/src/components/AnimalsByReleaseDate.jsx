@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// using plain anchors for reliable navigation
 
 // --- DATA & MAPPING ---
 
@@ -165,7 +165,33 @@ const animalPathMap = {
 };
 
 // Helper to safely get link
-const getLink = (name) => animalPathMap[name] || "#";
+const aliasMap = {
+  'R.N. Pheasant': 'Ring-Necked Pheasant',
+  'Eur. Rabbit': 'European Rabbit',
+  'W.T. Jackrabbit': 'White-tailed Jackrabbit',
+  'A. Jackrabbit': 'Antelope Jackrabbit',
+  'Cotton. Rabbit': 'Eastern Cottontail Rabbit',
+  'Cottont. Rabbit': 'Eastern Cottontail Rabbit',
+  'Wooly Hare': 'Woolly Hare',
+  'M. Bobcat': 'Mexican Bobcat',
+};
+
+const slugify = (s) => s
+  .replace(/\./g, '')
+  .replace(/[^a-zA-Z0-9\s-]/g, '')
+  .trim()
+  .replace(/\s+/g, '-')
+  .replace(/-+/g, '-')
+  ;
+
+const getLink = (name) => {
+  if (!name) return '#';
+  if (animalPathMap[name]) return animalPathMap[name];
+  const resolved = aliasMap[name] || name;
+  if (animalPathMap[resolved]) return animalPathMap[resolved];
+  // Fallback: try a reasonable slug path under /animals
+  return '/animals/' + slugify(resolved);
+};
 
 // 3. Table Data (Constructed from Screenshot)
 const tableData = [
@@ -183,7 +209,197 @@ const tableData = [
       { name: "Ring-Necked Pheasant", color: colors.rancho },
     ]
   },
-  // ... (tableData continues, omitted here for brevity in file)
+  {
+    reserve: "Layton Lake",
+    animals: [
+      { name: "Whitetail Deer", color: colors.base },
+      { name: "Moose", color: colors.base },
+      { name: "Mallard", color: colors.goose },
+      { name: "Black Bear", color: colors.base },
+      { name: "Roosevelt Elk", color: colors.base },
+      { name: "Merriam Turkey", color: colors.base },
+      { name: "White-tailed Jackrabbit", color: colors.base },
+      { name: "Mule Deer", color: colors.base },
+      { name: "R.N. Pheasant", color: colors.rancho }
+    ]
+  },
+  {
+    reserve: "Medved-Taiga",
+    animals: [
+      { name: "Moose", color: colors.base },
+      { name: "Wild Boar", color: colors.base },
+      { name: "Eurasian Lynx", color: colors.base },
+      { name: "Brown Bear", color: colors.base },
+      { name: "Musk Deer", color: colors.base },
+      { name: "Mountain Hare", color: colors.base },
+      { name: "Gray Wolf", color: colors.base },
+      { name: "Western Capercaillie", color: colors.base }
+    ]
+  },
+  {
+    reserve: "Vurhonga",
+    animals: [
+      { name: "Lion", color: colors.vurhonga },
+      { name: "Wildebeest", color: colors.vurhonga },
+      { name: "Springbok", color: colors.vurhonga },
+      { name: "Lesser Kudu", color: colors.vurhonga },
+      { name: "Warthog", color: colors.vurhonga },
+      { name: "Cape Buffalo", color: colors.vurhonga },
+      { name: "Gemsbok", color: colors.vurhonga },
+      { name: "Scrub Hare", color: colors.vurhonga },
+      { name: "Jackal", color: colors.vurhonga },
+      { name: "Eurasian Wigeon", color: colors.goose }
+    ]
+  },
+  {
+    reserve: "Parque Fernando",
+    animals: [
+      { name: "Puma", color: colors.parque },
+      { name: "Blackbuck", color: colors.parque },
+      { name: "Axis Deer", color: colors.parque },
+      { name: "Water Buffalo", color: colors.parque },
+      { name: "Mule Deer", color: colors.parque },
+      { name: "Red Fox", color: colors.parque },
+      { name: "Cinnamon Teal", color: colors.goose },
+      { name: "Peccary", color: colors.parque }
+    ]
+  },
+  {
+    reserve: "Yukon Valley",
+    animals: [
+      { name: "Moose", color: colors.yukon },
+      { name: "Grizzly Bear", color: colors.yukon },
+      { name: "Grant Caribou", color: colors.yukon },
+      { name: "Plains Bison", color: colors.yukon },
+      { name: "Canada Goose", color: colors.goose },
+      { name: "Harlequin Duck", color: colors.goose },
+      { name: "Red Fox", color: colors.yukon },
+      { name: "Gray Wolf", color: colors.yukon }
+    ]
+  },
+  {
+    reserve: "Cuatro Colinas",
+    animals: [
+      { name: "Roe Deer", color: colors.cuatro },
+      { name: "Wild Boar", color: colors.cuatro },
+      { name: "European Hare", color: colors.cuatro },
+      { name: "Iberian Mouflon", color: colors.cuatro },
+      { name: "Beceite Ibex", color: colors.cuatro },
+      { name: "R.N. Pheasant", color: colors.cuatro },
+      { name: "Red Deer", color: colors.cuatro },
+      { name: "Gredos Ibex", color: colors.cuatro },
+      { name: "S.E.S. Ibex", color: colors.cuatro },
+      { name: "Iberian Wolf", color: colors.cuatro },
+      { name: "R.N. Pheasant", color: colors.cuatro }
+    ]
+  },
+  {
+    reserve: "Silver Ridge Peaks",
+    animals: [
+      { name: "Black Bear", color: colors.silver },
+      { name: "Mule Deer", color: colors.silver },
+      { name: "Pronghorn", color: colors.silver },
+      { name: "Bighorn Sheep", color: colors.silver },
+      { name: "Mountain Goat", color: colors.silver },
+      { name: "Plains Bison", color: colors.silver },
+      { name: "Puma", color: colors.silver },
+      { name: "Merriam Turkey", color: colors.silver },
+      { name: "Rocky Mt. Elk", color: colors.silver }
+    ]
+  },
+  {
+    reserve: "Te Awaroa",
+    animals: [
+      { name: "Fallow Deer", color: colors.teawaroa },
+      { name: "Red Deer", color: colors.teawaroa },
+      { name: "Chamois", color: colors.teawaroa },
+      { name: "Sika Deer", color: colors.teawaroa },
+      { name: "Tahr", color: colors.teawaroa },
+      { name: "Mallard", color: colors.goose },
+      { name: "European Rabbit", color: colors.teawaroa }
+    ]
+  },
+  {
+    reserve: "Rancho del Arroyo",
+    animals: [
+      { name: "Whitetail Deer", color: colors.rancho },
+      { name: "Mule Deer", color: colors.rancho },
+      { name: "Pronghorn", color: colors.rancho },
+      { name: "Peccary", color: colors.rancho },
+      { name: "Coyote", color: colors.rancho }
+    ]
+  },
+  {
+    reserve: "Mississippi Acres",
+    animals: [
+      { name: "Whitetail Deer", color: colors.mississippi },
+      { name: "Black Bear", color: colors.mississippi },
+      { name: "Raccoon", color: colors.mississippi },
+      { name: "Mallard", color: colors.goose },
+      { name: "American Alligator", color: colors.mississippi }
+    ]
+  },
+  {
+    reserve: "Revontuli Coast",
+    animals: [
+      { name: "Whitetail Deer", color: colors.revontuli },
+      { name: "Moose", color: colors.revontuli },
+      { name: "Brown Bear", color: colors.revontuli },
+      { name: "Canada Goose", color: colors.goose },
+      { name: "Mallard", color: colors.goose },
+      { name: "Greylag Goose", color: colors.goose },
+      { name: "Tufted Duck", color: colors.goose }
+    ]
+  },
+  {
+    reserve: "New England Mountains",
+    animals: [
+      { name: "Red Fox", color: colors.newengland },
+      { name: "Whitetail Deer", color: colors.newengland },
+      { name: "Black Bear", color: colors.newengland },
+      { name: "Moose", color: colors.newengland },
+      { name: "Mallard", color: colors.goose }
+    ]
+  },
+  {
+    reserve: "Emerald Coast",
+    animals: [
+      { name: "Red Fox", color: colors.emerald },
+      { name: "Fallow Deer", color: colors.emerald },
+      { name: "Javan Rusa", color: colors.emerald },
+      { name: "Salt. Crocodile", color: colors.emerald },
+      { name: "Mallard", color: colors.goose }
+    ]
+  },
+  {
+    reserve: "Sundarpatan",
+    animals: [
+      { name: "Bengal Tiger", color: colors.sundarpatan },
+      { name: "Snow Leopard", color: colors.sundarpatan },
+      { name: "Nilgai", color: colors.sundarpatan },
+      { name: "Water Buffalo", color: colors.sundarpatan }
+    ]
+  },
+  {
+    reserve: "Salzwiesen Park",
+    animals: [
+      { name: "Red Fox", color: colors.salzwiesen },
+      { name: "European Rabbit", color: colors.salzwiesen },
+      { name: "Mallard", color: colors.goose },
+      { name: "Greylag Goose", color: colors.goose }
+    ]
+  },
+  {
+    reserve: "Askiy Ridge",
+    animals: [
+      { name: "Black Bear", color: colors.askiy },
+      { name: "Moose", color: colors.askiy },
+      { name: "Whitetail Deer", color: colors.askiy },
+      { name: "Pronghorn", color: colors.askiy },
+      { name: "Bighorn Sheep", color: colors.askiy },
+      { name: "Wood Bison", color: colors.askiy }
+    ]
+  }
 ];
 
 const timelineItems = [
@@ -208,45 +424,65 @@ const timelineItems = [
 
 const AnimalsByReleaseDate = () => {
   return (
-    <div className="wiki-release-container">
+    <div className="wiki-release-container" style={{ width: '100%', maxWidth: 'none' }}>
       <h2 className="wiki-release-header">
         Animals by release date (table)
-        <span className="wiki-release-link-icon">🔗</span>
+        <span className="wiki-release-link-icon"></span>
       </h2>
 
       <p className="wiki-release-instruction">
         Click on the names to get directed to the animal/reserve page:
       </p>
 
-      <div className="wiki-release-table-wrapper">
+      <div className="wiki-release-table-wrapper overflow-x-auto" style={{ padding: '0 8px' }}>
         {tableData.map((col, idx) => (
-          <div key={idx} className="wiki-release-column">
-            <div className="wiki-release-col-header">{col.reserve}</div>
+          <div key={idx} className="wiki-release-column" style={{ minWidth: 110, marginRight: '10px' }}>
+            <div className="wiki-release-col-header" style={{ fontSize: '10px', padding: '0.25rem 0.4rem', marginBottom: '6px' }}>{col.reserve}</div>
             {col.animals && col.animals.map((animal, aIdx) => (
-              <Link
+              <a
                 key={aIdx}
-                to={getLink(animal.name)}
+                href={getLink(animal.name)}
                 className="wiki-release-cell"
-                style={{ backgroundColor: animal.color }}
+                style={{
+                  backgroundColor: animal.color,
+                  fontSize: '11px',
+                  padding: '0.35rem 0.6rem',
+                  display: 'block',
+                  borderRadius: '8px',
+                  marginBottom: '8px',
+                  boxShadow: '0 1px 0 rgba(0,0,0,0.15)'
+                }}
                 title={animal.name}
               >
                 {animal.name}
-              </Link>
+              </a>
             ))}
           </div>
         ))}
       </div>
 
-      <div className="wiki-release-timeline">
-        {timelineItems.map((item, i) => (
-          <span
-            key={i}
-            className="wiki-release-timeline-item"
-            style={{ '--wiki-timeline-bg': item.color }}
-          >
-            {item.label}
-          </span>
-        ))}
+      <div style={{ height: '64px' }} />
+
+      <div className="w-full overflow-x-auto pb-6 pt-4 custom-scrollbar">
+        <div className="flex pl-8 min-w-max gap-8 items-center">
+          {timelineItems.map((item, i) => {
+            const parts = item.label.split(' ');
+            const date = parts[0];
+            const name = parts.slice(1).join(' ');
+            return (
+              <div key={i} className="relative">
+                <div
+                  className="flex items-center shadow-lg border border-black/20 cursor-default rounded-xl"
+                  style={{ backgroundColor: item.color, minWidth: 240, padding: '0.75rem 1rem', marginRight: 16, borderRadius: 12, boxShadow: '0 4px 8px rgba(0,0,0,0.18)' }}
+                >
+                  <span className="text-[15px] font-bold font-mono">{date}</span>
+                  <span className="mx-3 text-black/40" aria-hidden>•</span>
+                  <span className="text-[15px] font-semibold uppercase tracking-tight">{name}</span>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

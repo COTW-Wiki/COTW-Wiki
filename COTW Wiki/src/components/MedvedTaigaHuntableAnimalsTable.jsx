@@ -1,14 +1,14 @@
 import React from 'react';
-import ReserveAnimalsTable from '../../components/ReserveAnimalsTable';
+import ReserveAnimalsTable from '../components/ReserveAnimalsTable';
 
-import westernCapercaillieIcon from '../../assets/WesternCapercaillieIcon.webp';
-import siberianMuskDeerIcon from '../../assets/SiberianMuskDeerIcon.webp';
-import eurasianLynxIcon from '../../assets/EurasianLynxIcon.webp';
-import wildBoarIcon from '../../assets/WildBoarIcon.webp';
-import grayWolfIcon from '../../assets/GrayWolfIcon.webp';
-import mountainReindeerIcon from '../../assets/MountainReindeerIcon.webp';
-import eurasianBrownBearIcon from '../../assets/EurasianBrownBearIcon.webp';
-import mooseIcon from '../../assets/MooseIcon.webp';
+import westernCapercaillieIcon from '../assets/WesternCapercaillieIcon.webp';
+import siberianMuskDeerIcon from '../assets/SiberianMuskDeerIcon.webp';
+import eurasianLynxIcon from '../assets/EurasianLynxIcon.webp';
+import wildBoarIcon from '../assets/WildBoarIcon.webp';
+import grayWolfIcon from '../assets/GrayWolfIcon.webp';
+import mountainReindeerIcon from '../assets/MountainReindeerIcon.webp';
+import eurasianBrownBearIcon from '../assets/EurasianBrownBearIcon.webp';
+import mooseIcon from '../assets/MooseIcon.webp';
 
 const MedvedTaigaHuntableAnimalsTable = () => {
   const data = {
@@ -27,7 +27,12 @@ const MedvedTaigaHuntableAnimalsTable = () => {
     }
   };
 
-  return <ReserveAnimalsTable reserveData={data} />;
+  return (
+    <>
+      <div className="wiki-sidebar-header">{data.name}</div>
+      <ReserveAnimalsTable reserveData={data} showHeader={false} />
+    </>
+  );
 };
 
 export default MedvedTaigaHuntableAnimalsTable;

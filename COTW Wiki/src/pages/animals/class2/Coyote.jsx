@@ -140,7 +140,7 @@ const Coyote = () => {
             
             <div className="wiki-sidebar-section">
               <span className="wiki-sidebar-label">Class</span>
-              <span><img src={class2Icon} alt="Class 2" className="wiki-class-icon-lg"/>2</span>
+              <span><img src={class2Icon} alt="Class 2" className="inline-block wiki-class-icon-sm align-middle mr-1.5" />2</span>
             </div>
 
             <div className="wiki-sidebar-section">
@@ -214,9 +214,9 @@ const Coyote = () => {
                 <li><a href="#shot-scheme" onClick={(e)=>scrollToId(e,'shot-scheme')} className="wiki-link">Shot scheme</a></li>
                 <li>
                   <a href="#fur-variants" onClick={(e)=>scrollToId(e,'fur-variants')} className="wiki-link">Fur variants</a>
-                  <ol style={{margin:'6px 0 0 12px', paddingLeft: '0', listStyleType: 'none', color: '#9fd3ff'}}>
-                    <li><a href="#fur-male" onClick={(e)=>scrollToId(e,'fur-male')} style={{color: '#9fd3ff', textDecoration: 'none'}}>4.1 Male</a></li>
-                    <li><a href="#fur-female" onClick={(e)=>scrollToId(e,'fur-female')} style={{color: '#9fd3ff', textDecoration: 'none'}}>4.2 Female</a></li>
+                  <ol className="mt-1 ml-3 pl-0 list-none text-[#9fd3ff]">
+                    <li><a href="#fur-male" onClick={(e)=>scrollToId(e,'fur-male')} className="text-[#9fd3ff] no-underline">4.1 Male</a></li>
+                    <li><a href="#fur-female" onClick={(e)=>scrollToId(e,'fur-female')} className="text-[#9fd3ff] no-underline">4.2 Female</a></li>
                   </ol>
                 </li>
                 <li><a href="#fur-rarity" onClick={(e)=>scrollToId(e,'fur-rarity')} className="wiki-link">Fur Variant Rarity</a></li>
@@ -247,10 +247,10 @@ const Coyote = () => {
             
             {/* NEED ZONE TIMES */}
             <h2 id="need-zones" className="wiki-h2">Need Zone Times</h2>
-            <div style={{display:'flex', gap:'20px', flexWrap:'wrap'}}>
+            <div className="flex gap-5 flex-wrap">
                 {/* Layton Lake District */}
-                <div style={{flex: '1', minWidth: '300px'}}>
-                    <table style={{...styles.table}}>
+                <div className="flex-1 min-w-[300px]">
+                  <table className="wiki-table">
                         <thead>
                             <tr><th colSpan="2" className="wiki-th wiki-th-center">Layton Lake District</th></tr>
                             <tr>
@@ -275,8 +275,8 @@ const Coyote = () => {
                 </div>
 
                  {/* Rancho del Arroyo */}
-                 <div style={{flex: '1', minWidth: '300px'}}>
-                    <table style={{...styles.table}}>
+                  <div className="flex-1 min-w-[300px]">
+                    <table className="wiki-table">
                         <thead>
                             <tr><th colSpan="2" className="wiki-th wiki-th-center">Rancho del Arroyo</th></tr>
                             <tr>
@@ -305,7 +305,7 @@ const Coyote = () => {
             <h2 id="shot-scheme" className="wiki-h2">Shot scheme</h2>
             <div className="wiki-shot-container">
                 <div className="wiki-shot-container">
-                   <img src={ShotSchemeImage} alt="Shot Scheme" className="wiki-shot-scheme-img" />
+                   <img src={ShotSchemeImage} alt="Shot Scheme" className="wiki-shot-scheme-img-sm" />
                 </div>
                 <div className="wiki-shot-wrap">
                    <div className="wiki-shot-title">Color code</div>
@@ -319,11 +319,11 @@ const Coyote = () => {
             {/* FUR VARIANTS (Gallery) */}
             <h2 id="fur-variants" className="wiki-h2">Fur variants</h2>
 
-            <div style={{marginBottom: '16px'}}>
-              <h3 id="fur-male" style={{...styles.h2, fontSize: '1.15rem', marginTop: '8px'}}>Male</h3>
+            <div className="mb-4">
+              <h3 id="fur-male" className="wiki-h2 text-[1.15rem] mt-2">Male</h3>
               <div className="wiki-gallery-grid">
                 {maleGallery.map((item, i) => (
-                  <div key={`m-${i}`} style={{...styles.galleryItem, cursor: 'pointer'}} onClick={() => openVariant(item)}>
+                  <div key={`m-${i}`} className="flex flex-col items-center cursor-pointer" onClick={() => openVariant(item)}>
                     <div className="wiki-gallery-placeholder">
                       <img src={item.src} alt={item.name} className="wiki-img-contain" />
                     </div>
@@ -334,10 +334,10 @@ const Coyote = () => {
             </div>
 
             <div>
-              <h3 id="fur-female" style={{...styles.h2, fontSize: '1.15rem', marginTop: '12px'}}>Female</h3>
+              <h3 id="fur-female" className="wiki-h2 text-[1.15rem] mt-3">Female</h3>
               <div className="wiki-gallery-grid">
                 {femaleGallery.map((item, i) => (
-                  <div key={`f-${i}`} style={{...styles.galleryItem, cursor: 'pointer'}} onClick={() => openVariant(item)}>
+                  <div key={`f-${i}`} className="flex flex-col items-center cursor-pointer" onClick={() => openVariant(item)}>
                     <div className="wiki-gallery-placeholder">
                       <img src={item.src} alt={item.name} className="wiki-img-contain" />
                     </div>
@@ -419,7 +419,7 @@ const Coyote = () => {
                 <div className="wiki-modal-content" onClick={(e)=>e.stopPropagation()}>
                   <button aria-label="Close" onClick={closeVariant} className="wiki-modal-close">×</button>
                   <img src={selectedVariant.src} alt={selectedVariant.name} className="wiki-modal-img" />
-                  <div style={{textAlign: 'center', marginTop: '8px', color: '#dbe4eb'}}>{selectedVariant.name}</div>
+                  <div className="text-center mt-2 text-[#dbe4eb]">{selectedVariant.name}</div>
                 </div>
               </div>
             )}

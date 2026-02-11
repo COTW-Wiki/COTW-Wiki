@@ -79,15 +79,15 @@ const TundraBeanGoose = () => {
           <aside className="wiki-sidebar">
             <div className="wiki-sidebar-header">Tundra Bean Goose</div>
             <div className="wiki-sidebar-image">
-              <img src={TundraBeanGooseImg} alt="Tundra Bean Goose" style={{width: '268.4px', height: '134.2px', objectFit: 'cover'}} />
-              <span style={{position:'absolute', bottom:'5px', right:'5px', fontSize:'0.8rem'}}>📷</span>
+              <img src={TundraBeanGooseImg} alt="Tundra Bean Goose" className="w-[268.4px] h-[134.2px] object-cover" />
+              
             </div>
             
             <div className="wiki-sidebar-header">General Information</div>
             
             <div className="wiki-sidebar-section">
               <span className="wiki-sidebar-label">Class</span>
-              <span><img src={class1Icon} alt="Class 1" className="wiki-class-icon-sm"/>1</span>
+              <span><img src={class1Icon} alt="Class 1" className="inline-block wiki-class-icon-sm align-middle mr-1.5"/>1</span>
             </div>
 
             <div className="wiki-sidebar-section">
@@ -122,7 +122,7 @@ const TundraBeanGoose = () => {
 
             <div className="wiki-sidebar-section">
                <span className="wiki-sidebar-label">Plumage</span>
-               <span style={{fontSize: '0.85rem'}}>
+               <span className="text-[0.85rem]">
                  Brown, Dark Grey, Leucistic, Light Grey
                </span>
             </div>
@@ -201,7 +201,7 @@ const TundraBeanGoose = () => {
             })()}
 
             {/* FEATURES */}
-            <h2 id="features" className="wiki-h2">Features <span className="wiki-edit-actions">✎</span></h2>
+            <h2 id="features" className="wiki-h2">Features</h2>
             <table className="wiki-table">
               <tbody>
                 <tr>
@@ -220,7 +220,7 @@ const TundraBeanGoose = () => {
             </table>
 
             {/* TIPS */}
-            <h2 id="tips" className="wiki-h2">Tips <span className="wiki-edit-actions">✎</span></h2>
+            <h2 id="tips" className="wiki-h2">Tips</h2>
             <p className="wiki-mb-10">
               Hunting Geese is similar to hunting other waterfowl. The added benefit being, you can hunt Geese in open fields. Fields give players the freedom to place decoys as far away from a blind as possible, as compared to water which has limits on how far away from shore you can place decoys.
             </p>
@@ -230,7 +230,7 @@ const TundraBeanGoose = () => {
 
             {/* NEED ZONE TIMES */}
             <h2 id="need-zones" className="wiki-h2">Need Zone Times</h2>
-            <div style={{display: 'inline-block'}}>
+            <div className="inline-block">
               <table className="wiki-table wiki-table-fixed">
                 <thead>
                   <tr><th colSpan="2" className="wiki-th wiki-th-center">Revontuli Coast</th></tr>
@@ -264,7 +264,7 @@ const TundraBeanGoose = () => {
             </div>
 
             {/* PLUMAGE RARITY TABLE */}
-            <h2 id="plumage-rarity" className="wiki-h2">Plumage Variant Rarity <span className="wiki-edit-actions">✎</span></h2>
+            <h2 id="plumage-rarity" className="wiki-h2">Plumage Variant Rarity</h2>
             <table className="wiki-table">
                 <thead>
                     <tr>

@@ -133,7 +133,7 @@ const EurasianTeal = () => {
             
             <div className="wiki-sidebar-section">
               <span className="wiki-sidebar-label">Class</span>
-              <span><img src={class1Icon} alt="Class 1" className="wiki-class-icon"/> 1</span>
+              <span><img src={class1Icon} alt="Class 1" className="inline-block wiki-class-icon-sm align-middle mr-1.5"/> 1</span>
             </div>
 
             <div className="wiki-sidebar-section">
@@ -208,7 +208,7 @@ const EurasianTeal = () => {
                 <li><a className="wiki-link" onClick={() => handleScroll('tips')}>Tips</a></li>
                 <li>
                   <a className="wiki-link" onClick={() => handleScroll('plumage-variants')}>Plumage Variants</a>
-                  <ol style={{listStyleType: 'none', paddingLeft: '14px', marginTop: '6px'}}>
+                  <ol className="list-none pl-3.5 mt-1.5">
                     <li><a className="wiki-link" onClick={() => handleScroll('plumage-male')}>4.1 Male</a></li>
                     <li><a className="wiki-link" onClick={() => handleScroll('plumage-female')}>4.2 Female</a></li>
                   </ol>
@@ -353,7 +353,7 @@ const EurasianTeal = () => {
 
             {/* REFERENCES */}
             <h2 id="references" className="wiki-h2">References</h2>
-            <ol style={{paddingLeft:'25px', color: '#6fb2e6'}}>
+            <ol className="pl-6 text-[#6fb2e6]">
                 <li><span className="wiki-link">https://www.adobe.com/express/colors/teal</span></li>
             </ol>
 

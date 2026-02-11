@@ -81,8 +81,8 @@ const SnowGoose = () => {
           <aside className="wiki-sidebar">
             <div className="wiki-sidebar-header">Snow Goose</div>
             <div className="wiki-sidebar-image">
-              <img src={SnowGooseImg} alt="Snow Goose" style={{width: '268.4px', height: '134.2px', objectFit: 'cover'}} />
-              <span style={{position:'absolute', bottom:'5px', right:'5px', fontSize:'0.8rem'}}>📷</span>
+              <img src={SnowGooseImg} alt="Snow Goose" className="w-[268.4px] h-[134.2px] object-cover" />
+              
             </div>
             
             <div className="wiki-sidebar-header">General Information</div>
@@ -121,7 +121,7 @@ const SnowGoose = () => {
 
             <div className="wiki-sidebar-section">
                <span className="wiki-sidebar-label">Plumage</span>
-               <span style={{fontSize: '0.85rem'}}>
+               <span className="text-[0.85rem]">
                  Albino, Blue Morph, Hybrid, Intermediate Morph, Melanistic, White Morph
                </span>
             </div>
@@ -224,7 +224,7 @@ const SnowGoose = () => {
 
             {/* NEED ZONE TIMES */}
             <h2 id="need-zones" className="wiki-h2">Need Zone Times</h2>
-            <div style={{display: 'inline-block'}}>
+            <div className="inline-block">
                 <table className="wiki-table wiki-table-fixed">
                     <thead>
                         <tr><th colSpan="2" className="wiki-th wiki-th-center">Askiy Ridge<sup>[1]</sup></th></tr>

@@ -1,14 +1,14 @@
 import React from 'react';
-import ReserveAnimalsTable from '../../components/ReserveAnimalsTable';
+import ReserveAnimalsTable from '../components/ReserveAnimalsTable';
 
-import cinnamonTealIcon from '../../assets/CinnamonTealIcon.webp';
-import collaredPeccaryIcon from '../../assets/CollaredPeccaryIcon.webp';
-import axisDeerIcon from '../../assets/AxisDeerIcon.webp';
-import blackbuckIcon from '../../assets/BlackbuckIcon.webp';
-import pumaIcon from '../../assets/PumaIcon.webp';
-import muleDeerIcon from '../../assets/MuleDeerIcon.webp';
-import redDeerIcon from '../../assets/RedDeerIcon.webp';
-import waterBuffaloIcon from '../../assets/WaterBuffaloIcon.webp';
+import cinnamonTealIcon from '../assets/CinnamonTealIcon.webp';
+import collaredPeccaryIcon from '../assets/CollaredPeccaryIcon.webp';
+import axisDeerIcon from '../assets/AxisDeerIcon.webp';
+import blackbuckIcon from '../assets/BlackbuckIcon.webp';
+import pumaIcon from '../assets/PumaIcon.webp';
+import muleDeerIcon from '../assets/MuleDeerIcon.webp';
+import redDeerIcon from '../assets/RedDeerIcon.webp';
+import waterBuffaloIcon from '../assets/WaterBuffaloIcon.webp';
 
 const ParqueFernandoHuntableAnimalsTable = () => {
   const data = {
@@ -26,7 +26,12 @@ const ParqueFernandoHuntableAnimalsTable = () => {
     }
   };
 
-  return <ReserveAnimalsTable reserveData={data} />;
+  return (
+    <>
+      <div className="wiki-sidebar-header">{data.name}</div>
+      <ReserveAnimalsTable reserveData={data} showHeader={false} />
+    </>
+  );
 };
 
 export default ParqueFernandoHuntableAnimalsTable;

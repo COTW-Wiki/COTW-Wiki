@@ -186,8 +186,8 @@ const RockPtarmigan = () => {
                 <li>
                   <a href="#plumage-variants" className="wiki-link" onClick={(e)=>{e.preventDefault(); document.getElementById('plumage-variants')?.scrollIntoView({behavior:'smooth', block:'start'});}}>Plumage Variants</a>
                     <ul >
-                        <li style={{color:'#6fb2e6'}}><a href="#plumage-male" className="wiki-link" onClick={(e)=>{e.preventDefault(); document.getElementById('plumage-male')?.scrollIntoView({behavior:'smooth', block:'start'});}}>3.1. Male</a></li>
-                        <li style={{color:'#6fb2e6'}}><a href="#plumage-female" className="wiki-link" onClick={(e)=>{e.preventDefault(); document.getElementById('plumage-female')?.scrollIntoView({behavior:'smooth', block:'start'});}}>3.2. Female</a></li>
+                        <li className="text-[#6fb2e6]"><a href="#plumage-male" className="wiki-link" onClick={(e)=>{e.preventDefault(); document.getElementById('plumage-male')?.scrollIntoView({behavior:'smooth', block:'start'});}}>3.1. Male</a></li>
+                        <li className="text-[#6fb2e6]"><a href="#plumage-female" className="wiki-link" onClick={(e)=>{e.preventDefault(); document.getElementById('plumage-female')?.scrollIntoView({behavior:'smooth', block:'start'});}}>3.2. Female</a></li>
                     </ul>
                 </li>
                 <li>
@@ -244,7 +244,7 @@ const RockPtarmigan = () => {
             <h2 id="plumage-variants" className="wiki-h2">Plumage Variants</h2>
             
             {/* Male Section */}
-            <h3 id="plumage-male" style={{...styles.h2, fontSize:'1.2rem', borderBottom:'none', marginTop:'10px'}}>Male</h3>
+            <h3 id="plumage-male" className="wiki-h3 mt-2.5 text-[1.2rem] border-b-0">Male</h3>
             <div className="wiki-gallery-grid">
               {plumageGallery.male.map((item, i) => (
                 <div key={i} className="wiki-gallery-item">
@@ -257,7 +257,7 @@ const RockPtarmigan = () => {
             </div>
 
             {/* Female Section */}
-            <h3 id="plumage-female" style={{...styles.h2, fontSize:'1.2rem', borderBottom:'none', marginTop:'10px'}}>Female</h3>
+            <h3 id="plumage-female" className="wiki-h3 mt-2.5 text-[1.2rem] border-b-0">Female</h3>
             <div className="wiki-gallery-grid">
               {plumageGallery.female.map((item, i) => (
                 <div key={i} className="wiki-gallery-item">

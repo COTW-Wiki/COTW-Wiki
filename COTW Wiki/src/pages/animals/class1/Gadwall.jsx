@@ -108,6 +108,28 @@ const Gadwall = () => {
     Gadwall_MelanisticFemaleBack,
   ];
 
+  const toc = [
+    { id: 'features', title: 'Features' },
+    { id: 'need-zone-times', title: 'Need Zone Times' },
+    { id: 'shot-scheme', title: 'Shot scheme' },
+    { id: 'tips', title: 'Tips' },
+    { id: 'plumage-variants', title: 'Plumage Variants', sub: [
+      { id: 'plumage-male', title: 'Male' },
+      { id: 'plumage-female', title: 'Female' },
+    ] },
+    { id: 'plumage-rarity', title: 'Plumage Variant Rarity' },
+    { id: 'trivia', title: 'Trivia' },
+    { id: 'references', title: 'References' },
+  ];
+
+  function handleScroll(targetId) {
+    const el = document.getElementById(targetId);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      try { history.replaceState(null, '', `#${targetId}`); } catch (e) {}
+    }
+  }
+
   return (
     <div className="wiki-page">
       <div className="wiki-inner">
@@ -132,7 +154,7 @@ const Gadwall = () => {
             
             <div className="wiki-sidebar-section">
               <span className="wiki-sidebar-label">Class</span>
-              <span><img src={class1Icon} alt="Class 1" className="wiki-class-icon"/>1</span>
+              <span><img src={class1Icon} alt="Class 1" className="inline-block wiki-class-icon-sm align-middle mr-1.5"/>1</span>
             </div>
 
             <div className="wiki-sidebar-section">
@@ -365,7 +387,7 @@ const Gadwall = () => {
 
             {/* REFERENCES */}
             <h2 id="references" className="wiki-h2">References</h2>
-            <ol style={{paddingLeft:'25px', color: '#6fb2e6'}}>
+            <ol className="pl-6 text-[#6fb2e6]">
                 <li><span className="wiki-link">wikipedia.org</span></li>
                 <li><span className="wiki-link">allaboutbirds.org</span></li>
             </ol>

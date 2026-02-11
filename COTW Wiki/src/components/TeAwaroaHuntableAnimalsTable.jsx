@@ -1,16 +1,16 @@
 import React from 'react';
-import ReserveAnimalsTable from '../../components/ReserveAnimalsTable';
+import ReserveAnimalsTable from '../components/ReserveAnimalsTable';
 
-import merriamTurkeyIcon from '../../assets/MerriamTurkeyIcon.webp';
-import mallardIcon from '../../assets/MallardIcon.webp';
-import europeanRabbitIcon from '../../assets/EuropeanRabbitIcon.webp';
-import chamoisIcon from '../../assets/ChamoisIcon.webp';
-import feralGoatIcon from '../../assets/FeralGoatIcon.webp';
-import sikaDeerIcon from '../../assets/SikaDeerIcon.webp';
-import fallowDeerIcon from '../../assets/FallowDeerIcon.webp';
-import tahrIcon from '../../assets/TahrIcon.webp';
-import feralPigIcon from '../../assets/FeralPigIcon.webp';
-import redDeerIcon from '../../assets/RedDeerIcon.webp';
+import merriamTurkeyIcon from '../assets/MerriamTurkeyIcon.webp';
+import mallardIcon from '../assets/MallardIcon.webp';
+import europeanRabbitIcon from '../assets/EuropeanRabbitIcon.webp';
+import chamoisIcon from '../assets/ChamoisIcon.webp';
+import feralGoatIcon from '../assets/FeralGoatIcon.webp';
+import sikaDeerIcon from '../assets/SikaDeerIcon.webp';
+import fallowDeerIcon from '../assets/FallowDeerIcon.webp';
+import tahrIcon from '../assets/TahrIcon.webp';
+import feralPigIcon from '../assets/FeralPigIcon.webp';
+import redDeerIcon from '../assets/RedDeerIcon.webp';
 
 const TeAwaroaHuntableAnimalsTable = () => {
   const data = {
@@ -31,7 +31,12 @@ const TeAwaroaHuntableAnimalsTable = () => {
     }
   };
 
-  return <ReserveAnimalsTable reserveData={data} />;
+  return (
+    <>
+      <div className="wiki-sidebar-header">{data.name}</div>
+      <ReserveAnimalsTable reserveData={data} showHeader={false} />
+    </>
+  );
 };
 
 export default TeAwaroaHuntableAnimalsTable;

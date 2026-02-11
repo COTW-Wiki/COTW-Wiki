@@ -83,6 +83,14 @@ const AxisDeer = () => {
     "Axis deer often graze near trees, because the langurs can warn them of approaching predators due to their high position."
   ];
 
+  // Smooth scroll helper for TOC links
+  const scrollToId = (id) => (e) => {
+    if (e && e.preventDefault) e.preventDefault();
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    try { window.history.replaceState(null, '', `#${id}`); } catch (err) {}
+  };
+
   return (
     <div className="wiki-page">
       <div className="wiki-inner">
@@ -98,14 +106,14 @@ const AxisDeer = () => {
           <aside className="wiki-sidebar">
             <div className="wiki-sidebar-header">Axis Deer</div>
             <div className="wiki-sidebar-image">
-              <img src={AxisDeerMain} alt="Axis Deer" />
+              <img src={AxisDeerMain} alt="Axis Deer" className="max-w-full max-h-[180px] object-contain" />
             </div>
             
             <div className="wiki-sidebar-header">General Information</div>
             
             <div className="wiki-sidebar-section">
               <span className="wiki-sidebar-label">Class</span>
-              <span><img src={class3Icon} alt="Class 3" className="wiki-class-icon-lg"/>3</span>
+              <span><img src={class3Icon} alt="Class 3" className="inline-block wiki-class-icon-sm align-middle mr-1.5" />3</span>
             </div>
 
             <div className="wiki-sidebar-section">
@@ -177,7 +185,7 @@ const AxisDeer = () => {
                 <li><a href="#shot-scheme" onClick={scrollToId('shot-scheme')} className="wiki-link">Shot scheme</a></li>
                 <li>
                   <a href="#fur-variants" onClick={scrollToId('fur-variants')} className="wiki-link">Fur Variants</a>
-                  <ol style={{margin: '6px 0 0 0', paddingLeft: '0', color: '#6fb2e6', listStyleType: 'none'}}>
+                  <ol className="mt-1 ml-0 pl-0 text-[#6fb2e6] list-none">
                     <li><a href="#male-variants" onClick={scrollToId('male-variants')} className="wiki-link">4.1 Male</a></li>
                     <li><a href="#female-variants" onClick={scrollToId('female-variants')} className="wiki-link">4.2 Female</a></li>
                   </ol>
@@ -240,7 +248,7 @@ const AxisDeer = () => {
              <h2 id="shot-scheme" className="wiki-h2">Shot scheme</h2>
             <div className="wiki-shot-container">
                 <div className="wiki-shot-container">
-                   <img src={ShotSchemeImage} alt="Shot Scheme" className="wiki-shot-scheme-img" />
+                   <img src={ShotSchemeImage} alt="Shot Scheme" className="wiki-shot-scheme-img-sm" />
                 </div>
                 <div className="wiki-shot-wrap">
                    <div className="wiki-shot-title">Color code</div>
@@ -254,7 +262,7 @@ const AxisDeer = () => {
             {/* FUR VARIANTS (Gallery) */}
             <h2 id="fur-variants" className="wiki-h2">Fur Variants</h2>
 
-            <h3 id="male-variants" style={{...styles.h2, fontSize: '1.2rem'}}>Male</h3>
+            <h3 id="male-variants" className="text-[#6fb2e6] mt-6 mb-3 text-lg font-medium">Male</h3>
             <div className="wiki-gallery-grid">
               {maleGallery.map((item, i) => (
                 <div key={"m-"+i} className="wiki-gallery-item">
@@ -266,7 +274,7 @@ const AxisDeer = () => {
               ))}
             </div>
 
-            <h3 id="female-variants" style={{...styles.h2, fontSize: '1.2rem'}}>Female</h3>
+            <h3 id="female-variants" className="text-[#6fb2e6] mt-6 mb-3 text-lg font-medium">Female</h3>
             <div className="wiki-gallery-grid">
               {femaleGallery.map((item, i) => (
                 <div key={"f-"+i} className="wiki-gallery-item">
@@ -341,10 +349,10 @@ const AxisDeer = () => {
             {/* REFERENCES */}
             <h2 id="references" className="wiki-h2">References</h2>
             <ul className="wiki-ul wiki-ul-disc">
-              <li style={{marginBottom: '8px'}}>Axis Deer Need Zones, Emerald Coast</li>
-              <li style={{marginBottom: '8px'}}><a href="https://encyclopedia.pub" className="wiki-link" target="_blank" rel="noopener noreferrer">encyclopedia.pub</a></li>
-              <li style={{marginBottom: '8px'}}><a href="https://brokenarrowranch.com" className="wiki-link" target="_blank" rel="noopener noreferrer">brokenarrowranch.com</a></li>
-              <li style={{marginBottom: '8px'}}><a href="https://animalia.bio" className="wiki-link" target="_blank" rel="noopener noreferrer">animalia.bio</a> (See attachments)</li>
+              <li className="mb-2.5">Axis Deer Need Zones, Emerald Coast</li>
+              <li className="mb-2.5"><a href="https://encyclopedia.pub" className="wiki-link" target="_blank" rel="noopener noreferrer">encyclopedia.pub</a></li>
+              <li className="mb-2.5"><a href="https://brokenarrowranch.com" className="wiki-link" target="_blank" rel="noopener noreferrer">brokenarrowranch.com</a></li>
+              <li className="mb-2.5"><a href="https://animalia.bio" className="wiki-link" target="_blank" rel="noopener noreferrer">animalia.bio</a> (See attachments)</li>
             </ul>
 
             <div className="wiki-mt-40">

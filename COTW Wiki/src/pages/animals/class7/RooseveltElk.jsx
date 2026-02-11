@@ -128,7 +128,7 @@ const RooseveltElk = () => {
             
             <div className="wiki-sidebar-section">
               <span className="wiki-sidebar-label">Class</span>
-              <span><img src={class7Icon} alt="Class 7" className="wiki-class-icon-lg"/>7</span>
+              <span><img src={class7Icon} alt="Class 7" className="inline-block wiki-class-icon-sm align-middle mr-1.5"/>7</span>
             </div>
 
             <div className="wiki-sidebar-section">
@@ -190,7 +190,7 @@ const RooseveltElk = () => {
             </p>
 
             {/* Table of Contents */}
-            <div className="wiki-toc">
+              <div className="wiki-toc">
               <div className="wiki-toc-title">
                 🔢 Contents <span className="wiki-toc-toggle">[hide]</span>
               </div>
@@ -200,8 +200,8 @@ const RooseveltElk = () => {
                 <li><a href="#shot-scheme" onClick={(e)=>scrollToId(e,'shot-scheme')} className="wiki-link">Shot scheme</a></li>
                 <li><a href="#fur-variants" onClick={(e)=>scrollToId(e,'fur-variants')} className="wiki-link">Fur Variants</a></li>
                 <ol style={{listStyleType: 'none', marginLeft: '-20px'}}>
-                     <li><a href="#fur-male" onClick={(e)=>scrollToId(e,'fur-male')} style={{...styles.link, marginLeft:'20px'}}>4.1. Male</a></li>
-                     <li><a href="#fur-female" onClick={(e)=>scrollToId(e,'fur-female')} style={{...styles.link, marginLeft:'20px'}}>4.2. Female</a></li>
+                     <li><a href="#fur-male" onClick={(e)=>scrollToId(e,'fur-male')} className="wiki-link" style={{marginLeft:'20px'}}>4.1. Male</a></li>
+                     <li><a href="#fur-female" onClick={(e)=>scrollToId(e,'fur-female')} className="wiki-link" style={{marginLeft:'20px'}}>4.2. Female</a></li>
                 </ol>
                 <li><a href="#variant-rarity" onClick={(e)=>scrollToId(e,'variant-rarity')} className="wiki-link">Fur Variant Rarity</a></li>
                 <li><a href="#trivia" onClick={(e)=>scrollToId(e,'trivia')} className="wiki-link">Trivia</a></li>
@@ -261,7 +261,7 @@ const RooseveltElk = () => {
             <h2 className="wiki-h2" id="shot-scheme">Shot scheme</h2>
             <div className="wiki-shot-container">
                <div className="wiki-shot-container">
-                 <img src={ShotSchemeImg} alt="Shot Scheme" className="wiki-shot-scheme-img" />
+                 <img src={ShotSchemeImg} alt="Shot Scheme" className="wiki-shot-scheme-img-sm" />
                </div>
                <div className="wiki-shot-wrap">
                  <div className="wiki-shot-title">Color code</div>

@@ -236,7 +236,7 @@ const WoollyHare = () => {
                </div>
                <div className="wiki-shot-info">
                   <strong>Color code</strong>
-                  <div style={{marginTop: '20px'}}>
+                  <div className="mt-5">
                      No Color - Every hit will kill the animal
                   </div>
                </div>

@@ -79,6 +79,14 @@ const EurasianLynx = () => {
     "It is one of several animals in game to have their drink times removed after the release of Revontuli Coast (Medved Only). The reasoning for the Lynx losing its drink zone is unclear. However, it's possibly based off the fact that felines in harsh climates (deserts, frozen tundra, ext.) do not need to drink; they get most of their water from the meat they eat."
   ];
 
+  // Smooth scroll helper for TOC links
+  const scrollToId = (id) => (e) => {
+    if (e && e.preventDefault) e.preventDefault();
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    try { window.history.replaceState(null, '', `#${id}`); } catch (err) {}
+  };
+
   return (
     <div className="wiki-page">
       <div className="wiki-inner">
@@ -94,14 +102,14 @@ const EurasianLynx = () => {
           <aside className="wiki-sidebar">
             <div className="wiki-sidebar-header">Eurasian Lynx</div>
             <div className="wiki-sidebar-image">
-              <img src={EurasianLynxMain} alt="Eurasian Lynx" />
+              <img src={EurasianLynxMain} alt="Eurasian Lynx" className="max-w-full max-h-[280px] object-contain"/>
             </div>
             
             <div className="wiki-sidebar-header">General Information</div>
             
             <div className="wiki-sidebar-section">
               <span className="wiki-sidebar-label">Class</span>
-              <span><img src={class3Icon} alt="Class 3" className="wiki-class-icon-lg"/>3</span>
+              <span><img src={class3Icon} alt="Class 3" className="inline-block wiki-class-icon-sm align-middle mr-1.5" />3</span>
             </div>
 
             <div className="wiki-sidebar-section">
@@ -201,9 +209,9 @@ const EurasianLynx = () => {
             
             {/* NEED ZONE TIMES */}
             <h2 id="need-zone-times" className="wiki-h2">Need Zone Times</h2>
-            <div style={{display:'flex', gap: '20px', flexWrap: 'wrap'}}>
+            <div className="flex gap-[20px] flex-wrap">
                 {needZonesData.map((mapData, index) => (
-                    <div key={index} style={{flex: '1 1 300px'}}>
+                <div key={index} className="flex-1 basis-[300px]">
                         <table className="wiki-table">
                             <thead>
                                 <tr><th colSpan="2" className="wiki-th wiki-th-center">{mapData.name}</th></tr>
@@ -234,7 +242,7 @@ const EurasianLynx = () => {
              <h2 id="shot-scheme" className="wiki-h2">Shot scheme</h2>
             <div className="wiki-shot-container">
                 <div className="wiki-shot-container">
-                   <img src={ShotSchemeImage} alt="Shot Scheme" className="wiki-shot-scheme-img" />
+                   <img src={ShotSchemeImage} alt="Shot Scheme" className="wiki-shot-scheme-img-sm" />
                 </div>
                 <div className="wiki-shot-wrap">
                    <div className="wiki-shot-title">Color code</div>

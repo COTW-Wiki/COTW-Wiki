@@ -149,7 +149,7 @@ const WildBoar = () => {
             <div className="wiki-sidebar-section">
               <span className="wiki-sidebar-label">Class</span>
               {/* */}
-              <span><img src={class5Icon} alt="Class 5" className="wiki-class-icon-lg"/>5</span>
+              <span><img src={class5Icon} alt="Class 5" className="inline-block wiki-class-icon-sm align-middle mr-1.5"/>5</span>
             </div>
 
             <div className="wiki-sidebar-section">
@@ -180,7 +180,7 @@ const WildBoar = () => {
             </div>
 
             <div className="wiki-sidebar-section">
-               <span style={{...styles.sidebarLabel, color: '#2ecc71'}}>Great One</span>
+              <span className="wiki-sidebar-label wiki-great-one" style={{color: '#2ecc71'}}>Great One</span>
             </div>
 
             <div className="wiki-sidebar-section">
@@ -293,7 +293,7 @@ const WildBoar = () => {
             <h2 className="wiki-h2" id="shot-scheme">Shot scheme</h2>
             <div className="wiki-shot-container">
                <div className="wiki-shot-container">
-                 <img src={ShotSchemeImg} alt="Shot Scheme" className="wiki-shot-scheme-img" />
+                 <img src={ShotSchemeImg} alt="Shot Scheme" className="wiki-shot-scheme-img-sm" />
                </div>
                <div className="wiki-shot-wrap">
                  <div className="wiki-shot-title">Color code</div>

@@ -72,6 +72,27 @@ const HarlequinDuck = () => {
     { name: "Grey - Back", src: HarlequinDuck_GreyFemaleBack },
   ];
 
+  const toc = [
+    { id: 'features', label: 'Features' },
+    { id: 'need-zones', label: 'Need Zone Times' },
+    { id: 'tips', label: 'Tips' },
+    { id: 'plumage', label: 'Plumage Variants', children: [
+      { id: 'plumage-male', label: 'Male' },
+      { id: 'plumage-female', label: 'Female' },
+    ] },
+    { id: 'rarity', label: 'Plumage Variant Rarity' },
+    { id: 'trivia', label: 'Trivia' },
+    { id: 'references', label: 'References' },
+  ];
+
+  function handleTOCClick(targetId) {
+    const el = document.getElementById(targetId);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      try { history.replaceState(null, '', `#${targetId}`); } catch (e) {}
+    }
+  }
+
   return (
     <div className="wiki-page">
       <div className="wiki-inner">
@@ -89,14 +110,14 @@ const HarlequinDuck = () => {
           <aside className="wiki-sidebar">
             <div className="wiki-sidebar-header">Harlequin Duck</div>
             <div className="wiki-sidebar-image">
-              <img src={HarlequinDuckMain} alt="Harlequin Duck" style={{width: '268.4px', height: '134.2px', objectFit: 'cover', display: 'block'}} />
+              <img src={HarlequinDuckMain} alt="Harlequin Duck" className="w-[268.4px] h-[134.2px] object-cover" />
             </div>
             
             <div className="wiki-sidebar-header">General Information</div>
             
             <div className="wiki-sidebar-section">
               <span className="wiki-sidebar-label">Class</span>
-              <span><img src={class1Icon} alt="Class 1" style={{width: '18px', height: '18px', verticalAlign: 'middle', marginRight: '6px'}}/>1</span>
+              <span><img src={class1Icon} alt="Class 1" className="inline-block wiki-class-icon-sm align-middle mr-1.5"/>1</span>
             </div>
 
             <div className="wiki-sidebar-section">
@@ -131,7 +152,7 @@ const HarlequinDuck = () => {
 
             <div className="wiki-sidebar-section">
                <span className="wiki-sidebar-label">Plumage</span>
-               <span style={{fontSize: '0.85rem'}}>
+               <span className="text-[0.85rem]">
                  Albino, Dark, Dark Brown, Dark Grey, Grey, Melanistic, Piebald
                </span>
             </div>
@@ -159,17 +180,17 @@ const HarlequinDuck = () => {
 
             {/* Table of Contents Placeholder */}
             <div className="wiki-toc">
-              <div style={{fontWeight: 'bold', borderBottom: '1px solid #3a5a75', marginBottom: '5px'}}>
+              <div className="font-bold border-b border-[#3a5a75] mb-2 pb-2">
                 🔢 Contents <span className="wiki-toc-toggle">[hide]</span>
               </div>
-              <ol style={{margin: '0', paddingLeft: '20px', color: '#6fb2e6', listStyleType: 'none'}}>
+              <ol className="m-0 pl-5 text-[#6fb2e6] list-none">
                 {toc.map((item, idx) => (
-                  <li key={item.id} style={{marginBottom: '6px', cursor: 'pointer'}} onClick={() => handleTOCClick(item.id)}>
-                    <strong style={{marginRight: '6px'}}>{idx + 1}.</strong> {item.label}
+                  <li key={item.id} className="mb-1.5 cursor-pointer" onClick={() => handleTOCClick(item.id)}>
+                    <strong className="mr-1.5">{idx + 1}.</strong> {item.label}
                     {item.children && (
-                      <ol style={{marginTop: '6px', marginLeft: '12px', listStyleType: 'none'}}>
+                      <ol className="mt-1.5 ml-3 list-none">
                         {item.children.map((child, cidx) => (
-                          <li key={child.id} style={{cursor: 'pointer'}} onClick={(e) => { e.stopPropagation(); handleTOCClick(child.id); }}>{`${idx + 1}.${cidx + 1} ${child.label}`}</li>
+                          <li key={child.id} className="cursor-pointer" onClick={(e) => { e.stopPropagation(); handleTOCClick(child.id); }}>{`${idx + 1}.${cidx + 1} ${child.label}`}</li>
                         ))}
                       </ol>
                     )}
@@ -199,7 +220,7 @@ const HarlequinDuck = () => {
 
             {/* NEED ZONE TIMES */}
             <h2 id="need-zones" className="wiki-h2">Need Zone Times</h2>
-            <div style={{display: 'inline-block'}}>
+            <div className="inline-block">
                 <table className="wiki-table wiki-table-fixed">
                     <thead>
                         <tr>
@@ -211,7 +232,7 @@ const HarlequinDuck = () => {
                         {needZones.map((zone, i) => (
                         <tr key={i}>
                           <td className="wiki-td">{zone.time}</td>
-                          <td className="wiki-td"><img src={zone.icon} alt={zone.type} style={{width: '18px', height: '18px', verticalAlign: 'middle', marginRight: '6px'}}/>{zone.type}</td>
+                          <td className="wiki-td"><img src={zone.icon} alt={zone.type} className="inline-block w-[18px] h-[18px] align-middle mr-1.5"/>{zone.type}</td>
                         </tr>
                         ))}
                     </tbody>
@@ -234,7 +255,7 @@ const HarlequinDuck = () => {
               {plumageMale.map((img, i) => (
                   <div key={i} className="wiki-gallery-item">
                       <div className="wiki-gallery-placeholder">
-                        <img src={img.src} alt={img.name} style={{width: '146px', height: '165px', objectFit: 'cover', display: 'block'}} />
+                        <img src={img.src} alt={img.name} className="w-[146px] h-[165px] object-cover block" />
                       </div>
                       <span className="wiki-gallery-label">{img.name}</span>
                   </div>
@@ -246,7 +267,7 @@ const HarlequinDuck = () => {
               {plumageFemale.map((img, i) => (
                   <div key={i} className="wiki-gallery-item">
                       <div className="wiki-gallery-placeholder">
-                        <img src={img.src} alt={img.name} style={{width: '146px', height: '165px', objectFit: 'cover', display: 'block'}} />
+                        <img src={img.src} alt={img.name} className="w-[146px] h-[165px] object-cover block" />
                       </div>
                       <span className="wiki-gallery-label">{img.name}</span>
                   </div>
@@ -282,7 +303,7 @@ const HarlequinDuck = () => {
                     </tr>
                     {/* Female Row */}
                     <tr>
-                        <td style={{...styles.td, color: '#e91e63', fontStyle: 'italic'}}>Female</td>
+                      <td className="wiki-td text-[#e91e63] italic">Female</td>
                         <td className="wiki-td">
                             Dark Grey (66.53%)<br/>
                             Dark Brown (33.26%)
@@ -299,7 +320,7 @@ const HarlequinDuck = () => {
 
             {/* TRIVIA */}
             <h2 id="trivia" className="wiki-h2">Trivia</h2>
-            <ul style={{paddingLeft: '20px', marginBottom: '30px'}}>
+            <ul className="pl-5 mb-8">
                 <li className="wiki-li">The Harlequin Duck gets it's name from it's distinct plumage pattern, reminiscent of the type of pattern that would have been worn by a the 16th century Italian comic relief character called a <em>Harlequin</em>. However, the origins of the word, <em>Harlequin</em>, maybe even older. And could even trace it's origins to an Old French character from the 11th Century called: <em>Herlequin</em>. <em>Herlequin</em> was a masked club wielding giant who led a pose of demons during the Germanic wild hunt.[1][2]</li>
                 <li className="wiki-li">Its scientific name <em>Histrionicus Histrionicus</em> is derived from the Latin word <em>Histrio</em> meaning <em>Actor</em>. [3]</li>
                 <li className="wiki-li">Other names for the Harlequin Duck include the <em>Sea Mouse</em>, in reference to their high pitched squeaks, <em>Rock Duck</em>, and their different genders may be distinguished with the moniker of either <em>Lord</em> or <em>Lady</em>.[4]</li>
@@ -309,7 +330,7 @@ const HarlequinDuck = () => {
 
             {/* REFERENCES */}
             <h2 id="references" className="wiki-h2">References</h2>
-            <ol style={{paddingLeft: '25px', color: '#6fb2e6'}}>
+            <ol className="pl-6 text-[#6fb2e6]">
                 <li><span className="wiki-link">https://www.etymonline.com/word/harlequin</span></li>
                 <li><span className="wiki-link">https://en.wikipedia.org/wiki/Harlequin</span></li>
                 <li><span className="wiki-link">https://www.merriam-webster.com/dictionary/histrio</span></li>

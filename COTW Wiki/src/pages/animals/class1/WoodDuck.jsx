@@ -142,15 +142,15 @@ const WoodDuck = () => {
           {/* --- RIGHT SIDEBAR (General Information) --- */}
           <aside className="wiki-sidebar">
             <div className="wiki-sidebar-header">Wood Duck</div>
-            <div style={{...styles.sidebarImage, padding:'10px'}}>
-              <img src={WoodDuckImg} alt="Wood Duck" style={{width: '268.4px', height: '134.2px', objectFit: 'cover', borderRadius: '2px'}} />
+            <div className="h-[180px] bg-[#2a4b63] flex items-center justify-center p-2.5">
+              <img src={WoodDuckImg} alt="Wood Duck" className="max-w-full max-h-full object-contain rounded-sm" />
             </div>
             
             <div className="wiki-sidebar-header">General Information</div>
             
             <div className="wiki-sidebar-section">
               <span className="wiki-sidebar-label">Class</span>
-              <span><img src={class1Icon} alt="Class 1" style={{width: '18px', height: '18px', verticalAlign: 'middle', marginRight: '6px'}}/>1</span>
+              <span><img src={class1Icon} alt="Class 1" className="inline-block w-[18px] h-[18px] align-middle mr-1.5"/>1</span>
             </div>
 
             <div className="wiki-sidebar-section">
@@ -184,7 +184,7 @@ const WoodDuck = () => {
 
             <div className="wiki-sidebar-section">
                <span className="wiki-sidebar-label">Plumage</span>
-               <span style={{fontSize: '0.85rem'}}>
+               <span className="text-[0.85rem]">
                  Albino, Dark, Dilute Silver, Erythristic Golden, Leucistic, Melanistic, Piebald, Standard
                </span>
             </div>
@@ -211,25 +211,18 @@ const WoodDuck = () => {
             </p>
 
             {/* Table of Contents Placeholder */}
-            <div style={{
-              border: '1px solid #3a5a75',
-              backgroundColor: '#0f2e48',
-              display: 'inline-block',
-              padding: '10px 20px',
-              borderRadius: '4px',
-              minWidth: '220px'
-            }}>
-              <div style={{fontWeight: 'bold', borderBottom: '1px solid #3a5a75', marginBottom: '8px'}}>
+            <div className="border border-[#3a5a75] bg-[#0f2e48] inline-block px-5 py-2.5 rounded min-w-[220px]">
+              <div className="font-bold border-b border-[#3a5a75] mb-2 pb-2">
                 🔢 Contents <span className="wiki-toc-toggle">[hide]</span>
               </div>
-              <div style={{paddingTop: '6px', color: '#6fb2e6'}}>
+              <div className="pt-1.5 text-[#6fb2e6]">
                 {toc.map((item, i) => (
-                  <div key={item.id} style={{marginBottom: '6px'}}>
+                  <div key={item.id} className="mb-1.5">
                     <a onClick={() => handleTocClick(item.id)} className="wiki-link" role="button">
-                      <strong style={{marginRight: '8px'}}>{i + 1}.</strong>{item.label}
+                      <strong className="mr-2">{i + 1}.</strong>{item.label}
                     </a>
                     {item.children && (
-                      <div style={{paddingLeft: '16px', marginTop: '6px'}}>
+                      <div className="pl-4 mt-1.5">
                         {item.children.map((c, j) => (
                           <div key={c.id} className="wiki-mb-4">
                             <a onClick={() => handleTocClick(c.id)} className="wiki-link" role="button">{`${i + 1}.${j + 1} ${c.label}`}</a>
@@ -263,7 +256,7 @@ const WoodDuck = () => {
 
             {/* NEED ZONE TIMES */}
             <h2 id="need-zone-times" className="wiki-h2">Need Zone Times</h2>
-            <div style={{display: 'inline-block'}}>
+            <div className="inline-block">
                 <table className="wiki-table wiki-table-fixed">
                     <thead>
                         <tr><th colSpan="2" className="wiki-th wiki-th-center">Askiy Ridge<sup>[1]</sup></th></tr>
@@ -277,7 +270,7 @@ const WoodDuck = () => {
                         <tr key={i}>
                             <td className="wiki-td">{zone.time}</td>
                     <td className="wiki-td">
-                      <img src={zone.icon} alt={zone.type} style={{width: '18px', height: '18px', verticalAlign: 'middle', marginRight: '8px'}} />
+                      <img src={zone.icon} alt={zone.type} className="inline-block w-[18px] h-[18px] align-middle mr-2" />
                       {zone.type}
                     </td>
                         </tr>
@@ -288,11 +281,11 @@ const WoodDuck = () => {
 
             {/* SHOT SCHEME */}
             <h2 id="shot-scheme" className="wiki-h2">Shot scheme</h2>
-            <div style={{backgroundColor: '#0f2e48', padding: '10px'}}>
+            <div className="bg-[#0f2e48] p-2.5">
                 <div className="wiki-shot-title">Color code</div>
               <div className="wiki-shot-container">
                 <div className="wiki-shot-image">
-                  <img src={WoodDuckShotScheme} alt="Wood Duck shot scheme" style={{width: '500px', height: '444px', objectFit: 'contain'}} />
+                  <img src={WoodDuckShotScheme} alt="Wood Duck shot scheme" className="w-[500px] h-[444px] object-contain" />
                 </div>
                 <div className="wiki-shot-info">
                   No Color - Every hit will kill the animal
@@ -325,7 +318,7 @@ const WoodDuck = () => {
                       ].map((img, i) => (
                         <div key={i} className="wiki-gallery-item">
                           <div className="wiki-gallery-placeholder">
-                            <img src={img.src} alt={img.label} style={{width: '146px', height: '165px', objectFit: 'cover', borderRadius: '2px'}} />
+                            <img src={img.src} alt={img.label} className="w-[146px] h-[165px] object-cover rounded" />
                           </div>
                           <span className="wiki-gallery-label">{img.label}</span>
                         </div>
@@ -354,7 +347,7 @@ const WoodDuck = () => {
               ].map((img, i) => (
                 <div key={i} className="wiki-gallery-item">
                   <div className="wiki-gallery-placeholder">
-                    <img src={img.src} alt={img.label} style={{width: '146px', height: '165px', objectFit: 'cover', borderRadius: '2px'}} />
+                    <img src={img.src} alt={img.label} className="w-[146px] h-[165px] object-cover rounded" />
                   </div>
                   <span className="wiki-gallery-label">{img.label}</span>
                 </div>

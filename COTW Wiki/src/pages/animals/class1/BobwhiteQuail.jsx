@@ -42,7 +42,7 @@ const BobwhiteQuail = () => {
     { time: "10:00 - 13:30", type: "Resting", icon: RestingZoneIcon },
     { time: "13:00 - 16:30", type: "Feeding", icon: FeedingZoneIcon },
     { time: "16:00 - 20:30", type: "Feeding", icon: FeedingZoneIcon },
-    { time: "20:00 - 0:30", type: "Resting", icon: RestingZoneIcon },
+    { time: "20:00 - 00:30", type: "Resting", icon: RestingZoneIcon },
   ];
 
   // Features Table
@@ -183,9 +183,9 @@ const BobwhiteQuail = () => {
                 </li>
                 <li>
                   <a href="#plumage-variants" className="wiki-link" onClick={(e)=>{e.preventDefault(); document.getElementById('plumage-variants')?.scrollIntoView({behavior:'smooth', block:'start'});}}>Plumage variants</a>
-                    <ul >
-                        <li style={{color:'#6fb2e6'}}><a href="#plumage-male" className="wiki-link" onClick={(e)=>{e.preventDefault(); document.getElementById('plumage-male')?.scrollIntoView({behavior:'smooth', block:'start'});}}>5.1. Male</a></li>
-                        <li style={{color:'#6fb2e6'}}><a href="#plumage-female" className="wiki-link" onClick={(e)=>{e.preventDefault(); document.getElementById('plumage-female')?.scrollIntoView({behavior:'smooth', block:'start'});}}>5.2. Female</a></li>
+                    <ul>
+                      <li className="text-[#6fb2e6]"><a href="#plumage-male" className="wiki-link" onClick={(e)=>{e.preventDefault(); document.getElementById('plumage-male')?.scrollIntoView({behavior:'smooth', block:'start'});}}>5.1. Male</a></li>
+                      <li className="text-[#6fb2e6]"><a href="#plumage-female" className="wiki-link" onClick={(e)=>{e.preventDefault(); document.getElementById('plumage-female')?.scrollIntoView({behavior:'smooth', block:'start'});}}>5.2. Female</a></li>
                     </ul>
                 </li>
                 <li>
@@ -265,7 +265,7 @@ const BobwhiteQuail = () => {
             <h2 id="plumage-variants" className="wiki-h2">Plumage variants</h2>
             
             {/* Male Section */}
-            <h3 id="plumage-male" style={{...styles.h2, fontSize:'1.2rem', borderBottom:'none', marginTop:'10px'}}>Male</h3>
+            <h3 id="plumage-male" className="wiki-h3 text-[1.2rem] mt-2 border-b-0">Male</h3>
             <div className="wiki-gallery-grid">
               {plumageGallery.male.map((item, i) => (
                 <div key={i} className="wiki-gallery-item">
@@ -278,7 +278,7 @@ const BobwhiteQuail = () => {
             </div>
 
             {/* Female Section */}
-            <h3 id="plumage-female" style={{...styles.h2, fontSize:'1.2rem', borderBottom:'none', marginTop:'10px'}}>Female</h3>
+            <h3 id="plumage-female" className="wiki-h3 text-[1.2rem] mt-2 border-b-0">Female</h3>
             <div className="wiki-gallery-grid">
               {plumageGallery.female.map((item, i) => (
                 <div key={i} className="wiki-gallery-item">
@@ -340,7 +340,7 @@ const BobwhiteQuail = () => {
 
             {/* REFERENCES */}
             <h2 id="references" className="wiki-h2">References</h2>
-            <ol style={{paddingLeft:'20px', marginBottom: '30px', color: '#6fb2e6'}}>
+            <ol className="pl-5 mb-8 text-[#6fb2e6]">
                 <li className="wiki-mb-4"><span className="wiki-link">allaboutbirds.org</span></li>
                 <li className="wiki-mb-4"><span className="wiki-link">animalia.bio</span></li>
                 <li className="wiki-mb-4"><span className="wiki-link">animalia.bio</span></li>

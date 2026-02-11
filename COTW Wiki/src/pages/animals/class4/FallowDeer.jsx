@@ -167,7 +167,7 @@ const FallowDeer = () => {
             
             <div className="wiki-sidebar-section">
               <span className="wiki-sidebar-label">Class</span>
-              <span><img src={class4Icon} alt="Class 4" className="wiki-class-icon-lg"/>4</span>
+              <span><img src={class4Icon} alt="Class 4" className="inline-block wiki-class-icon-sm align-middle mr-1.5" />4</span>
             </div>
 
             <div className="wiki-sidebar-section">
@@ -194,7 +194,7 @@ const FallowDeer = () => {
                 </div>
               </div>
               <div style={{textAlign: 'center', marginTop: '10px'}}>
-                 <span style={{...styles.trophyLabel, ...styles.greatOne}}>✤ Great One</span>
+                 <span className="wiki-trophy-label wiki-great-one">✤ Great One</span>
               </div>
             </div>
 
@@ -320,7 +320,7 @@ const FallowDeer = () => {
              <h2 className="wiki-h2" id="shot-scheme">Shot scheme</h2>
             <div className="wiki-shot-container">
                 <div className="wiki-shot-container">
-                   <img src={ShotSchemeImage} alt="Shot Scheme" className="wiki-shot-scheme-img" />
+                   <img src={ShotSchemeImage} alt="Shot Scheme" className="wiki-shot-scheme-img-sm" />
                 </div>
                 <div className="wiki-shot-wrap">
                    <div className="wiki-shot-title">Color code</div>

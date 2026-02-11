@@ -103,15 +103,15 @@ const EurasianPineMarten = () => {
           {/* --- RIGHT SIDEBAR (General Information) --- */}
           <aside className="wiki-sidebar">
             <div className="wiki-sidebar-header">Eurasian Pine Marten</div>
-            <div className="wiki-sidebar-image">
-              <img src={EurasianPineMartenMain} alt="Eurasian Pine Marten" />
+            <div className="wiki-sidebar-image flex items-center justify-center">
+              <img src={EurasianPineMartenMain} alt="Eurasian Pine Marten" className="max-w-full max-h-[200px] object-contain" />
             </div>
             
             <div className="wiki-sidebar-header">General Information</div>
             
             <div className="wiki-sidebar-section">
               <span className="wiki-sidebar-label">Class</span>
-              <span><img src={class1Icon} alt="Class 1" className="wiki-class-icon"/>1</span>
+              <span><img src={class1Icon} alt="Class 1" className="inline-block wiki-class-icon-sm align-middle mr-1.5"/>1</span>
             </div>
 
             <div className="wiki-sidebar-section">

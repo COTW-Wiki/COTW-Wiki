@@ -57,6 +57,36 @@ const Hirschfelden = () => {
     }
   }
 
+  const markerBase = {
+    position: 'absolute',
+    transform: 'translate(-50%, -50%)',
+    transition: 'all 0.2s ease-in-out',
+    zIndex: 10,
+  };
+
+  const styles = {
+    container: {
+      position: 'relative',
+      width: '100%',
+      maxWidth: '1200px',
+      margin: '0 auto',
+      backgroundColor: '#05121c',
+      borderRadius: '12px',
+      overflow: 'hidden',
+      border: '1px solid #1f405a',
+      padding: 0
+    },
+    mapImage: {
+      width: '100%',
+      height: 'auto',
+      display: 'block',
+      opacity: '0.6',
+    },
+    // adjust top/left/width to change logo position/size
+    // use inline-block so width applies and image can scale to 100%
+    hirsch: { ...markerBase, top: '48%', left: '51%', width: '5%', display: 'inline-block' },
+  };
+
   return (
     <div className="wiki-page">
       <div className="wiki-inner">
@@ -111,10 +141,15 @@ const Hirschfelden = () => {
 
             {/* LOCATION (World map preview with highlighted logo) */}
             <h2 className="wiki-h2" id="location">Location</h2>
-            <div className="map-container">
-              <img className="map-image" src={worldMapImage} alt="World map" />
-              <Link to="/maps/hirschfelden" className="logo-hirsch" data-tooltip="Hirschfelden Hunting Reserve">
-                <img src={hirschLogo} alt="Hirschfelden Logo" />
+            <div style={styles.container}>
+              <style>{` 
+                .map-inline a:hover { transform: translate(-50%, -50%) scale(1.3) !important; z-index: 100 !important; }
+                .map-inline img { max-width: 100%; height: auto; pointer-events: none; }
+              `}</style>
+              <img src={worldMapImage} alt="World map" style={styles.mapImage} />
+
+              <Link to="/maps/hirschfelden" style={styles.hirsch} data-tooltip="Hirschfelden Hunting Reserve">
+                <img src={hirschLogo} alt="Hirschfelden Logo" style={{width: '100%', height: 'auto', display: 'block'}}/>
               </Link>
             </div>
 

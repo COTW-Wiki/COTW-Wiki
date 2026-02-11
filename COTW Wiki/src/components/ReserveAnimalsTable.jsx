@@ -12,26 +12,29 @@ import class7Icon from '../assets/Class7Icon.webp';
 import class8Icon from '../assets/Class8Icon.webp';
 import class9Icon from '../assets/Class9Icon.webp';
 
-const ReserveAnimalsTable = ({ reserveData }) => {
+const ReserveAnimalsTable = ({ reserveData, showHeader = true }) => {
   const classes = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   const classIcons = [class1Icon, class2Icon, class3Icon, class4Icon, class5Icon, class6Icon, class7Icon, class8Icon, class9Icon];
 
   // Helper to build URL
+  // Helper to build URL (preserve hyphens between words to match route slugs)
   const toPath = (name) => {
-    const slug = name.replace(/[^a-zA-Z0-9]/g, '');
+    const slug = name.replace(/\s+/g, '-').replace(/[^a-zA-Z0-9-]/g, '');
     return `/animals/${slug}`;
   };
 
   return (
     <div id={reserveData.id} className="wiki-reserve-card">
-      <div className="wiki-section-header">
-        {reserveData.name}
-        <span className="wiki-release-link-icon"></span>
-      </div>
+      {showHeader && (
+        <div className="wiki-section-header">
+          {reserveData.name}
+          <span className="wiki-release-link-icon"></span>
+        </div>
+      )}
       <div className="wiki-reserve-table">
         {/* Header Row */}
         <div className="wiki-reserve-header-row">
-          <div className="w-full bg-[#16334a] border-b-0 px-3 py-2 text-white font-semibold">Class</div>
+          <div className="wiki-reserve-header-label">Class</div>
           {classes.map((cls, i) => (
             <div key={cls} className="wiki-reserve-header-cell">
               <img src={classIcons[i]} alt={`Class ${cls}`} className="wiki-class-icon" />
@@ -48,10 +51,10 @@ const ReserveAnimalsTable = ({ reserveData }) => {
               <div key={cls} className="wiki-reserve-grid-cell">
                 {animalList.length > 0 ? (
                   animalList.map((animal, idx) => (
-                    <Link key={idx} to={toPath(animal.name)} className="wiki-reserve-animal-card">
-                      <img src={animal.icon} alt={animal.name} className="wiki-reserve-hex-icon" />
-                      <span className="wiki-reserve-animal-name">{animal.name}</span>
-                    </Link>
+                    <Link key={idx} to={toPath(animal.name)} className="wiki-reserve-animal-card flex flex-col items-center text-center">
+                        <img src={animal.icon} alt={animal.name} className="wiki-reserve-hex-icon" />
+                        <span className="wiki-reserve-animal-name mt-2">{animal.name}</span>
+                      </Link>
                   ))
                 ) : (
                   <span className="wiki-reserve-empty">//</span>

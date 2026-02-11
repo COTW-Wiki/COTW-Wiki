@@ -5,6 +5,7 @@ import laytonLakeMapImg from '../../../assets/Layton_lake_district.webp'; // You
 import worldMapImage from '../../../assets/world-map-vector-removebg-preview.png';
 import reserveLogo from '../../../assets/Layton_Lake-removebg-preview.png';
 import GallerySlideshow from '../../../components/GallerySlideshow';
+import '../Reserves.css';
 import layton1 from '../../../assets/20200107182710_1.webp';
 import layton2 from '../../../assets/Unknown_29_2.webp';
 import layton3 from '../../../assets/Image0.webp';
@@ -31,123 +32,7 @@ const LaytonLake = () => {
     'Small, unhuntable birds can be found all over Layton Lake District, making it one of two maps (the other being Hirschfelden Hunting Reserve) to have a strictly ambient animal. Prior to the removal of weasels from the game, Medved-Taiga National Park also featured an ambient animal.'
   ];
 
-  // --- STYLES OBJECT ---
-  const styles = {
-    container: {
-      backgroundColor: '#0b1a26',
-      color: '#dbe4eb',
-      fontFamily: '"Segoe UI", Roboto, Helvetica, Arial, sans-serif',
-      padding: '40px',
-      minHeight: '100vh',
-      lineHeight: '1.6',
-    },
-    innerWrapper: {
-      maxWidth: '1200px',
-      margin: '0 auto',
-    },
-    mainHeader: {
-      fontSize: '2.5rem',
-      fontWeight: '400',
-      borderBottom: '1px solid #3a5a75',
-      paddingBottom: '15px',
-      marginBottom: '20px',
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-    },
-    layout: {
-      display: 'flex',
-      gap: '30px',
-      alignItems: 'flex-start',
-      flexDirection: 'row-reverse',
-    },
-    mainColumn: {
-      flex: 1,
-    },
-    sidebarColumn: {
-      width: '320px',
-      flexShrink: 0,
-      backgroundColor: '#0f2e48',
-      border: '1px solid #1f405a',
-      borderRadius: '4px',
-    },
-    sidebarHeader: {
-      backgroundColor: '#05121c',
-      padding: '12px',
-      textAlign: 'center',
-      fontWeight: 'bold',
-      fontSize: '1.1rem',
-      borderBottom: '2px solid #3a5a75',
-      color: '#fff'
-    },
-    sidebarImage: {
-      height: '300px',
-      backgroundColor: '#1f3a52',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      color: '#6fb2e6',
-      fontStyle: 'italic',
-      borderBottom: '1px solid #1f405a',
-      position: 'relative',
-      overflow: 'hidden'
-    },
-    quoteBox: {
-      fontStyle: 'italic',
-      backgroundColor: '#0f2e48',
-      borderLeft: '4px solid #3a5a75',
-      padding: '15px 20px',
-      margin: '0 0 20px 0',
-      color: '#a4cce8',
-    },
-    link: {
-      color: '#6fb2e6',
-      textDecoration: 'none',
-      cursor: 'pointer',
-    },
-    h2: {
-      color: '#6fb2e6',
-      borderBottom: '1px solid #3a5a75',
-      paddingBottom: '5px',
-      marginTop: '30px',
-      marginBottom: '15px',
-      fontSize: '1.5rem',
-      display: 'flex',
-      alignItems: 'center',
-      fontWeight: '500',
-    },
-    table: {
-      width: '100%',
-      borderCollapse: 'collapse',
-      backgroundColor: '#0f2e48',
-      fontSize: '0.95rem',
-      marginBottom: '20px',
-      border: '1px solid #1f405a'
-    },
-    th: {
-      backgroundColor: '#164060',
-      padding: '10px 15px',
-      textAlign: 'left',
-      color: '#fff',
-      borderBottom: '2px solid #3a5a75',
-      fontWeight: 'bold',
-    },
-    td: {
-      padding: '10px 15px',
-      borderBottom: '1px solid #2a4b63',
-      color: '#dbe4eb',
-      verticalAlign: 'top',
-    },
-    tocBox: {
-        border: '1px solid #3a5a75',
-        backgroundColor: '#0f2e48',
-        display: 'inline-block',
-        padding: '10px 20px',
-        borderRadius: '4px',
-        minWidth: '200px',
-        marginBottom: '30px'
-    }
-  };
+  // styles moved to Reserves.css (.reserve-toc, .reserve-link, .reserve-h2)
 
   // Smooth-scroll helper for TOC links
   function scrollToId(e, id) {
@@ -159,109 +44,123 @@ const LaytonLake = () => {
     }
   }
 
+  const markerBase = {
+    position: 'absolute',
+    transform: 'translate(-50%, -50%)',
+    transition: 'all 0.2s ease-in-out',
+    zIndex: 10,
+  };
+
+  const mapStyles = {
+    container: {
+      position: 'relative',
+      width: '100%',
+      maxWidth: '1200px',
+      margin: '0 auto',
+      backgroundColor: '#05121c',
+      borderRadius: '12px',
+      overflow: 'hidden',
+      border: '1px solid #1f405a',
+      padding: 0
+    },
+    mapImage: {
+      width: '100%',
+      height: 'auto',
+      display: 'block',
+      opacity: '0.6',
+    },
+    layton: { ...markerBase, top: '48%', left: '15.5%', width: '7%', display: 'inline-block' },
+  };
+
   return (
-    <div style={styles.container}>
-      <div style={styles.innerWrapper}>
-        
+    <div className="wiki-page">
+      <div className="wiki-inner">
+
         {/* PAGE HEADER */}
-        <div style={styles.mainHeader}>
+        <div className="wiki-header">
           <span>Layton Lake District</span>
         </div>
 
-        <div style={styles.layout}>
+        <div className="wiki-layout">
           
           {/* --- RIGHT SIDEBAR (Map Image) --- */}
-          <aside style={styles.sidebarColumn}>
-            <div style={styles.sidebarHeader}>Layton Lake District</div>
-            <div style={styles.sidebarImage}>
-                {/* Replace src with your actual map image import */}
-                <img src={laytonLakeMapImg} alt="Layton Lake Map" style={{width:'100%', height:'100%', objectFit: 'cover'}} />
+          <aside className="wiki-sidebar">
+            <div className="wiki-sidebar-header">Layton Lake District</div>
+            <div className="reserve-sidebar-image">
+                <img src={laytonLakeMapImg} alt="Layton Lake Map" />
             </div>
           </aside>
 
           {/* --- MAIN CONTENT --- */}
-          <main style={styles.mainColumn}>
+          <main className="wiki-main">
 
             {/* Intro Quote */}
-            <div style={styles.quoteBox}>
+            <div className="wiki-quote">
               Layton Lake District provides hunters from all over the world with a taste of the untamed wild, with few traces of civilization. Located in the Pacific Northwest, the area is predominantly covered by spruce, larch, and aspen forests, rocky mountain slopes, and marshlands in between. Plan your hunting trip carefully before taking on some of the most sought-after game like the moose, the black bear, the Roosevelt elk, the whitetail deer, the coyote, and the blacktail deer.
               <br/><br/>
               —In-game Description
             </div>
 
             {/* Intro Paragraph */}
-            <p style={{marginBottom:'20px'}}>
-              The Layton Lake District is located at the Pacific Northwest of North America. The warden of the <span style={styles.link}>Reserve</span> is <span style={styles.link}>Colton "Doc" Locke</span>.
+            <p className="wiki-p-mb">
+              The Layton Lake District is located at the Pacific Northwest of North America. The warden of the <span className="wiki-link">Reserve</span> is <span className="wiki-link">Colton "Doc" Locke</span>.
             </p>
 
             {/* Table of Contents */}
-            <div style={styles.tocBox}>
+            <div className="reserve-toc">
               <div style={{fontWeight:'bold', borderBottom: '1px solid #3a5a75', marginBottom: '5px'}}>
                 🔢 Contents <span style={{float:'right', color: '#6fb2e6', fontSize:'0.8rem', cursor: 'pointer'}}>[hide]</span>
               </div>
               <ol style={{margin:'0', paddingLeft: '20px', color: '#6fb2e6'}}>
-                <li><a href="#location" onClick={(e)=>scrollToId(e,'location')} style={styles.link}>Location</a></li>
-                <li><a href="#regions" onClick={(e)=>scrollToId(e,'regions')} style={styles.link}>Regions</a></li>
-                <li><a href="#huntable-animals" onClick={(e)=>scrollToId(e,'huntable-animals')} style={styles.link}>Huntable Animals</a></li>
-                <li><a href="#missions" onClick={(e)=>scrollToId(e,'missions')} style={styles.link}>Missions</a></li>
-                <li><a href="#trailer" onClick={(e)=>scrollToId(e,'trailer')} style={styles.link}>Trailer</a></li>
-                <li><a href="#trivia" onClick={(e)=>scrollToId(e,'trivia')} style={styles.link}>Trivia</a></li>
-                <li><a href="#gallery" onClick={(e)=>scrollToId(e,'gallery')} style={styles.link}>Gallery</a></li>
+                <li><a href="#location" onClick={(e)=>scrollToId(e,'location')} className="reserve-link">Location</a></li>
+                <li><a href="#regions" onClick={(e)=>scrollToId(e,'regions')} className="reserve-link">Regions</a></li>
+                <li><a href="#huntable-animals" onClick={(e)=>scrollToId(e,'huntable-animals')} className="reserve-link">Huntable Animals</a></li>
+                <li><a href="#missions" onClick={(e)=>scrollToId(e,'missions')} className="reserve-link">Missions</a></li>
+                <li><a href="#trailer" onClick={(e)=>scrollToId(e,'trailer')} className="reserve-link">Trailer</a></li>
+                <li><a href="#trivia" onClick={(e)=>scrollToId(e,'trivia')} className="reserve-link">Trivia</a></li>
+                <li><a href="#gallery" onClick={(e)=>scrollToId(e,'gallery')} className="reserve-link">Gallery</a></li>
               </ol>
             </div>
 
             {/* LOCATION (World map with Layton logo) */}
-            <h2 style={styles.h2} id="location">Location</h2>
-            <div className="map-container" style={{marginBottom: '18px'}}>
+            <h2 className="wiki-h2" id="location">Location</h2>
+            <div style={mapStyles.container}>
               <style>{` 
-                .map-container img[class*="logo-"]{ 
-                  transition: transform 180ms ease, filter 180ms ease, box-shadow 180ms ease; 
-                  transform-origin: center center; 
-                  cursor: pointer; 
-                  border: none; 
-                  outline: none; 
-                }
-                .map-container a:focus, .map-container a:focus img{ outline: none; }
-                .map-container img[class*="logo-"]:hover{ 
-                  transform: scale(1.25); 
-                  filter: sepia(1) saturate(10000%) hue-rotate(10deg) brightness(1);
-                  z-index: 999; 
-                  box-shadow: none; 
-                  border: none;
-                  outline: none;
-                }
+                .map-inline a:hover { transform: translate(-50%, -50%) scale(1.3) !important; z-index: 100 !important; }
+                .map-inline img { max-width: 100%; height: auto; pointer-events: none; }
               `}</style>
-              <img className="map-image" src={worldMapImage} alt="World map" style={{width: '100%', height: 'auto'}} />
-              <a href="/maps/layton-lake" className="logo" style={{ '--mask': `url("${reserveLogo}")`, marginLeft: '-340px', width: '60px', height: 'auto' }} data-tooltip="Layton Lake District">
-                <img src={reserveLogo} alt="Layton Lake Logo" />
-              </a>
+              <img src={worldMapImage} alt="World map" style={mapStyles.mapImage} />
+
+              <Link to="/maps/layton-lake" style={mapStyles.layton} data-tooltip="Layton Lake District">
+                <img src={reserveLogo} alt="Layton Lake Logo" style={{width: '100%', height: 'auto', display: 'block'}}/>
+              </Link>
             </div>
 
             {/* REGIONS */}
-            <h2 style={styles.h2} id="regions">Regions</h2>
-            <table style={styles.table}>
+            <h2 className="wiki-h2" id="regions">Regions</h2>
+            <table className="wiki-table">
                 <thead>
                     <tr>
-                        <th style={styles.th}>Region</th>
-                        <th style={styles.th}>Subregion</th>
+                  <th className="wiki-th">Region</th>
+                  <th className="wiki-th">Subregion</th>
                     </tr>
                 </thead>
                 <tbody>
                     {regionsData.map((row, idx) => (
                         <tr key={idx}>
-                            <td style={{...styles.td, color: '#6fb2e6'}}>{row.region}</td>
-                            <td style={styles.td}>
-                                {row.subregions.map((sub, sIdx) => (
-                                    <div key={sIdx} style={{marginBottom:'2px', color: '#6fb2e6'}}>{sub}</div>
-                                ))}
-                            </td>
+                    <td className="wiki-td wiki-td-highlight">{row.region}</td>
+                    <td className="wiki-td">
+                      {row.subregions.map((sub, sIdx) => (
+                        <div key={sIdx} className="subregion-item">{sub}</div>
+                      ))}
+                    </td>
                         </tr>
                     ))}
                 </tbody>
             </table>
 
             {/* HUNTABLE ANIMALS */}
-            <h2 style={styles.h2} id="huntable-animals">Huntable Animals</h2>
+            <h2 className="wiki-h2" id="huntable-animals">Huntable Animals</h2>
             <div style={{marginBottom: '30px'}}>
                 {/* Embedding the specific table component for Layton Lake */}
                 <LaytonLakeHuntableAnimalsTable />
@@ -271,16 +170,16 @@ const LaytonLake = () => {
             <p>This map contains 3 'great ones: whitetail deer, black bear and moose.</p>
 
             {/* MISSIONS */}
-            <h2 style={styles.h2} id="missions">Missions</h2>
+            <h2 className="wiki-h2" id="missions">Missions</h2>
             <div style={{marginBottom: '15px', fontStyle: 'italic'}}>
-                Main article: <span style={styles.link}>Layton Lake District Missions</span>
+              Main article: <span className="wiki-link">Layton Lake District Missions</span>
             </div>
             <p>
                 The Layton Lake District has 98 total missions: 28 main missions and 70 side missions. Unlike most other reserve storylines (which usually revolve around the reserve warden's family, crimes committed on the reserve, conservation efforts, etc.), the Layton Lake District's main storyline lacks any overarching plot and is instead a set of unrelated tasks involving bagging certain game in certain ways and taking photos of places and animals.
             </p>
 
             {/* TRAILER */}
-            <h2 style={styles.h2} id="trailer">Trailer</h2>
+            <h2 className="wiki-h2" id="trailer">Trailer</h2>
             <div style={{marginBottom: '15px', overflow: 'auto'}}>
               <div style={{float: 'right', width: '360px', marginLeft: '20px', maxWidth: '100%'}}>
                 <iframe
@@ -305,15 +204,15 @@ const LaytonLake = () => {
             </div>
 
             {/* TRIVIA */}
-            <h2 style={styles.h2} id="trivia">Trivia</h2>
-            <ul style={{fontSize: '0.95rem', paddingLeft: '20px', listStyleType: 'disc', color: '#dbe4eb'}}>
+            <h2 className="wiki-h2" id="trivia">Trivia</h2>
+            <ul className="wiki-ul wiki-ul-disc">
                 {triviaData.map((point, idx) => (
                     <li key={idx} style={{marginBottom: '10px'}}>
                         {point.includes("Hirschfelden Hunting Reserve") ? (
                             // Basic link parsing
                             point.split(/(Hirschfelden Hunting Reserve|Medved-Taiga National Park)/g).map((part, i) => 
-                                (part === "Hirschfelden Hunting Reserve" || part === "Medved-Taiga National Park") ? 
-                                <span key={i} style={styles.link}>{part}</span> : part
+                                  (part === "Hirschfelden Hunting Reserve" || part === "Medved-Taiga National Park") ? 
+                                  <span key={i} className="reserve-link">{part}</span> : part
                             )
                         ) : (
                             point
@@ -323,7 +222,7 @@ const LaytonLake = () => {
             </ul>
 
             {/* GALLERY */}
-            <h2 style={styles.h2} id="gallery">Gallery</h2>
+            <h2 className="wiki-h2" id="gallery">Gallery</h2>
             <div>
                <GallerySlideshow images={[
                  { src: layton1, alt: 'Layton Lake 1' },
@@ -335,7 +234,7 @@ const LaytonLake = () => {
                ]} />
             </div>
             
-          </main>
+            </main>
         </div>
       </div>
     </div>

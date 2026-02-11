@@ -107,7 +107,7 @@ const MountainLion = () => {
             
             <div className="wiki-sidebar-section">
               <span className="wiki-sidebar-label">Class</span>
-              <span><img src={class5Icon} alt="Class 5" className="wiki-class-icon-lg"/>5</span>
+              <span><img src={class5Icon} alt="Class 5" className="inline-block wiki-class-icon-sm align-middle mr-1.5"/>5</span>
             </div>
 
             <div className="wiki-sidebar-section">

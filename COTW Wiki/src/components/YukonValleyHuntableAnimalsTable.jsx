@@ -1,14 +1,14 @@
 import React from 'react';
-import ReserveAnimalsTable from '../../components/ReserveAnimalsTable';
+import ReserveAnimalsTable from '../components/ReserveAnimalsTable';
 
-import canadaGooseIcon from '../../assets/CanadaGooseIcon.webp';
-import harlequinDuckIcon from '../../assets/HarlequinDuckIcon.webp';
-import redFoxIcon from '../../assets/RedFoxIcon.webp';
-import grayWolfIcon from '../../assets/GrayWolfIcon.webp';
-import grantCaribouIcon from '../../assets/GrantCaribouIcon.webp';
-import mooseIcon from '../../assets/MooseIcon.webp';
-import grizzlyBearIcon from '../../assets/GrizzlyBearIcon.webp';
-import plainsBisonIcon from '../../assets/PlainsBisonIcon.webp';
+import canadaGooseIcon from '../assets/CanadaGooseIcon.webp';
+import harlequinDuckIcon from '../assets/HarlequinDuckIcon.webp';
+import redFoxIcon from '../assets/RedFoxIcon.webp';
+import grayWolfIcon from '../assets/GrayWolfIcon.webp';
+import grantCaribouIcon from '../assets/GrantCaribouIcon.webp';
+import mooseIcon from '../assets/MooseIcon.webp';
+import grizzlyBearIcon from '../assets/GrizzlyBearIcon.webp';
+import plainsBisonIcon from '../assets/PlainsBisonIcon.webp';
 
 const YukonValleyHuntableAnimalsTable = () => {
   const data = {
@@ -25,7 +25,12 @@ const YukonValleyHuntableAnimalsTable = () => {
     }
   };
 
-  return <ReserveAnimalsTable reserveData={data} />;
+  return (
+    <>
+      <div className="wiki-sidebar-header">{data.name}</div>
+      <ReserveAnimalsTable reserveData={data} showHeader={false} />
+    </>
+  );
 };
 
 export default YukonValleyHuntableAnimalsTable;

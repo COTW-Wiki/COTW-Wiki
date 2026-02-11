@@ -74,6 +74,14 @@ const EuropeanBadger = () => {
     { name: "Piebald Female - Right Side", src: Badger_PiebaldFemaleRightSide },
   ];
 
+  // Smooth scroll helper for TOC links
+  const scrollToId = (id) => (e) => {
+    if (e && e.preventDefault) e.preventDefault();
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    try { window.history.replaceState(null, '', `#${id}`); } catch (err) {}
+  };
+
   return (
     <div className="wiki-page">
       <div className="wiki-inner">
@@ -88,7 +96,7 @@ const EuropeanBadger = () => {
           {/* --- RIGHT SIDEBAR (General Information) --- */}
           <aside className="wiki-sidebar">
             <div className="wiki-sidebar-header">European Badger</div>
-            <div className="wiki-sidebar-image">
+            <div className="wiki-sidebar-image wiki-sidebar-image--contain">
               <img src={EuropeanBadgerMain} alt="European Badger" />
             </div>
             
@@ -96,7 +104,7 @@ const EuropeanBadger = () => {
             
             <div className="wiki-sidebar-section">
               <span className="wiki-sidebar-label">Class</span>
-              <span><img src={class2Icon} alt="Class 2" className="wiki-class-icon-lg"/>2</span>
+              <span><img src={class2Icon} alt="Class 2" className="inline-block wiki-class-icon-sm align-middle mr-1.5" />2</span>
             </div>
 
             <div className="wiki-sidebar-section">

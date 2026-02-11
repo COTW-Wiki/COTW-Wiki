@@ -1,21 +1,21 @@
 import React from 'react';
-import ReserveAnimalsTable from '../../components/ReserveAnimalsTable';
+import ReserveAnimalsTable from '../components/ReserveAnimalsTable';
 
-import eurasianTealIcon from '../../assets/EurasianTealIcon.webp';
-import eurasianWigeonIcon from '../../assets/EurasianWigeonIcon.webp';
-import ferruginousDuckIcon from '../../assets/FerruginousDuckIcon.webp';
-import gadwallIcon from '../../assets/GadwallIcon.webp';
-import goldeneyeIcon from '../../assets/GoldeneyeIcon.webp';
-import mallardIcon from '../../assets/MallardIcon.webp';
-import tuftedDuckIcon from '../../assets/TuftedDuckIcon.webp';
-import tundraBeanGooseIcon from '../../assets/TundraBeanGooseIcon.webp';
-import greylagGooseIcon from '../../assets/GreylagGooseIcon.webp';
-import europeanRabbitIcon from '../../assets/EuropeanRabbitIcon.webp';
-import ringNeckedPheasantIcon from '../../assets/Ring-NeckedPheasantIcon.webp';
-import blackGrouseIcon from '../../assets/BlackGrouseIcon.webp';
-import commonRaccoonIcon from '../../assets/CommonRaccoonIcon.webp';
-import raccoonDogIcon from '../../assets/RaccoonDogIcon.webp';
-import redFoxIcon from '../../assets/RedFoxIcon.webp';
+import eurasianTealIcon from '../assets/EurasianTealIcon.webp';
+import eurasianWigeonIcon from '../assets/EurasianWigeonIcon.webp';
+import ferruginousDuckIcon from '../assets/FerruginousDuckIcon.webp';
+import gadwallIcon from '../assets/GadwallIcon.webp';
+import goldeneyeIcon from '../assets/GoldeneyeIcon.webp';
+import mallardIcon from '../assets/MallardIcon.webp';
+import tuftedDuckIcon from '../assets/TuftedDuckIcon.webp';
+import tundraBeanGooseIcon from '../assets/TundraBeanGooseIcon.webp';
+import greylagGooseIcon from '../assets/GreylagGooseIcon.webp';
+import europeanRabbitIcon from '../assets/EuropeanRabbitIcon.webp';
+import ringNeckedPheasantIcon from '../assets/Ring-NeckedPheasantIcon.webp';
+import blackGrouseIcon from '../assets/BlackGrouseIcon.webp';
+import commonRaccoonIcon from '../assets/CommonRaccoonIcon.webp';
+import raccoonDogIcon from '../assets/RaccoonDogIcon.webp';
+import redFoxIcon from '../assets/RedFoxIcon.webp';
 
 const SalzwiesenParkHuntableAnimalsTable = () => {
   const data = {
@@ -41,7 +41,12 @@ const SalzwiesenParkHuntableAnimalsTable = () => {
     }
   };
 
-  return <ReserveAnimalsTable reserveData={data} />;
+  return (
+    <>
+      <div className="wiki-sidebar-header">{data.name}</div>
+      <ReserveAnimalsTable reserveData={data} showHeader={false} />
+    </>
+  );
 };
 
 export default SalzwiesenParkHuntableAnimalsTable;

@@ -1,16 +1,16 @@
 import React from 'react';
-import ReserveAnimalsTable from '../../components/ReserveAnimalsTable';
+import ReserveAnimalsTable from '../components/ReserveAnimalsTable';
 
-import rioGrandeTurkeyIcon from '../../assets/RioGrandeTurkeyIcon.webp';
-import ringNeckedPheasantIcon from '../../assets/Ring-NeckedPheasantIcon.webp';
-import antelopeJackrabbitIcon from '../../assets/AntelopeJackrabbitIcon.webp';
-import coyoteIcon from '../../assets/CoyoteIcon.webp';
-import mexicanBobcatIcon from '../../assets/MexicanBobcatIcon.webp';
-import collaredPeccaryIcon from '../../assets/CollaredPeccaryIcon.webp';
-import pronghornIcon from '../../assets/PronghornIcon.webp';
-import whitetailDeerIcon from '../../assets/WhitetailDeerIcon.webp';
-import desertBighornSheepIcon from '../../assets/DesertBighornSheepIcon.webp';
-import muleDeerIcon from '../../assets/MuleDeerIcon.webp';
+import rioGrandeTurkeyIcon from '../assets/RioGrandeTurkeyIcon.webp';
+import ringNeckedPheasantIcon from '../assets/Ring-NeckedPheasantIcon.webp';
+import antelopeJackrabbitIcon from '../assets/AntelopeJackrabbitIcon.webp';
+import coyoteIcon from '../assets/CoyoteIcon.webp';
+import mexicanBobcatIcon from '../assets/MexicanBobcatIcon.webp';
+import collaredPeccaryIcon from '../assets/CollaredPeccaryIcon.webp';
+import pronghornIcon from '../assets/PronghornIcon.webp';
+import whitetailDeerIcon from '../assets/WhitetailDeerIcon.webp';
+import desertBighornSheepIcon from '../assets/DesertBighornSheepIcon.webp';
+import muleDeerIcon from '../assets/MuleDeerIcon.webp';
 
 const RanchoDelArroyoHuntableAnimalsTable = () => {
   const data = {
@@ -30,7 +30,12 @@ const RanchoDelArroyoHuntableAnimalsTable = () => {
     }
   };
 
-  return <ReserveAnimalsTable reserveData={data} />;
+  return (
+    <>
+      <div className="wiki-sidebar-header">{data.name}</div>
+      <ReserveAnimalsTable reserveData={data} showHeader={false} />
+    </>
+  );
 };
 
 export default RanchoDelArroyoHuntableAnimalsTable;

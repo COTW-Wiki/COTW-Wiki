@@ -109,15 +109,15 @@ const DuskyGrouse = () => {
           {/* --- RIGHT SIDEBAR (General Information) --- */}
           <aside className="wiki-sidebar">
             <div className="wiki-sidebar-header">Dusky Grouse</div>
-            <div className="wiki-sidebar-image">
-              <img src={DuskyGrouseMain} alt="Dusky Grouse" />
+            <div className="wiki-sidebar-image h-[180px] bg-[#2a4b63] flex items-center justify-center p-2.5">
+              <img src={DuskyGrouseMain} alt="Dusky Grouse" className="max-w-full max-h-full object-contain rounded-sm" />
             </div>
             
             <div className="wiki-sidebar-header">General Information</div>
             
             <div className="wiki-sidebar-section">
               <span className="wiki-sidebar-label">Class</span>
-              <span><img src={class1Icon} alt="Class 1" className="wiki-class-icon"/>1</span>
+              <span><img src={class1Icon} alt="Class 1" className="inline-block wiki-class-icon-sm align-middle mr-1.5"/>1</span>
             </div>
 
             <div className="wiki-sidebar-section">
@@ -134,7 +134,7 @@ const DuskyGrouse = () => {
                   <span>88</span>
                 </div>
                 <div className="wiki-trophy-item">
-                  <span className="wiki-trophy-label wiki-trophy-gold">☗ Gold</span>⁐
+                  <span className="wiki-trophy-label wiki-trophy-gold">☗ Gold</span>
                   <span>124</span>
                 </div>
                 <div className="wiki-trophy-item">
@@ -186,10 +186,8 @@ const DuskyGrouse = () => {
 
             {/* Table of Contents Placeholder */}
             <div className="wiki-toc">
-              <div className="wiki-toc-title">
-                🔢 Contents <span className="wiki-toc-toggle">[hide]</span>
-              </div>
-              <ol className="wiki-toc">
+              <div className="wiki-toc-header">🔢 Contents <span className="wiki-toc-toggle">[hide]</span></div>
+              <ol className="wiki-toc-list m-0 pl-5 text-[#6fb2e6]">
                 <li>
                   <a href="#features" className="wiki-link" onClick={(e)=>{e.preventDefault(); document.getElementById('features')?.scrollIntoView({behavior:'smooth', block:'start'});}}>Features</a>
                 </li>
@@ -201,9 +199,9 @@ const DuskyGrouse = () => {
                 </li>
                 <li>
                   <a href="#plumage-variants" className="wiki-link" onClick={(e)=>{e.preventDefault(); document.getElementById('plumage-variants')?.scrollIntoView({behavior:'smooth', block:'start'});}}>Plumage Variants</a>
-                  <ul >
-                      <li style={{color:'#6fb2e6'}}><a href="#plumage-male" className="wiki-link" onClick={(e)=>{e.preventDefault(); document.getElementById('plumage-male')?.scrollIntoView({behavior:'smooth', block:'start'});}}>5.1. Male</a></li>
-                      <li style={{color:'#6fb2e6'}}><a href="#plumage-female" className="wiki-link" onClick={(e)=>{e.preventDefault(); document.getElementById('plumage-female')?.scrollIntoView({behavior:'smooth', block:'start'});}}>5.2. Female</a></li>
+                  <ul className="list-none pl-2 my-1">
+                      <li className="text-[#6fb2e6]"><a href="#plumage-male" className="wiki-link" onClick={(e)=>{e.preventDefault(); document.getElementById('plumage-male')?.scrollIntoView({behavior:'smooth', block:'start'});}}>5.1. Male</a></li>
+                      <li className="text-[#6fb2e6]"><a href="#plumage-female" className="wiki-link" onClick={(e)=>{e.preventDefault(); document.getElementById('plumage-female')?.scrollIntoView({behavior:'smooth', block:'start'});}}>5.2. Female</a></li>
                   </ul>
                 </li>
                 <li>
@@ -273,7 +271,7 @@ const DuskyGrouse = () => {
             <h2 id="plumage-variants" className="wiki-h2">Plumage Variants</h2>
             
             {/* Male Section */}
-            <h3 id="plumage-male" style={{...styles.h2, fontSize:'1.2rem', borderBottom:'none', marginTop:'10px'}}>Male</h3>
+            <h3 id="plumage-male" className="wiki-h3">Male</h3>
             <div className="wiki-gallery-grid">
               {plumageGallery.male.map((item, i) => (
                 <div key={i} className="wiki-gallery-item">
@@ -286,7 +284,7 @@ const DuskyGrouse = () => {
             </div>
 
             {/* Female Section */}
-            <h3 id="plumage-female" style={{...styles.h2, fontSize:'1.2rem', borderBottom:'none', marginTop:'10px'}}>Female</h3>
+            <h3 id="plumage-female" className="wiki-h3">Female</h3>
             <div className="wiki-gallery-grid">
               {plumageGallery.female.map((item, i) => (
                 <div key={i} className="wiki-gallery-item">

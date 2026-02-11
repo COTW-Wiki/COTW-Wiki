@@ -234,16 +234,18 @@ const WhiteTailedJackrabbit = () => {
             <h2 id="organs" className="wiki-h2">Organs and bones</h2>
             <div className="wiki-shot-container">
                <div className="wiki-shot-image">
-                  <img src={WhiteTailedJackrabbitOrgans} alt="Organs Diagram" style={{width: '100%'}} />
+                  <img src={WhiteTailedJackrabbitOrgans} alt="Organs Diagram" className="w-full" />
                </div>
-               <div className="wiki-shot-info">
-                  <div>1. Head</div>
-                  <div>2. Neck</div>
-                  <div>3. Body</div>
-                  <div>4. Ears</div>
-                  <div>5. Foreleg</div>
-                  <div>6. Hind leg</div>
-               </div>
+              <div className="wiki-shot-info">
+                <ol className="wiki-ol">
+                  <li>Head</li>
+                  <li>Neck</li>
+                  <li>Body</li>
+                  <li>Ears</li>
+                  <li>Foreleg</li>
+                  <li>Hind leg</li>
+                </ol>
+              </div>
             </div>
 
             {/* FUR VARIANTS (Gallery) */}
@@ -309,7 +311,7 @@ const WhiteTailedJackrabbit = () => {
                   </li>
                ))}
             </ol>
-            <p style={{fontSize: '0.8rem', fontStyle: 'italic', marginTop:'10px', color: '#888'}}>
+            <p className="text-[0.8rem] italic mt-2 text-[#888]">
                The references are of the "Black Tail Jackrabbit" but still apply to this lagomorph
             </p>
 

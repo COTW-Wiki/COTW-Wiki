@@ -134,7 +134,7 @@ const WaterBuffalo = () => {
             
             <div className="wiki-sidebar-section">
               <span className="wiki-sidebar-label">Class</span>
-              <span><img src={class9Icon} alt="Class 9" className="wiki-class-icon-lg"/>9</span>
+              <span><img src={class9Icon} alt="Class 9" className="inline-block wiki-class-icon-sm align-middle mr-1.5"/>9</span>
             </div>
 
             <div className="wiki-sidebar-section">
@@ -206,10 +206,10 @@ const WaterBuffalo = () => {
                 <li><a href="#need-zones" onClick={(e)=>scrollToId(e,'need-zones')} className="wiki-link">Need Zone Times</a></li>
                 <li><a href="#shot-scheme" onClick={(e)=>scrollToId(e,'shot-scheme')} className="wiki-link">Shot Scheme</a></li>
                 <li><a href="#fur-variants" onClick={(e)=>scrollToId(e,'fur-variants')} className="wiki-link">Fur Variants</a></li>
-                <ol style={{listStyleType: 'none', marginLeft: '-20px'}}>
-                      <li><a href="#fur-male" onClick={(e)=>scrollToId(e,'fur-male')} style={{...styles.link, marginLeft:'20px'}}>4.1. Male</a></li>
-                      <li><a href="#fur-female" onClick={(e)=>scrollToId(e,'fur-female')} style={{...styles.link, marginLeft:'20px'}}>4.2. Female</a></li>
-                </ol>
+                    <ol style={{listStyleType: 'none', marginLeft: '-20px'}}>
+                      <li><a href="#fur-male" onClick={(e)=>scrollToId(e,'fur-male')} className="wiki-link" style={{marginLeft:'20px'}}>4.1. Male</a></li>
+                      <li><a href="#fur-female" onClick={(e)=>scrollToId(e,'fur-female')} className="wiki-link" style={{marginLeft:'20px'}}>4.2. Female</a></li>
+                    </ol>
                 <li><a href="#variant-rarity" onClick={(e)=>scrollToId(e,'variant-rarity')} className="wiki-link">Fur Variant Rarity</a></li>
                 <li><a href="#trivia" onClick={(e)=>scrollToId(e,'trivia')} className="wiki-link">Trivia</a></li>
               </ol>
@@ -240,8 +240,8 @@ const WaterBuffalo = () => {
             <h2 className="wiki-h2" id="need-zones">Need Zone Times</h2>
             <div style={{display:'flex', gap: '20px', flexWrap: 'wrap'}}>
                 {needZonesData.map((reserve, index) => (
-                    <div key={index} style={{flex: '1 1 300px', marginBottom: '20px'}}>
-                        <table style={{...styles.table, width: '100%'}}>
+              <div key={index} style={{flex: '1 1 300px', marginBottom: '20px'}}>
+                <table className="wiki-table wiki-table-fixed">
                             <thead>
                                 <tr><th colSpan="2" className="wiki-th wiki-th-center">{reserve.name}{reserve.name === "Sundarpatan" ? "[1]" : ""}</th></tr>
                                 <tr>
@@ -271,7 +271,7 @@ const WaterBuffalo = () => {
             <h2 className="wiki-h2" id="shot-scheme">Shot Scheme</h2>
             <div className="wiki-shot-container">
                <div className="wiki-shot-container">
-                 <img src={ShotSchemeImg} alt="Shot Scheme" className="wiki-shot-scheme-img" />
+                 <img src={ShotSchemeImg} alt="Shot Scheme" className="wiki-shot-scheme-img-sm" />
                </div>
                <div className="wiki-shot-wrap">
                  <div className="wiki-shot-title">Color code</div>

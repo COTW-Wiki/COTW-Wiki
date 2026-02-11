@@ -107,7 +107,7 @@ const EasternWildTurkey = () => {
 
             <div className="wiki-sidebar-section">
               <span className="wiki-sidebar-label">Class</span>
-              <span><img src={class1Icon} alt="Class 1" className="wiki-class-icon" />1</span>
+              <span><img src={class1Icon} alt="Class 1" className="inline-block wiki-class-icon-sm align-middle mr-1.5" />1</span>
             </div>
 
             <div className="wiki-sidebar-section">
@@ -174,7 +174,7 @@ const EasternWildTurkey = () => {
                 <li><a href="#features" className="wiki-link" onClick={scrollToId('features')}>Features</a></li>
                 <li><a href="#need-zone-times" className="wiki-link" onClick={scrollToId('need-zone-times')}>Need Zone Times</a></li>
                 <li><a href="#shot-scheme" className="wiki-link" onClick={scrollToId('shot-scheme')}>Shot scheme</a></li>
-                <li>Plumage Variants
+                <li><a href="#plumage-variants" className="wiki-link" onClick={scrollToId('plumage-variants')}>Plumage Variants</a>
                   <ul>
                     <li><a href="#plumage-male" className="wiki-link" onClick={scrollToId('plumage-male')}>4.1 Male</a></li>
                     <li><a href="#plumage-female" className="wiki-link" onClick={scrollToId('plumage-female')}>4.2 Female</a></li>

@@ -128,16 +128,15 @@ const Goldeneye = () => {
           {/* --- RIGHT SIDEBAR (General Information) --- */}
           <aside className="wiki-sidebar">
             <div className="wiki-sidebar-header">Goldeneye</div>
-            <div className="wiki-sidebar-image">
-              <img src={GoldeneyeImg} alt="Goldeneye flying" style={{width: '268.4px', height: '134.2px', objectFit: 'cover'}} />
-              <span style={{position:'absolute', bottom:'5px', right:'5px', fontSize:'0.8rem'}}>📷</span>
+            <div className="h-[180px] bg-[#2a4b63] flex items-center justify-center text-[#8bbce3] italic">
+              <img src={GoldeneyeImg} alt="Goldeneye flying" className="w-full h-full object-cover rounded" />
             </div>
             
             <div className="wiki-sidebar-header">General Information</div>
             
             <div className="wiki-sidebar-section">
               <span className="wiki-sidebar-label">Class</span>
-              <span><img src={class1Icon} alt="Class 1" style={{width: '12px', height: '12px', verticalAlign: 'middle', marginRight: '6px'}} />1</span>
+              <span><img src={class1Icon} alt="Class 1" className="inline-block wiki-class-icon-sm align-middle mr-1.5" />1</span>
             </div>
 
             <div className="wiki-sidebar-section">
@@ -172,7 +171,7 @@ const Goldeneye = () => {
 
             <div className="wiki-sidebar-section">
                <span className="wiki-sidebar-label">Plumage</span>
-               <span style={{fontSize: '0.85rem'}}>
+               <span className="text-[0.85rem]">
                  Black, Grey, Dark, Eclipse, Hybrid, Leucistic
                </span>
             </div>
@@ -280,7 +279,7 @@ const Goldeneye = () => {
 
             {/* NEED ZONE TIMES */}
             <h2 id="need-zones" className="wiki-h2">Need Zone Times</h2>
-            <div style={{display: 'inline-block'}}>
+            <div className="inline-block">
                 <table className="wiki-table wiki-table-fixed">
                     <thead>
                         <tr><th colSpan="2" className="wiki-th wiki-th-center">Revontuli Coast</th></tr>
@@ -294,7 +293,7 @@ const Goldeneye = () => {
                         <tr key={i}>
                             <td className="wiki-td">{zone.time}</td>
                             <td className="wiki-td">
-                              <img src={zone.icon} alt={zone.type} className="wiki-zone-icon-lg" />
+                              <img src={zone.icon} alt={zone.type} className="w-[30px] h-[30px] align-middle mr-2" />
                               {zone.type}
                             </td>
                         </tr>
@@ -305,11 +304,11 @@ const Goldeneye = () => {
 
             {/* SHOT SCHEME */}
             <h2 id="shot-scheme" className="wiki-h2">Shot scheme</h2>
-            <div style={{backgroundColor: '#0f2e48', padding: '10px'}}>
+            <div className="bg-[#0f2e48] p-2.5">
               <div className="wiki-shot-title">Color code</div>
               <div className="wiki-shot-container">
                 <div className="wiki-shot-image">
-                  <img src={Goldeneye_shot_scheme} alt="Goldeneye shot scheme" style={{width: '500px', height: '444px', objectFit: 'contain'}} />
+                  <img src={Goldeneye_shot_scheme} alt="Goldeneye shot scheme" className="w-full h-full object-cover rounded" />
                 </div>
                 <div className="wiki-shot-info">
                   No Color - Every hit will kill the animal
@@ -330,7 +329,7 @@ const Goldeneye = () => {
             <div className="wiki-gallery-grid">
               {malePlumageImages.map((img, i) => (
                 <div key={i} className="wiki-gallery-item">
-                  <img src={img.src} alt={img.name} style={{width: '146px', height: '165px', objectFit: 'cover', border: '4px solid #1f3a52', marginBottom: '8px'}} />
+                  <img src={img.src} alt={img.name} className="w-[146px] h-[165px] object-cover rounded mb-2" />
                   <span className="wiki-gallery-label">{img.name}</span>
                 </div>
               ))}
@@ -340,7 +339,7 @@ const Goldeneye = () => {
             <div className="wiki-gallery-grid">
               {femalePlumageImages.map((img, i) => (
                 <div key={i} className="wiki-gallery-item">
-                  <img src={img.src} alt={img.name} style={{width: '146px', height: '165px', objectFit: 'cover', border: '4px solid #1f3a52', marginBottom: '8px'}} />
+                  <img src={img.src} alt={img.name} className="w-[146px] h-[165px] object-cover rounded mb-2" />
                   <span className="wiki-gallery-label">{img.name}</span>
                 </div>
               ))}
@@ -376,7 +375,7 @@ const Goldeneye = () => {
                     </tr>
                     {/* Female Row */}
                     <tr>
-                        <td style={{...styles.td, color: '#e91e63', fontStyle: 'italic'}}>Female</td>
+                      <td className="wiki-td italic text-[#e91e63]">Female</td>
                         <td className="wiki-td">
                             Grey (99.60%)
                         </td>
@@ -392,7 +391,7 @@ const Goldeneye = () => {
 
             {/* TRIVIA */}
             <h2 id="trivia" className="wiki-h2">Trivia</h2>
-            <ul style={{paddingLeft: '20px', marginBottom: '30px'}}>
+            <ul className="pl-5 mb-8">
                 <li className="wiki-li">In Finnish, the Goldeneye is called <em>Telkkä</em>.</li>
                 <li className="wiki-li">The Goldeneye beats its wings at such a high rate, 9 wingbeats per second, that they make a "whistling" sound when in flight. This has earned it the nickname, <em>the whistler</em>. As Earnest Hemingway put it, "..<em>their wings sibilant, make the sound of ripping silk</em>."[1][2]</li>
                 <li className="wiki-li">These ducks are very agile; only needing about 3 to 6 feet of runway to take off from the water.</li>
@@ -402,7 +401,7 @@ const Goldeneye = () => {
 
             {/* REFERENCES */}
             <h2 id="references" className="wiki-h2">References</h2>
-            <ol style={{paddingLeft: '25px', color: '#6fb2e6'}}>
+            <ol className="pl-6 text-[#6fb2e6]">
                 <li><span className="wiki-link">https://www.rosamondgiffordzoo.org/experience/animals/birds/american-common-goldeneye/</span></li>
                 <li><span className="wiki-link">https://www.birdnote.org/podcasts/birdnote-daily/goldeneyes-and-whistling-wings</span></li>
                 <li><span className="wiki-link">https://www.allaboutbirds.org/guide/Common_Goldeneye/overview</span></li>

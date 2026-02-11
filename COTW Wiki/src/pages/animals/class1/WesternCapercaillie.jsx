@@ -197,8 +197,8 @@ const WesternCapercaillie = () => {
                 <li>
                   <a href="#plumage-variants" onClick={scrollToId('plumage-variants')} className="wiki-link">Plumage variants</a>
                   <ul >
-                      <li style={{color:'#6fb2e6'}}><a href="#plumage-male" onClick={scrollToId('plumage-male')} className="wiki-link">3.1. Male</a></li>
-                      <li style={{color:'#6fb2e6'}}><a href="#plumage-female" onClick={scrollToId('plumage-female')} className="wiki-link">3.2. Female</a></li>
+                      <li className="text-[#6fb2e6]"><a href="#plumage-male" onClick={scrollToId('plumage-male')} className="wiki-link">3.1. Male</a></li>
+                      <li className="text-[#6fb2e6]"><a href="#plumage-female" onClick={scrollToId('plumage-female')} className="wiki-link">3.2. Female</a></li>
                   </ul>
                 </li>
                 <li><a href="#plumage-rarity" onClick={scrollToId('plumage-rarity')} className="wiki-link">Plumage Variant Rarity</a></li>
@@ -254,7 +254,7 @@ const WesternCapercaillie = () => {
             <h2 id="plumage-variants" className="wiki-h2">Plumage variants</h2>
             
             {/* Male Section */}
-            <h3 id="plumage-male" style={{...styles.h2, fontSize:'1.2rem', borderBottom:'none', marginTop:'10px'}}>Male</h3>
+            <h3 id="plumage-male" className="wiki-h3 mt-2.5 text-[1.2rem] border-b-0">Male</h3>
             <div className="wiki-gallery-grid">
               {plumageGallery.male.map((item, i) => (
                 <div key={i} className="wiki-gallery-item">
@@ -267,7 +267,7 @@ const WesternCapercaillie = () => {
             </div>
 
             {/* Female Section */}
-            <h3 id="plumage-female" style={{...styles.h2, fontSize:'1.2rem', borderBottom:'none', marginTop:'10px'}}>Female</h3>
+            <h3 id="plumage-female" className="wiki-h3 mt-2.5 text-[1.2rem] border-b-0">Female</h3>
             <div className="wiki-gallery-grid">
               {plumageGallery.female.map((item, i) => (
                 <div key={i} className="wiki-gallery-item">

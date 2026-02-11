@@ -96,8 +96,8 @@ const RaccoonDog = () => {
           {/* --- RIGHT SIDEBAR (General Information) --- */}
           <aside className="wiki-sidebar">
             <div className="wiki-sidebar-header">Raccoon Dog</div>
-            <div className="wiki-sidebar-image">
-              <img src={RaccoonDogMain} alt="Raccoon Dog" />
+            <div className="wiki-sidebar-image flex items-center justify-center">
+              <img src={RaccoonDogMain} alt="Raccoon Dog" className="max-w-full max-h-[240px] object-contain" />
             </div>
             
             <div className="wiki-sidebar-header">General Information</div>
@@ -105,7 +105,7 @@ const RaccoonDog = () => {
             {/* */}
             <div className="wiki-sidebar-section">
               <span className="wiki-sidebar-label">Class</span>
-              <span><img src={class2Icon} alt="Class 2" className="wiki-class-icon-lg"/>2</span>
+              <span><img src={class2Icon} alt="Class 2" className="inline-block wiki-class-icon-sm align-middle mr-1.5" />2</span>
             </div>
 
             <div className="wiki-sidebar-section">
@@ -235,8 +235,8 @@ const RaccoonDog = () => {
             <div className="wiki-gallery-grid">
               {furGallery.map((item, i) => (
                 <div key={i} className="wiki-gallery-item">
-                  <div className="wiki-gallery-placeholder">
-                    <img src={item.src} alt={item.name} className="wiki-img-contain" />
+                  <div className="wiki-gallery-placeholder w-[146px] h-[165px] flex items-center justify-center">
+                    <img src={item.src} alt={item.name} className="max-w-full max-h-full object-contain rounded-sm" />
                   </div>
                   <span className="wiki-gallery-label">{item.name}</span>
                 </div>

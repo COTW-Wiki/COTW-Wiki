@@ -122,7 +122,7 @@ const SaltwaterCrocodile = () => {
             
             <div className="wiki-sidebar-section">
               <span className="wiki-sidebar-label">Class</span>
-              <span><img src={class8Icon} alt="Class 8" className="wiki-class-icon-lg"/>8</span>
+              <span><img src={class8Icon} alt="Class 8" className="inline-block wiki-class-icon-sm align-middle mr-1.5"/>8</span>
             </div>
 
             <div className="wiki-sidebar-section">
@@ -251,16 +251,23 @@ const SaltwaterCrocodile = () => {
             {/* SHOT SCHEME */}
             <h2 className="wiki-h2" id="shot-scheme">Shot Scheme</h2>
             <div className="wiki-shot-container">
-               <div className="wiki-shot-container">
-                 <img src={ShotSchemeImg} alt="Shot Scheme" className="wiki-shot-scheme-img" />
-               </div>
-               <div className="wiki-shot-wrap">
-                 <div className="wiki-shot-title">Color code</div>
-                 <div className="wiki-shot-info">Red - Kills immediately</div>
-                 <div className="wiki-shot-info">Blue - Kills very quick</div>
-                 <div className="wiki-shot-info">Orange - Kills slowly</div>
-                 <div className="wiki-legend-item wiki-legend-item-last">No Color - Unlikely to kill</div>
-               </div>
+              <div className="flex flex-row items-start gap-6 w-full max-w-[980px] mx-auto">
+                <div className="flex-1 min-w-0 border border-slate-700 p-4">
+                  <div className="flex justify-center items-center">
+                    <img src={ShotSchemeImg} alt="Shot Scheme" className="w-full h-auto max-w-[900px] object-contain" />
+                  </div>
+                </div>
+
+                <div className="w-72 flex-shrink-0">
+                  <div className="wiki-shot-wrap">
+                    <div className="wiki-shot-title">Color code</div>
+                    <div className="wiki-shot-info">Red - Kills immediately</div>
+                    <div className="wiki-shot-info">Blue - Kills very quick</div>
+                    <div className="wiki-shot-info">Orange - Kills slowly</div>
+                    <div className="wiki-legend-item wiki-legend-item-last">No Color - Unlikely to kill</div>
+                  </div>
+                </div>
+              </div>
             </div>
 
             {/* SCUTE VARIANTS (Gallery) */}

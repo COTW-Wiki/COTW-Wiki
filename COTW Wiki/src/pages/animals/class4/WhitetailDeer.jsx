@@ -130,6 +130,16 @@ const WhitetailDeer = () => {
     "In early March 2021, the Great One whitetail deer was bugged where it would show up as a level 4 or 5."
   ];
 
+  // Smooth-scroll helper for TOC links
+  function scrollToId(e, id) {
+    if (e && e.preventDefault) e.preventDefault();
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      try { history.replaceState(null, '', `#${id}`); } catch (err) {}
+    }
+  }
+
   return (
     <div className="wiki-page">
       <div className="wiki-inner">
@@ -144,15 +154,15 @@ const WhitetailDeer = () => {
           {/* --- RIGHT SIDEBAR (General Information) --- */}
           <aside className="wiki-sidebar">
             <div className="wiki-sidebar-header">Whitetail Deer</div>
-            <div className="wiki-sidebar-image">
-              <img src={WhitetailDeerMain} alt="Whitetail Deer" />
+            <div className="wiki-sidebar-image wiki-sidebar-image--contain">
+              <img src={WhitetailDeerMain} alt="Whitetail Deer" className="wiki-img-contain" />
             </div>
             
             <div className="wiki-sidebar-header">General Information</div>
             
             <div className="wiki-sidebar-section">
               <span className="wiki-sidebar-label">Class</span>
-              <span><img src={class4Icon} alt="Class 4" className="wiki-class-icon-lg"/>4</span>
+              <span><img src={class4Icon} alt="Class 4" className="inline-block wiki-class-icon-sm align-middle mr-1.5" />4</span>
             </div>
 
             <div className="wiki-sidebar-section">
@@ -179,7 +189,7 @@ const WhitetailDeer = () => {
                 </div>
               </div>
               <div style={{textAlign: 'center', marginTop: '10px'}}>
-                 <span style={{...styles.trophyLabel, ...styles.greatOne}}>✤ Great One</span>
+                 <span className="wiki-trophy-label wiki-great-one">✤ Great One</span>
               </div>
             </div>
 
@@ -301,7 +311,7 @@ const WhitetailDeer = () => {
              <h2 id="shot-scheme" className="wiki-h2">Shot scheme</h2>
             <div className="wiki-shot-container">
                 <div className="wiki-shot-container">
-                   <img src={ShotSchemeImage} alt="Shot Scheme" className="wiki-shot-scheme-img" />
+                   <img src={ShotSchemeImage} alt="Shot Scheme" className="wiki-shot-scheme-img-sm" />
                 </div>
                 <div className="wiki-shot-wrap">
                    <div className="wiki-shot-title">Color code</div>

@@ -119,14 +119,14 @@ const Mallard = () => {
           <aside className="wiki-sidebar">
             <div className="wiki-sidebar-header">Mallard</div>
             <div className="wiki-sidebar-image">
-              <img src={MallardMain} alt="Mallard flying" style={{width: '268.4px', height: '134.2px', objectFit: 'cover'}} />
+              <img src={MallardMain} alt="Mallard flying" className="w-[268.4px] h-[134.2px] object-cover" />
             </div>
             
             <div className="wiki-sidebar-header">General Information</div>
             
             <div className="wiki-sidebar-section">
               <span className="wiki-sidebar-label">Class</span>
-              <span><img src={class1Icon} alt="Class 1" className="wiki-class-icon"/>1</span>
+              <span><img src={class1Icon} alt="Class 1" className="inline-block wiki-class-icon-sm align-middle mr-1.5"/>1</span>
             </div>
 
             <div className="wiki-sidebar-section">
@@ -161,7 +161,7 @@ const Mallard = () => {
 
             <div className="wiki-sidebar-section">
                <span className="wiki-sidebar-label">Plumage</span>
-               <span style={{fontSize: '0.85rem'}}>
+               <span className="text-[0.85rem]">
                  Black-Brown, Blonde, Brown Hybrid, Leucistic, Melanistic, Piebald
                </span>
             </div>
@@ -197,21 +197,19 @@ const Mallard = () => {
 
             {/* Programmatic Table of Contents */}
             <div className="wiki-toc">
-              <div style={{fontWeight: 'bold', borderBottom: '1px solid #3a5a75', marginBottom: '5px'}}>
-                🔢 Contents <span className="wiki-toc-toggle">[hide]</span>
-              </div>
-              <ol style={{margin: 0, paddingLeft: 0, listStyleType: 'none', color: '#6fb2e6'}}>
+              <div className="font-bold border-b border-[#3a5a75] mb-1">🔢 Contents <span className="wiki-toc-toggle">[hide]</span></div>
+              <ol className="m-0 pl-0 list-none text-[#6fb2e6]">
                 {toc.map((item, i) => (
-                  <li key={item.id} style={{marginBottom: '6px'}}>
-                    <button onClick={() => handleTOCClick(item.id)} style={{background: 'none', border: 'none', color: '#6fb2e6', cursor: 'pointer', fontWeight: 'bold'}}>
-                      <span style={{marginRight: '8px'}}>{i + 1}.</span>{item.title}
+                  <li key={item.id} className="mb-1.5">
+                    <button onClick={() => handleTOCClick(item.id)} className="bg-transparent border-0 text-[#6fb2e6] cursor-pointer font-bold focus:outline-none focus:ring-0">
+                      <span className="mr-2">{i + 1}.</span>{item.title}
                     </button>
                     {item.subs && (
-                      <ol style={{margin: '6px 0 0 18px', padding: 0, listStyleType: 'none'}}>
+                      <ol className="mt-1 pl-4 list-none">
                         {item.subs.map((s, j) => (
                           <li key={s.id} className="wiki-mb-4">
-                            <button onClick={() => handleTOCClick(s.id)} style={{background: 'none', border: 'none', color: '#6fb2e6', cursor: 'pointer'}}>
-                              <span style={{marginRight: '8px'}}>{i + 1}.{j + 1}</span>{s.title}
+                            <button onClick={() => handleTOCClick(s.id)} className="bg-transparent border-0 text-[#6fb2e6] cursor-pointer focus:outline-none focus:ring-0">
+                              <span className="mr-2">{i + 1}.{j + 1}</span>{s.title}
                             </button>
                           </li>
                         ))}
@@ -243,7 +241,7 @@ const Mallard = () => {
 
             {/* NEED ZONE TIMES */}
             <h2 id="need-zones" className="wiki-h2">Need Zone Times</h2>
-            <div style={{display: 'inline-block'}}>
+            <div className="inline-block">
                 <table className="wiki-table wiki-table-fixed">
                     <thead>
                         <tr><th colSpan="2" className="wiki-th wiki-th-center">Askiy Ridge<sup>[1]</sup></th></tr>
@@ -256,7 +254,7 @@ const Mallard = () => {
                       {needZones.map((zone, i) => (
                       <tr key={i}>
                         <td className="wiki-td">{zone.time}</td>
-                        <td className="wiki-td"><img src={zone.icon} alt="" style={{width:'18px', height:'18px', verticalAlign:'middle', marginRight:'6px'}}/>{zone.type}</td>
+                        <td className="wiki-td"><img src={zone.icon} alt="" className="w-[18px] h-[18px] align-middle mr-1.5"/>{zone.type}</td>
                       </tr>
                       ))}
                     </tbody>
@@ -265,11 +263,11 @@ const Mallard = () => {
 
             {/* SHOT SCHEME */}
             <h2 id="shot-scheme" className="wiki-h2">Shot scheme</h2>
-            <div style={{backgroundColor: '#0f2e48', padding: '10px'}}>
+            <div className="bg-[#0f2e48] p-2.5">
                 <div className="wiki-shot-title">Color code</div>
                 <div className="wiki-shot-container">
                   <div className="wiki-shot-image">
-                    <img src={Mallard_shot_scheme} alt="Mallard shot scheme" style={{width: '500px', height: '444px', objectFit: 'contain'}} />
+                    <img src={Mallard_shot_scheme} alt="Mallard shot scheme" className="w-[500px] h-[444px] object-contain" />
                   </div>
                   <div className="wiki-shot-info">
                     No Color - Every hit will kill the animal
@@ -290,7 +288,7 @@ const Mallard = () => {
             <div className="wiki-gallery-grid">
               {plumageMale.map((img, i) => (
                   <div key={i} className="wiki-gallery-item">
-                            <img src={img.src} alt={img.name} style={{width: '146px', height: '165px', objectFit: 'cover', border: '4px solid #1f3a52', marginBottom: '8px', display: 'block'}} />
+                            <img src={img.src} alt={img.name} className="w-[146px] h-[165px] object-cover border-[4px] border-[#1f3a52] mb-2 block" />
                             <span className="wiki-gallery-label">{img.name}</span>
                   </div>
               ))}
@@ -300,8 +298,8 @@ const Mallard = () => {
             <div className="wiki-gallery-grid">
               {plumageFemale.map((img, i) => (
                   <div key={i} className="wiki-gallery-item">
-                        <img src={img.src} alt={img.name} style={{width: '146px', height: '165px', objectFit: 'cover', border: '4px solid #1f3a52', marginBottom: '8px', display: 'block'}} />
-                        <span className="wiki-gallery-label">{img.name}</span>
+                    <img src={img.src} alt={img.name} className="w-[146px] h-[165px] object-cover border-[4px] border-[#1f3a52] mb-2 block" />
+                    <span className="wiki-gallery-label">{img.name}</span>
                   </div>
               ))}
             </div>
@@ -336,7 +334,7 @@ const Mallard = () => {
                     </tr>
                     {/* Female Row */}
                     <tr>
-                        <td style={{...styles.td, color: '#e91e63', fontStyle: 'italic'}}>Female</td>
+                      <td className="wiki-td italic text-[#e91e63]">Female</td>
                         <td className="wiki-td">
                             Black Brown (74.77%)<br/>
                             Piebald (12.51%)<br/>
@@ -354,7 +352,7 @@ const Mallard = () => {
 
             {/* TRIVIA */}
             <h2 id="trivia" className="wiki-h2">Trivia</h2>
-            <ul style={{paddingLeft: '20px', marginBottom: '30px'}}>
+            <ul className="pl-5 mb-8">
                 <li className="wiki-li">According to Earnest Alfred Choate, the <em>a-r-d</em> in Mallard refers to <em>drunkards</em> describing how aggressive male Mallards get when mating.[2]</li>
                 <li className="wiki-li">In real life, there are three common calls that are done with a Mallard Hen call: Quack, Hail, and Feeding Chuckle. In game, only the quack and hail can be made with the duck call.</li>
                 <li className="wiki-li">The males distinctive color pattern isn't year round. It develops during mating season to attract females.</li>
@@ -364,7 +362,7 @@ const Mallard = () => {
 
             {/* REFERENCES */}
             <h2 id="references" className="wiki-h2">References</h2>
-            <ol style={{paddingLeft: '25px', color: '#6fb2e6'}}>
+            <ol className="pl-6 text-[#6fb2e6]">
                 <li><span className="wiki-link">Mallard Need Zones, Askiy Ridge</span></li>
                 <li><span className="wiki-link">"The Dictionary of American Bird Names" by Earnest Alfred Choate</span></li>
                 <li><span className="wiki-link">https://www.birds.cornell.edu/crows/domducks.htm</span></li>

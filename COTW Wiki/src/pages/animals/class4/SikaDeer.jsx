@@ -38,6 +38,13 @@ const SikaDeer_Spotted = SikaDeer_SpottedMale;
 
 const SikaDeer = () => {
 
+  // Smooth-scroll helper for TOC links (prevents ReferenceError when called)
+  function scrollToId(e, id) {
+    if (e && e.preventDefault) e.preventDefault();
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  }
+
   // --- DATA SOURCES ---
 
   // Need Zone Times
@@ -116,7 +123,7 @@ const SikaDeer = () => {
             
             <div className="wiki-sidebar-section">
               <span className="wiki-sidebar-label">Class</span>
-              <span><img src={class4Icon} alt="Class 4" className="wiki-class-icon-lg"/>4</span>
+              <span><img src={class4Icon} alt="Class 4" className="inline-block wiki-class-icon-sm align-middle mr-1.5" />4</span>
             </div>
 
             <div className="wiki-sidebar-section">

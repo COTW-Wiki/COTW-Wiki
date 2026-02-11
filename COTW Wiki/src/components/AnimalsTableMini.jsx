@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import '../styles/animalsTableMini.css';
+// ... (Imports remain the same)
 import class1Icon from '../assets/Class1Icon.webp';
 import class2Icon from '../assets/Class2Icon.webp';
 import class3Icon from '../assets/Class3Icon.webp';
@@ -127,7 +130,7 @@ import europeanBadgerIcon from '../assets/EuropeanBadgerIcon.webp';
 import eurasianPineMartenIcon from '../assets/EurasianPineMartenIcon.webp';
 import eurasianWoodcockIcon from '../assets/EurasianWoodcockIcon.webp';
 
-const AnimalTable = () => {
+const AnimalsTableMini = () => {
   // --- DATA ---
   const [isCollapsed, setIsCollapsed] = useState(false);
 
@@ -253,7 +256,7 @@ const AnimalTable = () => {
   const animalData = [
     {
       id: 1,
-      icon: class1Icon, 
+      icon: class1Icon,
       animals: [
         "American Mink", "Antelope Jackrabbit", "Black Grouse", "Bobwhite Quail",
         "Canada Goose", "Cinnamon Teal", "Dusky Grouse", "Eurasian Pine Marten",
@@ -335,12 +338,20 @@ const AnimalTable = () => {
     }
   ];
 
+  const classes = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  const classIcons = [class1Icon, class2Icon, class3Icon, class4Icon, class5Icon, class6Icon, class7Icon, class8Icon, class9Icon];
+
+  const getAnimalsForClass = (cls) => {
+    const entry = animalData.find(a => a.id === cls);
+    return entry ? entry.animals : [];
+  };
+
   return (
-    <div className="wiki-page">
-      <div className="wiki-panel-header">
-        <span>Animals</span>
-        <button 
-          style={{...styles.collapseBtn, background: 'none', border: 'none', padding: 0}}
+    <div className={`animals-table-mini animals-table-mini__card`}>
+      <div className="animals-table-mini__header">
+        <span className="animals-table-mini__title">Animals</span>
+        <button
+          className="animals-table-mini__collapse"
           onClick={() => setIsCollapsed(!isCollapsed)}
         >
           {isCollapsed ? '[Expand]' : '[Collapse]'}
@@ -348,50 +359,52 @@ const AnimalTable = () => {
       </div>
 
       {!isCollapsed && (
-        <div>
-          {animalData.map((item, index) => (
-            <div 
-              key={item.id} 
-              style={{
-                ...styles.row,
-                borderBottom: index === animalData.length - 1 ? 'none' : styles.row.borderBottom
-              }}
-            >
-            {/* Left Column */}
-            <div className="wiki-mini-class-label">
-              <img src={item.icon} alt="" className="wiki-class-icon" /> 
-              Class {item.id}
-            </div>
+        <div className="animals-table-mini__body">
+          {classes.map((cls, i) => (
+            <div key={cls} className="animals-table-mini__class">
+              
+              {/* CLASS COLUMN SECTION */}
+              <div className="animals-table-mini__classLabel">
+                <div style={{display:'flex', alignItems:'center', gap:8}}>
+                  <img 
+                    src={classIcons[i]} 
+                    alt={`Class ${cls}`} 
+                    className="class-icon" 
+                  />
+                  <span className="animals-table-mini__classTitle">Class {cls}</span>
+                </div>
+              </div>
 
-            {/* Right Column */}
-            <div className="wiki-mini-animal-list">
-              {item.animals.map((animal, i) => (
-                <React.Fragment key={animal}>
-                  <div className="wiki-mini-animal-item">
-                  {animalImages[animal] ? (
-                      <img src={animalImages[animal]} alt={animal} className="wiki-mini-animal-icon" />
-                    ) : (
-                      // Fallback if no icon
-                      <span style={{ 
-                         ...styles.animalIcon, 
-                         backgroundColor: '#2a4b63', border: '1px solid #8bbce3', borderRadius: '50%'
-                      }}></span>
-                    )}
-                    <span className="wiki-mini-animal-text">{animal}</span>
-                  </div>
-                  {/* Add separator only if it's not the last item */}
-                  {i < item.animals.length - 1 && (
-                    <span className="wiki-mini-separator">•</span>
-                  )}
-                </React.Fragment>
-              ))}
+              {/* ANIMAL LIST SECTION */}
+              <div className="animals-table-mini__items">
+                {getAnimalsForClass(cls).length > 0 ? (
+                  getAnimalsForClass(cls).map((animalName, idx) => {
+                    const slug = animalName
+                      .replace(/[^a-zA-Z0-9\s-]/g, '')
+                      .trim()
+                      .replace(/\s+/g, '-');
+                    return (
+                      <Link key={idx} to={`/animals/${slug}`} className="animals-table-mini__item">
+                        {animalImages[animalName] ? (
+                          <img src={animalImages[animalName]} alt={animalName} className="animal-icon" />
+                        ) : (
+                          <span className="animal-icon" style={{display:'inline-block', borderRadius:'50%', background:'#2a4b63', border:'1px solid #8bbce3'}}></span>
+                        )}
+                        <span className="animal-name">{animalName}</span>
+                        {idx < getAnimalsForClass(cls).length - 1 && <span style={{opacity:0.6, margin:'0 6px'}}>|</span>}
+                      </Link>
+                    );
+                  })
+                ) : (
+                  <span className="animals-table-mini__empty">// No animals listed</span>
+                )}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
         </div>
       )}
     </div>
   );
 };
 
-export default AnimalTable;
+export default AnimalsTableMini;
