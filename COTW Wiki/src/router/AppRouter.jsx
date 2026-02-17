@@ -9,6 +9,7 @@ import SubregionPage from '../pages/reserves/SubregionPage';
 import ParqueFernando from '../pages/reserves/reservePages/ParqueFernando';
 import MedvedTaiga from '../pages/reserves/reservePages/Medved-TaigaNationalPark';
 import VurhongaSavanna from '../pages/reserves/reservePages/VurhongaSavanna';
+import YukonValleyNatureReserve from '../pages/reserves/reservePages/YukonValleyNatureReserve';
 import WeaponsComparison from '../pages/loadouts/weapons/WeaponsComparison';
 import WeaponsList from '../pages/loadouts/weapons/Weapons';
 import Docent223 from '../pages/loadouts/weapons/rifles/223Docent';
@@ -339,6 +340,8 @@ export default function AppRouter() {
         <Route path="/maps/medved" element={<MedvedTaiga />} />
         <Route path="/maps/medved-taiga" element={<MedvedTaiga />} />
       <Route path="/maps/parque-fernando" element={<ParqueFernando />} />
+      <Route path="/maps/yukon-valley" element={<YukonValleyNatureReserve />} />
+      <Route path="/maps/yukon" element={<YukonValleyNatureReserve />} />
       <Route path="/maps/:regionId" element={<RegionPage />} />
       <Route path="/maps/:regionId/:subregionId" element={<SubregionPage />} />
       <Route path="/weapons" element={<WeaponsList />} />

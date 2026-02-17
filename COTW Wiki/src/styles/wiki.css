@@ -413,6 +413,8 @@
   color: #fff;
 }
 
+
+
 /* ---- Gallery ---- */
 .wiki-gallery-grid {
   display: grid;
@@ -447,6 +449,51 @@
   font-size: 0.9rem;
   display: block;
   line-height: 1.2;
+}
+
+/* ---- Unique Uniform Gallery Card Style (Separate from Weapons Page) ---- */
+
+.wiki-uniform-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Increased min-width slightly for bigger cards */
+  gap: 15px;
+}
+
+/* The main container box with the Gold Border */
+.wiki-uniform-card {
+  border: 1px solid var(--wiki-accent-gold);
+  border-radius: 8px;
+  background-color: var(--wiki-bg-sidebar);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* The Text Title (Moved to Top, Dark Background) */
+.wiki-uniform-card-header {
+  background-color: var(--wiki-bg-sidebar-header);
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+  border-bottom: 1px solid var(--wiki-accent-gold);
+  font-size: 0.95rem; /* Slightly larger text */
+}
+
+/* The Image Container (Blue Background, Centered) */
+.wiki-uniform-card-image {
+  background-color: var(--wiki-bg-sidebar-image);
+  height: 240px; /* INCREASED HEIGHT from 180px to 240px */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.wiki-uniform-card-image img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
 }
 
 /* ---- Lists ---- */
