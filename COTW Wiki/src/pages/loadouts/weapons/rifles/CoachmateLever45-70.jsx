@@ -6,9 +6,15 @@ import CoachmateLever4570Prone from '../../../../assets/Coachmate_pose_3.webp';
 import CoachmateLever4570Ironsight from '../../../../assets/Coachmate_ironsight.webp';
 import RifleDiagram from '../../../../assets/Rifle_diagram_2020.webp';
 import WeaponsTable from '../../../../components/WeaponsTable';
+import '../../../../styles/wiki.css';
 
 export default function App() {
   const [isTocOpen, setIsTocOpen] = useState(true);
+
+    const scrollTo = (e, id) => {
+        e.preventDefault();
+        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    };
 
   // Data for Ammo Table
   const ammoData = [
@@ -23,245 +29,147 @@ export default function App() {
   ];
 
   return (
-    <div className="min-h-screen text-gray-900 p-6 md:p-12 font-sans tracking-tight bg-white">
-      
-      <div className="max-w-5xl mx-auto">
-        {/* Header Section */}
-        <header className="flex flex-col md:flex-row md:items-center justify-between border-b border-green-800/20 pb-4 mb-6">
-          <h1 className="text-4xl md:text-5xl font-bold text-green-800 mb-4 md:mb-0">
-            Coachmate Lever .45-70
-          </h1>
-        </header>
+        <div className="wiki-page">
+            <div className="wiki-inner">
+                <h1 className="wiki-header">Coachmate Lever .45-70</h1>
 
-        {/* Main Content Layout */}
-        <div className="block">
-            
-            {/* Right Floated Infobox */}
-            <div className="float-right w-72 ml-6 mb-4 bg-white border border-gray-200 shadow-xl font-sans">
-                {/* Infobox Title */}
-                <div className="bg-green-800 text-white text-center font-bold py-2 border-b border-green-900 tracking-wide">
-                    Coachmate Lever .45-70
-                </div>
-                
-                {/* Image Area */}
-                <div className="p-4 flex justify-center bg-gray-50">
-                    <img 
-                        src={CoachmateLever4570Image} 
-                        alt="Coachmate Lever .45-70 Rifle" 
-                        style={{ width: '268.4px', height: '134.2px' }}
-                        className="object-contain"
-                    />
-                </div>
-
-                {/* General Information Header */}
-                <div className="bg-green-800 text-white text-center font-bold py-1 border-y border-green-900 tracking-wide text-sm">
-                    General Information
-                </div>
-
-                {/* General Information Data */}
-                <div className="text-sm bg-white">
-                    <div className="grid grid-cols-2 border-b border-gray-200 p-2">
-                        <div className="font-bold text-gray-700">Value</div>
-                        <div className="text-green-800">48000</div>
-                    </div>
-                    <div className="grid grid-cols-2 border-b border-gray-200 p-2 bg-gray-50">
-                        <div className="font-bold text-gray-700">Weight</div>
-                        <div className="text-green-800">4</div>
-                    </div>
-                    <div className="grid grid-cols-2 border-b border-gray-200 p-2">
-                        <div className="font-bold text-gray-700">Score</div>
-                        <div className="text-green-800">2976</div>
-                    </div>
-                </div>
-
-                {/* Statistics Header */}
-                <div className="bg-green-800 text-white text-center font-bold py-1 border-y border-green-900 tracking-wide text-sm">
-                    Statistics
-                </div>
-
-                {/* Statistics Data */}
-                <div className="text-sm bg-white">
-                    <div className="grid grid-cols-2 border-b border-gray-200 p-2">
-                        <div className="font-bold text-gray-700">Accuracy</div>
-                        <div className="text-green-800">55</div>
-                    </div>
-                    <div className="grid grid-cols-2 border-b border-gray-200 p-2 bg-gray-50">
-                        <div className="font-bold text-gray-700">Recoil</div>
-                        <div className="text-green-800">64</div>
-                    </div>
-                    <div className="grid grid-cols-2 border-b border-gray-200 p-2">
-                        <div className="font-bold text-gray-700">Reload</div>
-                        <div className="text-green-800">57</div>
-                    </div>
-                    <div className="grid grid-cols-2 border-b border-gray-200 p-2 bg-gray-50">
-                        <div className="font-bold text-gray-700">Hipshot</div>
-                        <div className="text-green-800">67</div>
-                    </div>
-                    <div className="grid grid-cols-2 border-b border-gray-200 p-2">
-                        <div className="font-bold text-gray-700">Magazine</div>
-                        <div className="text-green-800">3</div>
-                    </div>
-                </div>
-            </div>
-
-            {/* Intro Quote */}
-            <blockquote className="mb-6 border-l-4 border-green-800 pl-4 italic text-gray-600 font-sans text-sm">
-                <p className="mb-2">"Inspired by the rifles of the Old West, this handmake reproduction harkens back to the Frontier days of America. Even though the materials used in manufacturing this beautiful weapon are contemporary, the overall feel is of times long past. The .45-70 cartridge is very powerful at close range and a popular choice when hunting big game in dense vegetation."</p>
-                <cite>— In-Game Description</cite>
-            </blockquote>
-
-            {/* Main Description */}
-            <div className="mb-8 text-gray-700 font-sans text-[16px] leading-relaxed">
-                <p>
-                    The <strong className="text-gray-900">Coachmate Lever .45-70</strong> is a classic lever-action rifle comparable to the <a href="#" className="text-green-800 hover:underline">.300 Canning Magnum</a>. Unlike its counterpart, it can also be used to hunt medium-sized game without penalties.
-                </p>
-                <p className="mt-4">
-                    Like the <a href="#" className="text-green-800 hover:underline">Whitlock Model 86</a>, the main drawback of the lever-action design is the limitation to the <a href="#" className="text-green-800 hover:underline">Helios 4-8x32 Rifle Scope</a>.
-                </p>
-            </div>
-
-            {/* Table of Contents */}
-            <div className="mb-8 inline-block bg-gray-50 border border-gray-200 p-2 min-w-[250px]">
-                <div className="flex justify-between items-center border-b border-gray-200 pb-1 mb-2">
-                    <span className="font-bold text-gray-900 text-sm">Contents</span>
-                    <button onClick={() => setIsTocOpen(!isTocOpen)} className="text-green-800 text-xs hover:underline">[{isTocOpen ? 'hide' : 'show'}]</button>
-                </div>
-                {isTocOpen && (
-                    <ol className="list-decimal list-inside text-gray-700 text-sm space-y-1 font-sans">
-                        <li><a href="#ammo" className="hover:text-green-800 hover:underline">Ammo</a></li>
-                        <li><a href="#sights" className="hover:text-green-800 hover:underline">Sights</a></li>
-                        <li><a href="#trivia" className="hover:text-green-800 hover:underline">Trivia</a></li>
-                        <li><a href="#gallery" className="hover:text-green-800 hover:underline">Gallery</a></li>
-                        <li><a href="#comparison" className="hover:text-green-800 hover:underline">Comparison to other rifles</a></li>
-                    </ol>
-                )}
-            </div>
-
-            {/* Sections */}
-            <div className="space-y-12 clear-both">
-                
-                {/* Ammo Section */}
-                <div id="ammo">
-                    <div className="flex items-center space-x-2 border-b border-green-800/50 pb-2 mb-4">
-                        <h2 className="text-2xl font-bold text-green-800">Ammo</h2>
-                        <a href="#" className="text-green-800"><svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" /></svg></a>
-                    </div>
-                    <p className="text-gray-700 text-[16px] mb-4">As with most rifles, two variants of its <a href="#" className="text-green-800 hover:underline">ammunition</a> are available:</p>
-                    
-                    <div className="bg-white border border-gray-200 text-sm md:text-base font-sans overflow-x-auto">
-                         <table className="w-full text-left border-collapse">
-                            <thead>
-                                <tr className="bg-green-800 border-b-2 border-green-900 text-white font-bold">
-                                    <th className="p-3">Ammo</th>
-                                    <th className="p-3">Penetration</th>
-                                    <th className="p-3">Expansion</th>
-                                    <th className="p-3">Class</th>
-                                    <th className="p-3">Range</th>
-                                    <th className="p-3">Price</th>
-                                </tr>
-                            </thead>
-                            <tbody className="text-gray-700 divide-y divide-gray-200">
-                                {ammoData.map((item, idx) => (
-                                    <tr key={idx} className="hover:bg-gray-50">
-                                        <td className="p-3 text-green-800 hover:underline cursor-pointer">{item.name}</td>
-                                        <td className="p-3">{item.pen}</td>
-                                        <td className="p-3">{item.exp}</td>
-                                        <td className="p-3">{item.class}</td>
-                                        <td className="p-3">{item.range}</td>
-                                        <td className="p-3">{item.price}</td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                {/* Sights Section */}
-                <div id="sights">
-                    <div className="flex items-center space-x-2 border-b border-green-800/50 pb-2 mb-4">
-                        <h2 className="text-2xl font-bold text-green-800">Sights</h2>
-                        <a href="#" className="text-green-800"><svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" /></svg></a>
-                    </div>
-                    <p className="text-gray-700 text-[16px] mb-4">The following sights can be equipped on the Coachmate Lever .45-70:</p>
-                    
-                    <ul className="list-disc list-inside space-y-1 ml-4 text-green-800 text-lg">
-                        {sightsData.map((sight, idx) => (
-                            <li key={idx}><a href="#" className="hover:underline">{sight}</a></li>
-                        ))}
-                    </ul>
-                </div>
-
-                {/* Trivia */}
-                <div id="trivia">
-                    <div className="flex items-center space-x-2 border-b border-green-800/50 pb-2 mb-4">
-                        <h2 className="text-2xl font-bold text-green-800">Trivia</h2>
-                        <a href="#" className="text-green-800"><svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" /></svg></a>
-                    </div>
-                    <p className="text-gray-700 font-sans text-[16px]">
-                        The Coachmate Lever .45-70 is modeled after its real-life counterpart of the Marlin Model 1895 chambered in .45-70 gov't.
-                    </p>
-                </div>
-
-                {/* Gallery */}
-                <div id="gallery">
-                    <div className="flex items-center space-x-2 border-b border-green-800/50 pb-2 mb-4">
-                        <h2 className="text-2xl font-bold text-green-800">Gallery</h2>
-                        <a href="#" className="text-green-800"><svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" /></svg></a>
-                    </div>
-                    <div className="grid grid-cols-4 gap-4">
-                        {[
-                            { title: "Standing", img: CoachmateLever4570Standing }, 
-                            { title: "Crouching", img: CoachmateLever4570Crouching }, 
-                            { title: "Lying", img: CoachmateLever4570Prone }, 
-                            { title: "Iron sight", img: CoachmateLever4570Ironsight } 
-                        ].map((item, idx) => (
-                            <div key={idx} className="bg-white border border-gray-200 p-2" style={{ width: '240px', height: '162px' }}>
-                                <div className="bg-gray-100 overflow-hidden relative group flex justify-center items-center h-[122px]">
-                                     <img src={item.img} alt={item.title} className="object-contain h-full w-full" />
-                                      <div className="absolute bottom-1 right-1 bg-black/60 p-0.5 rounded">
-                                         <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                        </svg>
-                                    </div>
-                                </div>
-                                <p className="text-gray-700 text-xs mt-1 text-center">{item.title}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
-                 {/* Comparison Section */}
-                <div id="comparison">
-                    <div className="flex items-center space-x-2 border-b border-green-800/50 pb-2 mb-4">
-                        <h2 className="text-2xl font-bold text-green-800">Comparison to other rifles</h2>
-                        <a href="#" className="text-green-800"><svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" /></svg></a>
-                    </div>
-                    <div className="bg-white border border-gray-200 p-2 inline-block">
-                        <div className="bg-gray-100 overflow-hidden relative group flex justify-center items-center">
-                                <img 
-                                src={RifleDiagram} 
-                                alt="Rifle Diagram" 
-                                style={{ width: '420px', height: '200px' }}
-                                className="object-contain"
-                                />
-                                <div className="absolute bottom-2 right-2 bg-black/60 p-1 rounded">
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                </svg>
-                            </div>
+                <div className="wiki-layout">
+                    <aside className="wiki-sidebar">
+                        <div className="wiki-sidebar-header">Coachmate Lever .45-70</div>
+                        <div className="wiki-sidebar-image wiki-sidebar-image--contain" style={{ backgroundColor: 'var(--wiki-bg-sidebar)' }}>
+                            <img src={CoachmateLever4570Image} alt="Coachmate Lever .45-70 Rifle" />
                         </div>
-                    </div>
+
+                        <div className="wiki-sidebar-header" style={{ fontSize: '0.9rem' }}>General Information</div>
+                        <div className="wiki-sidebar-section">
+                            <span className="wiki-sidebar-label">Value</span>
+                            <span className="wiki-link">48000</span>
+                        </div>
+                        <div className="wiki-sidebar-section"><span className="wiki-sidebar-label">Weight</span>4</div>
+                        <div className="wiki-sidebar-section"><span className="wiki-sidebar-label">Score</span>2976</div>
+
+                        <div className="wiki-sidebar-header" style={{ fontSize: '0.9rem' }}>Statistics</div>
+                        <div className="wiki-sidebar-section"><span className="wiki-sidebar-label">Accuracy</span>55</div>
+                        <div className="wiki-sidebar-section"><span className="wiki-sidebar-label">Recoil</span>64</div>
+                        <div className="wiki-sidebar-section"><span className="wiki-sidebar-label">Reload</span>57</div>
+                        <div className="wiki-sidebar-section"><span className="wiki-sidebar-label">Hipshot</span>67</div>
+                        <div className="wiki-sidebar-section"><span className="wiki-sidebar-label">Magazine</span>3</div>
+                    </aside>
+
+                    <main className="wiki-main">
+                        <blockquote className="wiki-quote">
+                            <p>"Inspired by the rifles of the Old West, this handmake reproduction harkens back to the Frontier days of America. Even though the materials used in manufacturing this beautiful weapon are contemporary, the overall feel is of times long past. The .45-70 cartridge is very powerful at close range and a popular choice when hunting big game in dense vegetation."</p>
+                            <cite>— In-Game Description</cite>
+                        </blockquote>
+
+                        <div className="wiki-p-mb">
+                            <p>
+                                The <strong>Coachmate Lever .45-70</strong> is a classic lever-action rifle comparable to the <a href="#" className="wiki-link">.300 Canning Magnum</a>. Unlike its counterpart, it can also be used to hunt medium-sized game without penalties.
+                            </p>
+                            <p className="mt-4">
+                                Like the <a href="#" className="wiki-link">Whitlock Model 86</a>, the main drawback of the lever-action design is the limitation to the <a href="#" className="wiki-link">Helios 4-8x32 Rifle Scope</a>.
+                            </p>
+                        </div>
+
+                        <div className="wiki-toc-panel wiki-p-mb">
+                            <div className="wiki-toc-panel-header">
+                                <span className="wiki-toc-panel-title">🔢 Contents</span>
+                                <span className="wiki-toc-panel-toggle" onClick={() => setIsTocOpen(!isTocOpen)}>
+                                    [{isTocOpen ? 'hide' : 'show'}]
+                                </span>
+                            </div>
+                            {isTocOpen && (
+                                <ul className="wiki-list-plain">
+                                    <li><a href="#ammo" onClick={(e) => scrollTo(e, 'ammo')} className="wiki-link">1. Ammo</a></li>
+                                    <li><a href="#sights" onClick={(e) => scrollTo(e, 'sights')} className="wiki-link">2. Sights</a></li>
+                                    <li><a href="#trivia" onClick={(e) => scrollTo(e, 'trivia')} className="wiki-link">3. Trivia</a></li>
+                                    <li><a href="#gallery" onClick={(e) => scrollTo(e, 'gallery')} className="wiki-link">4. Gallery</a></li>
+                                    <li><a href="#comparison" onClick={(e) => scrollTo(e, 'comparison')} className="wiki-link">5. Comparison to other rifles</a></li>
+                                </ul>
+                            )}
+                        </div>
+
+                        <section id="ammo" className="pt-8">
+                            <h2 className="wiki-h2">1. Ammo</h2>
+                            <p className="wiki-p-mb">As with most rifles, two variants of its <a href="#" className="wiki-link">ammunition</a> are available:</p>
+                            <div className="wiki-table-container">
+                                <table className="wiki-table">
+                                    <thead>
+                                        <tr className="bg-[var(--wiki-bg-sidebar-header)]">
+                                            <th className="wiki-th">Ammo</th>
+                                            <th className="wiki-th">Penetration</th>
+                                            <th className="wiki-th">Expansion</th>
+                                            <th className="wiki-th">Class</th>
+                                            <th className="wiki-th">Range</th>
+                                            <th className="wiki-th">Price</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {ammoData.map((item, idx) => (
+                                            <tr key={idx}>
+                                                <td className="wiki-td"><span className="wiki-link">{item.name}</span></td>
+                                                <td className="wiki-td text-center">{item.pen}</td>
+                                                <td className="wiki-td text-center">{item.exp}</td>
+                                                <td className="wiki-td text-center">{item.class}</td>
+                                                <td className="wiki-td text-center">{item.range}</td>
+                                                <td className="wiki-td text-center">{item.price}</td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
+
+                        <section id="sights" className="pt-8">
+                            <h2 className="wiki-h2">2. Sights</h2>
+                            <p className="wiki-p-mb">The following sights can be equipped on the Coachmate Lever .45-70:</p>
+                            <ul className="wiki-ul">
+                                {sightsData.map((sight, idx) => (
+                                    <li key={idx} className="wiki-li"><a href="#" className="wiki-link">{sight}</a></li>
+                                ))}
+                            </ul>
+                        </section>
+
+                        <section id="trivia" className="pt-8">
+                            <h2 className="wiki-h2">3. Trivia</h2>
+                            <p className="wiki-p-mb">
+                                The Coachmate Lever .45-70 is modeled after its real-life counterpart of the Marlin Model 1895 chambered in .45-70 gov't.
+                            </p>
+                        </section>
+
+                        <section id="gallery" className="pt-8">
+                            <h2 className="wiki-h2">4. Gallery</h2>
+                            <div className="wiki-uniform-grid">
+                                {[
+                                    { title: "Standing", img: CoachmateLever4570Standing },
+                                    { title: "Crouching", img: CoachmateLever4570Crouching },
+                                    { title: "Lying", img: CoachmateLever4570Prone },
+                                    { title: "Iron sight", img: CoachmateLever4570Ironsight }
+                                ].map((item, idx) => (
+                                    <div key={idx} className="wiki-uniform-card">
+                                        <div className="wiki-uniform-card-header">{item.title}</div>
+                                        <div className="wiki-uniform-card-image">
+                                            <img src={item.img} alt={item.title} />
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </section>
+
+                        <section id="comparison" className="pt-8">
+                            <h2 className="wiki-h2">5. Comparison to other rifles</h2>
+                            <div className="wiki-table-container wiki-p-mb">
+                                <div style={{ backgroundColor: 'var(--wiki-bg-sidebar)', padding: '20px' }}>
+                                    <img src={RifleDiagram} alt="Rifle Diagram" style={{ width: '100%', height: 'auto', display: 'block', borderRadius: '8px' }} />
+                                </div>
+                            </div>
+                            <WeaponsTable activeItem="Coachmate Lever .45-70" />
+                        </section>
+                    </main>
                 </div>
 
+                <div className="h-32"></div>
             </div>
-
         </div>
-
-        <div className="mt-12">
-            <WeaponsTable activeItem="Coachmate Lever .45-70" />
-        </div>
-        <div className="h-32"></div>
-      </div>
-    </div>
   );
 }
