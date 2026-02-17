@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import King470DBZenithImage from '../../../../assets/King470DBZenith.webp';
 import King470DBApexImage from '../../../../assets/King470DBApex.webp';
 import RifleDiagram from '../../../../assets/Rifle_diagram_2020.webp';
 import WeaponsTable from '../../../../components/WeaponsTable';
 
-export default function App() {
+const King470DB = () => {
   const [isTocOpen, setIsTocOpen] = useState(true);
   const [selectedVariant, setSelectedVariant] = useState('Zenith');
 
@@ -20,266 +20,224 @@ export default function App() {
   ];
 
   return (
-    <div className="min-h-screen text-gray-900 p-6 md:p-12 font-sans tracking-tight bg-white">
-      
-      <div className="max-w-5xl mx-auto">
+    <div className="wiki-page">
+      <div className="wiki-inner">
         {/* Header Section */}
-        <header className="flex flex-col md:flex-row md:items-center justify-between border-b border-green-800/20 pb-4 mb-6">
-          <h1 className="text-4xl md:text-5xl font-bold text-green-800 mb-4 md:mb-0">
+        <h1 className="wiki-header">
             King 470DB
-          </h1>
-        </header>
+        </h1>
 
         {/* Main Content Layout */}
-        <div className="block">
+        <div className="wiki-layout">
             
-            {/* Right Floated Infobox */}
-            <div className="float-right w-72 ml-6 mb-4 bg-white border border-gray-200 shadow-xl font-sans">
-                {/* Infobox Title */}
-                <div className="bg-green-800 text-white text-center font-bold py-2 border-b border-green-900 tracking-wide">
+            {/* Sidebar */}
+            <aside className="wiki-sidebar">
+                <div className="wiki-sidebar-header">
                     King 470DB
                 </div>
 
                 {/* Sub-menu text */}
-                <div className="flex justify-around bg-gray-100 text-xs text-gray-500 py-1 border-b border-gray-200">
-                    <span 
-                        className={`cursor-pointer ${selectedVariant === 'Zenith' ? 'text-green-800 underline decoration-2 underline-offset-4 decoration-blue-600 font-bold' : 'hover:text-green-800'}`}
+                <div className="wiki-sidebar-section flex justify-around bg-[var(--wiki-bg-sidebar-header)] p-1">
+                    <button 
+                        className={`px-2 py-1 text-xs font-bold transition-colors uppercase cursor-pointer ${selectedVariant === 'Zenith' ? 'text-[var(--wiki-text-sidebar)] underline' : 'text-gray-500 hover:text-[var(--wiki-text-sidebar)]'}`}
                         onClick={() => setSelectedVariant('Zenith')}
                     >
                         Zenith
-                    </span>
-                    <span 
-                        className={`cursor-pointer ${selectedVariant === 'Apex' ? 'text-green-800 underline decoration-2 underline-offset-4 decoration-blue-600 font-bold' : 'hover:text-green-800'}`}
+                    </button>
+                    <button 
+                        className={`px-2 py-1 text-xs font-bold transition-colors uppercase cursor-pointer ${selectedVariant === 'Apex' ? 'text-[var(--wiki-text-sidebar)] underline' : 'text-gray-500 hover:text-[var(--wiki-text-sidebar)]'}`}
                         onClick={() => setSelectedVariant('Apex')}
                     >
                         Apex
-                    </span>
+                    </button>
                 </div>
                 
                 {/* Image Area */}
-                <div className="p-4 flex justify-center bg-gray-50">
+                <div className="wiki-sidebar-image wiki-sidebar-image--contain">
                     <img 
                         src={selectedVariant === 'Zenith' ? King470DBZenithImage : King470DBApexImage}
                         alt={`King 470DB ${selectedVariant}`}
-                        style={{ width: '268.4px', height: '134.2px' }}
-                        className="object-contain"
                     />
                 </div>
 
                 {/* General Information Header */}
-                <div className="bg-green-800 text-white text-center font-bold py-1 border-y border-green-900 tracking-wide text-sm">
+                <div className="wiki-sidebar-header text-sm">
                     General Information
                 </div>
 
                 {/* General Information Data */}
-                <div className="text-sm bg-white">
-                    <div className="grid grid-cols-2 border-b border-gray-200 p-2">
-                        <div className="font-bold text-gray-700">Value</div>
-                        <div className="text-green-800">90000</div>
-                    </div>
-                    <div className="grid grid-cols-2 border-b border-gray-200 p-2 bg-gray-50">
-                        <div className="font-bold text-gray-700">Weight</div>
-                        <div className="text-green-800">5</div>
-                    </div>
-                    <div className="grid grid-cols-2 border-b border-gray-200 p-2">
-                        <div className="font-bold text-gray-700">Score</div>
-                        <div className="text-green-800">5810</div>
-                    </div>
+                <div className="wiki-sidebar-section">
+                    <span className="wiki-sidebar-label">Value</span>
+                    <span>90000</span>
+                </div>
+                <div className="wiki-sidebar-section">
+                    <span className="wiki-sidebar-label">Weight</span>
+                    <span>5</span>
+                </div>
+                <div className="wiki-sidebar-section">
+                    <span className="wiki-sidebar-label">Score</span>
+                    <span>5810</span>
                 </div>
 
                 {/* Statistics Header */}
-                <div className="bg-green-800 text-white text-center font-bold py-1 border-y border-green-900 tracking-wide text-sm">
+                <div className="wiki-sidebar-header text-sm">
                     Statistics
                 </div>
 
                 {/* Statistics Data */}
-                <div className="text-sm bg-white">
-                    <div className="grid grid-cols-2 border-b border-gray-200 p-2">
-                        <div className="font-bold text-gray-700">Accuracy</div>
-                        <div className="text-green-800">55</div>
-                    </div>
-                    <div className="grid grid-cols-2 border-b border-gray-200 p-2 bg-gray-50">
-                        <div className="font-bold text-gray-700">Recoil</div>
-                        <div className="text-green-800">100</div>
-                    </div>
-                    <div className="grid grid-cols-2 border-b border-gray-200 p-2">
-                        <div className="font-bold text-gray-700">Reload</div>
-                        <div className="text-green-800">10</div>
-                    </div>
-                    <div className="grid grid-cols-2 border-b border-gray-200 p-2 bg-gray-50">
-                        <div className="font-bold text-gray-700">Hipshot</div>
-                        <div className="text-green-800">12</div>
-                    </div>
-                    <div className="grid grid-cols-2 border-b border-gray-200 p-2">
-                        <div className="font-bold text-gray-700">Magazine</div>
-                        <div className="text-green-800">2</div>
-                    </div>
+                <div className="wiki-sidebar-section">
+                    <span className="wiki-sidebar-label">Accuracy</span>
+                    <span>55</span>
                 </div>
-            </div>
-
-            {/* Intro Quote */}
-            <blockquote className="mb-6 border-l-4 border-green-800 pl-4 italic text-gray-600 font-sans text-sm">
-                <p className="mb-2">"A big double that demands respect from even the most skilled hunters, the King 470DB Zenith lives up to its name in stature, efficiency as well as cost. With enough firepower to instantly take down nearly any animal, the King is designed to give hunters a fighting chance when pit against animals that couldn't be phased by more traditional ammunition. Quick to load up, incredibly powerful and double-barreled to even out any hunter's odds in the perilous African wilderness."</p>
-                <cite>— In-Game Description</cite>
-            </blockquote>
-
-            {/* Main Description */}
-            <div className="mb-8 text-gray-700 font-sans text-[16px] leading-relaxed space-y-4">
-                <p>
-                    The <strong className="text-gray-900">King 470DB Zenith</strong> is a double-barreled Safari rifle designed for hunting the biggest of game such as <a href="#" className="text-green-800 hover:underline">Cape Buffalo</a> and <a href="#" className="text-green-800 hover:underline">Water Buffalo</a>. Currently, it holds the position of being the most powerful weapon in the game. This Immense power comes at the cost of poor accuracy and high recoil, limiting its use to short-range hunting, and Extremley Expensive Ammunition.
-                </p>
-                <p>
-                    It is available as part of the <a href="#" className="text-green-800 hover:underline">Vurhonga Savanna Reserve</a> DLC.
-                </p>
-            </div>
-
-            {/* Table of Contents */}
-            <div className="mb-8 inline-block bg-gray-50 border border-gray-200 p-2 min-w-[250px]">
-                <div className="flex justify-between items-center border-b border-gray-200 pb-1 mb-2">
-                    <span className="font-bold text-gray-900 text-sm">Contents</span>
-                    <button onClick={() => setIsTocOpen(!isTocOpen)} className="text-green-800 text-xs hover:underline">[{isTocOpen ? 'hide' : 'show'}]</button>
+                <div className="wiki-sidebar-section">
+                    <span className="wiki-sidebar-label">Recoil</span>
+                    <span>100</span>
                 </div>
-                {isTocOpen && (
-                    <ol className="list-decimal list-inside text-gray-700 text-sm space-y-1 font-sans">
-                        <li><a href="#ammo" className="hover:text-green-800 hover:underline">Ammo</a></li>
-                        <li><a href="#sights" className="hover:text-green-800 hover:underline">Sights</a></li>
-                        <li><a href="#variants" className="hover:text-green-800 hover:underline">Variants</a></li>
-                        <li><a href="#analysis" className="hover:text-green-800 hover:underline">Analysis</a></li>
-                        <li><a href="#trivia" className="hover:text-green-800 hover:underline">Trivia</a></li>
-                        <li><a href="#comparison" className="hover:text-green-800 hover:underline">Comparison to other rifles</a></li>
-                    </ol>
-                )}
-            </div>
+                <div className="wiki-sidebar-section">
+                    <span className="wiki-sidebar-label">Reload</span>
+                    <span>10</span>
+                </div>
+                <div className="wiki-sidebar-section">
+                    <span className="wiki-sidebar-label">Hipshot</span>
+                    <span>12</span>
+                </div>
+                <div className="wiki-sidebar-section">
+                    <span className="wiki-sidebar-label">Magazine</span>
+                    <span>2</span>
+                </div>
+            </aside>
 
-            {/* Sections */}
-            <div className="space-y-12 clear-both">
+            {/* Main Content */}
+            <main className="wiki-main">
+                {/* Intro Quote */}
+                <blockquote className="wiki-quote">
+                    <p>"A big double that demands respect from even the most skilled hunters, the King 470DB Zenith lives up to its name in stature, efficiency as well as cost. With enough firepower to instantly take down nearly any animal, the King is designed to give hunters a fighting chance when pit against animals that couldn't be phased by more traditional ammunition. Quick to load up, incredibly powerful and double-barreled to even out any hunter's odds in the perilous African wilderness."</p>
+                    <cite>— In-Game Description</cite>
+                </blockquote>
+
+                {/* Main Description */}
+                <div className="wiki-p-mb">
+                    <p>
+                        The <strong className="text-gray-900">King 470DB Zenith</strong> is a double-barreled Safari rifle designed for hunting the biggest of game such as <a href="#" className="wiki-link">Cape Buffalo</a> and <a href="#" className="wiki-link">Water Buffalo</a>. Currently, it holds the position of being the most powerful weapon in the game. This Immense power comes at the cost of poor accuracy and high recoil, limiting its use to short-range hunting, and Extremley Expensive Ammunition.
+                    </p>
+                    <p className="mt-2">
+                        It is available as part of the <a href="#" className="wiki-link">Vurhonga Savanna Reserve</a> DLC.
+                    </p>
+                </div>
+
+                {/* Table of Contents */}
+                <div className="wiki-toc-panel wiki-p-mb">
+                    <div className="wiki-toc-panel-header">
+                        <span className="wiki-toc-panel-title">Contents</span>
+                        <button onClick={() => setIsTocOpen(!isTocOpen)} className="wiki-toc-panel-toggle">[{isTocOpen ? 'hide' : 'show'}]</button>
+                    </div>
+                    {isTocOpen && (
+                        <ul className="wiki-list-plain text-sm space-y-1">
+                            <li><a href="#ammo" onClick={(e) => scrollTo(e, 'ammo')} className="wiki-link">1. Ammo</a></li>
+                            <li><a href="#sights" onClick={(e) => scrollTo(e, 'sights')} className="wiki-link">2. Sights</a></li>
+                            <li><a href="#variants" onClick={(e) => scrollTo(e, 'variants')} className="wiki-link">3. Variants</a></li>
+                            <li><a href="#analysis" onClick={(e) => scrollTo(e, 'analysis')} className="wiki-link">4. Analysis</a></li>
+                            <li><a href="#trivia" onClick={(e) => scrollTo(e, 'trivia')} className="wiki-link">5. Trivia</a></li>
+                            <li><a href="#comparison" onClick={(e) => scrollTo(e, 'comparison')} className="wiki-link">6. Comparison to other rifles</a></li>
+                        </ul>
+                    )}
+                </div>
+
+                {/* Sections */}
                 
                 {/* Ammo Section */}
-                <div id="ammo">
-                    <div className="flex items-center space-x-2 border-b border-green-800/50 pb-2 mb-4">
-                        <h2 className="text-2xl font-bold text-green-800">1. Ammo</h2>
-                        <a href="#" className="text-green-800"><svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" /></svg></a>
-                    </div>
-                    <p className="text-gray-700 text-[16px] mb-4">As with most rifles, two variants of its <a href="#" className="text-green-800 hover:underline">ammunition</a> are available:</p>
+                <section id="ammo" className="pt-8">
+                    <h2 className="wiki-h2">1. Ammo</h2>
+                    <p className="wiki-p-mb">As with most rifles, two variants of its <a href="#" className="wiki-link">ammunition</a> are available:</p>
                     
-                    <div className="bg-white border border-gray-200 text-sm md:text-base font-sans overflow-x-auto">
-                         <table className="w-full text-left border-collapse">
-                            <thead>
-                                <tr className="bg-green-800 border-b-2 border-green-900 text-white font-bold">
-                                    <th className="p-3">Ammo</th>
-                                    <th className="p-3">Penetration</th>
-                                    <th className="p-3">Expansion</th>
-                                    <th className="p-3">Class</th>
-                                    <th className="p-3">Range</th>
-                                    <th className="p-3">Price</th>
+                    <div className="wiki-table-container">
+                        <table className="wiki-table">
+                        <thead>
+                            <tr>
+                                <th className="wiki-th">Ammo</th>
+                                <th className="wiki-th">Penetration</th>
+                                <th className="wiki-th">Expansion</th>
+                                <th className="wiki-th">Class</th>
+                                <th className="wiki-th">Range</th>
+                                <th className="wiki-th">Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {ammoData.map((item, index) => (
+                                <tr key={index}>
+                                    <td className="wiki-td font-bold">{item.name}</td>
+                                    <td className="wiki-td">{item.pen}</td>
+                                    <td className="wiki-td">{item.exp}</td>
+                                    <td className="wiki-td">{item.class}</td>
+                                    <td className="wiki-td">{item.range}</td>
+                                    <td className="wiki-td">{item.price}</td>
                                 </tr>
-                            </thead>
-                            <tbody className="text-gray-700 divide-y divide-gray-200">
-                                {ammoData.map((item, idx) => (
-                                    <tr key={idx} className="hover:bg-gray-50">
-                                        <td className="p-3 text-green-800 hover:underline cursor-pointer">{item.name}</td>
-                                        <td className="p-3">{item.pen}</td>
-                                        <td className="p-3">{item.exp}</td>
-                                        <td className="p-3">{item.class}</td>
-                                        <td className="p-3">{item.range}</td>
-                                        <td className="p-3">{item.price}</td>
-                                    </tr>
-                                ))}
-                            </tbody>
+                            ))}
+                        </tbody>
                         </table>
                     </div>
-                </div>
+                </section>
 
-                {/* Sights Section */}
-                <div id="sights">
-                    <div className="flex items-center space-x-2 border-b border-green-800/50 pb-2 mb-4">
-                        <h2 className="text-2xl font-bold text-green-800">2. Sights</h2>
-                        <a href="#" className="text-green-800"><svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" /></svg></a>
-                    </div>
-                    <p className="text-gray-700 text-[16px] mb-4">The following sights can be equipped on the King 470DB:</p>
-                    
-                    <ul className="list-disc list-inside space-y-1 ml-4 text-green-800 text-lg">
-                        {sightsData.map((sight, idx) => (
-                            <li key={idx}><a href="#" className="hover:underline">{sight}</a></li>
+                <section id="sights" className="pt-8">
+                    <h2 className="wiki-h2">2. Sights</h2>
+                    <p className="wiki-p-mb">The following sights can be equipped on the King 470DB:</p>
+                    <ul className="wiki-ul">
+                        {sightsData.map((sight, index) => (
+                            <li key={index} className="wiki-li">{sight}</li>
                         ))}
                     </ul>
-                </div>
+                </section>
 
-                {/* Variants Section */}
-                <div id="variants">
-                    <div className="flex items-center space-x-2 border-b border-green-800/50 pb-2 mb-4">
-                        <h2 className="text-2xl font-bold text-green-800">3. Variants</h2>
-                        <a href="#" className="text-green-800"><svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" /></svg></a>
-                    </div>
-                    <div className="text-gray-700 font-sans text-[16px] leading-relaxed space-y-4">
+                <section id="variants" className="pt-8">
+                    <h2 className="wiki-h2">3. Variants</h2>
+                    <div className="wiki-p-mb">
                         <p>
                             <strong className="text-gray-900">King 470DB Apex</strong> is a color variant featuring a matte gray body and a brushed metal barrel.
                         </p>
                     </div>
-                </div>
+                </section>
 
-                {/* Analysis */}
-                <div id="analysis">
-                    <div className="flex items-center space-x-2 border-b border-green-800/50 pb-2 mb-4">
-                        <h2 className="text-2xl font-bold text-green-800">4. Analysis</h2>
-                        <a href="#" className="text-green-800"><svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" /></svg></a>
-                    </div>
-                    <div className="text-gray-700 font-sans text-[16px] leading-relaxed space-y-4">
+                <section id="analysis" className="pt-8">
+                    <h2 className="wiki-h2">4. Analysis</h2>
+                    <div className="wiki-p-mb">
                         <p>
                             This is the single most powerful weapon in the entire game. It lacks range and good sighting, but compensates that drawback with Raw Power when hunting at close range. Its powerful Full Metal Jacket ammunition features the highest penetration in the game and has no problem penetrating any of the large animals in the game. However these rounds lose power and penetration very rapidly over distance and will be most effective at 75 meters or less.
                         </p>
-                        <p>
+                        <p className="mt-2">
                             The gun is limited to class 9 animals only, which means it is only useful on 7 of 15 reserves. The only significant drawbacks of the weapon are the very high cost of both the weapon itself and its ammunition, as well as it´s lower effective range and limitation to either ironsights or a red dot sight. however it truly shines when going up against animals that are Foolish enough to Charge you while you have it on your person
                         </p>
                     </div>
-                </div>
+                </section>
 
-                {/* Trivia */}
-                <div id="trivia">
-                    <div className="flex items-center space-x-2 border-b border-green-800/50 pb-2 mb-4">
-                        <h2 className="text-2xl font-bold text-green-800">5. Trivia</h2>
-                        <a href="#" className="text-green-800"><svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" /></svg></a>
-                    </div>
-                    <ul className="list-disc list-inside text-gray-700 font-sans text-[16px] space-y-2">
-                         <li>The King 470DB is modeled after its real-life counterpart of the Krieghoff Classic "Big Five" Double Rifle.</li>
-                         <li>Since it is Chambered in .470 Nitro Express it is sufficient enough to be classed as an "Elephant rifle" (which is .375 H&H Magnum Or Larger)</li>
-                         <li>The price of the Zenith was reduced from originally 125000 to 90000 (Patch 1.23)</li>
-                         <li>The price of its ammunition was reduced to 2000 (from 5000; SP) and 2660 (from 6500; FMJ) (Patch 1.23)</li>
+                <section id="trivia" className="pt-8">
+                    <h2 className="wiki-h2">5. Trivia</h2>
+                    <ul className="wiki-ul">
+                         <li className="wiki-li">The King 470DB is modeled after its real-life counterpart of the Krieghoff Classic "Big Five" Double Rifle.</li>
+                         <li className="wiki-li">Since it is Chambered in .470 Nitro Express it is sufficient enough to be classed as an "Elephant rifle" (which is .375 H&H Magnum Or Larger)</li>
+                         <li className="wiki-li">The price of the Zenith was reduced from originally 125000 to 90000 (Patch 1.23)</li>
+                         <li className="wiki-li">The price of its ammunition was reduced to 2000 (from 5000; SP) and 2660 (from 6500; FMJ) (Patch 1.23)</li>
                     </ul>
-                </div>
+                </section>
 
-                 {/* Comparison Section */}
-                <div id="comparison">
-                    <div className="flex items-center space-x-2 border-b border-green-800/50 pb-2 mb-4">
-                        <h2 className="text-2xl font-bold text-green-800">6. Comparison to other rifles</h2>
-                        <a href="#" className="text-green-800"><svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" /></svg></a>
-                    </div>
-                    <div className="bg-white border border-gray-200 p-2 inline-block">
-                        <div className="bg-gray-100 overflow-hidden relative group flex justify-center items-center">
-                                <img 
+                <section id="comparison" className="pt-8">
+                    <h2 className="wiki-h2">6. Comparison to other rifles</h2>
+                     <div className="wiki-table-container wiki-p-mb">
+                        <div style={{ backgroundColor: 'var(--wiki-bg-sidebar)', padding: '20px' }}>
+                            <img 
                                 src={RifleDiagram} 
                                 alt="Rifle Diagram" 
-                                style={{ width: '420px', height: '200px' }}
-                                className="object-contain"
-                                />
-                                <div className="absolute bottom-2 right-2 bg-black/60 p-1 rounded">
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                </svg>
-                            </div>
+                                style={{ width: '100%', height: 'auto', display: 'block', borderRadius: '8px' }}
+                            />
                         </div>
                     </div>
-                </div>
+                    <WeaponsTable activeItem="King 470DB" />
+                </section>
 
-            </div>
-
+            </main>
         </div>
-
-        <div className="mt-12">
-            <WeaponsTable activeItem="King 470DB" />
-        </div>
-        <div className="h-32"></div>
       </div>
     </div>
   );
-}
+};
+
+export default King470DB;

@@ -4,11 +4,16 @@ import WeaponsTable from '../../../../components/WeaponsTable';
 import FLSporter303Burnished from '../../../../assets/FLSporter303Burnished.webp';
 import FLSporter303Polymer from '../../../../assets/FLSporter303Polymer.webp';
 import FLSporter303Laminated from '../../../../assets/FLSporter303Laminated.webp';
-
+import '../../../../styles/wiki.css';
 
 export default function App() {
   const [isTocOpen, setIsTocOpen] = useState(true);
   const [activeVariant, setActiveVariant] = useState('Burnished');
+
+  const scrollTo = (e, id) => {
+    e.preventDefault();
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   // Data for Variants Slider
   const variants = [
@@ -47,37 +52,33 @@ export default function App() {
   ];
 
   return (
-    <div className="min-h-screen text-gray-900 p-6 md:p-12 font-sans tracking-tight bg-white">
-      
-      <div className="max-w-5xl mx-auto">
+    <div className="wiki-page">
+      <div className="wiki-inner">
         {/* Header Section */}
-        <header className="flex flex-col md:flex-row md:items-center justify-between border-b border-green-800/20 pb-4 mb-6">
-          <h1 className="text-4xl md:text-5xl font-bold text-green-800 mb-4 md:mb-0">
-            F.L. Sporter .303
-          </h1>
-
-        </header>
+        <h1 className="wiki-header">
+           F.L. Sporter .303
+        </h1>
 
         {/* Main Content Layout */}
-        <div className="block">
+        <div className="wiki-layout">
             
-            {/* Right Floated Infobox with Slider */}
-            <div className="float-right w-72 ml-6 mb-4 bg-white border border-gray-200 shadow-xl font-sans">
-                {/* Infobox Title */}
-                <div className="bg-green-800 text-white text-center font-bold py-2 border-b border-green-900 tracking-wide">
+            {/* Sidebar */}
+            <aside className="wiki-sidebar">
+                <div className="wiki-sidebar-header">
                     F.L. Sporter .303
                 </div>
 
-                {/* Variant Slider / Tabs */}
-                <div className="flex overflow-x-auto whitespace-nowrap bg-gray-50 border-b border-gray-200 scrollbar-hide justify-around py-1">
+                {/* Variant Slider */}
+                <div className="wiki-sidebar-section flex justify-around gap-1 bg-[var(--wiki-bg-sidebar-header)] p-1 flex-wrap">
                   {variants.map((variant) => (
                     <button
                       key={variant.name}
                       onClick={() => setActiveVariant(variant.name)}
-                      className={`px-2 py-1 text-xs font-bold transition-colors uppercase flex-shrink-0 cursor-pointer ${
+                      type="button"
+                      className={`px-1 py-1 text-xs font-bold transition-colors uppercase cursor-pointer ${
                         activeVariant === variant.name 
-                          ? "text-green-800 border-b-2 border-green-800" 
-                          : "text-gray-500 hover:text-green-800"
+                          ? "text-[var(--wiki-text-sidebar)] underline" 
+                          : "text-gray-500 hover:text-[var(--wiki-text-sidebar)]"
                       }`}
                     >
                       {variant.name}
@@ -86,215 +87,183 @@ export default function App() {
                 </div>
                 
                 {/* Image Area */}
-                <div className="p-4 flex justify-center bg-gray-50 relative min-h-[160px] items-center">
+                <div className="wiki-sidebar-image wiki-sidebar-image--contain">
                     <img 
                         src={variants.find(v => v.name === activeVariant).image} 
                         alt={activeVariant} 
-                        style={{ width: '268.4px', height: '134.2px' }}
-                        className="object-contain transition-opacity duration-300"
                     />
                 </div>
 
                 {/* General Information Header */}
-                <div className="bg-green-800 text-white text-center font-bold py-1 border-y border-green-900 tracking-wide text-sm">
+                <div className="wiki-sidebar-header text-sm">
                     General Information
                 </div>
 
                 {/* General Information Data */}
-                <div className="text-sm bg-white">
-                    <div className="grid grid-cols-2 border-b border-gray-200 p-2">
-                        <div className="font-bold text-gray-700">Value</div>
-                        <div className="text-green-800">0</div>
-                    </div>
-                    <div className="grid grid-cols-2 border-b border-gray-200 p-2 bg-gray-50">
-                        <div className="font-bold text-gray-700">Weight</div>
-                        <div className="text-green-800">4</div>
-                    </div>
-                    <div className="grid grid-cols-2 border-b border-gray-200 p-2">
-                        <div className="font-bold text-gray-700">Score</div>
-                        <div className="text-green-800">0</div>
-                    </div>
+                <div className="wiki-sidebar-section">
+                    <span className="wiki-sidebar-label">Value</span>
+                    <span>0</span>
+                </div>
+                <div className="wiki-sidebar-section">
+                    <span className="wiki-sidebar-label">Weight</span>
+                    <span>4</span>
+                </div>
+                <div className="wiki-sidebar-section">
+                    <span className="wiki-sidebar-label">Score</span>
+                    <span>0</span>
                 </div>
 
                 {/* Statistics Header */}
-                <div className="bg-green-800 text-white text-center font-bold py-1 border-y border-green-900 tracking-wide text-sm">
+                <div className="wiki-sidebar-header text-sm">
                     Statistics
                 </div>
 
                 {/* Statistics Data */}
-                <div className="text-sm bg-white">
-                    <div className="grid grid-cols-2 border-b border-gray-200 p-2">
-                        <div className="font-bold text-gray-700">Accuracy</div>
-                        <div className="text-green-800">55</div>
-                    </div>
-                    <div className="grid grid-cols-2 border-b border-gray-200 p-2 bg-gray-50">
-                        <div className="font-bold text-gray-700">Recoil</div>
-                        <div className="text-green-800">64</div>
-                    </div>
-                    <div className="grid grid-cols-2 border-b border-gray-200 p-2">
-                        <div className="font-bold text-gray-700">Reload</div>
-                        <div className="text-green-800">49</div>
-                    </div>
-                    <div className="grid grid-cols-2 border-b border-gray-200 p-2 bg-gray-50">
-                        <div className="font-bold text-gray-700">Hipshot</div>
-                        <div className="text-green-800">67</div>
-                    </div>
-                    <div className="grid grid-cols-2 border-b border-gray-200 p-2">
-                        <div className="font-bold text-gray-700">Magazine</div>
-                        <div className="text-green-800">5</div>
-                    </div>
+                <div className="wiki-sidebar-section">
+                    <span className="wiki-sidebar-label">Accuracy</span>
+                    <span>55</span>
                 </div>
-            </div>
-
-            {/* Intro Quote */}
-            <blockquote className="mb-6 border-l-4 border-green-800 pl-4 italic text-gray-600 font-sans text-sm">
-                <p className="mb-2">"The F.L. Sporter .303 is a rebuilt military surplus rifle and a great option for medium to large game. If it needs some "scrubbing up" to make it like new again that can be a very satisfying project, and once you're done you will have a rifle that's great both for hunting and target practice. The bolt action is smooth, reliable, and easy to cycle quickly."</p>
-                <cite>― In-Game Description</cite>
-            </blockquote>
-
-            {/* Main Description */}
-            <div className="mb-8 text-gray-700 font-sans text-[16px] leading-relaxed">
-                <p>
-                    The <strong className="text-gray-900">F.L. Sporter .303 Burnished</strong> is a bolt-action rifle chambered in .303 British. Throughout its life, this rifle has seen action on the battlefield, as well as recreational use. The F.L. Sporter is very similar in its overall performance to the Eckers .30-06. It also matches the .270 Huntsman almost exactly in rifle stats, however the .303 ammunition offers more penetration and expansion.
-                </p>
-                <p className="mt-4">
-                    This weapon is available as part of the <a href="#" className="text-green-800 hover:underline">Te Awaroa National Park</a> DLC.
-                </p>
-            </div>
-
-            {/* Table of Contents */}
-            <div className="mb-8 inline-block bg-gray-50 border border-gray-200 p-2 min-w-[250px]">
-                <div className="flex justify-between items-center border-b border-gray-200 pb-1 mb-2">
-                    <span className="font-bold text-gray-900 text-sm">Contents</span>
-                    <button onClick={() => setIsTocOpen(!isTocOpen)} className="text-green-800 text-xs hover:underline">[{isTocOpen ? 'hide' : 'show'}]</button>
+                <div className="wiki-sidebar-section">
+                    <span className="wiki-sidebar-label">Recoil</span>
+                    <span>64</span>
                 </div>
-                {isTocOpen && (
-                    <ol className="list-decimal list-inside text-gray-700 text-sm space-y-1 font-sans">
-                        <li><a href="#ammo" className="hover:text-green-800 hover:underline">Ammo</a></li>
-                        <li><a href="#sights" className="hover:text-green-800 hover:underline">Sights</a></li>
-                        <li><a href="#variants" className="hover:text-green-800 hover:underline">Variants</a></li>
-                        <li><a href="#trivia" className="hover:text-green-800 hover:underline">Trivia</a></li>
-                        <li><a href="#comparison" className="hover:text-green-800 hover:underline">Comparison to other rifles</a></li>
-                    </ol>
-                )}
-            </div>
-
-            {/* Sections */}
-            <div className="space-y-12 clear-both">
-                
-                {/* Ammo Section */}
-                <div id="ammo">
-                    <div className="flex items-center space-x-2 border-b border-green-800/50 pb-2 mb-4">
-                        <h2 className="text-2xl font-bold text-green-800">Ammo</h2>
-                        <a href="#" className="text-green-800"><svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" /></svg></a>
-                    </div>
-
-                        <p className="text-gray-700 text-[16px] mb-2">As with most rifles, two variants of its ammunition are available:</p>
-
-                        <div className="bg-white border border-gray-200 text-sm md:text-base font-sans overflow-x-auto">
-                         <table className="w-full text-left border-collapse">
-                            <thead>
-                                <tr className="bg-green-800 border-b-2 border-green-900 text-white font-bold">
-                                    <th className="p-3">Ammo</th>
-                                    <th className="p-3">Penetration</th>
-                                    <th className="p-3">Expansion</th>
-                                    <th className="p-3">Class</th>
-                                    <th className="p-3">Range</th>
-                                    <th className="p-3">Price</th>
-                                </tr>
-                            </thead>
-                            <tbody className="text-gray-700 divide-y divide-gray-200">
-                                {ammoData.map((item, idx) => (
-                                    <tr key={idx} className="hover:bg-gray-50">
-                                        <td className="p-3 text-green-800 hover:underline cursor-pointer">{item.name}</td>
-                                        <td className="p-3">{item.pen}</td>
-                                        <td className="p-3">{item.exp}</td>
-                                        <td className="p-3">{item.class}</td>
-                                        <td className="p-3">{item.range}</td>
-                                        <td className="p-3">{item.price}</td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                    </div>
+                <div className="wiki-sidebar-section">
+                    <span className="wiki-sidebar-label">Reload</span>
+                    <span>49</span>
                 </div>
-
-                {/* Sights Section */}
-                <div id="sights">
-                    <div className="flex items-center space-x-2 border-b border-green-800/50 pb-2 mb-4">
-                        <h2 className="text-2xl font-bold text-green-800">Sights</h2>
-                        <a href="#" className="text-green-800"><svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" /></svg></a>
-                    </div>
-                    <p className="text-gray-700 text-[16px] mb-4">The following sights can be equipped on the F.L. Sporter .303:</p>
-                    
-                    <ul className="list-disc list-inside space-y-1 ml-4 text-green-800 text-lg">
-                        {sightsData.map((sight, idx) => (
-                            <li key={idx}><a href="#" className="hover:underline">{sight}</a></li>
-                        ))}
-                    </ul>
+                <div className="wiki-sidebar-section">
+                    <span className="wiki-sidebar-label">Hipshot</span>
+                    <span>67</span>
                 </div>
-
-                {/* Variants Section */}
-                <div id="variants">
-                    <div className="flex items-center space-x-2 border-b border-green-800/50 pb-2 mb-4">
-                        <h2 className="text-2xl font-bold text-green-800">Variants</h2>
-                        <a href="#" className="text-green-800"><svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" /></svg></a>
-                    </div>
-                    <div className="text-gray-700 font-sans text-[16px] leading-relaxed space-y-4">
-                        <p>
-                            <strong className="text-gray-900">F.L. Sporter .303 Burnished</strong> is the standard variant, featuring a classic wood finish and burnished metal.
-                        </p>
-                        <p>
-                            <strong className="text-gray-900">F.L. Sporter .303 Polymer</strong> is a much more modern design, swapping the wood body for one made of plastic. The barrel and receiver are also colored black to match the gray body.
-                        </p>
-                         <p>
-                            <strong className="text-gray-900">F.L. Sporter .303 Laminated</strong> is a variant that features a wooden body with a more prominent grain. The bolt and sights are replaced with a light-gray version. This variant needs to be unlocked through the mission "A Favor for a Friend" in Te Awaroa National Park.
-                        </p>
-                    </div>
+                <div className="wiki-sidebar-section">
+                    <span className="wiki-sidebar-label">Magazine</span>
+                    <span>5</span>
                 </div>
+            </aside>
 
-                {/* Trivia */}
-                <div id="trivia">
-                    <div className="flex items-center space-x-2 border-b border-green-800/50 pb-2 mb-4">
-                        <h2 className="text-2xl font-bold text-green-800">Trivia</h2>
-                        <a href="#" className="text-green-800"><svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" /></svg></a>
-                    </div>
-                    <p className="text-gray-700 font-sans text-[16px]">
-                        The F.L. Sporter .303 is modeled after its real-life counterpart of the Lee-Enfield No. 4 Mk 2, Sporterized, .303 British.
+            {/* Main Content */}
+            <main className="wiki-main">
+                {/* Intro Quote */}
+                <blockquote className="wiki-quote">
+                    <p>"The F.L. Sporter .303 is a rebuilt military surplus rifle and a great option for medium to large game. If it needs some "scrubbing up" to make it like new again that can be a very satisfying project, and once you're done you will have a rifle that's great both for hunting and target practice. The bolt action is smooth, reliable, and easy to cycle quickly."</p>
+                    <cite>― In-Game Description</cite>
+                </blockquote>
+
+                {/* Main Description */}
+                <div className="wiki-p-mb">
+                    <p>
+                        The <strong className="text-gray-900">F.L. Sporter .303 Burnished</strong> is a bolt-action rifle chambered in .303 British. Throughout its life, this rifle has seen action on the battlefield, as well as recreational use. The F.L. Sporter is very similar in its overall performance to the Eckers .30-06. It also matches the .270 Huntsman almost exactly in rifle stats, however the .303 ammunition offers more penetration and expansion.
+                    </p>
+                    <p className="mt-4">
+                        This weapon is available as part of the <a href="#" className="wiki-link">Te Awaroa National Park</a> DLC.
                     </p>
                 </div>
 
-                 {/* Comparison */}
-                <div id="comparison">
-                    <div className="flex items-center space-x-2 border-b border-green-800/50 pb-2 mb-4">
-                        <h2 className="text-2xl font-bold text-green-800">Comparison to other rifles</h2>
-                        <a href="#" className="text-green-800"><svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" /></svg></a>
+                {/* Table of Contents */}
+                <div className="wiki-toc-panel wiki-p-mb">
+                    <div className="wiki-toc-panel-header">
+                        <span className="wiki-toc-panel-title">Contents</span>
+                        <button onClick={() => setIsTocOpen(!isTocOpen)} className="wiki-toc-panel-toggle">[{isTocOpen ? 'hide' : 'show'}]</button>
                     </div>
-                    <div className="bg-white border border-gray-200 p-2 inline-block">
-                        <div className="bg-gray-100 overflow-hidden relative group flex justify-center items-center">
+                    {isTocOpen && (
+                        <ul className="wiki-list-plain text-sm space-y-1">
+                            <li><a href="#ammo" onClick={(e) => scrollTo(e, 'ammo')} className="wiki-link">1. Ammo</a></li>
+                            <li><a href="#sights" onClick={(e) => scrollTo(e, 'sights')} className="wiki-link">2. Sights</a></li>
+                            <li><a href="#variants" onClick={(e) => scrollTo(e, 'variants')} className="wiki-link">3. Variants</a></li>
+                            <li><a href="#trivia" onClick={(e) => scrollTo(e, 'trivia')} className="wiki-link">4. Trivia</a></li>
+                            <li><a href="#comparison" onClick={(e) => scrollTo(e, 'comparison')} className="wiki-link">5. Comparison to other rifles</a></li>
+                        </ul>
+                    )}
+                </div>
+
+                {/* Sections */}
+                
+                {/* Ammo Section */}
+                <section id="ammo" className="pt-8">
+                    <h2 className="wiki-h2">1. Ammo</h2>
+                    
+                    <p className="wiki-p-mb">As with most rifles, two variants of its <a href="#" className="wiki-link">ammunition</a> are available:</p>
+
+                    <div className="wiki-table-container">
+                        <table className="wiki-table">
+                        <thead>
+                            <tr>
+                                <th className="wiki-th">Ammo</th>
+                                <th className="wiki-th">Penetration</th>
+                                <th className="wiki-th">Expansion</th>
+                                <th className="wiki-th">Class</th>
+                                <th className="wiki-th">Range</th>
+                                <th className="wiki-th">Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {ammoData.map((item, index) => (
+                                <tr key={index}>
+                                    <td className="wiki-td font-bold">{item.name}</td>
+                                    <td className="wiki-td">{item.pen}</td>
+                                    <td className="wiki-td">{item.exp}</td>
+                                    <td className="wiki-td">{item.class}</td>
+                                    <td className="wiki-td">{item.range}</td>
+                                    <td className="wiki-td">{item.price}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section id="sights" className="pt-8">
+                   <h2 className="wiki-h2">2. Sights</h2>
+                   <p className="wiki-p-mb">The following sights can be equipped on the F.L. Sporter .303:</p>
+                   <ul className="wiki-ul">
+                     {sightsData.map((sight, index) => (
+                       <li key={index} className="wiki-li">{sight}</li>
+                     ))}
+                   </ul>
+                </section>
+
+                <section id="variants" className="pt-8">
+                    <h2 className="wiki-h2">3. Variants</h2>
+                    <div className="wiki-p-mb">
+                        <p>
+                            <strong>F.L. Sporter .303 Burnished</strong> is the standard variant, featuring a classic wood finish and burnished metal.
+                        </p>
+                        <p className="mt-2">
+                            <strong>F.L. Sporter .303 Polymer</strong> is a much more modern design, swapping the wood body for one made of plastic. The barrel and receiver are also colored black to match the gray body.
+                        </p>
+                         <p className="mt-2">
+                            <strong>F.L. Sporter .303 Laminated</strong> is a variant that features a wooden body with a more prominent grain. The bolt and sights are replaced with a light-gray version. This variant needs to be unlocked through the mission "A Favor for a Friend" in Te Awaroa National Park.
+                        </p>
+                    </div>
+                </section>
+
+                <section id="trivia" className="pt-8">
+                    <h2 className="wiki-h2">4. Trivia</h2>
+                    <p className="wiki-p-mb">
+                        The F.L. Sporter .303 is modeled after its real-life counterpart of the Lee-Enfield No. 4 Mk 2, Sporterized, .303 British.
+                    </p>
+                </section>
+
+                 <section id="comparison" className="pt-8">
+                    <h2 className="wiki-h2">5. Comparison to other rifles</h2>
+                     <div className="wiki-table-container">
+                        <div className="bg-gray-100 overflow-hidden relative group flex justify-center items-center p-4">
                                 <img 
                                 src={RifleDiagram} 
                                 alt="Rifle Diagram" 
                                 style={{ width: '420px', height: '200px' }}
                                 className="object-contain"
                                 />
-                                <div className="absolute bottom-2 right-2 bg-black/60 p-1 rounded">
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                </svg>
-                            </div>
                         </div>
                     </div>
-                </div>
+                </section>
 
-            </div>
-
+            </main>
         </div>
-
-        <div className="mt-12">
+        
+        <div className="mt-8">
             <WeaponsTable activeItem="F.L. Sporter .303" />
         </div>
-        <div className="h-32"></div>
       </div>
     </div>
   );
