@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import '../../../../styles/wiki.css';
 import WeaponsTable from '../../../../components/WeaponsTable';
 import KullmanGalleryImage from '../../../../assets/COTW_Mississippi_Descriptive_Kullman_22H_.webp';
 import Kullman22HWasp from '../../../../assets/Kullman22HWasp.webp';
@@ -8,6 +9,11 @@ import Kullman22HYellowjacket from '../../../../assets/Kullman22HYellowjacket.we
 const Kullman22H = () => {
   const [isTocOpen, setIsTocOpen] = useState(true);
   const [activeVariant, setActiveVariant] = useState('Wasp');
+
+    const scrollTo = (e, id) => {
+        e.preventDefault();
+        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    };
 
   // Data for Variants Slider
   const variants = [
@@ -156,10 +162,12 @@ const Kullman22H = () => {
                 <div className="wiki-toc-panel wiki-p-mb">
                     <div className="wiki-toc-panel-header">
                         <span className="wiki-toc-panel-title">Contents</span>
-                        <button onClick={() => setIsTocOpen(!isTocOpen)} className="wiki-toc-panel-toggle">[{isTocOpen ? 'hide' : 'show'}]</button>
+                        <span className="wiki-toc-panel-toggle" onClick={() => setIsTocOpen(!isTocOpen)}>
+                            [{isTocOpen ? 'hide' : 'show'}]
+                        </span>
                     </div>
                     {isTocOpen && (
-                        <ul className="wiki-list-plain text-sm space-y-1">
+                        <ul className="wiki-list-plain">
                             <li><a href="#ammo" onClick={(e) => scrollTo(e, 'ammo')} className="wiki-link">1. Ammo</a></li>
                             <li><a href="#sights" onClick={(e) => scrollTo(e, 'sights')} className="wiki-link">2. Sights</a></li>
                             <li><a href="#variants" onClick={(e) => scrollTo(e, 'variants')} className="wiki-link">3. Variants</a></li>
@@ -240,27 +248,26 @@ const Kullman22H = () => {
 
                 <section id="trivia" className="pt-8">
                     <h2 className="wiki-h2">5. Trivia</h2>
-                    <ul className="wiki-ul mb-4">
+                    <ul className="wiki-ul">
                         <li className="wiki-li">The Kullman .22H is modeled after its real-life counterpart of the Ruger 77/22.</li>
                         <li className="wiki-li">The Variant names "Yellow jacket" and "Wasp" are both very ironic as .22H stands for .22 Hornet and while hornets are a type of wasp, Hornets are much different.</li>
                     </ul>
-                    <div className="mt-4">
-                        <img 
-                            src={KullmanGalleryImage} 
-                            alt="Kullman .22H Gallery" 
-                            style={{ width: '616px' }}
-                            className="object-contain border border-gray-300 shadow-sm"
-                        />
-                        <p className="text-sm text-gray-600 mt-2 italic">All variants comparisson</p>
+                    <div className="wiki-table-container wiki-p-mb">
+                        <div style={{ backgroundColor: 'var(--wiki-bg-sidebar)', padding: '12px' }}>
+                            <img
+                                src={KullmanGalleryImage}
+                                alt="Kullman .22H Gallery"
+                                style={{ width: '100%', height: 'auto', display: 'block' }}
+                            />
+                        </div>
                     </div>
+                    <p className="wiki-p-mb"><em>All variants comparisson</em></p>
                 </section>
 
             </main>
         </div>
         
-        <div className="mt-8">
-            <WeaponsTable activeItem="Kullman .22H" />
-        </div>
+                <WeaponsTable activeItem="Kullman .22H" />
       </div>
     </div>
   );

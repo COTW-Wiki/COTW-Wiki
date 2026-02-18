@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import '../../../../styles/wiki.css';
 import King470DBZenithImage from '../../../../assets/King470DBZenith.webp';
 import King470DBApexImage from '../../../../assets/King470DBApex.webp';
 import RifleDiagram from '../../../../assets/Rifle_diagram_2020.webp';
@@ -7,6 +8,11 @@ import WeaponsTable from '../../../../components/WeaponsTable';
 const King470DB = () => {
   const [isTocOpen, setIsTocOpen] = useState(true);
   const [selectedVariant, setSelectedVariant] = useState('Zenith');
+
+    const scrollTo = (e, id) => {
+        e.preventDefault();
+        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    };
 
   // Data for Ammo Table
   const ammoData = [
@@ -129,10 +135,12 @@ const King470DB = () => {
                 <div className="wiki-toc-panel wiki-p-mb">
                     <div className="wiki-toc-panel-header">
                         <span className="wiki-toc-panel-title">Contents</span>
-                        <button onClick={() => setIsTocOpen(!isTocOpen)} className="wiki-toc-panel-toggle">[{isTocOpen ? 'hide' : 'show'}]</button>
+                        <span className="wiki-toc-panel-toggle" onClick={() => setIsTocOpen(!isTocOpen)}>
+                            [{isTocOpen ? 'hide' : 'show'}]
+                        </span>
                     </div>
                     {isTocOpen && (
-                        <ul className="wiki-list-plain text-sm space-y-1">
+                        <ul className="wiki-list-plain">
                             <li><a href="#ammo" onClick={(e) => scrollTo(e, 'ammo')} className="wiki-link">1. Ammo</a></li>
                             <li><a href="#sights" onClick={(e) => scrollTo(e, 'sights')} className="wiki-link">2. Sights</a></li>
                             <li><a href="#variants" onClick={(e) => scrollTo(e, 'variants')} className="wiki-link">3. Variants</a></li>

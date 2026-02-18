@@ -1,9 +1,15 @@
 import { useState } from 'react';
+import '../../../../styles/wiki.css';
 import JohanssonImg from '../../../../assets/Johansson.450.webp';
 import WeaponsTable from '../../../../components/WeaponsTable';
 
 const Johansson450 = () => {
   const [isTocOpen, setIsTocOpen] = useState(true);
+
+    const scrollTo = (e, id) => {
+        e.preventDefault();
+        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    };
 
   // Data for Ammo Table
   const ammoData = [
@@ -121,10 +127,12 @@ const Johansson450 = () => {
                 <div className="wiki-toc-panel wiki-p-mb">
                     <div className="wiki-toc-panel-header">
                         <span className="wiki-toc-panel-title">Contents</span>
-                        <button onClick={() => setIsTocOpen(!isTocOpen)} className="wiki-toc-panel-toggle">[{isTocOpen ? 'hide' : 'show'}]</button>
+                        <span className="wiki-toc-panel-toggle" onClick={() => setIsTocOpen(!isTocOpen)}>
+                            [{isTocOpen ? 'hide' : 'show'}]
+                        </span>
                     </div>
                     {isTocOpen && (
-                        <ul className="wiki-list-plain text-sm space-y-1">
+                        <ul className="wiki-list-plain">
                             <li><a href="#ammo" onClick={(e) => scrollTo(e, 'ammo')} className="wiki-link">1. Ammo</a></li>
                             <li><a href="#sights" onClick={(e) => scrollTo(e, 'sights')} className="wiki-link">2. Sights</a></li>
                             <li><a href="#analysis" onClick={(e) => scrollTo(e, 'analysis')} className="wiki-link">3. Analysis</a></li>
