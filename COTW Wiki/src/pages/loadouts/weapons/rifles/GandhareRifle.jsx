@@ -2,9 +2,15 @@ import React, { useState } from 'react';
 import WeaponsTable from '../../../../components/WeaponsTable';
 import GrandHareRifleImage from '../../../../assets/GandhareRifle.webp';
 import GrandHareRifleIronSight from '../../../../assets/Grandhare_Rifle_IronSight.webp';
+import '../../../../styles/wiki.css';
 
 export default function GandhareRifle() {
   const [isTocOpen, setIsTocOpen] = useState(true);
+
+    const scrollTo = (e, id) => {
+        e.preventDefault();
+        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    };
 
   // Data for Ammo Table
   const ammoData = [
@@ -107,7 +113,7 @@ export default function GandhareRifle() {
                 <div className="wiki-toc-panel wiki-p-mb">
                     <div className="wiki-toc-panel-header">
                         <span className="wiki-toc-panel-title">Contents</span>
-                        <button onClick={() => setIsTocOpen(!isTocOpen)} className="wiki-toc-panel-toggle">[{isTocOpen ? 'hide' : 'show'}]</button>
+                        <span className="wiki-toc-panel-toggle" onClick={() => setIsTocOpen(!isTocOpen)}>[{isTocOpen ? 'hide' : 'show'}]</span>
                     </div>
                     {isTocOpen && (
                         <ul className="wiki-list-plain text-sm space-y-1">

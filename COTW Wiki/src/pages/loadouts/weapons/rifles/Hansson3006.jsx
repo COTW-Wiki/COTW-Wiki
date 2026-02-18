@@ -1,10 +1,16 @@
 import React, { useState } from 'react';
 import HanssonImg from '../../../../assets/Hansson_.30-06.webp';
 import WeaponsTable from '../../../../components/WeaponsTable';
+import '../../../../styles/wiki.css';
 
 // --- Main Component ---
 export default function Hansson3006() {
   const [isTocOpen, setIsTocOpen] = useState(true);
+
+    const scrollTo = (e, id) => {
+        e.preventDefault();
+        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    };
 
   // Data for Ammo Table
   const ammoData = [
@@ -121,7 +127,7 @@ export default function Hansson3006() {
                 <div className="wiki-toc-panel wiki-p-mb">
                     <div className="wiki-toc-panel-header">
                         <span className="wiki-toc-panel-title">Contents</span>
-                        <button onClick={() => setIsTocOpen(!isTocOpen)} className="wiki-toc-panel-toggle">[{isTocOpen ? 'hide' : 'show'}]</button>
+                        <span className="wiki-toc-panel-toggle" onClick={() => setIsTocOpen(!isTocOpen)}>[{isTocOpen ? 'hide' : 'show'}]</span>
                     </div>
                     {isTocOpen && (
                         <ul className="wiki-list-plain text-sm space-y-1">
