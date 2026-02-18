@@ -297,10 +297,10 @@ const SikaDeer = () => {
                     <thead>
                         <tr>
                             <th className="wiki-th">Sex</th>
-                            <th className="wiki-th wiki-common">Common</th>
-                            <th className="wiki-th wiki-uncommon">Uncommon</th>
-                            <th className="wiki-th wiki-rare">Rare</th>
-                            <th className="wiki-th wiki-very-rare">Very Rare</th>
+                            <th className="wiki-th"><span className="rarity-tag wiki-common">Common</span></th>
+                            <th className="wiki-th"><span className="rarity-tag wiki-uncommon">Uncommon</span></th>
+                            <th className="wiki-th"><span className="rarity-tag wiki-rare">Rare</span></th>
+                            <th className="wiki-th"><span className="rarity-tag wiki-very-rare">Very Rare</span></th>
                         </tr>
                     </thead>
                     <tbody>

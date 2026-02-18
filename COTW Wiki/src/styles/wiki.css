@@ -305,7 +305,11 @@
 }
 
 /* ---- Rarity Badges (Tags) ---- */
-.rarity-tag {
+.rarity-tag,
+span.wiki-common,
+span.wiki-uncommon,
+span.wiki-rare,
+span.wiki-very-rare {
     display: inline-block;
     padding: 2px 10px;
     border-radius: 6px;
