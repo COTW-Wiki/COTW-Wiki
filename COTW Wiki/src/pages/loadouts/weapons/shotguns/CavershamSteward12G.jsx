@@ -11,29 +11,26 @@ import ShotgunDiagram from '../../../../assets/Shotgun_diagram_2020.webp';
 
 export default function App() {
   const [isTocOpen, setIsTocOpen] = useState(true);
-    const [activeVariant, setActiveVariant] = useState('Normal');
+        const [selectedVariant, setSelectedVariant] = useState('Normal');
 
     // Image (local asset)
     // const CavershamImg imported above
   
     // Data for Variants Slider (use the imported assets)
-    const variants = [
-        {
-            name: "Normal",
+    const variants = {
+        Normal: {
             image: CavershamImg,
-            desc: "Normal variant featuring engraved details and a polished wood stock."
+            desc: 'Normal variant featuring engraved details and a polished wood stock.',
         },
-        {
-            name: "Grankin's Shotgun",
+        "Grankin's Shotgun": {
             image: CavershamSteward12GGrankinsShotgun,
-            desc: "Grankin's Shotgun is a unique variant that has seen plenty of use. This variant is obtainable through the questline in Medved-Taiga National Park."
+            desc: "Grankin's Shotgun is a unique variant that has seen plenty of use. This variant is obtainable through the questline in Medved-Taiga National Park.",
         },
-        {
-            name: "Gamekeeper 12G",
+        'Gamekeeper 12G': {
             image: CavershamSteward12GGamekeeper12G,
-            desc: "Gamekeeper 12G is a variant that features a lighter wooden body and a black engraved barrel."
-        }
-    ];
+            desc: 'Gamekeeper 12G is a variant that features a lighter wooden body and a black engraved barrel.',
+        },
+    };
 
   // Data for Ammo Table
   const ammoData = [
@@ -74,18 +71,19 @@ export default function App() {
                 </div>
 
                 {/* Variant Slider / Tabs */}
-                <div className="flex overflow-x-auto whitespace-nowrap bg-white border-b border-gray-200 scrollbar-hide">
-                  {variants.map((variant) => (
+                                <div
+                                    className="wiki-sidebar-section wiki-variant-bar"
+                                    style={{ display: 'flex', justifyContent: 'space-around', gap: 8, flexWrap: 'wrap' }}
+                                >
+                                    {Object.keys(variants).map((variantName) => (
                     <button
-                      key={variant.name}
-                      onClick={() => setActiveVariant(variant.name)}
-                      className={`px-4 py-2 text-xs font-bold transition-colors uppercase flex-shrink-0 ${
-                        activeVariant === variant.name 
-                          ? "text-white border-b-2 border-[#5aaaf7]" 
-                          : "text-gray-400 hover:text-white"
-                      }`}
+                                            key={variantName}
+                                            onClick={() => setSelectedVariant(variantName)}
+                                            type="button"
+                                            className="wiki-link wiki-variant-button"
+                                                                                        aria-current={selectedVariant === variantName ? 'true' : undefined}
                     >
-                      {variant.name}
+                                            {variantName}
                     </button>
                   ))}
                 </div>
@@ -93,8 +91,8 @@ export default function App() {
                 {/* Image Area */}
                 <div className="p-4 flex justify-center bg-white relative min-h-[160px] items-center">
                     <img
-                        src={variants.find(v => v.name === activeVariant).image}
-                        alt={activeVariant}
+                        src={variants[selectedVariant].image}
+                        alt={selectedVariant}
                         style={{ width: '268.4px', height: '134.2px', objectFit: 'contain' }}
                         className="transition-opacity duration-300"
                         onError={(e) => { e.target.src = CavershamImg }}

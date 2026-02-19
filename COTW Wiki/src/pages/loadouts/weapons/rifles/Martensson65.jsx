@@ -8,7 +8,7 @@ import '../../../../styles/wiki.css';
 
 export default function Martensson65() {
   const [isTocOpen, setIsTocOpen] = useState(true);
-  const [activeVariant, setActiveVariant] = useState('Thunder');
+    const [selectedVariant, setSelectedVariant] = useState('Thunder');
 
     const scrollTo = (e, id) => {
         e.preventDefault();
@@ -16,23 +16,20 @@ export default function Martensson65() {
     };
 
   // Data for Variants Slider
-  const variants = [
-    { 
-      name: "Thunder", 
-      image: MartenssonThunder,
-      desc: "Bolt-action rifle with high accuracy and a generous magazine. Olive green polymer body."
-    },
-    { 
-      name: "Lightning", 
-      image: MartenssonLightning,
-      desc: "Variant that swaps out the olive green polymer body with a white polymer body."
-    },
-    { 
-      name: "Rayo", 
-      image: MartenssonRayo,
-      desc: "Special variant which replaces the polymer body with a dark stained wood body with intricate engravings." 
-    }
-  ];
+    const variants = {
+        Thunder: {
+            image: MartenssonThunder,
+            desc: 'Bolt-action rifle with high accuracy and a generous magazine. Olive green polymer body.',
+        },
+        Lightning: {
+            image: MartenssonLightning,
+            desc: 'Variant that swaps out the olive green polymer body with a white polymer body.',
+        },
+        Rayo: {
+            image: MartenssonRayo,
+            desc: 'Special variant which replaces the polymer body with a dark stained wood body with intricate engravings.',
+        },
+    };
 
   // Data for Ammo Table
   const ammoData = [
@@ -52,7 +49,7 @@ export default function Martensson65() {
     "Tru-Vision Tritium Sights"
   ];
 
-    const activeVariantObj = variants.find((v) => v.name === activeVariant) ?? variants[0];
+    const selectedVariantData = variants[selectedVariant];
 
     return (
         <div className="wiki-page">
@@ -63,34 +60,24 @@ export default function Martensson65() {
                     <aside className="wiki-sidebar">
                         <div className="wiki-sidebar-header">Mårtensson 6.5mm</div>
 
-                        <div style={{ padding: '10px 12px' }}>
-                            <div style={{ fontWeight: 700, marginBottom: '6px' }}>Variant</div>
-                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
-                                {variants.map((variant) => (
-                                    <button
-                                        key={variant.name}
-                                        type="button"
-                                        onClick={() => setActiveVariant(variant.name)}
-                                        className="wiki-link"
-                                        style={{
-                                            background: 'transparent',
-                                            border: 0,
-                                            padding: 0,
-                                            cursor: 'pointer',
-                                            textDecoration: activeVariant === variant.name ? 'underline' : 'none',
-                                            fontWeight: activeVariant === variant.name ? 700 : 400,
-                                        }}
-                                    >
-                                        {variant.name}
-                                    </button>
-                                ))}
-                            </div>
+                        <div className="wiki-sidebar-section wiki-variant-bar" style={{ display: 'flex', justifyContent: 'space-around', gap: 8, flexWrap: 'wrap' }}>
+                            {Object.keys(variants).map((variantName) => (
+                                <button
+                                    key={variantName}
+                                    type="button"
+                                    onClick={() => setSelectedVariant(variantName)}
+                                    className="wiki-link wiki-variant-button"
+                                    aria-current={selectedVariant === variantName ? 'true' : undefined}
+                                >
+                                    {variantName}
+                                </button>
+                            ))}
                         </div>
 
                         <div className="wiki-sidebar-image wiki-sidebar-image--contain" style={{ backgroundColor: 'var(--wiki-bg-sidebar)' }}>
                             <img
-                                src={activeVariantObj.image}
-                                alt={activeVariantObj.name}
+                                src={selectedVariantData.image}
+                                alt={`Mårtensson 6.5mm ${selectedVariant}`}
                                 style={{ width: '268.4px', height: '134.2px' }}
                                 onError={(e) => {
                                     e.currentTarget.src = 'https://static.wikia.nocookie.net/thehuntercotw/images/9/90/Rifle_Martensson_6.5mm.png';

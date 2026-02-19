@@ -53,16 +53,14 @@ const Hudzik50Caplock = () => {
                 </div>
 
                 {/* Variant Switcher */}
-                <div className="wiki-sidebar-section flex justify-around gap-1 bg-[var(--wiki-bg-sidebar-header)] p-1 flex-wrap">
-                    {Object.keys(variants).map(variant => (
-                        <button 
+                <div className="wiki-sidebar-section wiki-variant-bar" style={{ display: 'flex', justifyContent: 'space-around', gap: 8, flexWrap: 'wrap' }}>
+                    {Object.keys(variants).map((variant) => (
+                        <button
                             key={variant}
+                            type="button"
                             onClick={() => setSelectedVariant(variant)}
-                            className={`px-1 py-1 text-xs font-bold transition-colors uppercase cursor-pointer ${
-                                selectedVariant === variant 
-                                  ? "text-[var(--wiki-text-sidebar)] underline" 
-                                  : "text-gray-500 hover:text-[var(--wiki-text-sidebar)]"
-                              }`}
+                            className="wiki-link wiki-variant-button"
+                            aria-current={selectedVariant === variant ? 'true' : undefined}
                         >
                             {variant}
                         </button>
@@ -209,7 +207,7 @@ const Hudzik50Caplock = () => {
                    </ul>
                 </section>
 
-                <section id="variants" className="pt-8">
+                <section  id="variants" className="pt-8">
                     <h2 className="wiki-h2">3. Variants</h2>
                     <div className="wiki-p-mb">
                         <p>

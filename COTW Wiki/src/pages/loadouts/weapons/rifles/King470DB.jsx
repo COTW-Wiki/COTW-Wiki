@@ -9,6 +9,11 @@ const King470DB = () => {
   const [isTocOpen, setIsTocOpen] = useState(true);
   const [selectedVariant, setSelectedVariant] = useState('Zenith');
 
+    const variants = {
+        Zenith: King470DBZenithImage,
+        Apex: King470DBApexImage,
+    };
+
     const scrollTo = (e, id) => {
         e.preventDefault();
         document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
@@ -43,25 +48,24 @@ const King470DB = () => {
                 </div>
 
                 {/* Sub-menu text */}
-                <div className="wiki-sidebar-section flex justify-around bg-[var(--wiki-bg-sidebar-header)] p-1">
-                    <button 
-                        className={`px-2 py-1 text-xs font-bold transition-colors uppercase cursor-pointer ${selectedVariant === 'Zenith' ? 'text-[var(--wiki-text-sidebar)] underline' : 'text-gray-500 hover:text-[var(--wiki-text-sidebar)]'}`}
-                        onClick={() => setSelectedVariant('Zenith')}
-                    >
-                        Zenith
-                    </button>
-                    <button 
-                        className={`px-2 py-1 text-xs font-bold transition-colors uppercase cursor-pointer ${selectedVariant === 'Apex' ? 'text-[var(--wiki-text-sidebar)] underline' : 'text-gray-500 hover:text-[var(--wiki-text-sidebar)]'}`}
-                        onClick={() => setSelectedVariant('Apex')}
-                    >
-                        Apex
-                    </button>
+                <div className="wiki-sidebar-section wiki-variant-bar" style={{ display: 'flex', justifyContent: 'space-around', gap: 8, flexWrap: 'wrap' }}>
+                    {Object.keys(variants).map((variant) => (
+                        <button
+                            key={variant}
+                            type="button"
+                            className="wiki-link wiki-variant-button"
+                            aria-current={selectedVariant === variant ? 'true' : undefined}
+                            onClick={() => setSelectedVariant(variant)}
+                        >
+                            {variant}
+                        </button>
+                    ))}
                 </div>
                 
                 {/* Image Area */}
                 <div className="wiki-sidebar-image wiki-sidebar-image--contain">
                     <img 
-                        src={selectedVariant === 'Zenith' ? King470DBZenithImage : King470DBApexImage}
+                        src={variants[selectedVariant]}
                         alt={`King 470DB ${selectedVariant}`}
                     />
                 </div>

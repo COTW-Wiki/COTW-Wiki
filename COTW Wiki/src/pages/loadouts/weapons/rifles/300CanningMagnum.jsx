@@ -9,7 +9,7 @@ import '../../../../styles/wiki.css';
 
 export default function App() {
   const [isTocOpen, setIsTocOpen] = useState(true);
-  const [activeVariantIndex, setActiveVariantIndex] = useState(0);
+    const [selectedVariant, setSelectedVariant] = useState('Frontier');
 
   const scrollTo = (e, id) => {
     e.preventDefault();
@@ -17,7 +17,7 @@ export default function App() {
   };
 
   // Data for Variants
-  const variants = [
+    const variantData = [
     { 
       name: "Frontier", 
       image: CanningMagnumFrontierImage,
@@ -40,15 +40,7 @@ export default function App() {
     }
   ];
 
-  const nextVariant = () => {
-    setActiveVariantIndex((prev) => (prev + 1) % variants.length);
-  };
-
-  const prevVariant = () => {
-    setActiveVariantIndex((prev) => (prev - 1 + variants.length) % variants.length);
-  };
-
-  const activeVariant = variants[activeVariantIndex];
+    const variants = Object.fromEntries(variantData.map((variant) => [variant.name, variant.image]));
 
   // Data for Ammo Table
   const ammoData = [
@@ -84,26 +76,29 @@ export default function App() {
                     .300 Canning Magnum
                 </div>
 
-                {/* Variant Slider */}
-                <div className="wiki-sidebar-section flex justify-between items-center bg-[var(--wiki-bg-sidebar-header)]">
-                    <button onClick={prevVariant} type="button" className="text-[var(--wiki-text-sidebar)] font-bold p-2 hover:bg-[var(--wiki-bg-sidebar)]">
-                        &lt;
-                    </button>
-                    
-                    <span className="text-xs font-bold text-[var(--wiki-text-sidebar)] text-center flex-1">
-                        {activeVariant.name}
-                    </span>
-
-                    <button onClick={nextVariant} type="button" className="text-[var(--wiki-text-sidebar)] font-bold p-2 hover:bg-[var(--wiki-bg-sidebar)]">
-                        &gt;
-                    </button>
+                {/* Variant Selector */}
+                <div
+                    className="wiki-sidebar-section wiki-variant-bar"
+                    style={{ display: 'flex', justifyContent: 'space-around', gap: 8, flexWrap: 'wrap' }}
+                >
+                    {Object.keys(variants).map((variant) => (
+                        <button
+                            key={variant}
+                            type="button"
+                            onClick={() => setSelectedVariant(variant)}
+                            className="wiki-link wiki-variant-button"
+                            aria-current={selectedVariant === variant ? 'true' : undefined}
+                        >
+                            {variant}
+                        </button>
+                    ))}
                 </div>
                 
                 {/* Image Area */}
                 <div className="wiki-sidebar-image wiki-sidebar-image--contain">
                     <img 
-                        src={activeVariant.image} 
-                        alt={activeVariant.name} 
+                        src={variants[selectedVariant]} 
+                        alt={selectedVariant} 
                     />
                 </div>
 

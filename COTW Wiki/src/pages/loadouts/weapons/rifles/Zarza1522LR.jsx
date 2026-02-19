@@ -7,25 +7,23 @@ import '../../../../styles/wiki.css';
 
 const Zarza1522LR = () => {
     const [isTocOpen, setIsTocOpen] = useState(true);
-    const [activeVariant, setActiveVariant] = useState('Shadow');
+    const [selectedVariant, setSelectedVariant] = useState('Shadow');
 
     const scrollTo = (e, id) => {
         e.preventDefault();
         document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
     };
 
-    const variants = [
-        {
-            name: 'Shadow',
+    const variants = {
+        Shadow: {
             image: Zarza1522LRShadow,
-            desc: "The default variant, likely featuring a dark, tactical finish.",
+            desc: 'The default variant, likely featuring a dark, tactical finish.',
         },
-        {
-            name: 'Predator',
+        Predator: {
             image: Zarza1522LRPredator,
             desc: 'A variant often featuring a camouflage pattern suitable for predator hunting.',
         },
-    ];
+    };
 
     const ammoData = [
         { name: '.22LR Truncated Cone', pen: 17, exp: 1, class: '1', range: '100m', price: 250 },
@@ -42,7 +40,7 @@ const Zarza1522LR = () => {
         'Red Raptor Reflex Sight',
     ];
 
-    const activeVariantObj = variants.find((v) => v.name === activeVariant) ?? variants[0];
+    const selectedVariantData = variants[selectedVariant];
 
     return (
         <div className="wiki-page">
@@ -53,34 +51,24 @@ const Zarza1522LR = () => {
                     <aside className="wiki-sidebar">
                         <div className="wiki-sidebar-header">ZARZA-15 .22LR</div>
 
-                        <div style={{ padding: '10px 12px' }}>
-                            <div style={{ fontWeight: 700, marginBottom: '6px' }}>Variant</div>
-                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
-                                {variants.map((variant) => (
-                                    <button
-                                        key={variant.name}
-                                        type="button"
-                                        onClick={() => setActiveVariant(variant.name)}
-                                        className="wiki-link"
-                                        style={{
-                                            background: 'transparent',
-                                            border: 0,
-                                            padding: 0,
-                                            cursor: 'pointer',
-                                            textDecoration: activeVariant === variant.name ? 'underline' : 'none',
-                                            fontWeight: activeVariant === variant.name ? 700 : 400,
-                                        }}
-                                    >
-                                        {variant.name}
-                                    </button>
-                                ))}
-                            </div>
+                        <div className="wiki-sidebar-section wiki-variant-bar" style={{ display: 'flex', justifyContent: 'space-around', gap: 8, flexWrap: 'wrap' }}>
+                            {Object.keys(variants).map((variantName) => (
+                                <button
+                                    key={variantName}
+                                    type="button"
+                                    onClick={() => setSelectedVariant(variantName)}
+                                    className="wiki-link wiki-variant-button"
+                                    aria-current={selectedVariant === variantName ? 'true' : undefined}
+                                >
+                                    {variantName}
+                                </button>
+                            ))}
                         </div>
 
                         <div className="wiki-sidebar-image wiki-sidebar-image--contain" style={{ backgroundColor: 'var(--wiki-bg-sidebar)' }}>
                             <img
-                                src={activeVariantObj.image}
-                                alt={activeVariantObj.name}
+                                src={selectedVariantData.image}
+                                alt={`ZARZA-15 .22LR ${selectedVariant}`}
                                 style={{ width: '268.4px', height: '134.2px' }}
                             />
                         </div>

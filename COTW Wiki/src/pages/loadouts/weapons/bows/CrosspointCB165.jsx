@@ -13,7 +13,7 @@ import CrosspointWarden from '../../../../assets/CrosspointCB165Warden.webp';
 // --- Main App Component ---
 export default function App() {
   const [isTocOpen, setIsTocOpen] = useState(true);
-  const [activeVariant, setActiveVariant] = useState('Classic');
+    const [selectedVariant, setSelectedVariant] = useState('Classic');
 
   // Image URLs - These are now imported, so we comment out the old consts to avoid shadowing
   // const CrosspointImg = "https://static.wikia.nocookie.net/thehuntercotw/images/2/23/Bow_Crosspoint_CB-165.png";
@@ -25,29 +25,25 @@ export default function App() {
   // const CrosspointLying = CrosspointImg;
   // const CrosspointIronSight = CrosspointImg;
 
-  // Data for Variants Slider
-  const variants = [
-    { 
-      name: "Classic", 
-      image: CrosspointClassic,
-      desc: "The standard variant featuring a camouflage finish."
-    },
-    { 
-      name: "Arctic", 
-      image: CrosspointArctic,
-      desc: "A variant featuring an arctic camouflage pattern."
-    },
-    { 
-      name: "Dark Star", 
-      image: CrosspointDarkStar,
-      desc: "A variant featuring black powder painted metal and dark wooden body."
-    },
-    { 
-      name: "Warden", 
-      image: CrosspointWarden,
-      desc: "A variant featuring a standard dark brown foliage pattern."
-    }
-  ];
+    // Data for Variants Slider
+    const variants = {
+        Classic: {
+            image: CrosspointClassic,
+            desc: 'The standard variant featuring a camouflage finish.',
+        },
+        Arctic: {
+            image: CrosspointArctic,
+            desc: 'A variant featuring an arctic camouflage pattern.',
+        },
+        'Dark Star': {
+            image: CrosspointDarkStar,
+            desc: 'A variant featuring black powder painted metal and dark wooden body.',
+        },
+        Warden: {
+            image: CrosspointWarden,
+            desc: 'A variant featuring a standard dark brown foliage pattern.',
+        },
+    };
 
   // Data for Ammo Table
   const ammoData = [
@@ -108,18 +104,19 @@ export default function App() {
                 </div>
 
                 {/* Variant Slider / Tabs */}
-                <div className="flex overflow-x-auto whitespace-nowrap bg-gray-100 border-b border-gray-200 scrollbar-hide">
-                  {variants.map((variant) => (
+                                <div
+                                    className="wiki-sidebar-section wiki-variant-bar"
+                                    style={{ display: 'flex', justifyContent: 'space-around', gap: 8, flexWrap: 'wrap' }}
+                                >
+                                    {Object.keys(variants).map((variantName) => (
                     <button
-                      key={variant.name}
-                      onClick={() => setActiveVariant(variant.name)}
-                      className={`px-4 py-2 text-xs font-bold transition-colors uppercase flex-shrink-0 ${
-                        activeVariant === variant.name 
-                          ? "text-green-800 border-b-2 border-green-800 bg-white" 
-                          : "text-gray-500 hover:text-green-800"
-                      }`}
+                                            key={variantName}
+                                            onClick={() => setSelectedVariant(variantName)}
+                                            type="button"
+                                            className="wiki-link wiki-variant-button"
+                                                                                        aria-current={selectedVariant === variantName ? 'true' : undefined}
                     >
-                      {variant.name}
+                                            {variantName}
                     </button>
                   ))}
                 </div>
@@ -127,8 +124,8 @@ export default function App() {
                 {/* Image Area */}
                 <div className="p-4 flex justify-center bg-white relative min-h-[160px] items-center">
                     <img 
-                        src={variants.find(v => v.name === activeVariant).image} 
-                        alt={activeVariant} 
+                        src={variants[selectedVariant].image} 
+                        alt={selectedVariant} 
                         style={{ width: '268.4px', height: '134.2px' }}
                         className="object-contain transition-opacity duration-300"
                     />

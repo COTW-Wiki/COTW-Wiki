@@ -13,6 +13,11 @@ const Virant22LR = () => {
   const [isTocOpen, setIsTocOpen] = useState(true);
   const [selectedVariant, setSelectedVariant] = useState('Express');
 
+  const variants = {
+    Express: Virant22LRImage,
+    Klasika: Virant22LRKlasikaImage,
+  };
+
   const scrollTo = (e, id) => {
     e.preventDefault();
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
@@ -42,16 +47,14 @@ const Virant22LR = () => {
           <aside className="wiki-sidebar">
             <div className="wiki-sidebar-header">Virant .22LR</div>
 
-            <div className="wiki-sidebar-section flex justify-around gap-1 bg-[var(--wiki-bg-sidebar-header)] p-1">
-              {['Express', 'Klasika'].map((variant) => (
+            <div className="wiki-sidebar-section wiki-variant-bar" style={{ display: 'flex', justifyContent: 'space-around', gap: 8, flexWrap: 'wrap' }}>
+              {Object.keys(variants).map((variant) => (
                 <button
                   key={variant}
+                  type="button"
                   onClick={() => setSelectedVariant(variant)}
-                  className={`px-2 py-1 text-xs font-bold transition-colors uppercase cursor-pointer ${
-                    selectedVariant === variant
-                      ? 'text-[var(--wiki-text-sidebar)] underline'
-                      : 'text-gray-500 hover:text-[var(--wiki-text-sidebar)]'
-                  }`}
+                  className="wiki-link wiki-variant-button"
+                  aria-current={selectedVariant === variant ? 'true' : undefined}
                 >
                   {variant}
                 </button>
@@ -60,7 +63,7 @@ const Virant22LR = () => {
 
             <div className="wiki-sidebar-image wiki-sidebar-image--contain">
               <img
-                src={selectedVariant === 'Express' ? Virant22LRImage : Virant22LRKlasikaImage}
+                src={variants[selectedVariant]}
                 alt={`Virant .22LR ${selectedVariant}`}
               />
             </div>

@@ -8,7 +8,7 @@ import '../../../../styles/wiki.css';
 
 export default function App() {
   const [isTocOpen, setIsTocOpen] = useState(true);
-  const [activeVariant, setActiveVariant] = useState('Burnished');
+    const [selectedVariant, setSelectedVariant] = useState('Burnished');
 
   const scrollTo = (e, id) => {
     e.preventDefault();
@@ -16,7 +16,7 @@ export default function App() {
   };
 
   // Data for Variants Slider
-  const variants = [
+    const variantData = [
     { 
       name: "Burnished", 
       image: FLSporter303Burnished,
@@ -33,6 +33,8 @@ export default function App() {
             desc: "F.L. Sporter .303 Laminated is a variant that features a wooden body with a more prominent grain. The bolt and sights are replaced with a light-gray version. This variant needs to be unlocked through the mission \"A Favor for a Friend\" in Te Awaroa National Park."
     }
   ];
+
+    const variants = Object.fromEntries(variantData.map((variant) => [variant.name, variant.image]));
 
   // Data for Ammo Table
   const ammoData = [
@@ -69,19 +71,16 @@ export default function App() {
                 </div>
 
                 {/* Variant Slider */}
-                <div className="wiki-sidebar-section flex justify-around gap-1 bg-[var(--wiki-bg-sidebar-header)] p-1 flex-wrap">
-                  {variants.map((variant) => (
+                                                                <div className="wiki-sidebar-section wiki-variant-bar" style={{ display: 'flex', justifyContent: 'space-around', gap: 8, flexWrap: 'wrap' }}>
+                                    {Object.keys(variants).map((variant) => (
                     <button
-                      key={variant.name}
-                      onClick={() => setActiveVariant(variant.name)}
+                                            key={variant}
+                                            onClick={() => setSelectedVariant(variant)}
                       type="button"
-                      className={`px-1 py-1 text-xs font-bold transition-colors uppercase cursor-pointer ${
-                        activeVariant === variant.name 
-                          ? "text-[var(--wiki-text-sidebar)] underline" 
-                          : "text-gray-500 hover:text-[var(--wiki-text-sidebar)]"
-                      }`}
+                                            className="wiki-link wiki-variant-button"
+                                                                                        aria-current={selectedVariant === variant ? 'true' : undefined}
                     >
-                      {variant.name}
+                                            {variant}
                     </button>
                   ))}
                 </div>
@@ -89,8 +88,8 @@ export default function App() {
                 {/* Image Area */}
                 <div className="wiki-sidebar-image wiki-sidebar-image--contain">
                     <img 
-                        src={variants.find(v => v.name === activeVariant).image} 
-                        alt={activeVariant} 
+                        src={variants[selectedVariant]} 
+                        alt={selectedVariant} 
                     />
                 </div>
 

@@ -10,30 +10,27 @@ import AlexanderLongbowLacquered from '../../../../assets/AlexanderLongbowLacque
 // --- Main App Component ---
 export default function App() {
   const [isTocOpen, setIsTocOpen] = useState(true);
-  const [activeVariant, setActiveVariant] = useState('Lacquered');
+    const [selectedVariant, setSelectedVariant] = useState('Lacquered');
 
   // Image URLs
   const AlexanderImg = "https://static.wikia.nocookie.net/thehuntercotw/images/5/5a/Bow_Alexander_Longbow.png";
   const RifleDiagram = "https://static.wikia.nocookie.net/thehuntercotw/images/0/07/Rifle_Comparison_Chart.png"; // Placeholder for bow comparison
   
-  // Data for Variants Slider
-  const variants = [
-    { 
-      name: "Lacquered", 
-      image: AlexanderLongbowLacquered,
-      desc: "A highly polished variant with a glossy finish."
-    },
-    { 
-      name: "Rough", 
-      image: AlexanderLongbowRough,
-      desc: "The rough variant crafted from high-quality yew wood."
-    },
-    { 
-      name: "Ash", 
-      image: AlexanderLongbowAsh,
-      desc: "A variant featuring a darker, ash wood finish."
-    }
-  ];
+    // Data for Variants Slider
+    const variants = {
+        Lacquered: {
+            image: AlexanderLongbowLacquered,
+            desc: 'A highly polished variant with a glossy finish.',
+        },
+        Rough: {
+            image: AlexanderLongbowRough,
+            desc: 'The rough variant crafted from high-quality yew wood.',
+        },
+        Ash: {
+            image: AlexanderLongbowAsh,
+            desc: 'A variant featuring a darker, ash wood finish.',
+        },
+    };
 
   // Data for Ammo Table
   const ammoData = [
@@ -73,18 +70,19 @@ export default function App() {
                 </div>
 
                 {/* Variant Slider / Tabs */}
-                <div className="flex overflow-x-auto whitespace-nowrap bg-gray-50 border-b border-gray-200 scrollbar-hide">
-                  {variants.map((variant) => (
+                                <div
+                                    className="wiki-sidebar-section wiki-variant-bar"
+                                    style={{ display: 'flex', justifyContent: 'space-around', gap: 8, flexWrap: 'wrap' }}
+                                >
+                                    {Object.keys(variants).map((variantName) => (
                     <button
-                      key={variant.name}
-                      onClick={() => setActiveVariant(variant.name)}
-                      className={`px-4 py-2 text-xs font-bold transition-colors uppercase flex-shrink-0 ${
-                        activeVariant === variant.name 
-                          ? "text-green-800 border-b-2 border-green-600" 
-                          : "text-gray-500 hover:text-green-800"
-                      }`}
+                                            key={variantName}
+                                            onClick={() => setSelectedVariant(variantName)}
+                                            type="button"
+                                            className="wiki-link wiki-variant-button"
+                                                                                        aria-current={selectedVariant === variantName ? 'true' : undefined}
                     >
-                      {variant.name}
+                                            {variantName}
                     </button>
                   ))}
                 </div>
@@ -92,8 +90,8 @@ export default function App() {
                 {/* Image Area */}
                 <div className="p-4 flex justify-center bg-white relative min-h-[160px] items-center">
                     <img 
-                        src={variants.find(v => v.name === activeVariant).image} 
-                        alt={activeVariant} 
+                        src={variants[selectedVariant].image} 
+                        alt={selectedVariant} 
                         style={{ width: '268.4px', height: '134.2px' }}
                         className="object-contain transition-opacity duration-300"
                         onError={(e) => {e.target.src = AlexanderImg}}

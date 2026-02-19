@@ -7,7 +7,7 @@ import '../../../../styles/wiki.css';
 
 const Zarza10308 = () => {
   const [isTocOpen, setIsTocOpen] = useState(true);
-  const [activeVariant, setActiveVariant] = useState('Moonlight');
+    const [selectedVariant, setSelectedVariant] = useState('Moonlight');
 
     const scrollTo = (e, id) => {
         e.preventDefault();
@@ -15,7 +15,7 @@ const Zarza10308 = () => {
     };
 
   // Data for Variants Slider
-  const variants = [
+    const variantData = [
     { 
       name: "Moonlight", 
       image: Zarza10308Moonlight,
@@ -45,7 +45,7 @@ const Zarza10308 = () => {
     "Red Raptor Reflex Sight"
   ];
 
-    const activeVariantObj = variants.find((v) => v.name === activeVariant) ?? variants[0];
+    const variants = Object.fromEntries(variantData.map((variant) => [variant.name, variant.image]));
 
     return (
         <div className="wiki-page">
@@ -56,34 +56,24 @@ const Zarza10308 = () => {
                     <aside className="wiki-sidebar">
                         <div className="wiki-sidebar-header">ZARZA-10 .308</div>
 
-                        <div style={{ padding: '10px 12px' }}>
-                            <div style={{ fontWeight: 700, marginBottom: '6px' }}>Variant</div>
-                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
-                                {variants.map((variant) => (
-                                    <button
-                                        key={variant.name}
-                                        type="button"
-                                        onClick={() => setActiveVariant(variant.name)}
-                                        className="wiki-link"
-                                        style={{
-                                            background: 'transparent',
-                                            border: 0,
-                                            padding: 0,
-                                            cursor: 'pointer',
-                                            textDecoration: activeVariant === variant.name ? 'underline' : 'none',
-                                            fontWeight: activeVariant === variant.name ? 700 : 400,
-                                        }}
-                                    >
-                                        {variant.name}
-                                    </button>
-                                ))}
-                            </div>
+                        <div className="wiki-sidebar-section wiki-variant-bar" style={{ display: 'flex', justifyContent: 'space-around', gap: 8, flexWrap: 'wrap' }}>
+                            {Object.keys(variants).map((variant) => (
+                                <button
+                                    key={variant}
+                                    type="button"
+                                    onClick={() => setSelectedVariant(variant)}
+                                    className="wiki-link wiki-variant-button"
+                                    aria-current={selectedVariant === variant ? 'true' : undefined}
+                                >
+                                    {variant}
+                                </button>
+                            ))}
                         </div>
 
                         <div className="wiki-sidebar-image wiki-sidebar-image--contain" style={{ backgroundColor: 'var(--wiki-bg-sidebar)' }}>
                             <img
-                                src={activeVariantObj.image}
-                                alt={activeVariantObj.name}
+                                src={variants[selectedVariant]}
+                                alt={selectedVariant}
                                 style={{ width: '268.4px', height: '134.2px' }}
                                 onError={(e) => {
                                     e.currentTarget.src = 'https://static.wikia.nocookie.net/thehuntercotw/images/0/0c/Rifle_ZARZA-10_308.png';

@@ -8,7 +8,7 @@ import '../../../../styles/wiki.css';
 
 export default function M1Iwaniec() {
   const [isTocOpen, setIsTocOpen] = useState(true);
-  const [activeVariant, setActiveVariant] = useState('Veteran');
+    const [selectedVariant, setSelectedVariant] = useState('Veteran');
 
     const scrollTo = (e, id) => {
         e.preventDefault();
@@ -16,7 +16,7 @@ export default function M1Iwaniec() {
     };
 
   // Data for Variants Slider
-  const variants = [
+    const variantData = [
     { 
       name: "Veteran", 
       image: M1IwaniecVeteran,
@@ -50,7 +50,7 @@ export default function M1Iwaniec() {
     "Angler 4-8x100 Night Vision Rifle Scope"
   ];
 
-    const activeVariantObj = variants.find((v) => v.name === activeVariant) ?? variants[0];
+    const variants = Object.fromEntries(variantData.map((variant) => [variant.name, variant.image]));
 
     return (
         <div className="wiki-page">
@@ -61,34 +61,24 @@ export default function M1Iwaniec() {
                     <aside className="wiki-sidebar">
                         <div className="wiki-sidebar-header">M1 Iwaniec</div>
 
-                        <div style={{ padding: '10px 12px' }}>
-                            <div style={{ fontWeight: 700, marginBottom: '6px' }}>Variant</div>
-                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
-                                {variants.map((variant) => (
-                                    <button
-                                        key={variant.name}
-                                        type="button"
-                                        onClick={() => setActiveVariant(variant.name)}
-                                        className="wiki-link"
-                                        style={{
-                                            background: 'transparent',
-                                            border: 0,
-                                            padding: 0,
-                                            cursor: 'pointer',
-                                            textDecoration: activeVariant === variant.name ? 'underline' : 'none',
-                                            fontWeight: activeVariant === variant.name ? 700 : 400,
-                                        }}
-                                    >
-                                        {variant.name}
-                                    </button>
-                                ))}
-                            </div>
+                        <div className="wiki-sidebar-section wiki-variant-bar" style={{ display: 'flex', justifyContent: 'space-around', gap: 8, flexWrap: 'wrap' }}>
+                            {Object.keys(variants).map((variant) => (
+                                <button
+                                    key={variant}
+                                    type="button"
+                                    onClick={() => setSelectedVariant(variant)}
+                                    className="wiki-link wiki-variant-button"
+                                    aria-current={selectedVariant === variant ? 'true' : undefined}
+                                >
+                                    {variant}
+                                </button>
+                            ))}
                         </div>
 
                         <div className="wiki-sidebar-image wiki-sidebar-image--contain" style={{ backgroundColor: 'var(--wiki-bg-sidebar)' }}>
                             <img
-                                src={activeVariantObj.image}
-                                alt={activeVariantObj.name}
+                                src={variants[selectedVariant]}
+                                alt={selectedVariant}
                                 style={{ width: '268.4px', height: '134.2px' }}
                             />
                         </div>

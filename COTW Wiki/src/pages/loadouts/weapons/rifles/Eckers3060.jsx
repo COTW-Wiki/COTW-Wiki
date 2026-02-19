@@ -12,7 +12,7 @@ import '../../../../styles/wiki.css';
 
 export default function App() {
   const [isTocOpen, setIsTocOpen] = useState(true);
-  const [activeVariant, setActiveVariant] = useState('Prestige');
+    const [selectedVariant, setSelectedVariant] = useState('Prestige');
 
   const scrollTo = (e, id) => {
     e.preventDefault();
@@ -20,7 +20,7 @@ export default function App() {
   };
 
   // Data for Variants Slider
-  const variants = [
+    const variantData = [
     { 
       name: "Prestige", 
       image: EckersPrestige,
@@ -37,6 +37,8 @@ export default function App() {
       desc: "Dark stained wooden body with brushed steel bolt, receiver, and barrel." 
     }
   ];
+
+    const variants = Object.fromEntries(variantData.map((variant) => [variant.name, variant.image]));
 
   // Data for Ammo Table
   const ammoData = [
@@ -74,19 +76,16 @@ export default function App() {
                 </div>
 
                 {/* Variant Slider */}
-                <div className="wiki-sidebar-section flex justify-around gap-2 bg-[var(--wiki-bg-sidebar-header)] p-1 flex-wrap">
-                  {variants.map((variant) => (
+                                                                <div className="wiki-sidebar-section wiki-variant-bar" style={{ display: 'flex', justifyContent: 'space-around', gap: 8, flexWrap: 'wrap' }}>
+                                    {Object.keys(variants).map((variant) => (
                     <button
-                      key={variant.name}
-                      onClick={() => setActiveVariant(variant.name)}
+                                            key={variant}
+                                            onClick={() => setSelectedVariant(variant)}
                       type="button"
-                      className={`px-1 py-1 text-xs font-bold transition-colors uppercase cursor-pointer ${
-                        activeVariant === variant.name 
-                          ? "text-[var(--wiki-text-sidebar)] underline" 
-                          : "text-gray-500 hover:text-[var(--wiki-text-sidebar)]"
-                      }`}
+                                            className="wiki-link wiki-variant-button"
+                                                                                        aria-current={selectedVariant === variant ? 'true' : undefined}
                     >
-                      {variant.name}
+                                            {variant}
                     </button>
                   ))}
                 </div>
@@ -94,8 +93,8 @@ export default function App() {
                 {/* Image Area */}
                 <div className="wiki-sidebar-image wiki-sidebar-image--contain">
                     <img 
-                        src={variants.find(v => v.name === activeVariant).image} 
-                        alt={activeVariant} 
+                        src={variants[selectedVariant]} 
+                        alt={selectedVariant} 
                     />
                 </div>
 

@@ -9,7 +9,7 @@ import WeaponsTable from '../../../../components/WeaponsTable';
 // --- Main App Component ---
 export default function App() {
   const [isTocOpen, setIsTocOpen] = useState(true);
-  const [activeVariant, setActiveVariant] = useState('Classic');
+    const [selectedVariant, setSelectedVariant] = useState('Classic');
 
   // Image URLs
   const GrelckImg = GrelckClassic;
@@ -21,24 +21,21 @@ export default function App() {
   const GrelckLying = GrelckImg;
   const GrelckIronSight = GrelckImg;
 
-  // Data for Variants Slider
-  const variants = [
-    { 
-      name: "Classic", 
-      image: GrelckClassic,
-      desc: "The Grelck Drilling Rifle Classic is a unique shotgun that has an additional rifle barrel, making it the only combination gun of the game. It sports a standard side-by-side double-barrel design for 16 gauge shells and a third barrel for a high-powered rifle round."
-    },
-    { 
-      name: "Carbon Fiber", 
-      image: GrelckCarbon,
-      desc: "Grelck Drilling Rifle Carbon Fiber is a variant that features a modern polymer body, and a black barrel and receiver."
-    },
-    { 
-      name: "Select", 
-      image: GrelckSelect,
-      desc: "Grelck Drilling Rifle Select is an alternate style aiming to look like a premium version. This includes a traditional wood body, additional inlay work, and a chromed barrel."
-    }
-  ];
+    // Data for Variants Slider
+    const variants = {
+        Classic: {
+            image: GrelckClassic,
+            desc: 'The Grelck Drilling Rifle Classic is a unique shotgun that has an additional rifle barrel, making it the only combination gun of the game. It sports a standard side-by-side double-barrel design for 16 gauge shells and a third barrel for a high-powered rifle round.',
+        },
+        'Carbon Fiber': {
+            image: GrelckCarbon,
+            desc: 'Grelck Drilling Rifle Carbon Fiber is a variant that features a modern polymer body, and a black barrel and receiver.',
+        },
+        Select: {
+            image: GrelckSelect,
+            desc: 'Grelck Drilling Rifle Select is an alternate style aiming to look like a premium version. This includes a traditional wood body, additional inlay work, and a chromed barrel.',
+        },
+    };
 
   // Data for Ammo Table
   const ammoData = [
@@ -80,18 +77,19 @@ export default function App() {
                 </div>
 
                 {/* Variant Slider / Tabs */}
-                <div className="flex overflow-x-auto whitespace-nowrap bg-gray-100 border-b border-gray-200 scrollbar-hide">
-                  {variants.map((variant) => (
+                                <div
+                                    className="wiki-sidebar-section wiki-variant-bar"
+                                    style={{ display: 'flex', justifyContent: 'space-around', gap: 8, flexWrap: 'wrap' }}
+                                >
+                                    {Object.keys(variants).map((variantName) => (
                     <button
-                      key={variant.name}
-                      onClick={() => setActiveVariant(variant.name)}
-                      className={`px-4 py-2 text-xs font-bold transition-colors uppercase flex-shrink-0 ${
-                        activeVariant === variant.name 
-                          ? "text-green-800 border-b-2 border-green-800" 
-                          : "text-gray-500 hover:text-green-800"
-                      }`}
+                                            key={variantName}
+                                            onClick={() => setSelectedVariant(variantName)}
+                                            type="button"
+                                            className="wiki-link wiki-variant-button"
+                                                                                        aria-current={selectedVariant === variantName ? 'true' : undefined}
                     >
-                      {variant.name}
+                                            {variantName}
                     </button>
                   ))}
                 </div>
@@ -99,8 +97,8 @@ export default function App() {
                 {/* Image Area */}
                 <div className="p-4 flex justify-center bg-gray-50 relative min-h-[160px] items-center">
                     <img 
-                        src={variants.find(v => v.name === activeVariant).image} 
-                        alt={activeVariant} 
+                        src={variants[selectedVariant].image} 
+                        alt={selectedVariant} 
                         className="object-contain transition-opacity duration-300"
                         style={{ width: '268.4px', height: '134.2px' }}
                         onError={(e) => {e.target.src = GrelckImg}}

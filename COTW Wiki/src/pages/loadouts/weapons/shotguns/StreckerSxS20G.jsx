@@ -14,7 +14,7 @@ import ShotgunDiagram from '../../../../assets/Shotgun_diagram_2020.webp';
 // --- Main App Component ---
 export default function App() {
   const [isTocOpen, setIsTocOpen] = useState(true);
-  const [activeVariant, setActiveVariant] = useState('Scarlett');
+    const [selectedVariant, setSelectedVariant] = useState('Scarlett');
 
   // Image URLs
   const StreckerImg = StreckerScarlett;
@@ -27,28 +27,24 @@ export default function App() {
   const StreckerIronSight = StreckerIronSightImg;
 
   // Data for Variants Slider
-  const variants = [
-    { 
-      name: "Scarlett", 
-      image: StreckerScarlett,
-      desc: "A classic double-barrel shotgun chambered in 20 gauge with a reddish wood finish."
-    },
-    { 
-      name: "Fiona", 
-      image: StreckerFiona,
-      desc: "An alternate style featuring an ebony and ivory design with gold accents."
-    },
-    { 
-      name: "Hazel", 
-      image: StreckerHazel,
-      desc: "A variant designed to look like a traditional double-barrel."
-    },
-    { 
-      name: "Raven", 
-      image: StreckerRaven,
-      desc: "A version with modern design elements such as a black body and barrel."
-    }
-  ];
+    const variants = {
+        Scarlett: {
+            image: StreckerScarlett,
+            desc: 'A classic double-barrel shotgun chambered in 20 gauge with a reddish wood finish.',
+        },
+        Fiona: {
+            image: StreckerFiona,
+            desc: 'An alternate style featuring an ebony and ivory design with gold accents.',
+        },
+        Hazel: {
+            image: StreckerHazel,
+            desc: 'A variant designed to look like a traditional double-barrel.',
+        },
+        Raven: {
+            image: StreckerRaven,
+            desc: 'A version with modern design elements such as a black body and barrel.',
+        },
+    };
 
   // Data for Ammo Table
   const ammoData = [
@@ -86,18 +82,19 @@ export default function App() {
                 </div>
 
                 {/* Variant Slider / Tabs */}
-                <div className="flex overflow-x-auto whitespace-nowrap bg-white border-b border-gray-200 scrollbar-hide">
-                  {variants.map((variant) => (
+                                <div
+                                    className="wiki-sidebar-section wiki-variant-bar"
+                                    style={{ display: 'flex', justifyContent: 'space-around', gap: 8, flexWrap: 'wrap' }}
+                                >
+                                    {Object.keys(variants).map((variantName) => (
                     <button
-                      key={variant.name}
-                      onClick={() => setActiveVariant(variant.name)}
-                      className={`px-4 py-2 text-xs font-bold transition-colors uppercase flex-shrink-0 ${
-                        activeVariant === variant.name 
-                          ? "text-green-800 border-b-2 border-green-800" 
-                          : "text-gray-500 hover:text-green-800"
-                      }`}
+                                            key={variantName}
+                                            onClick={() => setSelectedVariant(variantName)}
+                                            type="button"
+                                            className="wiki-link wiki-variant-button"
+                                                                                        aria-current={selectedVariant === variantName ? 'true' : undefined}
                     >
-                      {variant.name}
+                                            {variantName}
                     </button>
                   ))}
                 </div>
@@ -105,8 +102,8 @@ export default function App() {
                 {/* Image Area */}
                 <div className="p-4 flex justify-center bg-white relative min-h-[160px] items-center">
                     <img 
-                        src={variants.find(v => v.name === activeVariant).image} 
-                        alt={activeVariant} 
+                        src={variants[selectedVariant].image} 
+                        alt={selectedVariant} 
                         className="object-contain transition-opacity duration-300"
                         style={{ width: '268.4px', height: '134.2px' }}
                         onError={(e) => {e.target.src = StreckerImg}}

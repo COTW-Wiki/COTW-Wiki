@@ -14,26 +14,23 @@ import WeaponsTable from '../../../../components/WeaponsTable';
 // --- Main App Component ---
 export default function App() {
   const [isTocOpen, setIsTocOpen] = useState(true);
-  const [activeVariant, setActiveVariant] = useState('Flat Black');
+    const [selectedVariant, setSelectedVariant] = useState('Flat Black');
 
-  // Data for Variants Slider
-  const variants = [
-    { 
-      name: "Flat Black", 
-      image: MangiaficoColtFlatBlack,
-      desc: "The standard variant featuring a durable matte black finish."
-    },
-    { 
-      name: "Muertos", 
-      image: MangiaficoColtMuertos,
-      desc: "A special edition variant with a unique 'Day of the Dead' inspired design."
-    },
-     { 
-      name: "Polished Steel", 
-      image: MangiaficoColtPolishedSteel,
-      desc: "A variant featuring a shiny polished steel finish."
-    }
-  ];
+    // Data for Variants Slider
+    const variants = {
+        'Flat Black': {
+            image: MangiaficoColtFlatBlack,
+            desc: 'The standard variant featuring a durable matte black finish.',
+        },
+        Muertos: {
+            image: MangiaficoColtMuertos,
+            desc: "A special edition variant with a unique 'Day of the Dead' inspired design.",
+        },
+        'Polished Steel': {
+            image: MangiaficoColtPolishedSteel,
+            desc: 'A variant featuring a shiny polished steel finish.',
+        },
+    };
 
   // Data for Ammo Table
   const ammoData = [
@@ -71,18 +68,19 @@ export default function App() {
                 </div>
 
                 {/* Variant Slider / Tabs */}
-                <div className="flex overflow-x-auto whitespace-nowrap bg-gray-50 border-b border-gray-200 scrollbar-hide">
-                  {variants.map((variant) => (
+                                <div
+                                    className="wiki-sidebar-section wiki-variant-bar"
+                                    style={{ display: 'flex', justifyContent: 'space-around', gap: 8, flexWrap: 'wrap' }}
+                                >
+                                    {Object.keys(variants).map((variantName) => (
                     <button
-                      key={variant.name}
-                      onClick={() => setActiveVariant(variant.name)}
-                      className={`px-4 py-2 text-xs font-bold transition-colors uppercase flex-shrink-0 ${
-                        activeVariant === variant.name 
-                          ? "text-green-800 border-b-2 border-green-800" 
-                          : "text-gray-500 hover:text-green-800"
-                      }`}
+                                            key={variantName}
+                                            onClick={() => setSelectedVariant(variantName)}
+                                            type="button"
+                                            className="wiki-link wiki-variant-button"
+                                                                                        aria-current={selectedVariant === variantName ? 'true' : undefined}
                     >
-                      {variant.name}
+                                            {variantName}
                     </button>
                   ))}
                 </div>
@@ -90,8 +88,8 @@ export default function App() {
                 {/* Image Area */}
                 <div className="p-4 flex justify-center bg-gray-50 relative min-h-[160px] items-center">
                     <img 
-                        src={variants.find(v => v.name === activeVariant).image} 
-                        alt={activeVariant} 
+                        src={variants[selectedVariant].image} 
+                        alt={selectedVariant} 
                         style={{ width: '268.4px', height: '134.2px' }}
                         className="object-contain transition-opacity duration-300"
                     />

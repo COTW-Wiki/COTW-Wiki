@@ -8,25 +8,23 @@ import RollestonCavalry from '../../../../assets/45RollestonCavalry.webp';
 // --- Main App Component ---
 export default function App() {
   const [isTocOpen, setIsTocOpen] = useState(true);
-  const [activeVariant, setActiveVariant] = useState('Cavalry');
+    const [selectedVariant, setSelectedVariant] = useState('Cavalry');
 
   // Image URLs
   const RollestonImg = "https://static.wikia.nocookie.net/thehuntercotw/images/a/a2/Handgun_45_Rolleston.png";
 
 
-  // Data for Variants Slider
-  const variants = [
-    { 
-      name: "Cavalry", 
-      image: RollestonCavalry,
-      desc: "The standard variant featuring a classic blued steel finish and wood grips."
-    },
-    { 
-      name: "Frontier", 
-      image: RollestonFrontier,
-      desc: "A premium variant with intricate engravings and a nickel finish."
-    }
-  ];
+    // Data for Variants Slider
+    const variants = {
+        Cavalry: {
+            image: RollestonCavalry,
+            desc: 'The standard variant featuring a classic blued steel finish and wood grips.',
+        },
+        Frontier: {
+            image: RollestonFrontier,
+            desc: 'A premium variant with intricate engravings and a nickel finish.',
+        },
+    };
 
   // Data for Ammo Table
   const ammoData = [
@@ -62,18 +60,19 @@ export default function App() {
                 </div>
 
                 {/* Variant Slider / Tabs */}
-                <div className="flex overflow-x-auto whitespace-nowrap bg-gray-100 border-b border-gray-200 scrollbar-hide">
-                  {variants.map((variant) => (
+                                <div
+                                    className="wiki-sidebar-section wiki-variant-bar"
+                                    style={{ display: 'flex', justifyContent: 'space-around', gap: 8, flexWrap: 'wrap' }}
+                                >
+                                    {Object.keys(variants).map((variantName) => (
                     <button
-                      key={variant.name}
-                      onClick={() => setActiveVariant(variant.name)}
-                      className={`px-4 py-2 text-xs font-bold transition-colors uppercase flex-shrink-0 ${
-                        activeVariant === variant.name 
-                          ? "text-green-800 border-b-2 border-green-800 bg-white" 
-                          : "text-gray-500 hover:text-gray-800 hover:bg-gray-50"
-                      }`}
+                                            key={variantName}
+                                            onClick={() => setSelectedVariant(variantName)}
+                                            type="button"
+                                            className="wiki-link wiki-variant-button"
+                                                                                        aria-current={selectedVariant === variantName ? 'true' : undefined}
                     >
-                      {variant.name}
+                                            {variantName}
                     </button>
                   ))}
                 </div>
@@ -81,8 +80,8 @@ export default function App() {
                 {/* Image Area */}
                 <div className="p-4 flex justify-center bg-white relative min-h-[160px] items-center border-b border-gray-200">
                     <img 
-                        src={variants.find(v => v.name === activeVariant).image} 
-                        alt={activeVariant} 
+                        src={variants[selectedVariant].image} 
+                        alt={selectedVariant} 
                         style={{ width: '268.4px', height: '134.2px' }}
                         className="object-contain transition-opacity duration-300"
                         onError={(e) => {e.target.src = RollestonImg}}

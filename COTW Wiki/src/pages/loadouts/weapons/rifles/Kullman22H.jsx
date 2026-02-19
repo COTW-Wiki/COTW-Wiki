@@ -8,7 +8,7 @@ import Kullman22HYellowjacket from '../../../../assets/Kullman22HYellowjacket.we
 
 const Kullman22H = () => {
   const [isTocOpen, setIsTocOpen] = useState(true);
-  const [activeVariant, setActiveVariant] = useState('Wasp');
+    const [selectedVariant, setSelectedVariant] = useState('Wasp');
 
     const scrollTo = (e, id) => {
         e.preventDefault();
@@ -16,23 +16,20 @@ const Kullman22H = () => {
     };
 
   // Data for Variants Slider
-  const variants = [
-    { 
-      name: "Wasp", 
-      image: Kullman22HWasp,
-      desc: "The default variant, often featuring a striking yellow and black pattern."
-    },
-    { 
-      name: "Yellowjacket", 
-      image: Kullman22HYellowjacket,
-      desc: "A variant featuring a chartreuse-yellow wooden body."
-    },
-    { 
-      name: "Hornet", 
-      image: Kullman22HHornet,
-      desc: "A variant built with a modern gray composite plastic body."
-    }
-  ];
+    const variants = {
+        Wasp: {
+            image: Kullman22HWasp,
+            desc: 'The default variant, often featuring a striking yellow and black pattern.',
+        },
+        Yellowjacket: {
+            image: Kullman22HYellowjacket,
+            desc: 'A variant featuring a chartreuse-yellow wooden body.',
+        },
+        Hornet: {
+            image: Kullman22HHornet,
+            desc: 'A variant built with a modern gray composite plastic body.',
+        },
+    };
 
   // Data for Ammo Table
   const ammoData = [
@@ -68,28 +65,26 @@ const Kullman22H = () => {
                     Kullman .22H
                 </div>
 
-                {/* Variant Slider / Tabs */}
-                <div className="wiki-sidebar-section flex justify-around bg-[var(--wiki-bg-sidebar-header)] p-1">
-                  {variants.map((variant) => (
-                    <button
-                      key={variant.name}
-                      onClick={() => setActiveVariant(variant.name)}
-                      className={`px-2 py-1 text-xs font-bold transition-colors uppercase cursor-pointer ${
-                        activeVariant === variant.name 
-                          ? "text-[var(--wiki-text-sidebar)] underline" 
-                          : "text-gray-500 hover:text-[var(--wiki-text-sidebar)]"
-                      }`}
-                    >
-                      {variant.name}
-                    </button>
-                  ))}
-                </div>
+                                {/* Variant Slider / Tabs */}
+                                <div className="wiki-sidebar-section wiki-variant-bar" style={{ display: 'flex', justifyContent: 'space-around', gap: 8, flexWrap: 'wrap' }}>
+                                    {Object.keys(variants).map((variantName) => (
+                                        <button
+                                            key={variantName}
+                                            onClick={() => setSelectedVariant(variantName)}
+                                            type="button"
+                                            className="wiki-link wiki-variant-button"
+                                            aria-current={selectedVariant === variantName ? 'true' : undefined}
+                                        >
+                                            {variantName}
+                                        </button>
+                                    ))}
+                                </div>
                 
                 {/* Image Area */}
                 <div className="wiki-sidebar-image wiki-sidebar-image--contain min-h-[160px]">
                     <img 
-                        src={variants.find(v => v.name === activeVariant).image} 
-                        alt={activeVariant} 
+                        src={variants[selectedVariant].image} 
+                        alt={selectedVariant} 
                     />
                 </div>
 

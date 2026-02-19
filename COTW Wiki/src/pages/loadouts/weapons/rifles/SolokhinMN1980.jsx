@@ -13,7 +13,7 @@ import '../../../../styles/wiki.css';
 
 export default function SolokhinMN1980() {
   const [isTocOpen, setIsTocOpen] = useState(true);
-  const [activeVariantIndex, setActiveVariantIndex] = useState(0);
+    const [selectedVariant, setSelectedVariant] = useState('Assembly Line');
 
     const scrollTo = (e, id) => {
         e.preventDefault();
@@ -21,21 +21,13 @@ export default function SolokhinMN1980() {
     };
 
   // Data for Variants
-  const variants = [
+    const variantData = [
     { name: "Assembly Line", image: SolokhinMN1890AssemblyLineImage },
     { name: "Frontline", image: SolokhinMN1890FrontlineImage },
     { name: "Defense Line", image: SolokhinMN1890DefenseLineImage }
   ];
 
-  const nextVariant = () => {
-    setActiveVariantIndex((prev) => (prev + 1) % variants.length);
-  };
-
-  const prevVariant = () => {
-    setActiveVariantIndex((prev) => (prev - 1 + variants.length) % variants.length);
-  };
-
-  const activeVariant = variants[activeVariantIndex];
+    const variants = Object.fromEntries(variantData.map((variant) => [variant.name, variant.image]));
 
   // Data for Ammo Table
   const ammoData = [
@@ -61,46 +53,27 @@ export default function SolokhinMN1980() {
                     <aside className="wiki-sidebar">
                         <div className="wiki-sidebar-header">Solokhin MN1890</div>
 
-                        <div style={{ padding: '10px 12px' }}>
-                            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '10px' }}>
+                        <div
+                            className="wiki-sidebar-section wiki-variant-bar"
+                            style={{ display: 'flex', justifyContent: 'space-around', gap: 8, flexWrap: 'wrap' }}
+                        >
+                            {Object.keys(variants).map((variant) => (
                                 <button
+                                    key={variant}
                                     type="button"
-                                    onClick={prevVariant}
-                                    className="wiki-link"
-                                    style={{
-                                        background: 'transparent',
-                                        border: 0,
-                                        padding: 0,
-                                        cursor: 'pointer',
-                                        fontWeight: 700,
-                                    }}
+                                    onClick={() => setSelectedVariant(variant)}
+                                    className="wiki-link wiki-variant-button"
+                                    aria-current={selectedVariant === variant ? 'true' : undefined}
                                 >
-                                    &lt;
+                                    {variant}
                                 </button>
-
-                                <div style={{ fontWeight: 700, textAlign: 'center', flex: 1 }}>{activeVariant.name}</div>
-
-                                <button
-                                    type="button"
-                                    onClick={nextVariant}
-                                    className="wiki-link"
-                                    style={{
-                                        background: 'transparent',
-                                        border: 0,
-                                        padding: 0,
-                                        cursor: 'pointer',
-                                        fontWeight: 700,
-                                    }}
-                                >
-                                    &gt;
-                                </button>
-                            </div>
+                            ))}
                         </div>
 
                         <div className="wiki-sidebar-image wiki-sidebar-image--contain">
                             <img
-                                src={activeVariant.image}
-                                alt={`Solokhin MN1890 ${activeVariant.name}`}
+                                src={variants[selectedVariant]}
+                                alt={`Solokhin MN1890 ${selectedVariant}`}
                                 style={{ width: '268.4px', height: '134.2px' }}
                             />
                         </div>

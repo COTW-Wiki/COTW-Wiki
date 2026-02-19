@@ -12,21 +12,19 @@ import '../../../../styles/wiki.css';
 
 export default function App() {
   const [isTocOpen, setIsTocOpen] = useState(true);
-  const [activeVariant, setActiveVariant] = useState('Regent');
+    const [selectedVariant, setSelectedVariant] = useState('Regent');
 
     const scrollTo = (e, id) => {
         e.preventDefault();
         document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
     };
 
-    const getVariantData = () => {
-        if (activeVariant === 'Empress') {
-            return { title: '7mm Empress Magnum', img: EmpressMagnumImage };
-        }
-        return { title: '7mm Regent Magnum', img: RegentImage };
+    const variants = {
+        Regent: { title: '7mm Regent Magnum', img: RegentImage },
+        Empress: { title: '7mm Empress Magnum', img: EmpressMagnumImage },
     };
 
-    const variantData = getVariantData();
+    const variantData = variants[selectedVariant];
 
   // Data for Ammo Table
   const ammoData = [
@@ -56,20 +54,14 @@ export default function App() {
                     <aside className="wiki-sidebar">
                         <div className="wiki-sidebar-header">7mm Regent Magnum</div>
 
-                        <div className="wiki-sidebar-section" style={{ display: 'flex', justifyContent: 'space-around', gap: 8 }}>
-                            {['Regent', 'Empress'].map((variant) => (
+                        <div className="wiki-sidebar-section wiki-variant-bar" style={{ display: 'flex', justifyContent: 'space-around', gap: 8, flexWrap: 'wrap' }}>
+                            {Object.keys(variants).map((variant) => (
                                 <button
                                     key={variant}
                                     type="button"
-                                    className="wiki-link"
-                                    onClick={() => setActiveVariant(variant)}
-                                    style={{
-                                        fontWeight: activeVariant === variant ? 'bold' : 'normal',
-                                        textDecoration: activeVariant === variant ? 'underline' : 'none',
-                                        background: 'transparent',
-                                        border: 'none',
-                                        padding: 0,
-                                    }}
+                                    className="wiki-link wiki-variant-button"
+                                    aria-current={selectedVariant === variant ? 'true' : undefined}
+                                    onClick={() => setSelectedVariant(variant)}
                                 >
                                     {variant}
                                 </button>

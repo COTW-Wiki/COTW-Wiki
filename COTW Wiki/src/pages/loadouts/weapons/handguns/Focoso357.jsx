@@ -7,26 +7,10 @@ import HandgunsDiagram from '../../../../assets/Handgun_diagram_2020.webp';
 // --- Main App Component ---
 export default function App() {
   const [isTocOpen, setIsTocOpen] = useState(true);
-  const [activeVariant, setActiveVariant] = useState('Standard');
 
   // Image URLs
   const FocosoImg = Focoso;
   const RifleDiagram = HandgunsDiagram;
-  
-  // Using the main image as a placeholder for gallery items
-  const FocosoStanding = FocosoImg;
-  const FocosoCrouching = FocosoImg;
-  const FocosoLying = FocosoImg;
-  const FocosoIronSight = FocosoImg;
-
-  // Data for Variants Slider
-  const variants = [
-    { 
-      name: "Standard", 
-      image: FocosoImg,
-      desc: "The standard variant featuring a blued steel finish."
-    }
-  ];
 
   // Data for Ammo Table
   const ammoData = [
