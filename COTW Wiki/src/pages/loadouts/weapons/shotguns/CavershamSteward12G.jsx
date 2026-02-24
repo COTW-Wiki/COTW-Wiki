@@ -50,7 +50,6 @@ export default function App() {
     "Red Raptor Reflex Sight",
     "Meridian 1-4x20 Shotgun Scope"
   ];            
-            {/* Right Floated Infobox with Slider */}
             return (
                 <div className="wiki-page">
                     <div className="wiki-inner">
