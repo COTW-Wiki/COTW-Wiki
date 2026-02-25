@@ -1,5 +1,7 @@
 import { callers } from '../../data/callers';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import '../../styles/wiki.css';
 import AntlerRattler from '../../assets/AntlerRattler.webp';
 import AxisDeerScreamerCaller from '../../assets/AxisDeerScreamerCaller.webp';
 import BeaconDeluxeBeanGooseCaller from '../../assets/BeaconDeluxeBeanGooseCaller.webp';
@@ -61,52 +63,97 @@ const callerImages = {
 };
 
 export default function CallersNames() {
+  const [isTocOpen, setIsTocOpen] = useState(true);
+
+  const scrollTo = (e, id) => {
+    e.preventDefault();
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
-    <div className="p-6">
-      <h1 className="text-2xl font-bold mb-4 text-green-800">Callers</h1>
-      <div className="mb-4 text-gray-700 bg-gray-50 p-4 rounded">
-        <p>
-          Callers are used to attract their targeted <Link to="/animals" className="text-green-800 hover:underline">animals</Link> when they're not in a stressed state. Some animals may respond to your call by making a vocal response — for example, an Elk may communicate by making a sound called a bugle. Each caller has a different attraction strength and range.
-        </p>
-      </div>
-      <div className="mb-4">
-        <Link to="/lures" className="text-green-700 hover:underline">Back to Lures</Link>
-      </div>
+    <div className="wiki-page">
+      <div className="wiki-inner">
+        <h1 className="wiki-header">Callers</h1>
 
-      <h2 className="text-xl font-bold mb-4 text-green-800">Available Callers</h2>
+        <div className="wiki-layout">
+          {/* SIDEBAR */}
+          <aside className="wiki-sidebar" style={{ background: 'transparent', border: 'none' }}>
+            <div className="wiki-toc-panel">
+              <div className="wiki-toc-panel-header">
+                <span className="wiki-toc-panel-title">🔢 Contents</span>
+                <span className="wiki-toc-panel-toggle" onClick={() => setIsTocOpen(!isTocOpen)}>
+                  [{isTocOpen ? 'hide' : 'show'}]
+                </span>
+              </div>
 
-      <div className="flex flex-wrap justify-center gap-4 mb-8">
-        {callers.map((c) => (
-          <div key={c.id} className="w-[30%] flex flex-col items-center p-4 rounded-lg hover:shadow-lg transition-shadow bg-white">
-            <Link to={`/lures/callers/${c.id}`} className="block mb-2">
-               {callerImages[c.id] ? (
-                 <img src={callerImages[c.id]} alt={c.name} className="w-[120px] h-[60px] object-contain" />
-               ) : (
-                 <div className="w-[120px] h-[60px] bg-gray-200 flex items-center justify-center text-gray-500">No Image</div>
-               )}
-            </Link>
-            <Link to={`/lures/callers/${c.id}`} className="text-center text-sm text-green-800 hover:underline font-semibold">
-              {c.name}
-            </Link>
-          </div>
-        ))}
-      </div>
-      
-      <h2 className="text-xl font-bold mb-4 text-green-800 mt-12">Callers Table</h2>
-      <div className="overflow-x-auto">
-        <table className="table-auto w-full text-left text-sm text-gray-700">
-          <thead>
-            <tr className="bg-gray-100">
-              <th className="px-6 py-2">Name</th>
-              <th className="px-6 py-2">Species</th>
-              <th className="px-6 py-2">Strength</th>
-              <th className="px-6 py-2">Duration</th>
-              <th className="px-6 py-2">Range</th>
-              <th className="px-6 py-2">Price</th>
-              <th className="px-6 py-2">Additional Info</th>
-            </tr>
-          </thead>
-          <tbody>
+              {isTocOpen && (
+                <ul className="wiki-list-plain">
+                  <li><a href="#overview" onClick={(e) => scrollTo(e, 'overview')} className="wiki-link">1. Overview</a></li>
+                  <li><a href="#available-callers" onClick={(e) => scrollTo(e, 'available-callers')} className="wiki-link">2. Available Callers</a></li>
+                  <li><a href="#callers-table" onClick={(e) => scrollTo(e, 'callers-table')} className="wiki-link">3. Callers Table</a></li>
+                  <li><a href="#tips" onClick={(e) => scrollTo(e, 'tips')} className="wiki-link">4. Tips for Use</a></li>
+                </ul>
+              )}
+            </div>
+          </aside>
+
+          {/* MAIN */}
+          <main className="wiki-main">
+            <section id="overview" className="wiki-p-mb">
+              <p>
+                Callers are used to attract their targeted <Link to="/animals" className="wiki-link">animals</Link>{' '}
+                when they're not in a stressed state. Some animals may respond to your call by making a vocal
+                response — for example, an Elk may communicate by making a sound called a bugle. Each caller has a
+                different attraction strength and range.
+              </p>
+
+              <div className="wiki-p-mb">
+                <Link to="/lures" className="wiki-link">Back to Lures</Link>
+              </div>
+            </section>
+
+            <section id="available-callers" className="pt-8 mb-20">
+              <h2 className="wiki-h2">Available Callers</h2>
+
+              <div className="wiki-uniform-grid">
+                {callers.map((c) => (
+                  <div key={c.id} className="wiki-uniform-card">
+                    <div className="wiki-uniform-card-header">
+                      <Link to={`/lures/callers/${c.id}`} style={{ color: 'inherit', textDecoration: 'none' }}>
+                        {c.name}
+                      </Link>
+                    </div>
+                    <div className="wiki-uniform-card-image">
+                      {callerImages[c.id] ? (
+                        <Link to={`/lures/callers/${c.id}`} style={{ display: 'inline-flex' }}>
+                          <img src={callerImages[c.id]} alt={c.name} />
+                        </Link>
+                      ) : (
+                        <span className="wiki-fs-sm" style={{ color: 'var(--wiki-text-muted)' }}>No Image</span>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            <section id="callers-table" className="pt-8 mb-20">
+              <h2 className="wiki-h2">Callers Table</h2>
+
+              <div className="wiki-table-container">
+                <table className="wiki-table">
+                  <thead>
+                    <tr className="bg-[var(--wiki-bg-sidebar-header)]">
+                      <th className="wiki-th text-left">Name</th>
+                      <th className="wiki-th text-left">Species</th>
+                      <th className="wiki-th text-left">Strength</th>
+                      <th className="wiki-th text-left">Duration</th>
+                      <th className="wiki-th text-left">Range</th>
+                      <th className="wiki-th text-left">Price</th>
+                      <th className="wiki-th text-left">Additional Info</th>
+                    </tr>
+                  </thead>
+                  <tbody>
             <tr>
               <td className="border-t px-6 py-2"><Link to={`/lures/callers/Antler_Rattler`} className="text-green-800 hover:underline">Antler Rattler</Link></td>
               <td className="border-t px-6 py-2">
@@ -432,57 +479,65 @@ export default function CallersNames() {
               <td className="border-t px-6 py-2">Has a high weight of 3.5, stationary, 1 per reserve</td>
             </tr>
           </tbody>
-        </table>
-      </div>
-      <div className="mt-6 bg-gray-50 p-4 rounded text-gray-700">
-        <h2 className="text-lg font-semibold mb-2">Tips for use</h2>
-        <p>
+                </table>
+              </div>
+            </section>
+
+            <section id="tips" className="pt-8 mb-20">
+              <h2 className="wiki-h2">Tips for use</h2>
+
+              <div className="wiki-section-card">
+                <p className="wiki-p-mb">
           Callers may seem ineffective because they have a very narrow range of applicability. Beginner players
           sometimes think they can just run and quack and the animals will come to them, but it isn't that simple.
           There are a number of rules you should understand to use callers effectively:
-        </p>
-        <ul className="list-disc list-inside mt-2 space-y-2">
-          <li>
+                </p>
+                <ul className="wiki-ul">
+                  <li className="wiki-li">
             You must decide what species you are hunting. What is attractive to one type of deer or bird will in most
             cases repel others.
-          </li>
-          <li>
+                  </li>
+                  <li className="wiki-li">
             They are designed for ambush hunting. If you are running, the noise of your steps and heart produces a
             more frightening effect than the caller's beckoning effect. You must sit still.
-          </li>
-          <li>
+                  </li>
+                  <li className="wiki-li">
             You shouldn't be visible. Use bushes, a hideout, a tripod or a storage shed so the visibility indicator
             (lower right) shows a straight line.
-          </li>
-          <li>
+                  </li>
+                  <li className="wiki-li">
             The wind should not blow from you towards the animal, otherwise it can smell you. Or use an odor
             neutralizer.
-          </li>
-          <li>
+                  </li>
+                  <li className="wiki-li">
             If there is a bait model or scent for the species you want, use it in combination with the caller.
-          </li>
-          <li>
+                  </li>
+                  <li className="wiki-li">
             If you have a dog, it should be given the "lie down" command while calling.
-          </li>
-          <li>
+                  </li>
+                  <li className="wiki-li">
             Upgrading relevant skills is important. If you enjoy this style of hunting, level up the branch related
             to callers and decoys.
-          </li>
-          <li>
+                  </li>
+                  <li className="wiki-li">
             The last point of that skill branch also increases the range of decoys when used next to tripods and
             stationary shelters — feel free to use it.
-          </li>
-        </ul>
-        <p className="mt-3">
+                  </li>
+                </ul>
+                <p className="wiki-p-mb">
           Even if all these factors converge, do not expect every animal in the area to react; only a few will. If you
           find the right habitat and time, you can create a stationary ambush and get a more or less constant flow of
           game (for example, geese or ducks).
-        </p>
-        <p className="mt-3">
+                </p>
+                <p className="wiki-p-mb">
           The right approach is to set up an ambush in an area where a target species is needed. After you kill several
           animals in one place, need zones may disappear due to "death zones" (pink spots). You can try this tactic in
           multiplayer to keep need zones refreshed by other players' kills, but that is untested.
-        </p>
+                </p>
+              </div>
+            </section>
+          </main>
+        </div>
       </div>
     </div>
   );

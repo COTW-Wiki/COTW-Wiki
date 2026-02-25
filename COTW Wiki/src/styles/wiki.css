@@ -298,9 +298,10 @@
 }
 
 /* Increased cell padding for better visibility */
-.wiki-td, .wiki-th {
-    padding: 18px 22px !important; 
-    border: 1px solid var(--wiki-border-light);
+.wiki-td, .wiki-th,
+.wiki-table td, .wiki-table th {
+  padding: 18px 22px !important;
+  border: 1px solid var(--wiki-border-light) !important;
 }
 
 /* Quests Specific: Pulling the section up slightly */

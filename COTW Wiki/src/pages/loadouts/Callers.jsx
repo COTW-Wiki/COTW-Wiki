@@ -1,68 +1,125 @@
 import { useState } from 'react';
 import { callers } from '../../data/callers';
+import '../../styles/wiki.css';
 
 export default function CallersPage() {
   const [search, setSearch] = useState('');
+  const [isTocOpen, setIsTocOpen] = useState(true);
+
+  const scrollTo = (e, id) => {
+    e.preventDefault();
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   const filteredCallers = callers.filter((caller) =>
     caller.name.toLowerCase().includes(search.toLowerCase())
   );
 
   return (
-    <div className="p-6">
-      <h1 className="text-3xl font-bold mb-6 text-green-800">Animal Callers</h1>
+    <div className="wiki-page">
+      <div className="wiki-inner">
+        <h1 className="wiki-header">Animal Callers</h1>
 
-      {/* Search Bar */}
-      <div className="mb-4">
-        <input
-          type="text"
-          placeholder="Search caller..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          className="border border-gray-300 rounded-lg px-4 py-2 w-full sm:w-1/2 focus:ring-2 focus:ring-green-600 outline-none"
-        />
-      </div>
+        <div className="wiki-layout">
+          {/* SIDEBAR */}
+          <aside className="wiki-sidebar" style={{ background: 'transparent', border: 'none' }}>
+            <div className="wiki-toc-panel">
+              <div className="wiki-toc-panel-header">
+                <span className="wiki-toc-panel-title">🔢 Contents</span>
+                <span className="wiki-toc-panel-toggle" onClick={() => setIsTocOpen(!isTocOpen)}>
+                  [{isTocOpen ? 'hide' : 'show'}]
+                </span>
+              </div>
 
-      <div className="overflow-x-auto">
-        <table className="min-w-full bg-white border rounded-lg">
-          <thead className="bg-green-100">
-            <tr>
-              <th className="px-4 py-2 text-left">Name</th>
-              <th className="px-4 py-2 text-left">Suitable For</th>
-              <th className="px-4 py-2 text-left">Range</th>
-              <th className="px-4 py-2 text-left">Effectiveness</th>
-              <th className="px-4 py-2 text-left">Sound Type</th>
-              <th className="px-4 py-2 text-left">DLC</th>
-            </tr>
-          </thead>
-          <tbody>
-            {filteredCallers.map((caller, idx) => (
-              <tr
-                key={idx}
-                className={idx % 2 === 0 ? 'bg-gray-50' : 'bg-white'}
-              >
-                <td className="px-4 py-2 font-medium">{caller.name}</td>
-                <td className="px-4 py-2">{caller.suitableFor.join(', ')}</td>
-                <td className="px-4 py-2">{caller.range}</td>
-                <td className="px-4 py-2">{caller.effectiveness}</td>
-                <td className="px-4 py-2">{caller.soundType}</td>
-                <td className="px-4 py-2">
-                  {caller.dlc ? (
-                    <span className="bg-green-800 text-white px-2 py-1 rounded text-sm">
-                      DLC
-                    </span>
-                  ) : (
-                    '—'
-                  )}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+              {isTocOpen && (
+                <ul className="wiki-list-plain">
+                  <li><a href="#search" onClick={(e) => scrollTo(e, 'search')} className="wiki-link">1. Search</a></li>
+                  <li><a href="#callers-table" onClick={(e) => scrollTo(e, 'callers-table')} className="wiki-link">2. Callers Table</a></li>
+                </ul>
+              )}
+            </div>
+          </aside>
 
-        {filteredCallers.length === 0 && (
-          <p className="text-gray-500 mt-4">No callers found.</p>
-        )}
+          {/* MAIN */}
+          <main className="wiki-main">
+            <section id="search" className="wiki-p-mb">
+              <input
+                type="text"
+                placeholder="Search caller..."
+                aria-label="Search caller"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                className="w-full sm:w-1/2"
+                style={{
+                  backgroundColor: 'var(--wiki-bg-sidebar)',
+                  color: 'var(--wiki-text)',
+                  border: '1px solid var(--wiki-border-accent)',
+                  borderRadius: 12,
+                  padding: '10px 14px',
+                  outline: 'none',
+                }}
+              />
+            </section>
+
+            <section id="callers-table" className="pt-8 mb-20">
+              <h2 className="wiki-h2">2. Callers Table</h2>
+
+              <div className="wiki-table-container">
+                <table className="wiki-table">
+                  <thead>
+                    <tr className="bg-[var(--wiki-bg-sidebar-header)]">
+                      <th className="wiki-th text-left">Name</th>
+                      <th className="wiki-th text-left">Suitable For</th>
+                      <th className="wiki-th text-left">Range</th>
+                      <th className="wiki-th text-left">Effectiveness</th>
+                      <th className="wiki-th text-left">Sound Type</th>
+                      <th className="wiki-th text-left">DLC</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {filteredCallers.map((caller, idx) => (
+                      <tr key={idx}>
+                        <td className="wiki-td"><strong>{caller.name}</strong></td>
+                        <td className="wiki-td">{caller.suitableFor.join(', ')}</td>
+                        <td className="wiki-td">{caller.range}</td>
+                        <td className="wiki-td">{caller.effectiveness}</td>
+                        <td className="wiki-td">{caller.soundType}</td>
+                        <td className="wiki-td">
+                          {caller.dlc ? (
+                            <span
+                              className="wiki-inline-block"
+                              style={{
+                                backgroundColor: 'var(--wiki-bg-sidebar-header)',
+                                border: '1px solid var(--wiki-accent-gold)',
+                                color: 'var(--wiki-text)',
+                                borderRadius: 6,
+                                padding: '2px 10px',
+                                fontSize: '0.75rem',
+                                fontWeight: 800,
+                                letterSpacing: '0.5px',
+                                textTransform: 'uppercase',
+                              }}
+                            >
+                              DLC
+                            </span>
+                          ) : (
+                            '—'
+                          )}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+
+              {filteredCallers.length === 0 && (
+                <p className="wiki-fs-sm" style={{ color: 'var(--wiki-text-muted)', marginTop: 12 }}>
+                  No callers found.
+                </p>
+              )}
+            </section>
+          </main>
+        </div>
       </div>
     </div>
   );

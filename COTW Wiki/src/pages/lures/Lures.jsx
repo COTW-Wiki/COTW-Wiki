@@ -1,14 +1,19 @@
 import { Link } from 'react-router-dom';
+import '../../styles/wiki.css';
 
 export default function LuresPage() {
   return (
-    <div className="p-6">
-      <h1 className="text-3xl font-bold mb-6 text-green-800">Lures</h1>
+    <div className="wiki-page">
+      <div className="wiki-inner">
+        <h1 className="wiki-header">Lures</h1>
 
-      <div className="mt-4 space-y-2">
-        <Link to="/lures/decoys/names" className="text-green-800 hover:underline block">Decoys</Link>
-        <Link to="/lures/scents/names" className="text-green-800 hover:underline block">Scents</Link>
-        <Link to="/lures/callers/names" className="text-green-800 hover:underline block">Callers</Link>
+        <div className="wiki-p-mb">
+          <ul className="wiki-ul">
+            <li className="wiki-li"><Link to="/lures/decoys/names" className="wiki-link">Decoys</Link></li>
+            <li className="wiki-li"><Link to="/lures/scents/names" className="wiki-link">Scents</Link></li>
+            <li className="wiki-li"><Link to="/lures/callers/names" className="wiki-link">Callers</Link></li>
+          </ul>
+        </div>
       </div>
     </div>
   );
