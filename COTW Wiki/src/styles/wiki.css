@@ -222,6 +222,7 @@
 }
 
 .wiki-p-mb { margin-bottom: 20px; }
+.wiki-p-mt { margin-top: 12px; }
 .wiki-mb-4 { margin-bottom: 4px; }
 .wiki-fs-sm { font-size: 0.85rem; }
 
@@ -295,6 +296,11 @@
 .wiki-table {
     width: 100%;
     border-collapse: collapse;
+}
+
+/* Optional: gold underline for table header row (opt-in) */
+.wiki-table-accent-head thead th {
+  border-bottom: 2px solid var(--wiki-accent-gold) !important;
 }
 
 /* Increased cell padding for better visibility */
@@ -890,6 +896,11 @@ span.wiki-very-rare {
     box-sizing: border-box;
     width: 100%;
     overflow: hidden;
+}
+
+/* Decoys: emphasize the inner description box without changing global card styling */
+.wiki-decoy-textbox {
+  background-color: var(--wiki-bg-table-header);
 }
 
 /* Tight header for the Map section */

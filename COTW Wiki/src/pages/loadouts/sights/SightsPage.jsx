@@ -97,7 +97,7 @@ export default function SightsPage() {
             <section id="rifle-sights" className="pt-8 mb-20">
               <h2 className="wiki-h2">2. Rifle Sights</h2>
               <div className="wiki-table-container">
-                <table className="wiki-table">
+                <table className="wiki-table wiki-table-accent-head">
                   <thead>
                     <tr className="bg-[var(--wiki-bg-sidebar-header)]">
                       <th className="wiki-th">Sight</th>
@@ -249,7 +249,7 @@ export default function SightsPage() {
             <section id="shotgun-drilling-sights" className="pt-8 mb-20">
               <h2 className="wiki-h2">3. Shotgun & Drilling Sights</h2>
               <div className="wiki-table-container">
-                <table className="wiki-table">
+                <table className="wiki-table wiki-table-accent-head">
                   <thead>
                     <tr className="bg-[var(--wiki-bg-sidebar-header)]">
                       <th className="wiki-th">Sight</th>
@@ -303,7 +303,7 @@ export default function SightsPage() {
             <section id="bow-crossbow-sights" className="pt-8 mb-20">
               <h2 className="wiki-h2">4. Bow & Crossbow Sights</h2>
               <div className="wiki-table-container">
-                <table className="wiki-table">
+                <table className="wiki-table wiki-table-accent-head">
                   <thead>
                     <tr className="bg-[var(--wiki-bg-sidebar-header)]">
                       <th className="wiki-th">Sight</th>
@@ -357,7 +357,7 @@ export default function SightsPage() {
             <section id="handgun-shotgun-sights" className="pt-8 mb-20">
               <h2 className="wiki-h2">5. Handgun & Shotgun Sights</h2>
               <div className="wiki-table-container">
-                <table className="wiki-table">
+                <table className="wiki-table wiki-table-accent-head">
                   <thead>
                     <tr className="bg-[var(--wiki-bg-sidebar-header)]">
                       <th className="wiki-th">Sight</th>

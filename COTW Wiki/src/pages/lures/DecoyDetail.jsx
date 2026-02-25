@@ -1,5 +1,6 @@
 import { useParams, Link } from 'react-router-dom';
 import { decoys } from '../../data/decoys';
+import '../../styles/wiki.css';
 
 function slug(name) {
   return encodeURIComponent(name.replace(/\s+/g, '_'));
@@ -12,32 +13,45 @@ export default function DecoyDetail() {
 
   if (!decoy) {
     return (
-      <div className="p-6">
-        <h1 className="text-2xl font-bold text-red-700">Decoy not found</h1>
-        <p className="mt-4">No decoy matches the id: <code>{decoyId}</code></p>
-        <Link to="/lures/decoys" className="text-green-800 hover:underline mt-4 block">Back to Decoys</Link>
+      <div className="wiki-page">
+        <div className="wiki-inner">
+          <h1 className="wiki-header">Decoy not found</h1>
+          <div className="wiki-section-card">
+            <p>
+              No decoy matches the id: <code>{decoyId}</code>
+            </p>
+            <p className="wiki-p-mb">
+              <Link to="/lures/decoys" className="wiki-link">Back to Decoys</Link>
+            </p>
+          </div>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="p-6 max-w-3xl mx-auto">
-      <div className="flex items-center justify-between mb-4">
-        <h1 className="text-3xl font-bold text-green-800">{decoy.name}</h1>
-        <Link to="/lures/decoys" className="text-sm text-green-700 hover:underline">Back to Decoys</Link>
-      </div>
+    <div className="wiki-page">
+      <div className="wiki-inner">
+        <div className="wiki-p-mb">
+          <Link to="/lures/decoys" className="wiki-link">Back to Decoys</Link>
+        </div>
 
-      <div className="bg-white shadow rounded-lg p-6">
-        {decoy.description && <p className="text-gray-700 mb-4">{decoy.description}</p>}
+        <h1 className="wiki-header">{decoy.name}</h1>
 
-        <ul className="list-disc list-inside text-gray-700">
-          {decoy.target && <li><strong>Target:</strong> {decoy.target.join(', ')}</li>}
-          {decoy.groupSize != null && <li><strong>Group size:</strong> {decoy.groupSize}</li>}
-          {decoy.attractionStrength != null && <li><strong>Attraction strength:</strong> {decoy.attractionStrength}</li>}
-          {decoy.range && <li><strong>Range:</strong> {decoy.range}</li>}
-          {decoy.weight && <li><strong>Weight:</strong> {decoy.weight}</li>}
-          {decoy.notes && <li><strong>Notes:</strong> {decoy.notes}</li>}
-        </ul>
+        <div className="wiki-section-card">
+          {decoy.description && <p className="wiki-p-mb">{decoy.description}</p>}
+
+          <ul className="wiki-ul">
+            {decoy.target && <li className="wiki-li"><strong>Target:</strong> {decoy.target.join(', ')}</li>}
+            {decoy.groupSize != null && <li className="wiki-li"><strong>Group size:</strong> {decoy.groupSize}</li>}
+            {decoy.attractionStrength != null && (
+              <li className="wiki-li"><strong>Attraction strength:</strong> {decoy.attractionStrength}</li>
+            )}
+            {decoy.range && <li className="wiki-li"><strong>Range:</strong> {decoy.range}</li>}
+            {decoy.weight && <li className="wiki-li"><strong>Weight:</strong> {decoy.weight}</li>}
+            {decoy.notes && <li className="wiki-li"><strong>Notes:</strong> {decoy.notes}</li>}
+          </ul>
+        </div>
       </div>
     </div>
   );
