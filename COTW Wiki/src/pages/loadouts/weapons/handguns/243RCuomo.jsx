@@ -78,7 +78,6 @@ export default function App() {
                             <img
                                 src={variants[selectedVariant].image}
                                 alt={selectedVariant}
-                                className="wiki-img-custom"
                                 onError={(e) => {
                                     e.currentTarget.src = CuomoImg;
                                 }}
@@ -129,7 +128,9 @@ export default function App() {
                         </blockquote>
 
                         <div className="wiki-p-mb">
-                            <p>The .243 R. Cuomo is a single shot handgun.</p>
+                            <p>
+                                The .243 R. Cuomo is a single shot handgun.
+                            </p>
                             <p>
                                 This weapon is available as part of the <a href="#" className="wiki-link">Assorted Sidearms Pack</a> DLC.
                             </p>
@@ -157,7 +158,7 @@ export default function App() {
                             <div className="wiki-table-container">
                                 <table className="wiki-table">
                                     <thead>
-                                        <tr style={{ backgroundColor: 'var(--wiki-bg-sidebar-header)', color: '#fff' }}>
+                                        <tr className="bg-[var(--wiki-bg-sidebar-header)]">
                                             <th className="wiki-th">Ammo</th>
                                             <th className="wiki-th">Penetration</th>
                                             <th className="wiki-th">Expansion</th>
@@ -169,7 +170,7 @@ export default function App() {
                                     <tbody>
                                         {ammoData.map((item, idx) => (
                                             <tr key={idx}>
-                                                <td className="wiki-td font-bold">{item.name}</td>
+                                                <td className="wiki-td"><strong>{item.name}</strong></td>
                                                 <td className="wiki-td">{item.pen}</td>
                                                 <td className="wiki-td">{item.exp}</td>
                                                 <td className="wiki-td">{item.class}</td>

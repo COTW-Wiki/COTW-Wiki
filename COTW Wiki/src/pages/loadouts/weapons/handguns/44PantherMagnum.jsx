@@ -63,11 +63,7 @@ export default function App() {
                         </div>
 
                         <div className="wiki-sidebar-image wiki-sidebar-image--contain">
-                            <img
-                                src={variants[selectedVariant].image}
-                                alt={selectedVariant}
-                                className="wiki-img-custom"
-                            />
+                            <img src={variants[selectedVariant].image} alt={selectedVariant} />
                         </div>
 
                         <div className="wiki-sidebar-header" style={{ fontSize: '0.9rem' }}>General Information</div>
@@ -142,7 +138,7 @@ export default function App() {
                             <div className="wiki-table-container">
                                 <table className="wiki-table">
                                     <thead>
-                                        <tr style={{ backgroundColor: 'var(--wiki-bg-sidebar-header)', color: '#fff' }}>
+                                        <tr className="bg-[var(--wiki-bg-sidebar-header)]">
                                             <th className="wiki-th">Ammo</th>
                                             <th className="wiki-th">Penetration</th>
                                             <th className="wiki-th">Expansion</th>
@@ -154,7 +150,7 @@ export default function App() {
                                     <tbody>
                                         {ammoData.map((item, idx) => (
                                             <tr key={idx}>
-                                                <td className="wiki-td font-bold">{item.name}</td>
+                                                <td className="wiki-td"><strong>{item.name}</strong></td>
                                                 <td className="wiki-td">{item.pen}</td>
                                                 <td className="wiki-td">{item.exp}</td>
                                                 <td className="wiki-td">{item.class}</td>
@@ -188,7 +184,8 @@ export default function App() {
                                 <img
                                     src={HandgunsDiagram}
                                     alt="Handgun Comparison Chart"
-                                    style={{ width: 400, height: 200, maxWidth: '100%', border: '1px solid var(--wiki-border)' }}
+                                    style={{ width: '400px', height: '200px', maxWidth: '100%' }}
+                                    className="border border-gray-300 shadow-md"
                                 />
                             </div>
                         </section>

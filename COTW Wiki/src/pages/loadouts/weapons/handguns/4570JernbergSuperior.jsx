@@ -44,11 +44,7 @@ export default function App() {
                         <div className="wiki-sidebar-header">.45-70 Jernberg Superior</div>
 
                         <div className="wiki-sidebar-image wiki-sidebar-image--contain">
-                            <img
-                                src={JernbergSupeior}
-                                alt=".45-70 Jernberg Superior"
-                                className="wiki-img-custom"
-                            />
+                            <img src={JernbergSupeior} alt=".45-70 Jernberg Superior" />
                         </div>
 
                         <div className="wiki-sidebar-header" style={{ fontSize: '0.9rem' }}>General Information</div>
@@ -124,7 +120,7 @@ export default function App() {
                             <div className="wiki-table-container">
                                 <table className="wiki-table">
                                     <thead>
-                                        <tr style={{ backgroundColor: 'var(--wiki-bg-sidebar-header)', color: '#fff' }}>
+                                        <tr className="bg-[var(--wiki-bg-sidebar-header)]">
                                             <th className="wiki-th">Ammo</th>
                                             <th className="wiki-th">Penetration</th>
                                             <th className="wiki-th">Expansion</th>
@@ -136,7 +132,7 @@ export default function App() {
                                     <tbody>
                                         {ammoData.map((item, idx) => (
                                             <tr key={idx}>
-                                                <td className="wiki-td font-bold">{item.name}</td>
+                                                <td className="wiki-td"><strong>{item.name}</strong></td>
                                                 <td className="wiki-td">{item.pen}</td>
                                                 <td className="wiki-td">{item.exp}</td>
                                                 <td className="wiki-td">{item.class}</td>
