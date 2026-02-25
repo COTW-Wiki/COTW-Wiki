@@ -1,8 +1,8 @@
+@import './styles/wiki.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import './styles/wiki.css';
 
 /* Remove Vite/React template defaults that cause conflicts */
 :root {

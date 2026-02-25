@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import WeaponsTable from '../../../../components/WeaponsTable';
 import BowDiagram from '../../../../assets/Bows.webp';
 import CrosspointIronsight from '../../../../assets/Crosspoint_ironsight.webp';
@@ -9,6 +9,7 @@ import CrosspointClassic from '../../../../assets/CrosspointCB165Classic.webp';
 import CrosspointArctic from '../../../../assets/CrosspointCB165Arctic.webp';
 import CrosspointDarkStar from '../../../../assets/CrosspointCB165DarkStar.webp';
 import CrosspointWarden from '../../../../assets/CrosspointCB165Warden.webp';
+import '../../../../styles/wiki.css';
 
 // --- Main App Component ---
 export default function App() {
@@ -83,330 +84,232 @@ export default function App() {
   const [activeScopeAmmo, setActiveScopeAmmo] = useState("420gr");
 
   return (
-    <div className="min-h-screen text-gray-800 p-6 md:p-12 font-sans tracking-tight bg-white">
-      
-      <div className="max-w-5xl mx-auto">
-        {/* Header Section */}
-        <header className="flex flex-col md:flex-row md:items-center justify-between border-b border-gray-200 pb-4 mb-6">
-          <h1 className="text-4xl md:text-5xl font-light mb-4 md:mb-0 text-green-800">
-            Crosspoint CB-165
-          </h1>
-        </header>
+        <div className="wiki-page">
+            <div className="wiki-inner">
+                <h1 className="wiki-header">Crosspoint CB-165</h1>
 
-        {/* Main Content Layout */}
-        <div className="block">
-            
-            {/* Right Floated Infobox with Slider */}
-            <div className="float-right w-72 ml-6 mb-4 bg-white border border-gray-300 shadow-xl font-sans">
-                {/* Infobox Title */}
-                <div className="bg-green-800 text-white text-center font-bold py-2 border-b border-gray-200 tracking-wide text-lg">
-                    Crosspoint CB-165
-                </div>
+                <div className="wiki-layout">
+                    <aside className="wiki-sidebar">
+                        <div className="wiki-sidebar-header">Crosspoint CB-165</div>
 
-                {/* Variant Slider / Tabs */}
-                                <div
-                                    className="wiki-sidebar-section wiki-variant-bar"
-                                    style={{ display: 'flex', justifyContent: 'space-around', gap: 8, flexWrap: 'wrap' }}
-                                >
-                                    {Object.keys(variants).map((variantName) => (
-                    <button
-                                            key={variantName}
-                                            onClick={() => setSelectedVariant(variantName)}
-                                            type="button"
-                                            className="wiki-link wiki-variant-button"
-                                                                                        aria-current={selectedVariant === variantName ? 'true' : undefined}
-                    >
-                                            {variantName}
-                    </button>
-                  ))}
-                </div>
-                
-                {/* Image Area */}
-                <div className="p-4 flex justify-center bg-white relative min-h-[160px] items-center">
-                    <img 
-                        src={variants[selectedVariant].image} 
-                        alt={selectedVariant} 
-                        style={{ width: '268.4px', height: '134.2px' }}
-                        className="object-contain transition-opacity duration-300"
-                    />
-                </div>
-
-                {/* General Information Header */}
-                <div className="bg-green-800 text-white text-center font-bold py-1 border-y border-gray-200 tracking-wide text-sm">
-                    General Information
-                </div>
-
-                {/* General Information Data */}
-                <div className="text-sm bg-white">
-                    <div className="grid grid-cols-2 border-b border-gray-100 p-2">
-                        <div className="font-bold text-gray-700">Value</div>
-                        <div className="text-gray-600">0</div>
-                    </div>
-                    <div className="grid grid-cols-2 border-b border-gray-100 p-2 bg-gray-50">
-                        <div className="font-bold text-gray-700">Weight</div>
-                        <div className="text-gray-600">4</div>
-                    </div>
-                    <div className="grid grid-cols-2 border-b border-gray-100 p-2">
-                        <div className="font-bold text-gray-700">Score</div>
-                        <div className="text-gray-600">0</div>
-                    </div>
-                </div>
-
-                {/* Statistics Header */}
-                <div className="bg-green-800 text-white text-center font-bold py-1 border-y border-gray-200 tracking-wide text-sm">
-                    Statistics
-                </div>
-
-                {/* Statistics Data */}
-                <div className="text-sm bg-white">
-                    <div className="grid grid-cols-2 border-b border-gray-100 p-2">
-                        <div className="font-bold text-gray-700">Accuracy</div>
-                        <div className="text-gray-600">45</div>
-                    </div>
-                    <div className="grid grid-cols-2 border-b border-gray-100 p-2 bg-gray-50">
-                        <div className="font-bold text-gray-700">Recoil</div>
-                        <div className="text-gray-600">35</div>
-                    </div>
-                    <div className="grid grid-cols-2 border-b border-gray-100 p-2">
-                        <div className="font-bold text-gray-700">Reload</div>
-                        <div className="text-gray-600">20</div>
-                    </div>
-                    <div className="grid grid-cols-2 border-b border-gray-100 p-2 bg-gray-50">
-                        <div className="font-bold text-gray-700">Hipshot</div>
-                        <div className="text-gray-600">10</div>
-                    </div>
-                    <div className="grid grid-cols-2 border-b border-gray-100 p-2">
-                        <div className="font-bold text-gray-700">Magazine</div>
-                        <div className="text-gray-600">5</div>
-                    </div>
-
-                </div>
-            </div>
-
-            {/* Intro Quote */}
-            <blockquote className="mb-6 border-l-4 border-green-800 pl-4 italic text-gray-600 font-sans text-sm">
-                <p className="mb-2">"This precision-crafted crossbow sports enough power to take down the largest game animals. With a beautiful woven carbon fiber barrel, a built-in rope-cocking device, and a 4-arrow quiver, the CB-165 is ideal for short-range hunting."</p>
-                <cite>— In-Game Description</cite>
-            </blockquote>
-
-            {/* Main Description */}
-            <div className="mb-8 text-gray-700 font-sans text-[16px] leading-relaxed">
-                <p>
-                    The <strong className="font-bold text-gray-900">Crosspoint CB-165</strong> is the only crossbow available to hunters. The high peak draw weight gives it a massive advantage over other bows when it comes to hunting big game. It is also capable of having a scope mounted for better long-distance shots. Thanks to sporting the highest accuracy among the bows, the effective range has been improved to around 80 meters.
-                </p>
-                <p className="mt-4">
-                    This weapon is available as part of the <a href="#" className="text-green-800 hover:underline">Weapon Pack 1</a> DLC.
-                </p>
-                <p className="mt-4">
-                    This weapon has its unique "Hawken 1-5x30 Crossbow Scope" available to purchase and use. None of the other scopes present in the game are compatible with crossbows.
-                </p>
-            </div>
-
-            {/* Table of Contents */}
-            <div className="mb-8 inline-block bg-gray-50 border border-gray-300 p-2 min-w-[250px]">
-                <div className="flex justify-between items-center border-b border-gray-300 pb-1 mb-2">
-                    <span className="font-bold text-gray-800 text-sm">Contents</span>
-                    <button onClick={() => setIsTocOpen(!isTocOpen)} className="text-green-800 text-xs hover:underline">[{isTocOpen ? 'hide' : 'show'}]</button>
-                </div>
-                {isTocOpen && (
-                    <ol className="list-decimal list-inside text-gray-700 text-sm space-y-1 font-sans">
-                        <li><a href="#ammo" className="hover:text-green-800 hover:underline">Arrows</a></li>
-                        <li><a href="#sights" className="hover:text-green-800 hover:underline">Sights</a></li>
-                        <li><a href="#variants" className="hover:text-green-800 hover:underline">Variants</a></li>
-                        <li><a href="#gallery" className="hover:text-green-800 hover:underline">Gallery</a></li>
-                        <li><a href="#comparison" className="hover:text-green-800 hover:underline">Comparison to other bows</a></li>
-                    </ol>
-                )}
-            </div>
-
-            {/* Sections */}
-            <div className="space-y-12 clear-both">
-                
-                {/* Ammo Section */}
-                <div id="ammo">
-                    <div className="flex items-center space-x-2 border-b border-gray-200 pb-2 mb-4">
-                        <h2 className="text-2xl font-bold text-green-800">1. Arrows</h2>
-                        <a href="#" className="text-green-800"><svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" /></svg></a>
-                    </div>
-                    <p className="text-gray-700 text-[16px] mb-4">Like all bows, it can use 3 different weights of arrow:</p>
-                    
-                    <div className="bg-white border border-gray-300 text-sm md:text-base font-sans overflow-x-auto">
-                         <table className="w-full text-left border-collapse">
-                            <thead>
-                                <tr className="bg-green-800 border-b-2 border-green-900 text-white font-bold">
-                                    <th className="p-3">Ammo</th>
-                                    <th className="p-3">Penetration</th>
-                                    <th className="p-3">Expansion</th>
-                                    <th className="p-3">Class</th>
-                                    <th className="p-3">Range</th>
-                                    <th className="p-3">Price</th>
-                                </tr>
-                            </thead>
-                            <tbody className="text-gray-700 divide-y divide-gray-200">
-                                {ammoData.map((item, idx) => (
-                                    <tr key={idx} className="hover:bg-gray-50">
-                                        <td className="p-3 text-green-800 hover:underline cursor-pointer">{item.name}</td>
-                                        <td className="p-3">{item.pen}</td>
-                                        <td className="p-3">{item.exp}</td>
-                                        <td className="p-3">{item.class}</td>
-                                        <td className="p-3">{item.range}</td>
-                                        <td className="p-3">{item.price}</td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                {/* Sights Section */}
-                <div id="sights">
-                    <div className="flex items-center space-x-2 border-b border-gray-200 pb-2 mb-4">
-                        <h2 className="text-2xl font-bold text-green-800">2. Sights</h2>
-                        <a href="#" className="text-green-800"><svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" /></svg></a>
-                    </div>
-                    <p className="text-gray-700 text-[16px] mb-4">
-                        The following sights can be equipped on the Crosspoint CB-165:
-                    </p>
-                    <ul className="list-disc list-inside space-y-1 ml-4 text-green-800 text-lg">
-                        {sightsData.map((sight, idx) => (
-                            <li key={idx}><a href="#" className="hover:underline">{sight}</a></li>
-                        ))}
-                    </ul>
-
-                    <p className="text-gray-700 text-[16px] mt-6 mb-2">
-                        Hawken scope holdovers using max zoom (elevation, wind direction, and wind speed may effect distance):
-                    </p>
-
-                    {/* Hawken Scope Table */}
-                    <div className="mt-2 bg-white border border-gray-300 p-4">
-                        
-                        {/* Ammo Selector */}
-                        <div className="flex space-x-2 mb-4">
-                            {Object.keys(hawkenScopeData.holdovers).map((weight) => (
+                        <div
+                            className="wiki-sidebar-section wiki-variant-bar"
+                            style={{ display: 'flex', justifyContent: 'space-around', gap: 8, flexWrap: 'wrap' }}
+                        >
+                            {Object.keys(variants).map((variantName) => (
                                 <button
-                                    key={weight}
-                                    onClick={() => setActiveScopeAmmo(weight)}
-                                    className={`px-4 py-2 text-sm font-bold uppercase transition-colors ${
-                                        activeScopeAmmo === weight
-                                            ? "bg-green-800 text-white"
-                                            : "bg-gray-100 text-gray-600 hover:text-green-800 border border-gray-300"
-                                    }`}
+                                    key={variantName}
+                                    onClick={() => setSelectedVariant(variantName)}
+                                    type="button"
+                                    className="wiki-link wiki-variant-button"
+                                    aria-current={selectedVariant === variantName ? 'true' : undefined}
                                 >
-                                    {weight.replace("gr", " Grain")}
+                                    {variantName}
                                 </button>
                             ))}
                         </div>
 
-                        {/* Table */}
-                        <div className="overflow-x-auto">
-                            <table className="w-full text-left border-collapse text-sm">
-                                <thead>
-                                    <tr className="bg-green-800 border-b border-green-900 text-white">
-                                        <th className="p-3">Zero Range</th>
-                                        <th className="p-3 text-white">Top Pin</th>
-                                        <th className="p-3 text-white">Middle Pin</th>
-                                        <th className="p-3 text-white">Bottom Pin</th>
-                                    </tr>
-                                </thead>
-                                <tbody className="text-gray-700 divide-y divide-gray-200">
-                                    {Object.entries(hawkenScopeData.holdovers[activeScopeAmmo]).map(([range, pins]) => (
-                                        <tr key={range} className="hover:bg-gray-50">
-                                            <td className="p-3 font-bold text-gray-800">{range}</td>
-                                            <td className="p-3">{pins.top}m</td>
-                                            <td className="p-3">{pins.middle}m</td>
-                                            <td className="p-3">{pins.bottom}m</td>
+                        <div className="wiki-sidebar-image wiki-sidebar-image--contain">
+                            <img src={variants[selectedVariant].image} alt={selectedVariant} className="wiki-img-custom" />
+                        </div>
+
+                        <div className="wiki-sidebar-header" style={{ fontSize: '0.9rem' }}>General Information</div>
+                        <div className="wiki-sidebar-section">
+                            <span className="wiki-sidebar-label">Value</span>
+                            <span>0</span>
+                        </div>
+                        <div className="wiki-sidebar-section">
+                            <span className="wiki-sidebar-label">Weight</span>
+                            <span>4</span>
+                        </div>
+                        <div className="wiki-sidebar-section">
+                            <span className="wiki-sidebar-label">Score</span>
+                            <span>0</span>
+                        </div>
+
+                        <div className="wiki-sidebar-header" style={{ fontSize: '0.9rem' }}>Statistics</div>
+                        <div className="wiki-sidebar-section">
+                            <span className="wiki-sidebar-label">Accuracy</span>
+                            <span>45</span>
+                        </div>
+                        <div className="wiki-sidebar-section">
+                            <span className="wiki-sidebar-label">Recoil</span>
+                            <span>35</span>
+                        </div>
+                        <div className="wiki-sidebar-section">
+                            <span className="wiki-sidebar-label">Reload</span>
+                            <span>20</span>
+                        </div>
+                        <div className="wiki-sidebar-section">
+                            <span className="wiki-sidebar-label">Hipshot</span>
+                            <span>10</span>
+                        </div>
+                        <div className="wiki-sidebar-section">
+                            <span className="wiki-sidebar-label">Magazine</span>
+                            <span>5</span>
+                        </div>
+                    </aside>
+
+                    <main className="wiki-main">
+                        <blockquote className="wiki-quote">
+                            <p>"This precision-crafted crossbow sports enough power to take down the largest game animals. With a beautiful woven carbon fiber barrel, a built-in rope-cocking device, and a 4-arrow quiver, the CB-165 is ideal for short-range hunting."</p>
+                            <cite>— In-Game Description</cite>
+                        </blockquote>
+
+                        <div className="wiki-p-mb">
+                            <p>
+                                The <strong>Crosspoint CB-165</strong> is the only crossbow available to hunters. The high peak draw weight gives it a massive advantage over other bows when it comes to hunting big game. It is also capable of having a scope mounted for better long-distance shots. Thanks to sporting the highest accuracy among the bows, the effective range has been improved to around 80 meters.
+                            </p>
+                            <p>
+                                This weapon is available as part of the <a href="#" className="wiki-link">Weapon Pack 1</a> DLC.
+                            </p>
+                            <p>
+                                This weapon has its unique "Hawken 1-5x30 Crossbow Scope" available to purchase and use. None of the other scopes present in the game are compatible with crossbows.
+                            </p>
+                        </div>
+
+                        <div className="wiki-toc-panel wiki-p-mb">
+                            <div className="wiki-toc-panel-header">
+                                <span className="wiki-toc-panel-title">Contents</span>
+                                <span className="wiki-toc-panel-toggle" onClick={() => setIsTocOpen(!isTocOpen)}>
+                                    [{isTocOpen ? 'hide' : 'show'}]
+                                </span>
+                            </div>
+                            {isTocOpen && (
+                                <ul className="wiki-list-plain">
+                                    <li className="wiki-li"><a href="#ammo" className="wiki-link">1. Arrows</a></li>
+                                    <li className="wiki-li"><a href="#sights" className="wiki-link">2. Sights</a></li>
+                                    <li className="wiki-li"><a href="#variants" className="wiki-link">3. Variants</a></li>
+                                    <li className="wiki-li"><a href="#gallery" className="wiki-link">4. Gallery</a></li>
+                                    <li className="wiki-li"><a href="#comparison" className="wiki-link">5. Comparison to other bows</a></li>
+                                </ul>
+                            )}
+                        </div>
+
+                        <section id="ammo" className="pt-8">
+                            <h2 className="wiki-h2">1. Arrows</h2>
+                            <p className="wiki-p-mb">Like all bows, it can use 3 different weights of arrow:</p>
+                            <div className="wiki-table-container">
+                                <table className="wiki-table">
+                                    <thead>
+                                        <tr className="text-white" style={{ backgroundColor: 'var(--wiki-bg-sidebar-header)' }}>
+                                            <th className="wiki-th">Ammo</th>
+                                            <th className="wiki-th">Penetration</th>
+                                            <th className="wiki-th">Expansion</th>
+                                            <th className="wiki-th">Class</th>
+                                            <th className="wiki-th">Range</th>
+                                            <th className="wiki-th">Price</th>
                                         </tr>
+                                    </thead>
+                                    <tbody>
+                                        {ammoData.map((item, idx) => (
+                                            <tr key={idx}>
+                                                <td className="wiki-td"><strong>{item.name}</strong></td>
+                                                <td className="wiki-td">{item.pen}</td>
+                                                <td className="wiki-td">{item.exp}</td>
+                                                <td className="wiki-td">{item.class}</td>
+                                                <td className="wiki-td">{item.range}</td>
+                                                <td className="wiki-td">{item.price}</td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
+
+                        <section id="sights" className="pt-8">
+                            <h2 className="wiki-h2">2. Sights</h2>
+                            <p className="wiki-p-mb">The following sights can be equipped on the Crosspoint CB-165:</p>
+                            <ul className="wiki-ul">
+                                {sightsData.map((sight, idx) => (
+                                    <li key={idx} className="wiki-li"><a href="#" className="wiki-link">{sight}</a></li>
+                                ))}
+                            </ul>
+
+                            <p className="wiki-p-mb">Hawken scope holdovers using max zoom (elevation, wind direction, and wind speed may effect distance):</p>
+
+                            <div className="wiki-p-mb">
+                                <div
+                                    className="wiki-sidebar-section wiki-variant-bar"
+                                    style={{ display: 'flex', gap: 12, flexWrap: 'wrap', justifyContent: 'flex-start' }}
+                                >
+                                    {Object.keys(hawkenScopeData.holdovers).map((weight) => (
+                                        <button
+                                            key={weight}
+                                            onClick={() => setActiveScopeAmmo(weight)}
+                                            type="button"
+                                            className="wiki-link wiki-variant-button"
+                                            aria-current={activeScopeAmmo === weight ? 'true' : undefined}
+                                        >
+                                            {weight.replace('gr', ' Grain')}
+                                        </button>
                                     ))}
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Variants Section */}
-                <div id="variants">
-                    <div className="flex items-center space-x-2 border-b border-gray-200 pb-2 mb-4">
-                        <h2 className="text-2xl font-bold text-green-800">3. Variants</h2>
-                        <a href="#" className="text-green-800"><svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" /></svg></a>
-                    </div>
-                    <div className="text-gray-700 font-sans text-[16px] leading-relaxed space-y-4">
-                        <p>
-                            The <strong className="font-bold text-gray-900">Crosspoint CB-165 Arctic</strong> is a variant featuring an arctic camouflage pattern across the body of the crossbow.
-                        </p>
-                        <p>
-                            The <strong className="font-bold text-gray-900">Crosspoint CB-165 Warden</strong> is an alternative style with a standard dark brown foliage pattern across the body, stock, and limbs.
-                        </p>
-                        <p>
-                            The <strong className="font-bold text-gray-900">Crosspoint CB-165 Dark Star</strong> is a version that features black powder painted metal, paired with a dark wooden body and stock.
-                        </p>
-                    </div>
-                </div>
-
-                {/* Analysis */}
-                <div id="gallery">
-                    <div className="flex items-center space-x-2 border-b border-gray-200 pb-2 mb-4">
-                        <h2 className="text-2xl font-bold text-green-800">4. Gallery</h2>
-                        <a href="#" className="text-green-800"><svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" /></svg></a>
-                    </div>
-                    <div className="flex flex-wrap gap-4"> 
-                        {[
-                            { title: "Standing", img: CrosspointStanding }, 
-                            { title: "Crouching", img: CrosspointCrouching }, 
-                            { title: "Lying", img: CrosspointLying }, 
-                            { title: "Iron sight", img: CrosspointIronsight } 
-                        ].map((item, idx) => (
-                            <div key={idx} className="bg-white border border-gray-200 p-2 shadow-sm" style={{ width: '240px', height: '162px' }}>
-                                <div className="bg-gray-100 overflow-hidden relative group flex justify-center items-center h-[122px]">
-                                     <img 
-                                        src={item.img} 
-                                        alt={item.title} 
-                                        className="object-contain h-full w-full"
-                                     />
-                                      <div className="absolute bottom-1 right-1 bg-white/80 p-0.5 rounded shadow">
-                                         <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                        </svg>
-                                    </div>
                                 </div>
-                                <p className="text-gray-600 text-xs mt-1 text-center font-semibold">{item.title}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
 
-                 {/* Comparison Placeholder */}
-                <div id="comparison">
-                    <div className="flex items-center space-x-2 border-b border-gray-200 pb-2 mb-4">
-                        <h2 className="text-2xl font-bold text-green-800">5. Comparison to other bows</h2>
-                        <a href="#" className="text-green-800"><svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" /></svg></a>
-                    </div>
-                    <div className="bg-white border border-gray-200 p-2 shadow-sm inline-block">
-                        <div className="bg-gray-100 overflow-hidden relative group flex justify-center items-center">
-                            <img 
-                                src={BowDiagram} 
-                                alt="Bow Comparison Chart" 
-                                style={{ width: '400px', height: '200px' }}
-                                className="object-contain opacity-90 hover:opacity-100 transition-opacity"
-                            />
-                             <div className="absolute bottom-2 right-2 bg-white/80 p-1 rounded hover:bg-white cursor-pointer shadow">
-                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                </svg>
+                                <div className="wiki-table-container">
+                                    <table className="wiki-table">
+                                        <thead>
+                                            <tr className="text-white" style={{ backgroundColor: 'var(--wiki-bg-sidebar-header)' }}>
+                                                <th className="wiki-th">Zero Range</th>
+                                                <th className="wiki-th">Top Pin</th>
+                                                <th className="wiki-th">Middle Pin</th>
+                                                <th className="wiki-th">Bottom Pin</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {Object.entries(hawkenScopeData.holdovers[activeScopeAmmo]).map(([range, pins]) => (
+                                                <tr key={range}>
+                                                    <td className="wiki-td"><strong>{range}</strong></td>
+                                                    <td className="wiki-td">{pins.top}m</td>
+                                                    <td className="wiki-td">{pins.middle}m</td>
+                                                    <td className="wiki-td">{pins.bottom}m</td>
+                                                </tr>
+                                            ))}
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
+                        </section>
 
+                        <section id="variants" className="pt-8">
+                            <h2 className="wiki-h2">3. Variants</h2>
+                            <div className="wiki-p-mb">
+                                <p>The <strong>Crosspoint CB-165 Arctic</strong> is a variant featuring an arctic camouflage pattern across the body of the crossbow.</p>
+                                <p>The <strong>Crosspoint CB-165 Warden</strong> is an alternative style with a standard dark brown foliage pattern across the body, stock, and limbs.</p>
+                                <p>The <strong>Crosspoint CB-165 Dark Star</strong> is a version that features black powder painted metal, paired with a dark wooden body and stock.</p>
+                            </div>
+                        </section>
+
+                        <section id="gallery" className="pt-8">
+                            <h2 className="wiki-h2">4. Gallery</h2>
+                            <div className="wiki-gallery-grid">
+                                {[
+                                    { title: 'Standing', img: CrosspointStanding },
+                                    { title: 'Crouching', img: CrosspointCrouching },
+                                    { title: 'Lying', img: CrosspointLying },
+                                    { title: 'Iron sight', img: CrosspointIronsight },
+                                ].map((item, idx) => (
+                                    <div key={idx} className="wiki-gallery-item">
+                                        <div className="wiki-gallery-placeholder">
+                                            <img src={item.img} alt={item.title} />
+                                        </div>
+                                        <span className="wiki-gallery-label">{item.title}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </section>
+
+                        <section id="comparison" className="pt-8">
+                            <h2 className="wiki-h2">5. Comparison to other bows</h2>
+                            <div className="wiki-p-mb">
+                                <img src={BowDiagram} alt="Bow Comparison Chart" style={{ width: 400, height: 200, objectFit: 'contain', maxWidth: '100%' }} />
+                            </div>
+                        </section>
+
+                        <WeaponsTable />
+                    </main>
+                </div>
             </div>
-
         </div>
-
-        <div className="mt-8 mb-8">
-            <WeaponsTable />
-        </div>
-
-        <div className="h-32"></div>
-      </div>
-    </div>
   );
 }
