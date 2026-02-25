@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
+import '../styles/weaponsTableMini.css';
 
 // Rifle Imports
 import docent223 from '../assets/223Docent.webp';
@@ -72,6 +73,8 @@ import razorback from '../assets/RazorbackLiteCB60.webp';
 import stenberg from '../assets/Stenberg_Takedown_Recurve_Bow.webp';
 
 export default function WeaponsTable({ activeItem }) {
+  const [isCollapsed, setIsCollapsed] = useState(false);
+
   const weaponsData = [
         {
           category: "Rifles",
@@ -158,68 +161,56 @@ export default function WeaponsTable({ activeItem }) {
   ];
 
   return (
-    <div className="border border-gray-200 text-sm font-sans shadow-lg bg-white" style={{ width: '750px' }}>
-      <table className="w-full border-collapse">
-        <thead>
-          <tr className="bg-green-800 text-white border-b border-green-900">
-            <th 
-              colSpan={2} 
-              className="font-bold px-4 text-center text-base tracking-wide"
-              style={{ height: '37.3px' }}
-            >
-              Weapons
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {weaponsData.map((section, idx) => (
-            <tr key={idx} className="border-b border-gray-200 last:border-b-0">
-                {/* Category Label */}
-                <td 
-                   className="bg-gray-50 p-3 font-bold text-gray-900 border-r border-gray-200 align-middle text-center"
-                   style={{ width: '100px' }}>
-                  {section.category}
-                </td>
-                
-                {/* Items List */}
-                <td className="p-3 bg-white text-gray-700 leading-relaxed align-middle">
-                  <div className="flex flex-wrap items-center">
-                    {section.items.map((item, itemIdx) => (
-                      <React.Fragment key={itemIdx}>
-                        <div className="inline-flex items-center">
-                          {/* Weapon Image */}
-                          <img 
-                            src={item.img} 
-                            alt={item.name} 
-                            className="w-[40px] h-[20px] object-contain mr-3"
-                          />
-                          {activeItem === item.name ? (
-                            <span className="font-bold text-gray-900 bg-green-100 px-1 rounded whitespace-nowrap cursor-default">
-                              {item.name}
-                            </span>
-                          ) : (
-                            item.link ? (
-                                <Link to={item.link} className="text-green-800 hover:underline hover:text-green-900 cursor-pointer whitespace-nowrap font-medium">
-                                    {item.name}
-                                </Link>
-                            ) : (
-                                <a href="#" className="text-green-800 hover:underline hover:text-green-900 cursor-pointer whitespace-nowrap font-medium">
-                                    {item.name}
-                                </a>
-                            )
-                          )}
-                        </div>
-                        {itemIdx < section.items.length - 1 && (
-                          <span className="text-gray-400 mx-3">•</span>
-                        )}
-                      </React.Fragment>
-                    ))}
-                  </div>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-      </table>
+    <div className="weapons-table-mini weapons-table-mini__card">
+      <div className="weapons-table-mini__header">
+        <span className="weapons-table-mini__title">Weapons</span>
+        <button
+          className="weapons-table-mini__collapse"
+          onClick={() => setIsCollapsed(!isCollapsed)}
+          type="button"
+        >
+          {isCollapsed ? '[Expand]' : '[Collapse]'}
+        </button>
+      </div>
+
+      {!isCollapsed && (
+        <div className="weapons-table-mini__body">
+          {weaponsData.map((section) => (
+            <div key={section.category} className="weapons-table-mini__category">
+              <div className="weapons-table-mini__categoryLabel">
+                <span className="weapons-table-mini__categoryTitle">{section.category}</span>
+              </div>
+
+              <div className="weapons-table-mini__items">
+                {section.items.map((item, itemIdx) => (
+                  <Fragment key={item.name}>
+                    {activeItem === item.name ? (
+                      <span className="weapons-table-mini__item weapons-table-mini__item--active" aria-current="page">
+                        <img src={item.img} alt={item.name} className="weapons-table-mini__icon" />
+                        <span className="weapons-table-mini__name">{item.name}</span>
+                      </span>
+                    ) : item.link ? (
+                      <Link to={item.link} className="weapons-table-mini__item">
+                        <img src={item.img} alt={item.name} className="weapons-table-mini__icon" />
+                        <span className="weapons-table-mini__name">{item.name}</span>
+                      </Link>
+                    ) : (
+                      <a href="#" className="weapons-table-mini__item">
+                        <img src={item.img} alt={item.name} className="weapons-table-mini__icon" />
+                        <span className="weapons-table-mini__name">{item.name}</span>
+                      </a>
+                    )}
+
+                    {itemIdx < section.items.length - 1 && (
+                      <span className="weapons-table-mini__sep">|</span>
+                    )}
+                  </Fragment>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

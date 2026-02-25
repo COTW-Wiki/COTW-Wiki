@@ -1,0 +1,161 @@
+/* WeaponsTable mini standalone stylesheet
+	Mirrors AnimalsTableMini styling so the mini tables match visually.
+*/
+
+.weapons-table-mini {
+	--atm-bg: #030c12; /* deep blue */
+	--atm-border: #d6b44a; /* gold */
+	--atm-text: #cfe8ff; /* pale blue text */
+	--atm-muted: #9cc5e0; /* muted */
+	--atm-accent: #2a6a94; /* slightly lighter shade */
+
+	box-sizing: border-box !important;
+	width: 100% !important;
+	font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
+	font-size: 12px !important; /* compact */
+	color: var(--atm-text) !important;
+	-webkit-font-smoothing: antialiased !important;
+}
+
+.weapons-table-mini__card {
+	background: linear-gradient(180deg, rgba(19,64,86,0.98) 0%, var(--atm-bg) 100%) !important;
+	border: 2px solid var(--atm-border) !important;
+	padding: 8px !important;
+	border-radius: 4px !important;
+	overflow: hidden !important;
+	margin-top: 24px !important;
+}
+
+.weapons-table-mini__header {
+	display:flex !important;
+	align-items:center !important;
+	justify-content:space-between !important;
+	gap:8px !important;
+	padding:4px 6px !important;
+	margin-bottom:6px !important;
+	font-weight:700 !important;
+	color: var(--atm-text) !important;
+}
+
+.weapons-table-mini__title {
+	display:flex !important;
+	align-items:center !important;
+	gap:8px !important;
+	font-size:13px !important;
+}
+
+.weapons-table-mini__collapse {
+	background: transparent !important;
+	border:1px solid rgba(255,255,255,0.08) !important;
+	color: var(--atm-text) !important;
+	padding:4px 6px !important;
+	border-radius:3px !important;
+	font-size:11px !important;
+	cursor:pointer !important;
+}
+
+.weapons-table-mini__body {
+	border-top:2px solid rgba(214,180,74,0.18) !important;
+	padding-top:8px !important;
+	display:block !important;
+}
+
+.weapons-table-mini__category {
+	display:flex !important;
+	align-items:flex-start !important;
+	gap:12px !important;
+	padding:8px 0 !important;
+	border-bottom:1.5px solid rgba(214,180,74,0.10) !important;
+}
+
+.weapons-table-mini__category:last-child {
+	border-bottom: none !important;
+}
+
+.weapons-table-mini__categoryLabel {
+	width:110px !important;
+	flex:0 0 110px !important;
+	display:flex !important;
+	align-items:center !important;
+	gap:8px !important;
+	color: var(--atm-text) !important;
+	font-weight:600 !important;
+	border-right:2px solid rgba(214,180,74,0.12) !important;
+	padding-right:10px !important;
+}
+
+.weapons-table-mini__categoryTitle {
+	white-space: nowrap !important;
+	font-size:14px !important;
+	font-weight:800 !important;
+	color: #ffc400 !important;
+	line-height:1 !important;
+}
+
+.weapons-table-mini__items {
+	flex:1 1 auto !important;
+	display:flex !important;
+	flex-wrap:wrap !important;
+	gap:6px 10px !important;
+	align-items:center !important;
+}
+
+.weapons-table-mini__item {
+	display:inline-flex !important;
+	align-items:center !important;
+	gap:6px !important;
+	color: var(--atm-text) !important;
+	background: transparent !important;
+	padding:3px 6px !important;
+	border-radius:999px !important;
+	line-height:1 !important;
+	font-size:12px !important;
+	white-space:nowrap !important;
+	text-decoration:none !important;
+}
+
+.weapons-table-mini__item:hover {
+	text-decoration: underline !important;
+}
+
+.weapons-table-mini__item--active {
+	cursor: default !important;
+	font-weight: 800 !important;
+	text-decoration: none !important;
+	background: rgba(214,180,74,0.10) !important;
+	border: 1px solid rgba(214,180,74,0.35) !important;
+}
+
+.weapons-table-mini__item--active:hover {
+	text-decoration: none !important;
+}
+
+.weapons-table-mini__icon {
+	width:32px !important;
+	height:16px !important;
+	display:inline-block !important;
+	vertical-align:middle !important;
+	object-fit: contain !important;
+}
+
+.weapons-table-mini__name {
+	display:inline-block !important;
+	margin-left:4px !important;
+	color: var(--atm-text) !important;
+}
+
+.weapons-table-mini__sep {
+	opacity: 0.6 !important;
+	margin: 0 6px !important;
+}
+
+.weapons-table-mini * { box-sizing: border-box !important; }
+
+.weapons-table-mini__collapse:focus { outline:2px solid rgba(214,180,74,0.25) !important; }
+
+@media (max-width:900px){
+	.weapons-table-mini { font-size:11px !important; }
+	.weapons-table-mini__categoryLabel { width:90px !important; flex:0 0 90px !important; }
+	.weapons-table-mini__item { padding:2px 4px !important; }
+	.weapons-table-mini__icon { width:28px !important; height:14px !important; }
+}
